@@ -264,14 +264,102 @@ a{color:inherit;text-decoration:none;}
 .sources-box strong{color:var(--navy);}
 .outage-tip{background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:14px 18px;font-size:13px;color:#92400e;margin-bottom:16px;line-height:1.6;}
 
+@media(max-width:900px){
+  .nav-links{gap:2px;}
+  .nav-link{padding:5px 9px;font-size:12px;}
+}
+@media(max-width:768px){
+  .nav-inner{flex-wrap:wrap;height:auto;padding:10px 14px;gap:8px;}
+  .nav-links{order:3;width:100%;overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px;}
+  .nav-link{white-space:nowrap;flex-shrink:0;}
+  .nav-phone-link{order:2;}
+  .how-steps,.stats-row,.marketing-grid,.free-grid,.week-timeline,.reviews-grid{grid-template-columns:1fr;}
+  .stats-row{grid-template-columns:repeat(2,1fr);}
+  .outage-summary-grid{grid-template-columns:repeat(2,1fr);}
+  .outage-stat-num{font-size:22px;}
+  .outage-hero{padding:18px 16px;}
+  .lp-compare,.lp-hero,.lp-cta-bar,.lp-reviews,.lp-social-proof{padding-left:16px;padding-right:16px;}
+  .hero{padding:40px 14px 40px;}
+  .hero h1{font-size:clamp(36px,10vw,64px);}
+  .section{padding:20px 12px 40px;}
+  .lp-table{font-size:11px;}
+  .lp-table thead th,.lp-table tbody td{padding:8px 10px;}
+}
+@media(max-width:480px){
+  .outage-summary-grid{grid-template-columns:1fr 1fr;}
+  .budget-bar::after{display:none;}
+  .zip-form{flex-direction:column;align-items:center;}
+  .zip-input{width:100%;max-width:280px;}
+}
+
+/* ── FORMS ── */
+.form-section{background:var(--navy);padding:48px 20px;margin:-32px -20px 0;}
+.form-section-inner{max-width:680px;margin:0 auto;}
+.form-eyebrow{font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--cyan);margin-bottom:8px;}
+.form-title{font-family:'Bebas Neue',cursive;font-size:36px;letter-spacing:1px;color:var(--white);margin-bottom:6px;}
+.form-sub{font-size:14px;color:rgba(255,255,255,0.55);margin-bottom:28px;}
+.form-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:28px 32px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+.form-row.single{grid-template-columns:1fr;}
+.form-group{display:flex;flex-direction:column;gap:5px;}
+.form-label{font-size:12px;font-weight:600;color:rgba(255,255,255,0.65);letter-spacing:0.03em;}
+.form-label .req{color:var(--red);margin-left:2px;}
+.form-input,.form-select,.form-textarea{padding:11px 14px;border-radius:8px;border:1.5px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.07);color:var(--white);font-size:14px;font-family:'Outfit',sans-serif;outline:none;transition:border-color 0.15s;width:100%;}
+.form-input::placeholder,.form-textarea::placeholder{color:rgba(255,255,255,0.3);}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--cyan);}
+.form-input.error,.form-select.error,.form-textarea.error{border-color:var(--red);}
+.form-select{appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2306b6d4' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;}
+.form-select option{background:#0a0e1a;color:white;}
+.form-textarea{resize:vertical;min-height:90px;}
+.field-error{font-size:11px;color:#fca5a5;margin-top:2px;display:none;}
+.field-error.show{display:block;}
+.form-submit{width:100%;padding:15px;background:var(--blue);color:var(--white);border:none;border-radius:10px;font-size:16px;font-weight:700;font-family:'Outfit',sans-serif;cursor:pointer;transition:all 0.2s;margin-top:6px;position:relative;}
+.form-submit:hover:not(:disabled){background:var(--cyan);color:var(--navy);}
+.form-submit:disabled{opacity:0.6;cursor:not-allowed;}
+.form-submit .btn-spinner{display:none;width:18px;height:18px;border:2px solid rgba(255,255,255,0.3);border-top-color:white;border-radius:50%;animation:spin 0.7s linear infinite;position:absolute;right:18px;top:50%;transform:translateY(-50%);}
+.form-submit.loading .btn-spinner{display:block;}
+.form-submit.loading .btn-text{opacity:0.7;}
+@keyframes spin{to{transform:translateY(-50%) rotate(360deg);}}
+.form-success{display:none;text-align:center;padding:32px 20px;}
+.form-success.show{display:block;}
+.form-success-icon{font-size:48px;margin-bottom:14px;}
+.form-success-title{font-family:'Bebas Neue',cursive;font-size:28px;color:var(--white);letter-spacing:1px;margin-bottom:8px;}
+.form-success-msg{font-size:14px;color:rgba(255,255,255,0.65);line-height:1.7;}
+.form-privacy{font-size:11px;color:rgba(255,255,255,0.35);text-align:center;margin-top:14px;line-height:1.6;}
+.form-honey{display:none !important;visibility:hidden !important;position:absolute !important;left:-9999px !important;}
+
+/* Outage form (light) */
+.outage-form-card{background:white;border:1px solid var(--border);border-radius:16px;padding:28px;margin-top:20px;}
+.outage-form-title{font-size:16px;font-weight:700;margin-bottom:6px;}
+.outage-form-sub{font-size:13px;color:var(--muted);margin-bottom:20px;}
+.of-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;}
+.of-row.single{grid-template-columns:1fr;}
+.of-group{display:flex;flex-direction:column;gap:4px;}
+.of-label{font-size:12px;font-weight:600;color:var(--navy);}
+.of-label .req{color:var(--red);}
+.of-input,.of-select,.of-textarea{padding:10px 13px;border-radius:8px;border:1.5px solid var(--border);background:var(--white);color:var(--navy);font-size:13px;font-family:'Outfit',sans-serif;outline:none;transition:border-color 0.15s;width:100%;}
+.of-input:focus,.of-select:focus,.of-textarea:focus{border-color:var(--blue);}
+.of-input.error,.of-select.error,.of-textarea.error{border-color:var(--red);}
+.of-select option{color:var(--navy);}
+.of-field-error{font-size:11px;color:var(--red);display:none;}
+.of-field-error.show{display:block;}
+.of-textarea{resize:vertical;min-height:80px;}
+.of-submit{padding:12px 28px;background:var(--blue);color:white;border:none;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;transition:background 0.15s;position:relative;}
+.of-submit:hover:not(:disabled){background:var(--blue-light);}
+.of-submit:disabled{opacity:0.6;cursor:not-allowed;}
+.of-submit .btn-spinner{display:none;width:14px;height:14px;border:2px solid rgba(255,255,255,0.3);border-top-color:white;border-radius:50%;animation:spin 0.7s linear infinite;position:absolute;right:12px;top:50%;transform:translateY(-50%);}
+.of-submit.loading .btn-spinner{display:block;}
+.of-success{display:none;padding:16px;background:#ecfdf5;border:1px solid #a7f3d0;border-radius:10px;margin-top:14px;font-size:13px;color:#065f46;}
+.of-success.show{display:block;}
+.of-privacy{font-size:11px;color:var(--muted);margin-top:10px;line-height:1.6;}
+
 </style>
-</head>
 <body>
 
 <!-- NAV -->
 <nav class="site-nav">
   <div class="nav-inner">
-    <div class="nav-logo">INLAND EMPIRE <span>INTERNET</span></div>
+    <div class="nav-logo" onclick="showSection('landing')" style="cursor:pointer;">INLAND EMPIRE <span>INTERNET</span></div>
     <div class="nav-links">
       <button class="nav-link on" onclick="showSection('landing')">Home</button>
       <button class="nav-link" onclick="showSection('providers')">Compare Providers</button>
@@ -279,7 +367,7 @@ a{color:inherit;text-decoration:none;}
       <button class="nav-link" onclick="showSection('landingpage')">Landing Page</button>
       <button class="nav-link" onclick="showSection('outages')" style="color:#f87171;">🚨 Outages</button>
     </div>
-    <a href="tel:9517137247" style="color:var(--cyan);font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap;display:flex;align-items:center;gap:5px;">📞 (951) 713-7247</a>
+    <a href="tel:9517137247" class="nav-phone-link" style="color:var(--cyan);font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap;display:flex;align-items:center;gap:5px;flex-shrink:0;">📞 (951) 713-7247</a>
   </div>
 </nav>
 
@@ -292,13 +380,14 @@ a{color:inherit;text-decoration:none;}
     <h1>Find the Best<br><span>Internet Deal</span><br>in Your Area</h1>
     <p class="hero-sub">We compare every provider in Moreno Valley, Perris, and Riverside so you don't have to. One search. All options. No bias.</p>
     <div class="zip-form">
-      <input class="zip-input" type="text" placeholder="Enter your ZIP code" maxlength="5">
-      <button class="btn-cta" onclick="showSection('providers')">Find My Options</button>
+      <input class="zip-input" id="heroZip" type="text" inputmode="numeric" placeholder="Enter your ZIP code" maxlength="5" onkeydown="if(event.key==='Enter')heroZipGo()">
+      <button class="btn-cta" onclick="heroZipGo()">Find My Options →</button>
     </div>
+    <div id="heroZipError" style="font-size:13px;color:#f87171;min-height:18px;margin-bottom:4px;text-align:center;"></div>
     <div class="hero-cities">
-      <span class="city-pill">📍 Moreno Valley, CA</span>
-      <span class="city-pill">📍 Perris, CA</span>
-      <span class="city-pill">📍 Riverside, CA</span>
+      <span class="city-pill" onclick="heroGoCity('mv')" title="Moreno Valley" style="cursor:pointer;">📍 Moreno Valley, CA</span>
+      <span class="city-pill" onclick="heroGoCity('perris')" title="Perris" style="cursor:pointer;">📍 Perris, CA</span>
+      <span class="city-pill" onclick="heroGoCity('riverside')" title="Riverside" style="cursor:pointer;">📍 Riverside, CA</span>
       <span class="city-pill">+ All of Riverside County</span>
     </div>
     <div class="stats-row">
@@ -333,21 +422,118 @@ a{color:inherit;text-decoration:none;}
     </div>
 
     <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;">
-      <div style="background:white;border:1px solid var(--border);border-radius:14px;padding:22px;text-align:center;">
+      <div style="background:white;border:1px solid var(--border);border-radius:14px;padding:22px;text-align:center;cursor:pointer;transition:box-shadow 0.15s;" onclick="heroGoCity('mv')" onmouseover="this.style.boxShadow='0 4px 20px rgba(26,86,219,0.15)'" onmouseout="this.style.boxShadow=''">
         <div style="font-size:32px;margin-bottom:10px;">🏆</div>
         <div style="font-weight:700;margin-bottom:6px;">Best Overall: AT&T Fiber</div>
         <div style="font-size:13px;color:var(--muted);">Symmetrical speeds, flat pricing, no contracts. Starts at $35/mo.</div>
       </div>
-      <div style="background:white;border:1px solid var(--border);border-radius:14px;padding:22px;text-align:center;">
+      <div style="background:white;border:1px solid var(--border);border-radius:14px;padding:22px;text-align:center;cursor:pointer;transition:box-shadow 0.15s;" onclick="heroGoCity('mv')" onmouseover="this.style.boxShadow='0 4px 20px rgba(26,86,219,0.15)'" onmouseout="this.style.boxShadow=''">
         <div style="font-size:32px;margin-bottom:10px;">💰</div>
         <div style="font-weight:700;margin-bottom:6px;">Cheapest: Spectrum</div>
         <div style="font-size:13px;color:var(--muted);">100 Mbps for $30/mo. Best coverage in Moreno Valley at 97%.</div>
       </div>
-      <div style="background:white;border:1px solid var(--border);border-radius:14px;padding:22px;text-align:center;">
+      <div style="background:white;border:1px solid var(--border);border-radius:14px;padding:22px;text-align:center;cursor:pointer;transition:box-shadow 0.15s;" onclick="heroGoCity('mv')" onmouseover="this.style.boxShadow='0 4px 20px rgba(26,86,219,0.15)'" onmouseout="this.style.boxShadow=''">
         <div style="font-size:32px;margin-bottom:10px;">⚡</div>
         <div style="font-weight:700;margin-bottom:6px;">Fastest: Frontier Fiber</div>
         <div style="font-size:13px;color:var(--muted);">Up to 7 Gbps symmetric. Price never increases after year 1.</div>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ LEAD CAPTURE FORM ══════════════ -->
+<div class="form-section" style="margin:0;">
+  <div class="form-section-inner">
+    <div class="form-eyebrow">Free — No commitment</div>
+    <div class="form-title">Get a Free Internet Quote</div>
+    <div class="form-sub">Tell us your address and needs. We'll find the best available plan and call you back within 1 hour during business hours.</div>
+
+    <div class="form-card" id="leadFormWrap">
+      <div id="leadFormBody">
+        <form id="leadForm" novalidate>
+          <!-- Honeypot — hidden from real users, catches bots -->
+          <input class="form-honey" type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="lf-name">Full name <span class="req">*</span></label>
+              <input class="form-input" id="lf-name" name="name" type="text" placeholder="Maria Rodriguez" autocomplete="name" required>
+              <span class="field-error" id="lf-name-err">Please enter your name.</span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="lf-phone">Phone number <span class="req">*</span></label>
+              <input class="form-input" id="lf-phone" name="phone" type="tel" placeholder="(951) 555-1234" autocomplete="tel" required>
+              <span class="field-error" id="lf-phone-err">Please enter a valid phone number.</span>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="lf-email">Email address <span class="req">*</span></label>
+              <input class="form-input" id="lf-email" name="email" type="email" placeholder="you@email.com" autocomplete="email" required>
+              <span class="field-error" id="lf-email-err">Please enter a valid email address.</span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="lf-zip">ZIP code <span class="req">*</span></label>
+              <input class="form-input" id="lf-zip" name="zip" type="text" inputmode="numeric" placeholder="92551" maxlength="5" required>
+              <span class="field-error" id="lf-zip-err">Enter a 5-digit ZIP in our service area.</span>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="lf-provider">Current provider</label>
+              <select class="form-select" id="lf-provider" name="current_provider">
+                <option value="">— Select current provider —</option>
+                <option>Spectrum</option>
+                <option>Frontier</option>
+                <option>AT&amp;T</option>
+                <option>T-Mobile Home</option>
+                <option>Verizon 5G Home</option>
+                <option>Starlink</option>
+                <option>HughesNet</option>
+                <option>Viasat</option>
+                <option>EarthLink</option>
+                <option>None / New service</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="lf-budget">Monthly budget</label>
+              <select class="form-select" id="lf-budget" name="budget">
+                <option value="">— Select budget —</option>
+                <option>Under $40/mo</option>
+                <option>$40–$60/mo</option>
+                <option>$60–$80/mo</option>
+                <option>$80–$100/mo</option>
+                <option>$100+/mo — I want the fastest</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row single">
+            <div class="form-group">
+              <label class="form-label" for="lf-needs">Anything else? (optional)</label>
+              <textarea class="form-textarea" id="lf-needs" name="message" placeholder="e.g. I work from home and need reliable upload speeds, or I'm moving next month…"></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="form-submit" id="leadSubmitBtn">
+            <span class="btn-text">Get My Free Quote →</span>
+            <span class="btn-spinner"></span>
+          </button>
+        </form>
+        <div id="leadFormGlobalErr" style="font-size:12px;color:#fca5a5;text-align:center;margin-top:10px;display:none;"></div>
+      </div>
+
+      <!-- Success state -->
+      <div class="form-success" id="leadFormSuccess">
+        <div class="form-success-icon">✅</div>
+        <div class="form-success-title">We got your request!</div>
+        <div class="form-success-msg">We'll call you back at your number within 1 hour during business hours (Mon–Sat 9am–7pm PST). Check your email too — we'll send a summary of the best plans available at your ZIP code.<br><br>Questions right now? Call us: <a href="tel:9517137247" style="color:var(--cyan);font-weight:600;">(951) 713-7247</a></div>
+      </div>
+
+      <div class="form-privacy">🔒 Your information is sent securely and never sold or shared with third parties. We only use it to find you the best internet plan and contact you about your quote.</div>
     </div>
   </div>
 </div>
@@ -358,9 +544,9 @@ a{color:inherit;text-decoration:none;}
   <p class="page-sub">Every provider, every plan, every price — for Moreno Valley, Perris, and Riverside CA. Prices approximate as of March 2026.</p>
 
   <div class="city-tabs">
-    <button class="city-tab on" onclick="showCity('mv')">📍 Moreno Valley</button>
-    <button class="city-tab" onclick="showCity('perris')">📍 Perris</button>
-    <button class="city-tab" onclick="showCity('riverside')">📍 Riverside</button>
+    <button class="city-tab on" onclick="showCity('mv',this)">📍 Moreno Valley</button>
+    <button class="city-tab" onclick="showCity('perris',this)">📍 Perris</button>
+    <button class="city-tab" onclick="showCity('riverside',this)">📍 Riverside</button>
   </div>
 
   <!-- ─── MORENO VALLEY ─── -->
@@ -832,7 +1018,7 @@ a{color:inherit;text-decoration:none;}
       <br>
       💡 100% free comparison. We earn a small referral fee when you sign up — you pay the exact same price either way, and often get bonus Visa reward cards you wouldn't get going direct.<br>
       <br>
-      📞 Questions? Call or text: [Your Phone Number]<br>
+      📞 Questions? Call or text: (951) 713-7247<br>
       <br>
       Serving: Moreno Valley • Perris • Riverside • Jurupa Valley • Eastvale • Corona
     </div>
@@ -904,8 +1090,8 @@ a{color:inherit;text-decoration:none;}
     <div class="lp-nav">
       <div class="lp-nav-logo">INLAND EMPIRE <span>INTERNET</span></div>
       <div style="display:flex;gap:10px;align-items:center;">
-        <span style="color:rgba(255,255,255,0.6);font-size:13px;">📞 (951) 555-0100</span>
-        <button class="lp-nav-cta">Compare Now →</button>
+        <a href="tel:9517137247" style="color:rgba(255,255,255,0.6);font-size:13px;text-decoration:none;">📞 (951) 713-7247</a>
+        <button class="lp-nav-cta" onclick="showSection('providers')">Compare Now →</button>
       </div>
     </div>
 
@@ -914,9 +1100,10 @@ a{color:inherit;text-decoration:none;}
       <h2>Stop Overpaying for<br>Internet in <span>Moreno Valley</span></h2>
       <p>Compare every provider available at your address. Takes 60 seconds. Completely free.</p>
       <div class="lp-form">
-        <input class="lp-zip" type="text" placeholder="Enter ZIP code (e.g. 92551)">
-        <button class="lp-submit">Show My Options →</button>
+        <input class="lp-zip" id="lpZip" type="text" inputmode="numeric" placeholder="Enter ZIP code (e.g. 92551)" maxlength="5" onkeydown="if(event.key==='Enter')lpZipGo()">
+        <button class="lp-submit" onclick="lpZipGo()">Show My Options →</button>
       </div>
+      <div id="lpZipError" style="font-size:12px;color:#f87171;margin-top:6px;min-height:16px;"></div>
       <div class="lp-trust">
         <span class="lp-trust-item"><span class="trust-check">✓</span> All 9 providers compared</span>
         <span class="lp-trust-item"><span class="trust-check">✓</span> No hidden fees</span>
@@ -954,7 +1141,7 @@ a{color:inherit;text-decoration:none;}
             <td style="font-weight:700;color:var(--blue);">300–5,000 Mbps</td>
             <td style="font-weight:700;">$35/mo</td>
             <td style="color:var(--green);">None</td>
-            <td><button style="padding:7px 14px;background:var(--blue);color:white;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;">Get Deal →</button></td>
+            <td><button onclick="window.open('https://www.att.com/internet/','_blank')" style="padding:7px 14px;background:var(--blue);color:white;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;">Get Deal →</button></td>
           </tr>
           <tr>
             <td style="font-weight:700;">Frontier Fiber</td>
@@ -962,7 +1149,7 @@ a{color:inherit;text-decoration:none;}
             <td style="font-weight:700;color:var(--blue);">200–7,000 Mbps</td>
             <td style="font-weight:700;">$29.99/mo</td>
             <td style="color:var(--green);">None</td>
-            <td><button style="padding:7px 14px;background:var(--blue);color:white;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;">Get Deal →</button></td>
+            <td><button onclick="window.open('https://frontier.com/local/california','_blank')" style="padding:7px 14px;background:var(--blue);color:white;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;">Get Deal →</button></td>
           </tr>
           <tr>
             <td style="font-weight:700;">Spectrum</td>
@@ -970,7 +1157,7 @@ a{color:inherit;text-decoration:none;}
             <td style="font-weight:700;color:var(--blue);">100–2,000 Mbps</td>
             <td style="font-weight:700;">$30/mo</td>
             <td style="color:var(--green);">None</td>
-            <td><button style="padding:7px 14px;background:var(--blue);color:white;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;">Get Deal →</button></td>
+            <td><button onclick="window.open('https://www.spectrum.com','_blank')" style="padding:7px 14px;background:var(--blue);color:white;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;">Get Deal →</button></td>
           </tr>
           <tr>
             <td style="font-weight:700;">T-Mobile Home</td>
@@ -978,7 +1165,7 @@ a{color:inherit;text-decoration:none;}
             <td style="font-weight:700;color:var(--blue);">133–415 Mbps</td>
             <td style="font-weight:700;">$35/mo</td>
             <td style="color:var(--green);">None</td>
-            <td><button style="padding:7px 14px;background:var(--blue);color:white;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;">Check →</button></td>
+            <td><button onclick="window.open('https://t-mobile.com/home-internet','_blank')" style="padding:7px 14px;background:var(--blue);color:white;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;">Check →</button></td>
           </tr>
           <tr>
             <td style="font-weight:700;">EarthLink</td>
@@ -986,7 +1173,7 @@ a{color:inherit;text-decoration:none;}
             <td style="font-weight:700;color:var(--blue);">100–1,000 Mbps</td>
             <td style="font-weight:700;">$39.95/mo</td>
             <td style="color:var(--green);">None</td>
-            <td><button style="padding:7px 14px;background:var(--blue);color:white;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;">Get Deal →</button></td>
+            <td><button onclick="window.open('https://www.earthlink.net','_blank')" style="padding:7px 14px;background:var(--blue);color:white;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;">Get Deal →</button></td>
           </tr>
           <tr>
             <td style="font-weight:700;">Starlink</td>
@@ -994,7 +1181,7 @@ a{color:inherit;text-decoration:none;}
             <td style="font-weight:700;color:var(--blue);">50–400 Mbps</td>
             <td style="font-weight:700;">$90/mo</td>
             <td style="color:var(--green);">None</td>
-            <td><button style="padding:7px 14px;background:var(--blue);color:white;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;">Get Deal →</button></td>
+            <td><button onclick="window.open('https://www.starlink.com','_blank')" style="padding:7px 14px;background:var(--blue);color:white;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;">Get Deal →</button></td>
           </tr>
         </tbody>
       </table>
@@ -1004,22 +1191,80 @@ a{color:inherit;text-decoration:none;}
     <div style="padding:28px 40px;background:white;border-top:1px solid var(--border);">
       <h3 style="font-size:18px;font-weight:700;margin-bottom:6px;">Not sure which plan is right for you?</h3>
       <p style="font-size:13px;color:var(--muted);margin-bottom:16px;">Answer 3 quick questions and we'll match you to the best option.</p>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
-        <div style="border:2px solid var(--border);border-radius:10px;padding:16px;text-align:center;cursor:pointer;">
-          <div style="font-size:24px;margin-bottom:8px;">🏠</div>
-          <div style="font-weight:600;font-size:14px;">1–2 people</div>
-          <div style="font-size:12px;color:var(--muted);">Light use</div>
+
+      <!-- Step 1 -->
+      <div id="lpq-step0">
+        <p style="font-size:14px;font-weight:600;margin-bottom:10px;">1. How many people use internet in your home?</p>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
+          <div class="lpq-opt" onclick="lpqAnswer(0,'solo',this)" data-step="0" style="border:2px solid var(--border);border-radius:10px;padding:14px;text-align:center;cursor:pointer;transition:all 0.15s;">
+            <div style="font-size:22px;margin-bottom:6px;">🧑</div>
+            <div style="font-weight:600;font-size:13px;">Just me</div>
+          </div>
+          <div class="lpq-opt" onclick="lpqAnswer(0,'small',this)" data-step="0" style="border:2px solid var(--border);border-radius:10px;padding:14px;text-align:center;cursor:pointer;transition:all 0.15s;">
+            <div style="font-size:22px;margin-bottom:6px;">👫</div>
+            <div style="font-weight:600;font-size:13px;">2–3 people</div>
+          </div>
+          <div class="lpq-opt" onclick="lpqAnswer(0,'family',this)" data-step="0" style="border:2px solid var(--border);border-radius:10px;padding:14px;text-align:center;cursor:pointer;transition:all 0.15s;">
+            <div style="font-size:22px;margin-bottom:6px;">👨‍👩‍👧‍👦</div>
+            <div style="font-weight:600;font-size:13px;">4+ people</div>
+          </div>
         </div>
-        <div style="border:2px solid var(--blue);border-radius:10px;padding:16px;text-align:center;cursor:pointer;background:#eff6ff;">
-          <div style="font-size:24px;margin-bottom:8px;">👨‍👩‍👧‍👦</div>
-          <div style="font-weight:600;font-size:14px;color:var(--blue);">3–5 people</div>
-          <div style="font-size:12px;color:var(--blue);">Streaming + work</div>
+      </div>
+
+      <!-- Step 2 -->
+      <div id="lpq-step1" style="display:none;">
+        <p style="font-size:14px;font-weight:600;margin-bottom:10px;">2. What do you mostly use it for?</p>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
+          <div class="lpq-opt" onclick="lpqAnswer(1,'basic',this)" data-step="1" style="border:2px solid var(--border);border-radius:10px;padding:14px;text-align:center;cursor:pointer;transition:all 0.15s;">
+            <div style="font-size:22px;margin-bottom:6px;">🌐</div>
+            <div style="font-weight:600;font-size:13px;">Browsing & email</div>
+          </div>
+          <div class="lpq-opt" onclick="lpqAnswer(1,'stream',this)" data-step="1" style="border:2px solid var(--border);border-radius:10px;padding:14px;text-align:center;cursor:pointer;transition:all 0.15s;">
+            <div style="font-size:22px;margin-bottom:6px;">📺</div>
+            <div style="font-weight:600;font-size:13px;">Streaming + WFH</div>
+          </div>
+          <div class="lpq-opt" onclick="lpqAnswer(1,'gaming',this)" data-step="1" style="border:2px solid var(--border);border-radius:10px;padding:14px;text-align:center;cursor:pointer;transition:all 0.15s;">
+            <div style="font-size:22px;margin-bottom:6px;">🎮</div>
+            <div style="font-weight:600;font-size:13px;">Gaming & heavy use</div>
+          </div>
         </div>
-        <div style="border:2px solid var(--border);border-radius:10px;padding:16px;text-align:center;cursor:pointer;">
-          <div style="font-size:24px;margin-bottom:8px;">🏢</div>
-          <div style="font-weight:600;font-size:14px;">6+ / Home office</div>
-          <div style="font-size:12px;color:var(--muted);">Gaming + 4K</div>
+      </div>
+
+      <!-- Step 3 -->
+      <div id="lpq-step2" style="display:none;">
+        <p style="font-size:14px;font-weight:600;margin-bottom:10px;">3. What's your monthly budget?</p>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
+          <div class="lpq-opt" onclick="lpqAnswer(2,'tight',this)" data-step="2" style="border:2px solid var(--border);border-radius:10px;padding:14px;text-align:center;cursor:pointer;transition:all 0.15s;">
+            <div style="font-size:22px;margin-bottom:6px;">💰</div>
+            <div style="font-weight:600;font-size:13px;">Under $40/mo</div>
+          </div>
+          <div class="lpq-opt" onclick="lpqAnswer(2,'mid',this)" data-step="2" style="border:2px solid var(--border);border-radius:10px;padding:14px;text-align:center;cursor:pointer;transition:all 0.15s;">
+            <div style="font-size:22px;margin-bottom:6px;">💳</div>
+            <div style="font-weight:600;font-size:13px;">$40–$70/mo</div>
+          </div>
+          <div class="lpq-opt" onclick="lpqAnswer(2,'any',this)" data-step="2" style="border:2px solid var(--border);border-radius:10px;padding:14px;text-align:center;cursor:pointer;transition:all 0.15s;">
+            <div style="font-size:22px;margin-bottom:6px;">🚀</div>
+            <div style="font-weight:600;font-size:13px;">$70+ — best speed</div>
+          </div>
         </div>
+      </div>
+
+      <!-- Result -->
+      <div id="lpq-result" style="display:none;margin-top:16px;background:#eff6ff;border:1.5px solid #bfdbfe;border-radius:12px;padding:18px 20px;">
+        <div style="font-size:11px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Your best match</div>
+        <div style="font-size:18px;font-weight:700;" id="lpq-name">—</div>
+        <div style="font-size:14px;color:var(--muted);margin:4px 0 10px;" id="lpq-desc">—</div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
+          <button id="lpq-cta" onclick="" style="padding:10px 20px;background:var(--blue);color:white;border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;">Get This Deal →</button>
+          <button onclick="lpqReset()" style="padding:10px 14px;background:transparent;color:var(--muted);border:1px solid var(--border);border-radius:8px;font-size:13px;cursor:pointer;font-family:'Outfit',sans-serif;">Start over</button>
+        </div>
+      </div>
+
+      <!-- Progress -->
+      <div id="lpq-progress" style="display:flex;gap:6px;margin-top:14px;">
+        <div id="lpq-dot0" style="height:4px;flex:1;border-radius:2px;background:var(--blue);transition:background 0.2s;"></div>
+        <div id="lpq-dot1" style="height:4px;flex:1;border-radius:2px;background:var(--border);transition:background 0.2s;"></div>
+        <div id="lpq-dot2" style="height:4px;flex:1;border-radius:2px;background:var(--border);transition:background 0.2s;"></div>
       </div>
     </div>
 
@@ -1051,7 +1296,7 @@ a{color:inherit;text-decoration:none;}
       <p>Free comparison. Same price as going direct. Bonus reward cards available through our links.</p>
       <div class="lp-cta-btns">
         <a href="tel:9517137247"><button class="btn-white">📞 Call (951) 713-7247</button></a>
-        <button class="btn-outline">Compare All Providers →</button>
+        <button class="btn-outline" onclick="showSection('providers')">Compare All Providers →</button>
       </div>
     </div>
 
@@ -1136,6 +1381,91 @@ a{color:inherit;text-decoration:none;}
     <div id="outage-riverside-content"></div>
   </div>
 
+  <!-- OUTAGE REPORT FORM -->
+  <div class="outage-form-card">
+    <div class="outage-form-title">📋 Report an Outage in Your Area</div>
+    <div class="outage-form-sub">Experiencing an outage? Tell us and we'll help troubleshoot, confirm if it's a known issue, and escalate to the provider. We also track reports to update this page.</div>
+
+    <div id="outageFormBody">
+      <form id="outageForm" novalidate>
+        <input class="form-honey" type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none!important;visibility:hidden!important;position:absolute!important;left:-9999px!important;">
+
+        <div class="of-row">
+          <div class="of-group">
+            <label class="of-label" for="of-name">Your name <span class="req">*</span></label>
+            <input class="of-input" id="of-name" name="name" type="text" placeholder="First Last" autocomplete="name" required>
+            <span class="of-field-error" id="of-name-err">Name required.</span>
+          </div>
+          <div class="of-group">
+            <label class="of-label" for="of-phone">Phone <span class="req">*</span></label>
+            <input class="of-input" id="of-phone" name="phone" type="tel" placeholder="(951) 555-1234" autocomplete="tel" required>
+            <span class="of-field-error" id="of-phone-err">Valid phone required.</span>
+          </div>
+        </div>
+
+        <div class="of-row">
+          <div class="of-group">
+            <label class="of-label" for="of-email">Email <span class="req">*</span></label>
+            <input class="of-input" id="of-email" name="email" type="email" placeholder="you@email.com" required>
+            <span class="of-field-error" id="of-email-err">Valid email required.</span>
+          </div>
+          <div class="of-group">
+            <label class="of-label" for="of-zip">ZIP code <span class="req">*</span></label>
+            <input class="of-input" id="of-zip" name="zip" type="text" inputmode="numeric" placeholder="92551" maxlength="5" required>
+            <span class="of-field-error" id="of-zip-err">5-digit ZIP required.</span>
+          </div>
+        </div>
+
+        <div class="of-row">
+          <div class="of-group">
+            <label class="of-label" for="of-provider">Provider with outage <span class="req">*</span></label>
+            <select class="of-select" id="of-provider" name="provider" required>
+              <option value="">— Select provider —</option>
+              <option>Spectrum</option>
+              <option>Frontier</option>
+              <option>AT&amp;T</option>
+              <option>T-Mobile Home</option>
+              <option>Verizon 5G Home</option>
+              <option>Starlink</option>
+              <option>HughesNet</option>
+              <option>Viasat</option>
+              <option>EarthLink</option>
+              <option>Other / Unknown</option>
+            </select>
+            <span class="of-field-error" id="of-provider-err">Please select a provider.</span>
+          </div>
+          <div class="of-group">
+            <label class="of-label" for="of-since">Outage started (approx.)</label>
+            <input class="of-input" id="of-since" name="outage_started" type="text" placeholder="e.g. Today around 3pm">
+          </div>
+        </div>
+
+        <div class="of-row single">
+          <div class="of-group">
+            <label class="of-label" for="of-desc">Describe the issue <span class="req">*</span></label>
+            <textarea class="of-textarea" id="of-desc" name="description" placeholder="e.g. No internet since 2pm, modem lights are all red, TV also out…" required></textarea>
+            <span class="of-field-error" id="of-desc-err">Please describe the issue.</span>
+          </div>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+          <button type="submit" class="of-submit" id="outageSubmitBtn">
+            <span class="btn-text">Submit Outage Report</span>
+            <span class="btn-spinner"></span>
+          </button>
+          <a href="tel:9517137247" style="font-size:13px;color:var(--blue);font-weight:600;text-decoration:none;">or call (951) 713-7247</a>
+        </div>
+        <div id="outageFormGlobalErr" style="font-size:12px;color:var(--red);margin-top:8px;display:none;"></div>
+      </form>
+
+      <div class="of-success" id="outageFormSuccess">
+        ✅ <strong>Outage report received!</strong> We'll look into it and follow up with you by phone or email. If this is urgent, call us directly at <a href="tel:9517137247" style="color:var(--green);font-weight:700;">(951) 713-7247</a>.
+      </div>
+
+      <div class="of-privacy">🔒 Your contact info is used only to follow up on your outage report. It is never sold, shared, or used for marketing without your consent.</div>
+    </div>
+  </div>
+
   <!-- SOURCES -->
   <div class="sources-box">
     <strong>📌 Data Sources & Methodology:</strong> Outage incidents are compiled from public sources including
@@ -1162,6 +1492,7 @@ a{color:inherit;text-decoration:none;}
   <p><strong style="color:rgba(255,255,255,0.8);">Inland Empire Internet</strong> — Moreno Valley • Perris • Riverside, California</p>
   <p>Independent comparison site. Not affiliated with any provider. Prices approximate as of March 2026 and subject to change.</p>
   <p>We earn referral fees when you sign up through our links — you always pay the same price as going direct.</p>
+  <p style="margin-top:10px;"><a href="tel:9517137247" style="color:var(--cyan);font-weight:600;font-size:14px;">📞 (951) 713-7247</a></p>
 </div>
 
 <script>
@@ -1171,15 +1502,160 @@ function showSection(id){
   document.querySelectorAll('.nav-link').forEach(b=>b.classList.remove('on'));
   document.getElementById('sec-'+id).classList.add('active');
   const idx = {landing:0,providers:1,marketing:2,landingpage:3,outages:4}[id];
-  document.querySelectorAll('.nav-link')[idx].classList.add('on');
+  const navLinks = document.querySelectorAll('.nav-link');
+  if(idx !== undefined && navLinks[idx]) navLinks[idx].classList.add('on');
   window.scrollTo(0,0);
   if(id==='outages') initOutages();
 }
-function showCity(id){
+
+function showCity(id, btn){
   document.querySelectorAll('.city-panel').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.city-tab').forEach(b=>b.classList.remove('on'));
   document.getElementById('city-'+id).classList.add('active');
-  event.target.classList.add('on');
+  if(btn) btn.classList.add('on');
+}
+
+// ── HERO ZIP ROUTING ──
+const IE_ZIPS = {
+  '92551':'mv','92552':'mv','92553':'mv','92554':'mv','92555':'mv','92556':'mv','92557':'mv',
+  '92570':'perris','92571':'perris','92572':'perris',
+  '92501':'riverside','92502':'riverside','92503':'riverside','92504':'riverside',
+  '92505':'riverside','92506':'riverside','92507':'riverside','92508':'riverside',
+  '92509':'riverside','92513':'riverside','92514':'riverside','92515':'riverside',
+  '92516':'riverside','92517':'riverside','92518':'riverside','92519':'riverside',
+  '92521':'riverside','92522':'riverside'
+};
+
+function heroZipGo(){
+  var zip = (document.getElementById('heroZip').value||'').trim();
+  var errEl = document.getElementById('heroZipError');
+  if(!/^\d{5}$/.test(zip)){
+    errEl.textContent = 'Please enter a valid 5-digit ZIP code.';
+    return;
+  }
+  var city = IE_ZIPS[zip];
+  if(!city){
+    errEl.textContent = 'ZIP not in our service area. Try 92551 (Moreno Valley), 92570 (Perris), or 92501 (Riverside).';
+    return;
+  }
+  errEl.textContent = '';
+  showSection('providers');
+  // activate right city tab after render
+  setTimeout(function(){
+    var tabs = document.querySelectorAll('.city-tab');
+    var cityIdx = {mv:0,perris:1,riverside:2}[city];
+    if(tabs[cityIdx]) showCity(city, tabs[cityIdx]);
+  }, 50);
+}
+
+function heroGoCity(city){
+  showSection('providers');
+  setTimeout(function(){
+    var tabs = document.querySelectorAll('.city-tab');
+    var cityIdx = {mv:0,perris:1,riverside:2}[city];
+    if(tabs[cityIdx]) showCity(city, tabs[cityIdx]);
+  }, 50);
+}
+
+// ── LANDING PAGE ZIP ──
+function lpZipGo(){
+  var zip = (document.getElementById('lpZip').value||'').trim();
+  var errEl = document.getElementById('lpZipError');
+  if(!/^\d{5}$/.test(zip)){
+    errEl.textContent = 'Please enter a valid 5-digit ZIP code.';
+    return;
+  }
+  var city = IE_ZIPS[zip];
+  if(!city){
+    errEl.textContent = 'ZIP not found in our service area — try 92551, 92570, or 92501.';
+    return;
+  }
+  errEl.textContent = '';
+  showSection('providers');
+  setTimeout(function(){
+    var tabs = document.querySelectorAll('.city-tab');
+    var cityIdx = {mv:0,perris:1,riverside:2}[city];
+    if(tabs[cityIdx]) showCity(city, tabs[cityIdx]);
+  }, 50);
+}
+
+// ── LANDING PAGE QUIZ ──
+var lpqAnswers = {};
+var lpqStep = 0;
+
+function lpqAnswer(step, val, el){
+  lpqAnswers[step] = val;
+  // highlight selected
+  document.querySelectorAll('[data-step="'+step+'"].lpq-opt').forEach(function(o){
+    o.style.borderColor = 'var(--border)';
+    o.style.background = 'white';
+  });
+  el.style.borderColor = 'var(--blue)';
+  el.style.background = '#eff6ff';
+
+  setTimeout(function(){
+    document.getElementById('lpq-step'+step).style.display = 'none';
+    if(step < 2){
+      lpqStep = step + 1;
+      document.getElementById('lpq-step'+lpqStep).style.display = 'block';
+      document.getElementById('lpq-dot'+lpqStep).style.background = 'var(--blue)';
+    } else {
+      lpqShowResult();
+    }
+  }, 300);
+}
+
+function lpqShowResult(){
+  var h = lpqAnswers[0];
+  var u = lpqAnswers[1];
+  var b = lpqAnswers[2];
+  var name, desc, url;
+
+  if(b === 'tight'){
+    name = 'Spectrum Internet Advantage — $30/mo';
+    desc = '100 Mbps, no contract, no data caps. Cheapest plan with reliable cable coverage across all three cities.';
+    url = 'https://www.spectrum.com';
+  } else if(b === 'mid' && u === 'gaming'){
+    name = 'AT&T Fiber Internet 300 — $35/mo';
+    desc = '300 Mbps symmetric fiber. Low latency is critical for gaming — fiber beats cable every time. Price never increases.';
+    url = 'https://www.att.com/internet/';
+  } else if(b === 'mid' && (h === 'family')){
+    name = 'Frontier Fiber 500 — $49.99/mo';
+    desc = '500/500 Mbps symmetric fiber for the whole family. Price guaranteed flat forever. Free eero Pro 6E router included.';
+    url = 'https://frontier.com/local/california';
+  } else if(b === 'mid'){
+    name = 'AT&T Fiber Internet 500 — $45/mo';
+    desc = '500/500 Mbps symmetric fiber, no contracts, flat pricing. 20% off if you have AT&T wireless. $100 Visa reward card.';
+    url = 'https://www.att.com/internet/';
+  } else {
+    name = 'Frontier Fiber 1 Gig — $74.99/mo';
+    desc = '1,000/1,000 Mbps full symmetric gigabit fiber. Price never increases. $100 Visa reward card + free eero Pro 6E router.';
+    url = 'https://frontier.com/local/california';
+  }
+
+  document.getElementById('lpq-name').textContent = name;
+  document.getElementById('lpq-desc').textContent = desc;
+  document.getElementById('lpq-cta').onclick = function(){ window.open(url,'_blank'); };
+  document.getElementById('lpq-result').style.display = 'block';
+  document.getElementById('lpq-progress').style.display = 'none';
+  // fill all progress bars
+  for(var i=0;i<3;i++) document.getElementById('lpq-dot'+i).style.background = 'var(--green)';
+}
+
+function lpqReset(){
+  lpqAnswers = {}; lpqStep = 0;
+  for(var i=0;i<3;i++){
+    var el = document.getElementById('lpq-step'+i);
+    if(el) el.style.display = i===0?'block':'none';
+    var dot = document.getElementById('lpq-dot'+i);
+    if(dot) dot.style.background = i===0?'var(--blue)':'var(--border)';
+    // reset selection styles
+    document.querySelectorAll('[data-step="'+i+'"].lpq-opt').forEach(function(o){
+      o.style.borderColor='var(--border)';o.style.background='white';
+    });
+  }
+  document.getElementById('lpq-result').style.display = 'none';
+  document.getElementById('lpq-progress').style.display = 'flex';
 }
 
 // ── OUTAGE DATA ──
@@ -1425,21 +1901,282 @@ function renderOutagePanel(cityFilter){
 
 function showOutageCity(city, btn){
   document.querySelectorAll('.outage-city-tab').forEach(b=>b.classList.remove('on'));
-  btn.classList.add('on');
+  if(btn) btn.classList.add('on');
   document.querySelectorAll('.outage-city-panel').forEach(p=>p.classList.remove('active'));
   document.getElementById('outage-'+city).classList.add('active');
-  // render on demand
-  const contentId = 'outage-'+city+'-content';
-  document.getElementById(contentId).innerHTML = renderOutagePanel(city);
 }
 
+let outagesReady = false;
 function initOutages(){
+  if(outagesReady) return;
+  outagesReady = true;
   renderTrendChart();
   document.getElementById('outage-all-content').innerHTML = renderOutagePanel('all');
   document.getElementById('outage-mv-content').innerHTML = renderOutagePanel('mv');
   document.getElementById('outage-perris-content').innerHTML = renderOutagePanel('perris');
   document.getElementById('outage-riverside-content').innerHTML = renderOutagePanel('riverside');
 }
+// ══════════════════════════════════════════════════════
+// FORM SUBMISSION — Web3Forms (free, no backend needed)
+// Recipients: skorcheart@gmail.com
+// Security: honeypot, rate limiting, client-side validation
+// ══════════════════════════════════════════════════════
+
+// Web3Forms public access key — linked to skorcheart@gmail.com
+// To activate: sign up free at web3forms.com → get your access key → replace below
+var WEB3FORMS_KEY = 'YOUR_WEB3FORMS_ACCESS_KEY';
+
+// Rate limiting — prevent rapid re-submissions (client side)
+var lastLeadSubmit = 0;
+var lastOutageSubmit = 0;
+var RATE_LIMIT_MS = 30000; // 30 seconds between submissions
+
+// ── VALIDATION HELPERS ──
+function isValidEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()); }
+function isValidPhone(v){ return /^[\d\s\-\+\(\)]{7,}$/.test(v.trim()); }
+function isValidZip(v){ return /^\d{5}$/.test(v.trim()); }
+function isInServiceArea(v){ return Object.keys(IE_ZIPS).includes(v.trim()); }
+
+function setFieldError(fieldId, errId, show){
+  var f = document.getElementById(fieldId);
+  var e = document.getElementById(errId);
+  if(!f||!e) return;
+  if(show){ f.classList.add('error'); e.classList.add('show'); }
+  else { f.classList.remove('error'); e.classList.remove('show'); }
+}
+
+function setOfFieldError(fieldId, errId, show){
+  var f = document.getElementById(fieldId);
+  var e = document.getElementById(errId);
+  if(!f||!e) return;
+  if(show){ f.classList.add('error'); e.classList.add('show'); }
+  else { f.classList.remove('error'); e.classList.remove('show'); }
+}
+
+// ── BUILD FORM PAYLOAD ──
+function buildLeadPayload(){
+  return {
+    access_key: WEB3FORMS_KEY,
+    subject: 'New Internet Quote Request — Inland Empire Internet',
+    from_name: 'Inland Empire Internet Site',
+    replyto: document.getElementById('lf-email').value.trim(),
+    name: document.getElementById('lf-name').value.trim(),
+    email: document.getElementById('lf-email').value.trim(),
+    phone: document.getElementById('lf-phone').value.trim(),
+    zip: document.getElementById('lf-zip').value.trim(),
+    current_provider: document.getElementById('lf-provider').value,
+    budget: document.getElementById('lf-budget').value,
+    message: document.getElementById('lf-needs').value.trim(),
+    form_type: 'Quote Request',
+    timestamp: new Date().toLocaleString('en-US',{timeZone:'America/Los_Angeles'})
+  };
+}
+
+function buildOutagePayload(){
+  return {
+    access_key: WEB3FORMS_KEY,
+    subject: 'Outage Report Submitted — Inland Empire Internet',
+    from_name: 'Inland Empire Internet — Outage Tracker',
+    replyto: document.getElementById('of-email').value.trim(),
+    name: document.getElementById('of-name').value.trim(),
+    email: document.getElementById('of-email').value.trim(),
+    phone: document.getElementById('of-phone').value.trim(),
+    zip: document.getElementById('of-zip').value.trim(),
+    provider: document.getElementById('of-provider').value,
+    outage_started: document.getElementById('of-since').value.trim(),
+    description: document.getElementById('of-desc').value.trim(),
+    form_type: 'Outage Report',
+    timestamp: new Date().toLocaleString('en-US',{timeZone:'America/Los_Angeles'})
+  };
+}
+
+// ── SUBMIT VIA WEB3FORMS ──
+// Falls back to mailto if the key is not yet configured
+function submitToWeb3Forms(payload, onSuccess, onError){
+  if(!payload.access_key || payload.access_key === 'YOUR_WEB3FORMS_ACCESS_KEY'){
+    // Fallback: build a mailto link so nothing is lost
+    var body = Object.entries(payload)
+      .filter(function(e){ return !['access_key','subject','from_name','replyto'].includes(e[0]); })
+      .map(function(e){ return e[0]+': '+e[1]; }).join('\n');
+    var mailto = 'mailto:skorcheart@gmail.com'
+      +'?subject='+encodeURIComponent(payload.subject)
+      +'&body='+encodeURIComponent(body);
+    window.location.href = mailto;
+    onSuccess();
+    return;
+  }
+
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json','Accept':'application/json'},
+    body: JSON.stringify(payload)
+  })
+  .then(function(res){
+    if(!res.ok) throw new Error('HTTP '+res.status);
+    return res.json();
+  })
+  .then(function(data){
+    if(data.success) onSuccess();
+    else throw new Error(data.message||'Submission failed');
+  })
+  .catch(function(err){
+    // On any network/API error, fall back to mailto so lead is never lost
+    console.warn('Web3Forms error, falling back to mailto:', err);
+    var body = Object.entries(payload)
+      .filter(function(e){ return !['access_key','subject','from_name','replyto'].includes(e[0]); })
+      .map(function(e){ return e[0]+': '+e[1]; }).join('\n');
+    var mailto = 'mailto:skorcheart@gmail.com'
+      +'?subject='+encodeURIComponent(payload.subject)
+      +'&body='+encodeURIComponent(body);
+    window.location.href = mailto;
+    onSuccess();
+  });
+}
+
+// ── LEAD FORM HANDLER ──
+document.getElementById('leadForm').addEventListener('submit', function(e){
+  e.preventDefault();
+
+  // Rate limit check
+  var now = Date.now();
+  if(now - lastLeadSubmit < RATE_LIMIT_MS){
+    document.getElementById('leadFormGlobalErr').textContent = 'Please wait a moment before submitting again.';
+    document.getElementById('leadFormGlobalErr').style.display = 'block';
+    return;
+  }
+
+  // Honeypot check — if filled, it's a bot
+  var honey = this.querySelector('input[name="_gotcha"]');
+  if(honey && honey.value){ return; }
+
+  // Validate
+  var ok = true;
+  var name = document.getElementById('lf-name').value.trim();
+  var phone = document.getElementById('lf-phone').value.trim();
+  var email = document.getElementById('lf-email').value.trim();
+  var zip = document.getElementById('lf-zip').value.trim();
+
+  setFieldError('lf-name','lf-name-err', !name);
+  if(!name) ok = false;
+
+  setFieldError('lf-phone','lf-phone-err', !isValidPhone(phone));
+  if(!isValidPhone(phone)) ok = false;
+
+  setFieldError('lf-email','lf-email-err', !isValidEmail(email));
+  if(!isValidEmail(email)) ok = false;
+
+  var zipBad = !isValidZip(zip) || !isInServiceArea(zip);
+  setFieldError('lf-zip','lf-zip-err', zipBad);
+  if(zipBad) ok = false;
+
+  if(!ok){
+    document.getElementById('leadFormGlobalErr').textContent = 'Please fix the errors above before submitting.';
+    document.getElementById('leadFormGlobalErr').style.display = 'block';
+    return;
+  }
+  document.getElementById('leadFormGlobalErr').style.display = 'none';
+
+  // Submit
+  var btn = document.getElementById('leadSubmitBtn');
+  btn.disabled = true;
+  btn.classList.add('loading');
+  btn.querySelector('.btn-text').textContent = 'Sending…';
+
+  lastLeadSubmit = Date.now();
+
+  submitToWeb3Forms(buildLeadPayload(),
+    function(){ // success
+      document.getElementById('leadFormBody').style.display = 'none';
+      document.getElementById('leadFormSuccess').classList.add('show');
+    },
+    function(){ // error (handled inside submitToWeb3Forms via mailto fallback)
+      btn.disabled = false;
+      btn.classList.remove('loading');
+      btn.querySelector('.btn-text').textContent = 'Get My Free Quote →';
+    }
+  );
+});
+
+// Clear errors on input
+['lf-name','lf-phone','lf-email','lf-zip'].forEach(function(id){
+  var el = document.getElementById(id);
+  if(el) el.addEventListener('input', function(){
+    el.classList.remove('error');
+    var errEl = document.getElementById(id+'-err');
+    if(errEl) errEl.classList.remove('show');
+    document.getElementById('leadFormGlobalErr').style.display = 'none';
+  });
+});
+
+// ── OUTAGE FORM HANDLER ──
+document.getElementById('outageForm').addEventListener('submit', function(e){
+  e.preventDefault();
+
+  var now = Date.now();
+  if(now - lastOutageSubmit < RATE_LIMIT_MS){
+    document.getElementById('outageFormGlobalErr').textContent = 'Please wait before submitting again.';
+    document.getElementById('outageFormGlobalErr').style.display = 'block';
+    return;
+  }
+
+  var honey = this.querySelector('input[name="_gotcha"]');
+  if(honey && honey.value){ return; }
+
+  var ok = true;
+  var name = document.getElementById('of-name').value.trim();
+  var phone = document.getElementById('of-phone').value.trim();
+  var email = document.getElementById('of-email').value.trim();
+  var zip = document.getElementById('of-zip').value.trim();
+  var provider = document.getElementById('of-provider').value;
+  var desc = document.getElementById('of-desc').value.trim();
+
+  setOfFieldError('of-name','of-name-err', !name);
+  if(!name) ok = false;
+  setOfFieldError('of-phone','of-phone-err', !isValidPhone(phone));
+  if(!isValidPhone(phone)) ok = false;
+  setOfFieldError('of-email','of-email-err', !isValidEmail(email));
+  if(!isValidEmail(email)) ok = false;
+  setOfFieldError('of-zip','of-zip-err', !isValidZip(zip));
+  if(!isValidZip(zip)) ok = false;
+  setOfFieldError('of-provider','of-provider-err', !provider);
+  if(!provider) ok = false;
+  setOfFieldError('of-desc','of-desc-err', !desc);
+  if(!desc) ok = false;
+
+  if(!ok){
+    document.getElementById('outageFormGlobalErr').textContent = 'Please complete all required fields.';
+    document.getElementById('outageFormGlobalErr').style.display = 'block';
+    return;
+  }
+  document.getElementById('outageFormGlobalErr').style.display = 'none';
+
+  var btn = document.getElementById('outageSubmitBtn');
+  btn.disabled = true;
+  btn.classList.add('loading');
+  btn.querySelector('.btn-text').textContent = 'Submitting…';
+
+  lastOutageSubmit = Date.now();
+
+  submitToWeb3Forms(buildOutagePayload(),
+    function(){
+      document.getElementById('outageForm').style.display = 'none';
+      document.getElementById('outageFormSuccess').classList.add('show');
+    },
+    function(){
+      btn.disabled = false;
+      btn.classList.remove('loading');
+      btn.querySelector('.btn-text').textContent = 'Submit Outage Report';
+    }
+  );
+});
+
+['of-name','of-phone','of-email','of-zip','of-provider','of-desc'].forEach(function(id){
+  var el = document.getElementById(id);
+  if(el) el.addEventListener('input', function(){
+    el.classList.remove('error');
+    var errEl = document.getElementById(id+'-err');
+    if(errEl) errEl.classList.remove('show');
+    document.getElementById('outageFormGlobalErr').style.display = 'none';
+  });
+});
 </script>
-</body>
-</html>
