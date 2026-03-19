@@ -3,44 +3,64 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Compare every internet provider in Moreno Valley, Perris & Riverside CA. Spectrum, AT&T, Frontier, T-Mobile, Starlink & more. Find the cheapest plan at your address — free, no commitment.">
+<meta property="og:title" content="Inland Empire Internet — Compare All Providers">
+<meta property="og:description" content="9 providers, 40+ plans. Compare internet options in Moreno Valley, Perris & Riverside CA instantly. Free — same price as going direct.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Inland Empire Internet — Compare All Providers">
+<meta name="robots" content="index, follow">
+<!-- Referrer policy: don't leak user data to affiliate sites -->
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📡</text></svg>">
 <title>Inland Empire Internet — Compare All Providers | Moreno Valley, Perris & Riverside CA</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 :root{
-  --navy:#0a0e1a;
-  --blue:#1a56db;
-  --blue-light:#3b82f6;
-  --cyan:#06b6d4;
-  --green:#10b981;
-  --amber:#f59e0b;
-  --red:#ef4444;
+  /* Mottola abstract palette — rich saturated oils on dark ground */
+  --navy:#0e0c0a;          /* deep charcoal-black, like ink on canvas */
+  --navy2:#1a1510;         /* warm dark ground */
+  --blue:#1B5EA8;          /* cobalt blue — Mottola's dominant cool */
+  --blue-light:#2F7EC2;
+  --cyan:#0D9BAD;          /* teal-cyan, painterly wash */
+  --green:#1E7B4B;         /* sap green — natural tension */
+  --amber:#C97A18;         /* ochre gold — warm sunlit stroke */
+  --red:#B32418;           /* cadmium red — bold punctuation */
+  --sienna:#C1440E;        /* burnt sienna — earth, warmth */
+  --crimson:#8B1C2A;       /* deep crimson — shadow and depth */
+  --magenta:#A31755;       /* gestural magenta accent */
+  --ochre:#D4A017;         /* raw ochre — Mottola's golden light */
+  --chalk:#F5F0E8;         /* warm chalk white — canvas tone */
   --white:#ffffff;
-  --off:#f8faff;
-  --muted:#64748b;
-  --border:#e2e8f0;
-  --card:#ffffff;
+  --off:#F8F4EE;           /* warm cream off-white */
+  --muted:#6B5F52;         /* warm sepia muted */
+  --border:#DDD4C4;        /* warm parchment border */
+  --card:#FFFCF7;          /* warm card white */
+  --accent1:#C1440E;       /* sienna accent */
+  --accent2:#D4A017;       /* ochre accent */
+  --accent3:#1B5EA8;       /* cobalt accent */
 }
-body{font-family:'Outfit',sans-serif;background:var(--off);color:var(--navy);line-height:1.6;}
+body{font-family:'Outfit',sans-serif;background:var(--off);color:var(--navy);line-height:1.6;-webkit-font-smoothing:antialiased;}
 a{color:inherit;text-decoration:none;}
 
 /* ── NAV ── */
-.site-nav{background:var(--navy);position:sticky;top:0;z-index:100;border-bottom:2px solid var(--blue);}
+.site-nav{background:var(--navy);position:sticky;top:0;z-index:100;border-bottom:2px solid var(--sienna);}
 .nav-inner{max-width:1200px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:58px;}
 .nav-logo{font-family:'Bebas Neue',cursive;font-size:22px;color:var(--white);letter-spacing:2px;}
 .nav-logo span{color:var(--cyan);}
 .nav-links{display:flex;gap:4px;}
 .nav-link{padding:6px 14px;border-radius:6px;font-size:13px;font-weight:500;color:rgba(255,255,255,0.7);cursor:pointer;transition:all 0.15s;border:none;background:transparent;}
-.nav-link:hover,.nav-link.on{background:var(--blue);color:var(--white);}
+.nav-link:hover,.nav-link.on{background:var(--sienna);color:var(--white);}
 
 /* ── SECTIONS ── */
-.section{display:none;max-width:1200px;margin:0 auto;padding:32px 20px 60px;}
+.section{display:none;max-width:1200px;margin:0 auto;padding:32px 20px 60px;animation:none;}
 .section.active{display:block;}
 
 /* ── HERO / LANDING PAGE ── */
-.hero{background:var(--navy);color:var(--white);text-align:center;padding:70px 20px 60px;position:relative;overflow:hidden;}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 60% 0%,rgba(26,86,219,0.4) 0%,transparent 60%),radial-gradient(ellipse at 10% 80%,rgba(6,182,212,0.2) 0%,transparent 50%);pointer-events:none;}
-.hero-badge{display:inline-block;background:rgba(6,182,212,0.15);border:1px solid rgba(6,182,212,0.4);color:var(--cyan);font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:20px;}
+.hero{background:linear-gradient(145deg,#0e0c0a 0%,#1a1008 30%,#0e1a10 60%,#0c0e1a 100%);color:var(--white);text-align:center;padding:70px 20px 60px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 75% -10%,rgba(193,68,14,0.45) 0%,transparent 55%),radial-gradient(ellipse 50% 40% at 5% 85%,rgba(27,94,168,0.4) 0%,transparent 50%),radial-gradient(ellipse 40% 30% at 85% 80%,rgba(212,160,23,0.25) 0%,transparent 50%);pointer-events:none;}
+.hero-badge{display:inline-block;background:rgba(212,160,23,0.18);border:1px solid rgba(212,160,23,0.45);color:var(--ochre);font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:20px;}
 .hero h1{font-family:'Bebas Neue',cursive;font-size:clamp(42px,7vw,82px);letter-spacing:2px;line-height:1;margin-bottom:16px;}
 .hero h1 span{color:var(--cyan);}
 .hero-sub{font-size:18px;color:rgba(255,255,255,0.7);max-width:600px;margin:0 auto 36px;font-weight:300;}
@@ -62,16 +82,16 @@ a{color:inherit;text-decoration:none;}
 /* ── HOW IT WORKS ── */
 .how-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:32px 0;}
 .step-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px 24px;text-align:center;}
-.step-num{width:48px;height:48px;border-radius:50%;background:var(--blue);color:var(--white);font-family:'Bebas Neue',cursive;font-size:24px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;}
+.step-num{width:48px;height:48px;border-radius:50%;background:var(--sienna);color:var(--white);font-family:'Bebas Neue',cursive;font-size:24px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;}
 .step-title{font-size:16px;font-weight:600;margin-bottom:8px;}
 .step-desc{font-size:13px;color:var(--muted);line-height:1.6;}
 
 /* ── ISP SECTION ── */
-.page-title{font-family:'Bebas Neue',cursive;font-size:42px;letter-spacing:1px;margin-bottom:6px;}
+.page-title{font-family:'Bebas Neue',cursive;font-size:42px;letter-spacing:1px;margin-bottom:6px;color:var(--navy);}
 .page-sub{font-size:15px;color:var(--muted);margin-bottom:28px;}
 .city-tabs{display:flex;gap:6px;margin-bottom:24px;flex-wrap:wrap;}
 .city-tab{padding:8px 20px;border-radius:8px;border:1.5px solid var(--border);font-size:13px;font-weight:600;cursor:pointer;background:var(--white);color:var(--muted);transition:all 0.15s;}
-.city-tab.on{background:var(--navy);color:var(--white);border-color:var(--navy);}
+.city-tab.on{background:var(--sienna);color:var(--white);border-color:var(--sienna);}
 .city-panel{display:none;}
 .city-panel.active{display:block;}
 .provider-block{background:var(--white);border:1px solid var(--border);border-radius:16px;margin-bottom:20px;overflow:hidden;}
@@ -82,27 +102,27 @@ a{color:inherit;text-decoration:none;}
 .prov-type{font-size:11px;color:var(--muted);margin-top:2px;}
 .prov-right{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
 .coverage-badge{font-size:12px;font-weight:600;padding:4px 10px;border-radius:20px;}
-.cov-high{background:#d1fae5;color:#065f46;}
-.cov-med{background:#fef3c7;color:#92400e;}
-.cov-low{background:#fee2e2;color:#991b1b;}
+.cov-high{background:#D4F0E3;color:#1E7B4B;}
+.cov-med{background:#FEF0C0;color:#A86010;}
+.cov-low{background:#FFE4DC;color:#B32418;}
 .plans-table{width:100%;border-collapse:collapse;}
-.plans-table thead th{background:#f8faff;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted);padding:10px 16px;text-align:left;border-bottom:1px solid var(--border);}
+.plans-table thead th{background:#F5EEE2;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted);padding:10px 16px;text-align:left;border-bottom:1px solid var(--border);}
 .plans-table tbody td{padding:14px 16px;border-bottom:1px solid var(--border);font-size:13px;vertical-align:middle;}
 .plans-table tbody tr:last-child td{border-bottom:none;}
-.plans-table tbody tr:hover{background:#f8faff;}
+.plans-table tbody tr:hover{background:#FBF5EB;}
 .plan-name-cell{font-weight:600;font-size:14px;}
 .plan-note{font-size:11px;color:var(--muted);margin-top:2px;}
-.speed-val{font-weight:700;color:var(--blue);}
+.speed-val{font-weight:700;color:var(--cobalt, #1B5EA8);}
 .price-val{font-weight:700;font-size:15px;}
 .price-reg{font-size:11px;color:var(--muted);}
 .tag{display:inline-block;font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px;text-transform:uppercase;letter-spacing:0.05em;}
-.tag-best{background:#dbeafe;color:#1e40af;}
-.tag-cheap{background:#d1fae5;color:#065f46;}
+.tag-best{background:#dbeafe;color:#1B5EA8;}
+.tag-cheap{background:#d1fae5;color:#1E7B4B;}
 .tag-fast{background:#ede9fe;color:#4c1d95;}
 .tag-sat{background:#fef3c7;color:#92400e;}
 .tag-warn{background:#fee2e2;color:#991b1b;}
 .tag-new{background:#e0f2fe;color:#075985;}
-.affiliate-note{padding:12px 24px;background:#f0f9ff;border-top:1px solid #bae6fd;font-size:12px;color:#0369a1;display:flex;align-items:center;gap:8px;}
+.affiliate-note{padding:12px 24px;background:#FBF5EB;border-top:1px solid #E8D9B8;font-size:12px;color:#8B5E1E;display:flex;align-items:center;gap:8px;}
 
 /* ── MARKETING PLAN ── */
 .budget-bar{background:var(--navy);border-radius:16px;padding:28px 32px;color:var(--white);margin-bottom:28px;position:relative;overflow:hidden;}
@@ -174,7 +194,7 @@ a{color:inherit;text-decoration:none;}
 .lp-table tbody tr:hover{background:#f8faff;}
 .lp-table .best-row{background:#f0f9ff;}
 .lp-table .best-row td:first-child{border-left:3px solid var(--blue);}
-.speed-chip{display:inline-block;background:#dbeafe;color:#1e40af;font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px;}
+.speed-chip{display:inline-block;background:#DDEEFF;color:#1B5EA8;font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px;}
 .lp-cta-bar{background:var(--blue);padding:28px 40px;text-align:center;color:white;}
 .lp-cta-bar h3{font-family:'Bebas Neue',cursive;font-size:28px;letter-spacing:1px;margin-bottom:12px;}
 .lp-cta-bar p{font-size:14px;color:rgba(255,255,255,0.75);margin-bottom:18px;}
@@ -196,15 +216,15 @@ a{color:inherit;text-decoration:none;}
 .section-title{font-family:'Bebas Neue',cursive;font-size:32px;letter-spacing:1px;margin-bottom:6px;}
 .section-sub{font-size:14px;color:var(--muted);margin-bottom:24px;}
 .divider{height:1px;background:var(--border);margin:32px 0;}
-.info-box{background:#eff6ff;border:1px solid #bfdbfe;border-radius:12px;padding:16px 20px;font-size:13px;color:#1e40af;line-height:1.6;margin-bottom:20px;}
+.info-box{background:#EEF5FF;border:1px solid #B8D0F0;border-radius:12px;padding:16px 20px;font-size:13px;color:#1B4D8A;line-height:1.6;margin-bottom:20px;}
 .warn-box{background:#fffbeb;border:1px solid #fde68a;border-radius:12px;padding:16px 20px;font-size:13px;color:#92400e;line-height:1.6;margin-bottom:20px;}
-.green-box{background:#ecfdf5;border:1px solid #a7f3d0;border-radius:12px;padding:16px 20px;font-size:13px;color:#065f46;line-height:1.6;margin-bottom:20px;}
+.green-box{background:#EBF8EE;border:1px solid #9FDBAE;border-radius:12px;padding:16px 20px;font-size:13px;color:#1E7B4B;line-height:1.6;margin-bottom:20px;}
 
 /* ── FOOTER ── */
-.site-footer{background:var(--navy);color:rgba(255,255,255,0.5);text-align:center;padding:24px 20px;font-size:12px;line-height:1.8;}
+.site-footer{background:var(--navy);color:rgba(245,240,232,0.5);text-align:center;padding:28px 20px;font-size:12px;line-height:1.9;border-top:3px solid var(--sienna);}
 
 /* ── OUTAGES ── */
-.outage-hero{background:linear-gradient(135deg,#1a0a0a 0%,#2d0f0f 100%);border-radius:16px;padding:28px 32px;color:white;margin-bottom:28px;border:1px solid rgba(239,68,68,0.3);}
+.outage-hero{background:linear-gradient(135deg,#150808 0%,#2A0C0C 100%);border-radius:16px;padding:28px 32px;color:white;margin-bottom:28px;border:1px solid rgba(193,68,14,0.35);}
 .outage-hero-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:20px;}
 .outage-title-block{}
 .outage-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(239,68,68,0.15);border:1px solid rgba(239,68,68,0.4);color:#fca5a5;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:10px;}
@@ -313,8 +333,8 @@ a{color:inherit;text-decoration:none;}
 .form-textarea{resize:vertical;min-height:90px;}
 .field-error{font-size:11px;color:#fca5a5;margin-top:2px;display:none;}
 .field-error.show{display:block;}
-.form-submit{width:100%;padding:15px;background:var(--blue);color:var(--white);border:none;border-radius:10px;font-size:16px;font-weight:700;font-family:'Outfit',sans-serif;cursor:pointer;transition:all 0.2s;margin-top:6px;position:relative;}
-.form-submit:hover:not(:disabled){background:var(--cyan);color:var(--navy);}
+.form-submit{width:100%;padding:15px;background:var(--sienna);color:var(--white);border:none;border-radius:10px;font-size:16px;font-weight:700;font-family:'Outfit',sans-serif;cursor:pointer;transition:all 0.2s;margin-top:6px;position:relative;}
+.form-submit:hover:not(:disabled){background:var(--ochre);color:var(--navy);}
 .form-submit:disabled{opacity:0.6;cursor:not-allowed;}
 .form-submit .btn-spinner{display:none;width:18px;height:18px;border:2px solid rgba(255,255,255,0.3);border-top-color:white;border-radius:50%;animation:spin 0.7s linear infinite;position:absolute;right:18px;top:50%;transform:translateY(-50%);}
 .form-submit.loading .btn-spinner{display:block;}
@@ -352,9 +372,246 @@ a{color:inherit;text-decoration:none;}
 .of-success{display:none;padding:16px;background:#ecfdf5;border:1px solid #a7f3d0;border-radius:10px;margin-top:14px;font-size:13px;color:#065f46;}
 .of-success.show{display:block;}
 .of-privacy{font-size:11px;color:var(--muted);margin-top:10px;line-height:1.6;}
+/* ── ACCESSIBILITY & FOCUS ── */
+:focus-visible{outline:3px solid var(--cyan);outline-offset:2px;}
+.skip-nav{position:absolute;left:-9999px;top:4px;padding:8px 16px;background:var(--cyan);color:var(--navy);font-weight:700;border-radius:6px;z-index:9999;text-decoration:none;}
+.skip-nav:focus{left:10px;}
+
+/* ── TABLE OVERFLOW ── */
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:0 0 16px 16px;}
+.table-wrap::-webkit-scrollbar{height:4px;}
+.table-wrap::-webkit-scrollbar-track{background:var(--off);}
+.table-wrap::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px;}
+
+/* ── BACK TO TOP ── */
+.back-top{position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:var(--sienna);color:white;border:none;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(26,86,219,0.35);opacity:0;transform:translateY(10px);transition:opacity 0.25s,transform 0.25s;z-index:90;}
+.back-top.show{opacity:1;transform:translateY(0);}
+.back-top:hover{background:var(--cyan);color:var(--navy);}
+
+/* ── COPY BUTTON ── */
+.copy-btn{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;background:var(--chalk);border:1.5px solid var(--border);border-radius:8px;font-size:12px;font-weight:600;color:var(--navy);cursor:pointer;transition:all 0.15s;font-family:'Outfit',sans-serif;margin-top:12px;}
+.copy-btn:hover{background:var(--sienna);color:white;border-color:var(--sienna);}
+.copy-btn.copied{background:#d1fae5;color:#065f46;border-color:#a7f3d0;}
+
+/* ── CHAR COUNTER ── */
+.char-counter{font-size:11px;color:rgba(255,255,255,0.35);text-align:right;margin-top:3px;}
+.char-counter.warn{color:#f87171;}
+.of-char-counter{font-size:11px;color:var(--muted);text-align:right;margin-top:3px;}
+
+/* ── GET DEAL IN TABLE ── */
+.deal-btn{display:inline-flex;align-items:center;gap:4px;padding:7px 14px;background:var(--sienna);color:white;border:none;border-radius:6px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;transition:all 0.15s;white-space:nowrap;text-decoration:none;}
+.deal-btn:hover{background:var(--ochre);color:var(--navy);}
+
+/* ── DARK MODE ── */
+@media(prefers-color-scheme:dark){
+  :root{
+    --off:#0f1623;--card:#161e2e;--white:#161e2e;--border:#2a3650;
+    --muted:#8899bb;
+  }
+  body{background:var(--off);color:#e2e8f0;}
+  .provider-block,.step-card,.mcard,.week-card,.review-card,.trend-section,.outage-provider-row,.outage-form-card{background:var(--card);border-color:var(--border);}
+  .plans-table thead th{background:#1a2540;}
+  .plans-table tbody tr:hover{background:#1a2540;}
+  .city-tab{background:var(--card);color:var(--muted);border-color:var(--border);}
+  .city-tab.on{background:var(--blue);color:white;}
+  .outage-city-tab{background:var(--card);color:var(--muted);border-color:var(--border);}
+  .info-box{background:#0d1e3a;border-color:#1e3a6e;color:#93c5fd;}
+  .warn-box{background:#2d1f06;border-color:#713f12;color:#fbbf24;}
+  .green-box{background:#052e16;border-color:#065f46;color:#6ee7b7;}
+  .sources-box{background:#0f1e35;border-color:var(--border);}
+  .craigslist-box{background:#1f1a07;border-color:#713f12;}
+  .cl-ad{background:#161006;color:#e2e8f0;border-color:#2a3650;}
+  .affiliate-note{background:#0d1e3a;border-color:#1e3a6e;color:#93c5fd;}
+  .lp-compare{background:#0f1623;}
+  .lp-table{background:var(--card);}
+  .lp-table tbody td{border-color:var(--border);}
+  .lp-table tbody tr:hover{background:#1a2540;}
+  .lp-social-proof{background:var(--card);}
+  .lp-reviews{background:var(--off);}
+  .outage-form-card{background:var(--card);}
+  .of-input,.of-select,.of-textarea{background:#1a2540;color:#e2e8f0;border-color:var(--border);}
+  .of-char-counter{color:#8899bb;}
+  .speed-chip,.tag-best{background:#1e3a6e;color:#93c5fd;}
+  .tag-cheap{background:#052e16;color:#6ee7b7;}
+  .tag-fast{background:#2d1f5e;color:#c4b5fd;}
+  .tag-new{background:#0c2a3e;color:#7dd3fc;}
+  .copy-btn{background:var(--card);color:#e2e8f0;border-color:var(--border);}
+  .copy-btn.copied{background:#052e16;color:#6ee7b7;border-color:#065f46;}
+}
+
+/* ── TOAST NOTIFICATION ── */
+#toast-wrap{position:fixed;bottom:80px;left:50%;transform:translateX(-50%);z-index:999;display:flex;flex-direction:column;gap:8px;pointer-events:none;width:min(360px,90vw);}
+.toast{background:var(--navy);color:white;padding:12px 18px;border-radius:10px;font-size:13px;font-weight:500;box-shadow:0 4px 20px rgba(0,0,0,0.25);display:flex;align-items:center;gap:10px;opacity:0;transform:translateY(12px);transition:opacity 0.25s,transform 0.25s;pointer-events:auto;}
+.toast.show{opacity:1;transform:translateY(0);}
+.toast.toast-success{border-left:4px solid var(--green);}
+.toast.toast-error{border-left:4px solid var(--red);}
+.toast.toast-info{border-left:4px solid var(--cyan);}
+.toast-icon{font-size:16px;flex-shrink:0;}
+.toast-close{margin-left:auto;background:transparent;border:none;color:rgba(255,255,255,0.5);cursor:pointer;font-size:16px;line-height:1;padding:0;}
+
+/* ── SECTION TRANSITIONS ── */
+.section{animation:none;}
+.section.active{animation:fadeSlideIn 0.2s ease-out;}
+@keyframes fadeSlideIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+
+/* ── PROVIDER QUICK-FILTER ── */
+.provider-filter-bar{display:flex;align-items:center;gap:10px;margin-bottom:20px;flex-wrap:wrap;}
+.provider-filter-bar label{font-size:13px;font-weight:600;color:var(--muted);}
+.provider-search{padding:9px 14px;border-radius:8px;border:1.5px solid var(--border);background:var(--white);font-size:13px;font-family:'Outfit',sans-serif;width:220px;outline:none;color:var(--navy);}
+.provider-search:focus{border-color:var(--blue);}
+.filter-chip{padding:6px 14px;border-radius:20px;border:1.5px solid var(--border);font-size:12px;font-weight:600;cursor:pointer;background:var(--white);color:var(--muted);transition:all 0.15s;font-family:'Outfit',sans-serif;}
+.filter-chip.on{background:var(--navy);color:white;border-color:var(--navy);}
+.no-results{text-align:center;padding:40px;color:var(--muted);font-size:14px;display:none;}
+.no-results.show{display:block;}
+
+/* ── SAVINGS CALCULATOR ── */
+.savings-calc{background:linear-gradient(135deg,#0e0c0a 0%,#180e08 50%,#0a0e16 100%);border-radius:16px;padding:28px 32px;color:white;margin-bottom:28px;}
+.savings-calc h3{font-family:'Bebas Neue',cursive;font-size:28px;letter-spacing:1px;margin-bottom:4px;}
+.savings-calc p{font-size:14px;color:rgba(255,255,255,0.6);margin-bottom:24px;}
+.savings-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;align-items:end;}
+.savings-field label{font-size:11px;font-weight:600;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.06em;display:block;margin-bottom:6px;}
+.savings-input,.savings-select{width:100%;padding:11px 14px;border-radius:8px;border:1.5px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.08);color:white;font-size:14px;font-family:'Outfit',sans-serif;outline:none;}
+.savings-input:focus,.savings-select:focus{border-color:var(--cyan);}
+.savings-select option{background:#0a0e1a;color:white;}
+.savings-result{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:20px;margin-top:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+.savings-num{font-family:'Bebas Neue',cursive;font-size:48px;color:var(--ochre);letter-spacing:1px;line-height:1;}
+.savings-label{font-size:13px;color:rgba(255,255,255,0.55);margin-top:4px;}
+.savings-plan{font-size:15px;font-weight:600;color:white;margin-bottom:4px;}
+.savings-cta{padding:12px 24px;background:var(--blue);border:none;border-radius:8px;color:white;font-size:14px;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;transition:background 0.15s;}
+.savings-cta:hover{background:var(--cyan);color:var(--navy);}
+@media(max-width:640px){.savings-grid{grid-template-columns:1fr;}}
+
+/* ── SPEED TEST WIDGET ── */
+.speed-test-bar{background:linear-gradient(135deg,#0a0e1a,#162040);border-radius:16px;padding:24px 28px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
+.speed-test-left h4{font-size:16px;font-weight:700;color:white;margin-bottom:4px;}
+.speed-test-left p{font-size:13px;color:rgba(255,255,255,0.55);}
+.speed-test-btn{padding:11px 22px;background:var(--cyan);border:none;border-radius:8px;color:var(--navy);font-size:14px;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;white-space:nowrap;transition:opacity 0.15s;}
+.speed-test-btn:hover{opacity:0.85;}
+.speed-test-results{display:none;margin-top:16px;display:flex;gap:20px;flex-wrap:wrap;}
+.speed-metric{text-align:center;background:rgba(255,255,255,0.06);border-radius:10px;padding:14px 20px;min-width:100px;}
+.speed-metric-val{font-family:'Bebas Neue',cursive;font-size:32px;color:var(--cyan);line-height:1;}
+.speed-metric-lbl{font-size:11px;color:rgba(255,255,255,0.5);margin-top:3px;}
+.speed-test-running{display:none;align-items:center;gap:10px;margin-top:12px;font-size:13px;color:rgba(255,255,255,0.6);}
+.speed-spinner{width:18px;height:18px;border:2px solid rgba(255,255,255,0.2);border-top-color:var(--cyan);border-radius:50%;animation:spin 0.7s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+/* ── FAQ SECTION ── */
+.faq-section{margin-top:40px;}
+.faq-title{font-family:'Bebas Neue',cursive;font-size:32px;letter-spacing:1px;margin-bottom:6px;}
+.faq-sub{font-size:14px;color:var(--muted);margin-bottom:20px;}
+.faq-item{background:var(--white);border:1px solid var(--border);border-radius:12px;margin-bottom:10px;overflow:hidden;}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;cursor:pointer;font-size:14px;font-weight:600;user-select:none;gap:12px;}
+.faq-q:hover{background:#FBF5EB;}
+.faq-arrow{font-size:18px;color:var(--muted);transition:transform 0.2s;flex-shrink:0;}
+.faq-item.open .faq-arrow{transform:rotate(180deg);}
+.faq-a{display:none;padding:0 20px 16px;font-size:13px;color:var(--muted);line-height:1.7;}
+.faq-item.open .faq-a{display:block;}
+
+/* ── PRINT STYLES ── */
+@media print{
+  .site-nav,.back-top,#toast-wrap,.form-section,.sec-marketing,.sec-landingpage,.sec-outages{display:none!important;}
+  .section{display:block!important;max-width:100%;padding:0;}
+  .provider-block{break-inside:avoid;border:1px solid #ccc;}
+  .deal-btn{display:none;}
+  body{font-size:11pt;color:#000;}
+}
+
+/* ── CURRENT DEALS BANNER ── */
+.deals-banner{background:linear-gradient(90deg,#065f46,#0f766e);border-radius:12px;padding:14px 20px;margin-bottom:20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+.deals-banner-icon{font-size:20px;flex-shrink:0;}
+.deals-banner-text{font-size:13px;color:white;flex:1;}
+.deals-banner-text strong{color:#6ee7b7;}
+.deals-dismiss{background:transparent;border:none;color:rgba(255,255,255,0.5);cursor:pointer;font-size:18px;margin-left:auto;flex-shrink:0;}
+.deals-dismiss:hover{color:white;}
+
+/* Dark mode additions */
+@media(prefers-color-scheme:dark){
+  .faq-item{background:var(--card);border-color:var(--border);}
+  .faq-q:hover{background:#1a2540;}
+  .provider-search{background:var(--card);color:#e2e8f0;border-color:var(--border);}
+  .filter-chip{background:var(--card);color:var(--muted);border-color:var(--border);}
+  .savings-input,.savings-select{background:rgba(255,255,255,0.05);}
+}
+
+/* ── MOTTOLA ABSTRACT STROKES — decorative SVG texture overlays ── */
+.mottola-stripe{position:absolute;pointer-events:none;overflow:hidden;}
+.hero-strokes{position:absolute;inset:0;pointer-events:none;overflow:hidden;opacity:0.18;}
+
+/* ── CANCELLATION GUIDE ── */
+.cancel-section{}
+.cancel-intro{background:linear-gradient(135deg,#150808 0%,#2A0c0a 50%,#0a0e1a 100%);border-radius:16px;padding:28px 32px;color:white;margin-bottom:28px;position:relative;overflow:hidden;}
+.cancel-intro::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 80% 50%,rgba(193,68,14,0.3) 0%,transparent 60%),radial-gradient(ellipse 40% 60% at 10% 80%,rgba(27,94,168,0.25) 0%,transparent 55%);pointer-events:none;}
+.cancel-intro-inner{position:relative;}
+.cancel-intro h2{font-family:'Bebas Neue',cursive;font-size:36px;letter-spacing:1px;color:var(--chalk);margin-bottom:6px;}
+.cancel-intro p{font-size:14px;color:rgba(245,240,232,0.6);margin-bottom:16px;}
+.cancel-warning{display:inline-flex;align-items:center;gap:8px;background:rgba(193,68,14,0.18);border:1px solid rgba(193,68,14,0.4);color:#FCA98A;padding:8px 14px;border-radius:8px;font-size:13px;font-weight:600;}
+
+.cancel-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:18px;margin-bottom:24px;}
+.cancel-card{background:var(--card);border:1.5px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(14,12,10,0.06);transition:box-shadow 0.2s,border-color 0.2s;}
+.cancel-card:hover{box-shadow:0 6px 28px rgba(14,12,10,0.12);border-color:var(--sienna);}
+.cancel-card-head{padding:18px 20px;display:flex;align-items:center;gap:14px;border-bottom:1px solid var(--border);}
+.cancel-card-icon{width:46px;height:46px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
+.cancel-card-title{font-size:16px;font-weight:700;color:var(--navy);}
+.cancel-card-sub{font-size:12px;color:var(--muted);margin-top:2px;}
+.cancel-diff{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;margin-left:auto;flex-shrink:0;}
+.diff-easy{background:#D4F0E3;color:#1E7B4B;}
+.diff-medium{background:#FEF0C0;color:#A86010;}
+.diff-hard{background:#FFE4DC;color:#B32418;}
+
+.cancel-steps{padding:6px 20px 18px;}
+.cancel-step{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--border);}
+.cancel-step:last-child{border-bottom:none;}
+.cs-num{width:24px;height:24px;border-radius:50%;background:var(--sienna);color:white;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.cs-body{}
+.cs-title{font-size:13px;font-weight:600;color:var(--navy);margin-bottom:3px;}
+.cs-desc{font-size:12px;color:var(--muted);line-height:1.6;}
+.cs-tip{display:inline-flex;align-items:center;gap:5px;background:#FBF5EB;border:1px solid #E8D9B8;border-radius:6px;padding:4px 9px;font-size:11px;color:#8B5E1E;margin-top:5px;}
+.cs-phone{display:block;margin-top:4px;font-size:12px;font-weight:700;color:var(--sienna);}
+.cancel-card-footer{padding:12px 20px;background:#FBF5EB;border-top:1px solid var(--border);display:flex;gap:16px;flex-wrap:wrap;}
+.cfoot-item{font-size:11px;color:var(--muted);display:flex;align-items:center;gap:4px;}
+.cfoot-item strong{color:var(--navy);}
+.cfoot-badge{display:inline-block;font-size:10px;font-weight:700;padding:1px 7px;border-radius:4px;}
+.fee-yes{background:#FFE4DC;color:#B32418;}
+.fee-no{background:#D4F0E3;color:#1E7B4B;}
+
+.cancel-tips-box{background:var(--card);border:1.5px solid var(--border);border-radius:16px;padding:24px;margin-top:6px;}
+.cancel-tips-title{font-family:'Bebas Neue',cursive;font-size:24px;letter-spacing:1px;color:var(--navy);margin-bottom:4px;}
+.cancel-tips-sub{font-size:13px;color:var(--muted);margin-bottom:16px;}
+.cancel-tips-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.ctip{background:var(--off);border-radius:10px;padding:14px;border:1px solid var(--border);}
+.ctip-icon{font-size:22px;margin-bottom:6px;}
+.ctip-title{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:4px;}
+.ctip-body{font-size:12px;color:var(--muted);line-height:1.6;}
+
+@media(max-width:768px){
+  .cancel-grid{grid-template-columns:1fr;}
+  .cancel-tips-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:480px){
+  .cancel-tips-grid{grid-template-columns:1fr;}
+}
+
+/* Dark mode additions for cancel */
+@media(prefers-color-scheme:dark){
+  .cancel-card{background:#161e2e;border-color:#2a3650;}
+  .cancel-step{border-color:#2a3650;}
+  .cancel-card-footer{background:#1a2540;border-color:#2a3650;}
+  .cs-tip{background:#1a2540;border-color:#2a3650;color:#D4A017;}
+  .ctip{background:#1a2540;border-color:#2a3650;}
+  .cancel-tips-box{background:#161e2e;border-color:#2a3650;}
+}
 
 </style>
+</head>
 <body>
+<a class="skip-nav" href="#main-content">Skip to main content</a>
+
+<!-- BACK TO TOP -->
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+
+
+<!-- TOAST CONTAINER -->
+<div id="toast-wrap" role="status" aria-live="polite" aria-atomic="false"></div>
 
 <!-- NAV -->
 <nav class="site-nav">
@@ -366,6 +623,7 @@ a{color:inherit;text-decoration:none;}
       <button class="nav-link" onclick="showSection('marketing')">Marketing Plan</button>
       <button class="nav-link" onclick="showSection('landingpage')">Landing Page</button>
       <button class="nav-link" onclick="showSection('outages')" style="color:#f87171;">🚨 Outages</button>
+      <button class="nav-link" onclick="showSection('cancel')" style="color:var(--ochre,#D4A017);">❌ Cancel ISP</button>
     </div>
     <a href="tel:9517137247" class="nav-phone-link" style="color:var(--cyan);font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap;display:flex;align-items:center;gap:5px;flex-shrink:0;">📞 (951) 713-7247</a>
   </div>
@@ -373,6 +631,7 @@ a{color:inherit;text-decoration:none;}
 
 <!-- ══════════════ SECTION: LANDING (HOME) ══════════════ -->
 <div class="section active" id="sec-landing">
+<main id="main-content">
 
   <!-- HERO -->
   <div class="hero" style="margin:-32px -20px 0;max-width:none;">
@@ -399,6 +658,57 @@ a{color:inherit;text-decoration:none;}
   </div>
 
   <div style="max-width:1200px;margin:0 auto;padding:40px 20px 60px;">
+
+    <!-- SAVINGS CALCULATOR -->
+    <div class="savings-calc" id="savingsCalc">
+      <h3>How Much Could You Save?</h3>
+      <p>Enter what you're currently paying and we'll find a better deal.</p>
+      <div class="savings-grid">
+        <div class="savings-field">
+          <label for="sc-bill">Your current monthly bill</label>
+          <input type="number" id="sc-bill" class="savings-input" placeholder="e.g. 89" min="0" max="500" value="89">
+        </div>
+        <div class="savings-field">
+          <label for="sc-provider">Current provider</label>
+          <select id="sc-provider" class="savings-select">
+            <option value="">— Select provider —</option>
+            <option>Spectrum</option>
+            <option>AT&T</option>
+            <option>Frontier</option>
+            <option>T-Mobile Home</option>
+            <option>Verizon 5G Home</option>
+            <option>Starlink</option>
+            <option>HughesNet</option>
+            <option>Viasat</option>
+            <option>EarthLink</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="savings-field">
+          <label for="sc-speed">Current speed (approx)</label>
+          <select id="sc-speed" class="savings-select">
+            <option value="25">Under 25 Mbps</option>
+            <option value="100">25–100 Mbps</option>
+            <option value="300" selected>100–300 Mbps</option>
+            <option value="500">300–500 Mbps</option>
+            <option value="1000">500 Mbps–1 Gig</option>
+            <option value="2000">Over 1 Gig</option>
+          </select>
+        </div>
+      </div>
+      <div class="savings-result" id="savingsResult">
+        <div>
+          <div class="savings-num" id="sc-amount">$0</div>
+          <div class="savings-label" id="sc-label">annual savings</div>
+        </div>
+        <div>
+          <div class="savings-plan" id="sc-rec">Calculating…</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.5);" id="sc-detail"></div>
+        </div>
+        <button class="savings-cta" onclick="showSection('providers')">See This Plan →</button>
+      </div>
+    </div>
+
     <div class="how-steps">
       <div class="step-card">
         <div class="step-num">1</div>
@@ -415,6 +725,16 @@ a{color:inherit;text-decoration:none;}
         <div class="step-title">Sign up — we handle the rest</div>
         <div class="step-desc">Click to sign up through us. Same price you'd pay direct. We earn a referral fee at no extra cost to you.</div>
       </div>
+    </div>
+
+
+    <!-- SPEED TEST -->
+    <div class="speed-test-bar" id="speedTestBar">
+      <div class="speed-test-left">
+        <h4>⚡ Test Your Current Speed</h4>
+        <p>See if you're actually getting what you're paying for — takes about 15 seconds.</p>
+      </div>
+      <button class="speed-test-btn" id="speedTestBtn" onclick="runSpeedTest()">Run Speed Test</button>
     </div>
 
     <div class="info-box">
@@ -439,6 +759,7 @@ a{color:inherit;text-decoration:none;}
       </div>
     </div>
   </div>
+</main>
 </div>
 
 <!-- ══════════════ LEAD CAPTURE FORM ══════════════ -->
@@ -514,7 +835,8 @@ a{color:inherit;text-decoration:none;}
           <div class="form-row single">
             <div class="form-group">
               <label class="form-label" for="lf-needs">Anything else? (optional)</label>
-              <textarea class="form-textarea" id="lf-needs" name="message" placeholder="e.g. I work from home and need reliable upload speeds, or I'm moving next month…"></textarea>
+              <textarea class="form-textarea" id="lf-needs" name="message" placeholder="e.g. I work from home and need reliable upload speeds, or I'm moving next month…" maxlength="1000" aria-describedby="lf-needs-counter"></textarea>
+              <div class="char-counter" id="lf-needs-counter">0 / 1000</div>
             </div>
           </div>
 
@@ -543,11 +865,31 @@ a{color:inherit;text-decoration:none;}
   <div class="page-title">Compare All Internet Providers</div>
   <p class="page-sub">Every provider, every plan, every price — for Moreno Valley, Perris, and Riverside CA. Prices approximate as of March 2026.</p>
 
+
+  <div class="deals-banner" id="dealsBanner">
+    <span class="deals-banner-icon">🎁</span>
+    <span class="deals-banner-text"><strong>Current Deals (March 2026):</strong> Frontier 500 Mbps $49.99/mo + $50 Visa card • AT&T Internet 300 starts at $35/mo flat • Spectrum Internet Assist free for qualifying households • Starlink 30-day free trial</span>
+    <button class="deals-dismiss" onclick="document.getElementById('dealsBanner').style.display='none'" aria-label="Dismiss deals banner">×</button>
+  </div>
+
   <div class="city-tabs">
     <button class="city-tab on" onclick="showCity('mv',this)">📍 Moreno Valley</button>
     <button class="city-tab" onclick="showCity('perris',this)">📍 Perris</button>
     <button class="city-tab" onclick="showCity('riverside',this)">📍 Riverside</button>
   </div>
+
+
+  <!-- PROVIDER QUICK FILTER -->
+  <div class="provider-filter-bar" id="provFilterBar">
+    <label for="provSearch">Filter:</label>
+    <input type="text" id="provSearch" class="provider-search" placeholder="Search providers or plans…" oninput="filterProviders(this.value)" autocomplete="off" maxlength="60">
+    <button class="filter-chip on" data-type="all" onclick="setTypeFilter('all',this)">All</button>
+    <button class="filter-chip" data-type="fiber" onclick="setTypeFilter('fiber',this)">Fiber</button>
+    <button class="filter-chip" data-type="cable" onclick="setTypeFilter('cable',this)">Cable</button>
+    <button class="filter-chip" data-type="5g" onclick="setTypeFilter('5g',this)">5G</button>
+    <button class="filter-chip" data-type="satellite" onclick="setTypeFilter('satellite',this)">Satellite</button>
+  </div>
+  <div class="no-results" id="noResults">No providers match your search. <button onclick="resetProviderFilter()" style="color:var(--blue);background:none;border:none;cursor:pointer;font-weight:600;">Clear filter</button></div>
 
   <!-- ─── MORENO VALLEY ─── -->
   <div class="city-panel active" id="city-mv">
@@ -565,16 +907,16 @@ a{color:inherit;text-decoration:none;}
           <span class="tag tag-cheap">Best Coverage</span>
         </div>
       </div>
-      <table class="plans-table">
-        <thead><tr><th>Plan</th><th>Speed (Down)</th><th>Upload</th><th>Promo Price</th><th>After 12 mo.</th><th>Extras</th></tr></thead>
+      <div class="table-wrap"><table class="plans-table">
+        <thead><tr><th>Plan</th><th>Speed (Down)</th><th>Upload</th><th>Promo Price</th><th>After 12 mo.</th><th>Extras</th><th>Get Deal</th></tr></thead>
         <tbody>
-          <tr><td><div class="plan-name-cell">Internet Assist <span class="tag tag-cheap">Low-income</span></div><div class="plan-note">Must qualify (K-12, 65+, SNAP)</div></td><td><span class="speed-val">50–100 Mbps</span></td><td>10 Mbps</td><td class="price-val">$0/mo</td><td>Stays low</td><td>Free modem + Security Suite</td></tr>
-          <tr><td><div class="plan-name-cell">Internet Advantage</div><div class="plan-note">Best entry plan</div></td><td><span class="speed-val">100 Mbps</span></td><td>10 Mbps</td><td class="price-val">$30/mo</td><td><span class="price-reg">~$55–65/mo</span></td><td>Free modem, antivirus (10 devices)</td></tr>
-          <tr style="background:#f0f9ff;"><td><div class="plan-name-cell">Internet Premier <span class="tag tag-best">Best Value</span></div></td><td><span class="speed-val">500 Mbps</span></td><td>20 Mbps</td><td class="price-val">$50/mo</td><td><span class="price-reg">~$75–80/mo</span></td><td>Free modem + Advanced WiFi ($10 off)</td></tr>
-          <tr><td><div class="plan-name-cell">Internet Gig <span class="tag tag-fast">Fastest</span></div></td><td><span class="speed-val">1,000 Mbps</span></td><td>40 Mbps</td><td class="price-val">$70/mo</td><td><span class="price-reg">~$105/mo</span></td><td>Free Advanced WiFi router included</td></tr>
-          <tr><td><div class="plan-name-cell">Internet Ultra (select areas)</div></td><td><span class="speed-val">2,000 Mbps</span></td><td>40 Mbps</td><td class="price-val">$90/mo</td><td><span class="price-reg">~$120/mo</span></td><td>Advanced WiFi router included</td></tr>
+          <tr><td><div class="plan-name-cell">Internet Assist <span class="tag tag-cheap">Low-income</span></div><div class="plan-note">Must qualify (K-12, 65+, SNAP)</div></td><td><span class="speed-val">50–100 Mbps</span></td><td>10 Mbps</td><td class="price-val">$0/mo</td><td>Stays low</td><td>Free modem + Security Suite</td><td style="white-space:nowrap"><a href="https://www.spectrum.com" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
+          <tr><td><div class="plan-name-cell">Internet Advantage</div><div class="plan-note">Best entry plan</div></td><td><span class="speed-val">100 Mbps</span></td><td>10 Mbps</td><td class="price-val">$30/mo</td><td><span class="price-reg">~$55–65/mo</span></td><td>Free modem, antivirus (10 devices)</td><td style="white-space:nowrap"><a href="https://www.spectrum.com" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
+          <tr style="background:#f0f9ff;"><td><div class="plan-name-cell">Internet Premier <span class="tag tag-best">Best Value</span></div></td><td><span class="speed-val">500 Mbps</span></td><td>20 Mbps</td><td class="price-val">$50/mo</td><td><span class="price-reg">~$75–80/mo</span></td><td>Free modem + Advanced WiFi ($10 off)</td><td style="white-space:nowrap"><a href="https://www.spectrum.com" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
+          <tr><td><div class="plan-name-cell">Internet Gig <span class="tag tag-fast">Fastest</span></div></td><td><span class="speed-val">1,000 Mbps</span></td><td>40 Mbps</td><td class="price-val">$70/mo</td><td><span class="price-reg">~$105/mo</span></td><td>Free Advanced WiFi router included</td><td style="white-space:nowrap"><a href="https://www.spectrum.com" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
+          <tr><td><div class="plan-name-cell">Internet Ultra (select areas)</div></td><td><span class="speed-val">2,000 Mbps</span></td><td>40 Mbps</td><td class="price-val">$90/mo</td><td><span class="price-reg">~$120/mo</span></td><td>Advanced WiFi router included</td><td style="white-space:nowrap"><a href="https://www.spectrum.com" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
         </tbody>
-      </table>
+      </table></div>
       <div class="affiliate-note">💡 <strong>Bundles:</strong> +TV Stream ($95/mo, 85+ channels) • +TV Select Signature ($150/mo, 150+ channels incl. Disney+/HBO Max) • Triple Play w/ phone (~$170/mo) • Bundle w/ Spectrum Mobile — save $20–30/mo</div>
     </div>
 
@@ -590,17 +932,17 @@ a{color:inherit;text-decoration:none;}
           <span class="tag tag-fast">Symmetric Upload</span>
         </div>
       </div>
-      <table class="plans-table">
-        <thead><tr><th>Plan</th><th>Speed (Symmetric)</th><th>Price</th><th>Reward Card</th><th>Notes</th></tr></thead>
+      <div class="table-wrap"><table class="plans-table">
+        <thead><tr><th>Plan</th><th>Speed (Symmetric)</th><th>Price</th><th>Reward Card</th><th>Notes</th><th>Get Deal</th></tr></thead>
         <tbody>
-          <tr><td><div class="plan-name-cell">Fiber 200</div></td><td><span class="speed-val">200/200 Mbps</span></td><td class="price-val">$29.99/mo</td><td>$50 Visa</td><td>Free eero Pro 6E router, free install</td></tr>
-          <tr style="background:#f0f9ff;"><td><div class="plan-name-cell">Fiber 500 <span class="tag tag-best">Best Value</span></div></td><td><span class="speed-val">500/500 Mbps</span></td><td class="price-val">$49.99/mo</td><td>$50 Visa</td><td>Free install, flat rate forever</td></tr>
-          <tr><td><div class="plan-name-cell">Fiber 1 Gig</div></td><td><span class="speed-val">1,000/1,000 Mbps</span></td><td class="price-val">$74.99/mo</td><td>$100 Visa</td><td>Netflix Premium bundle available +$30/mo</td></tr>
-          <tr><td><div class="plan-name-cell">Fiber 2 Gig</div></td><td><span class="speed-val">2,000/2,000 Mbps</span></td><td class="price-val">$109.99/mo</td><td>$150 Visa</td><td>Two eero Max 7 routers</td></tr>
-          <tr><td><div class="plan-name-cell">Fiber 5 Gig</div></td><td><span class="speed-val">5,000/5,000 Mbps</span></td><td class="price-val">$154.99/mo</td><td>$200 Visa</td><td>TP-Link AXE300 router included</td></tr>
-          <tr><td><div class="plan-name-cell">Fiber 7 Gig <span class="tag tag-fast">Max</span></div></td><td><span class="speed-val">7,000/7,000 Mbps</span></td><td class="price-val">$174.99/mo</td><td>$200 Visa</td><td>Two FREE eero Max 7 routers ($899 value)</td></tr>
+          <tr><td><div class="plan-name-cell">Fiber 200</div></td><td><span class="speed-val">200/200 Mbps</span></td><td class="price-val">$29.99/mo</td><td>$50 Visa</td><td>Free eero Pro 6E router, free install</td><td style="white-space:nowrap"><a href="https://frontier.com/local/california" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
+          <tr style="background:#f0f9ff;"><td><div class="plan-name-cell">Fiber 500 <span class="tag tag-best">Best Value</span></div></td><td><span class="speed-val">500/500 Mbps</span></td><td class="price-val">$49.99/mo</td><td>$50 Visa</td><td>Free install, flat rate forever</td><td style="white-space:nowrap"><a href="https://frontier.com/local/california" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
+          <tr><td><div class="plan-name-cell">Fiber 1 Gig</div></td><td><span class="speed-val">1,000/1,000 Mbps</span></td><td class="price-val">$74.99/mo</td><td>$100 Visa</td><td>Netflix Premium bundle available +$30/mo</td><td style="white-space:nowrap"><a href="https://frontier.com/local/california" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
+          <tr><td><div class="plan-name-cell">Fiber 2 Gig</div></td><td><span class="speed-val">2,000/2,000 Mbps</span></td><td class="price-val">$109.99/mo</td><td>$150 Visa</td><td>Two eero Max 7 routers</td><td style="white-space:nowrap"><a href="https://frontier.com/local/california" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
+          <tr><td><div class="plan-name-cell">Fiber 5 Gig</div></td><td><span class="speed-val">5,000/5,000 Mbps</span></td><td class="price-val">$154.99/mo</td><td>$200 Visa</td><td>TP-Link AXE300 router included</td><td style="white-space:nowrap"><a href="https://frontier.com/local/california" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
+          <tr><td><div class="plan-name-cell">Fiber 7 Gig <span class="tag tag-fast">Max</span></div></td><td><span class="speed-val">7,000/7,000 Mbps</span></td><td class="price-val">$174.99/mo</td><td>$200 Visa</td><td>Two FREE eero Max 7 routers ($899 value)</td><td style="white-space:nowrap"><a href="https://frontier.com/local/california" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
         </tbody>
-      </table>
+      </table></div>
       <div class="affiliate-note">💡 <strong>Bundles:</strong> Add Verizon Mobile → 6 months free on plans up to 1 Gig, then $15/mo off forever. YouTube TV bundle saves $10/mo. Frontier Secure (security suite) +$10/mo.</div>
     </div>
 
@@ -616,17 +958,17 @@ a{color:inherit;text-decoration:none;}
           <span class="tag tag-best">Best Overall</span>
         </div>
       </div>
-      <table class="plans-table">
-        <thead><tr><th>Plan</th><th>Speed (Symmetric)</th><th>Price (w/ AutoPay)</th><th>Reward Card</th><th>Notes</th></tr></thead>
+      <div class="table-wrap"><table class="plans-table">
+        <thead><tr><th>Plan</th><th>Speed (Symmetric)</th><th>Price (w/ AutoPay)</th><th>Reward Card</th><th>Notes</th><th>Get Deal</th></tr></thead>
         <tbody>
-          <tr><td><div class="plan-name-cell">Internet 300</div></td><td><span class="speed-val">300/300 Mbps</span></td><td class="price-val">$35/mo</td><td>$100 Visa</td><td>Flat rate, no price hikes</td></tr>
-          <tr style="background:#f0f9ff;"><td><div class="plan-name-cell">Internet 500 <span class="tag tag-best">Best Value</span></div></td><td><span class="speed-val">500/500 Mbps</span></td><td class="price-val">$45/mo</td><td>$100 Visa</td><td>20% off w/ AT&T Wireless</td></tr>
-          <tr><td><div class="plan-name-cell">Internet 1 Gig</div></td><td><span class="speed-val">1,000/1,000 Mbps</span></td><td class="price-val">$65/mo</td><td>$100 Visa</td><td>All-Fi WiFi included</td></tr>
-          <tr><td><div class="plan-name-cell">Internet 2 Gig</div></td><td><span class="speed-val">2,000/2,000 Mbps</span></td><td class="price-val">$110/mo</td><td>$200–300 Visa</td><td>5 WiFi extenders included</td></tr>
-          <tr><td><div class="plan-name-cell">Internet 5 Gig <span class="tag tag-fast">Fastest</span></div></td><td><span class="speed-val">4,700/4,700 Mbps</span></td><td class="price-val">$180/mo</td><td>$300 Visa</td><td>5 Smart WiFi Extenders FREE</td></tr>
-          <tr><td><div class="plan-name-cell">Internet Air <span class="tag tag-new">5G Wireless</span></div><div class="plan-note">Where fiber isn't available</div></td><td><span class="speed-val">~100–300 Mbps</span></td><td class="price-val">$47/mo</td><td>$100 Visa</td><td>Self-install, 350 GB/mo data</td></tr>
+          <tr><td><div class="plan-name-cell">Internet 300</div></td><td><span class="speed-val">300/300 Mbps</span></td><td class="price-val">$35/mo</td><td>$100 Visa</td><td>Flat rate, no price hikes</td><td style="white-space:nowrap"><a href="https://www.att.com/internet/" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
+          <tr style="background:#f0f9ff;"><td><div class="plan-name-cell">Internet 500 <span class="tag tag-best">Best Value</span></div></td><td><span class="speed-val">500/500 Mbps</span></td><td class="price-val">$45/mo</td><td>$100 Visa</td><td>20% off w/ AT&T Wireless</td><td style="white-space:nowrap"><a href="https://www.att.com/internet/" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
+          <tr><td><div class="plan-name-cell">Internet 1 Gig</div></td><td><span class="speed-val">1,000/1,000 Mbps</span></td><td class="price-val">$65/mo</td><td>$100 Visa</td><td>All-Fi WiFi included</td><td style="white-space:nowrap"><a href="https://www.att.com/internet/" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
+          <tr><td><div class="plan-name-cell">Internet 2 Gig</div></td><td><span class="speed-val">2,000/2,000 Mbps</span></td><td class="price-val">$110/mo</td><td>$200–300 Visa</td><td>5 WiFi extenders included</td><td style="white-space:nowrap"><a href="https://www.att.com/internet/" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
+          <tr><td><div class="plan-name-cell">Internet 5 Gig <span class="tag tag-fast">Fastest</span></div></td><td><span class="speed-val">4,700/4,700 Mbps</span></td><td class="price-val">$180/mo</td><td>$300 Visa</td><td>5 Smart WiFi Extenders FREE</td><td style="white-space:nowrap"><a href="https://www.att.com/internet/" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
+          <tr><td><div class="plan-name-cell">Internet Air <span class="tag tag-new">5G Wireless</span></div><div class="plan-note">Where fiber isn't available</div></td><td><span class="speed-val">~100–300 Mbps</span></td><td class="price-val">$47/mo</td><td>$100 Visa</td><td>Self-install, 350 GB/mo data</td><td style="white-space:nowrap"><a href="https://www.att.com/internet/" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
         </tbody>
-      </table>
+      </table></div>
       <div class="affiliate-note">💡 <strong>Bundle with AT&T Wireless</strong> and save 20% on your internet plan every month — that's $9/mo off the 500 plan, $13/mo off Gig.</div>
     </div>
 
@@ -642,14 +984,14 @@ a{color:inherit;text-decoration:none;}
           <span class="tag tag-new">5G Wireless</span>
         </div>
       </div>
-      <table class="plans-table">
-        <thead><tr><th>Plan</th><th>Speed</th><th>Price</th><th>Extras</th></tr></thead>
+      <div class="table-wrap"><table class="plans-table">
+        <thead><tr><th>Plan</th><th>Speed</th><th>Price</th><th>Extras</th><th>Get Deal</th></tr></thead>
         <tbody>
-          <tr style="background:#f0f9ff;"><td><div class="plan-name-cell">Home Internet (w/ T-Mobile voice) <span class="tag tag-cheap">Cheapest 5G</span></div></td><td><span class="speed-val">133–415 Mbps</span></td><td class="price-val">$35/mo</td><td>5-yr price lock, free gateway, self-install</td></tr>
-          <tr><td><div class="plan-name-cell">Home Internet (standalone)</div></td><td><span class="speed-val">133–415 Mbps</span></td><td class="price-val">$50/mo</td><td>5-yr price lock, no equipment fee</td></tr>
-          <tr><td><div class="plan-name-cell">All-In Home Internet</div></td><td><span class="speed-val">Up to 415 Mbps</span></td><td class="price-val">$60/mo</td><td>Paramount+ Essential included</td></tr>
+          <tr style="background:#f0f9ff;"><td><div class="plan-name-cell">Home Internet (w/ T-Mobile voice) <span class="tag tag-cheap">Cheapest 5G</span></div></td><td><span class="speed-val">133–415 Mbps</span></td><td class="price-val">$35/mo</td><td>5-yr price lock, free gateway, self-install</td><td style="white-space:nowrap"><a href="https://t-mobile.com/home-internet" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
+          <tr><td><div class="plan-name-cell">Home Internet (standalone)</div></td><td><span class="speed-val">133–415 Mbps</span></td><td class="price-val">$50/mo</td><td>5-yr price lock, no equipment fee</td><td style="white-space:nowrap"><a href="https://t-mobile.com/home-internet" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
+          <tr><td><div class="plan-name-cell">All-In Home Internet</div></td><td><span class="speed-val">Up to 415 Mbps</span></td><td class="price-val">$60/mo</td><td>Paramount+ Essential included</td><td style="white-space:nowrap"><a href="https://t-mobile.com/home-internet" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
         </tbody>
-      </table>
+      </table></div>
       <div class="affiliate-note">⚠️ Only ~22% coverage in Moreno Valley — check your exact address first at T-Mobile.com/home-internet</div>
     </div>
 
@@ -662,19 +1004,19 @@ a{color:inherit;text-decoration:none;}
         </div>
         <div class="prov-right"><span class="coverage-badge cov-high">Coverage: 100%</span></div>
       </div>
-      <table class="plans-table">
-        <thead><tr><th>Provider</th><th>Plan</th><th>Speed</th><th>Price</th><th>Hardware</th><th>Notes</th></tr></thead>
+      <div class="table-wrap"><table class="plans-table">
+        <thead><tr><th>Provider</th><th>Plan</th><th>Speed</th><th>Price</th><th>Hardware</th><th>Notes</th><th>Get Deal</th></tr></thead>
         <tbody>
-          <tr style="background:#f0f9ff;"><td style="font-weight:700;">Starlink <span class="tag tag-best">Recommended</span></td><td>Residential Standard</td><td><span class="speed-val">50–250 Mbps</span></td><td class="price-val">$90/mo</td><td>$349 one-time</td><td>~25ms latency, 30-day trial</td></tr>
-          <tr><td style="font-weight:700;">Starlink</td><td>Residential Max</td><td><span class="speed-val">Up to 400 Mbps</span></td><td class="price-val">$120/mo</td><td>$349 one-time</td><td>Top priority, Router Mini free</td></tr>
-          <tr><td style="font-weight:700;">Starlink</td><td>Mini (portable)</td><td><span class="speed-val">50–100 Mbps</span></td><td class="price-val">$50/mo</td><td>$249 one-time</td><td>50 GB/mo high-speed, backpack-sized</td></tr>
-          <tr><td style="font-weight:700;">EarthLink</td><td>Internet 100</td><td><span class="speed-val">100 Mbps</span></td><td class="price-val">$39.95/mo</td><td>Included</td><td>No credit check required</td></tr>
-          <tr><td style="font-weight:700;">EarthLink</td><td>Internet 500</td><td><span class="speed-val">500 Mbps</span></td><td class="price-val">$49.95/mo</td><td>Included</td><td>No credit check, no contract</td></tr>
-          <tr><td style="font-weight:700;">EarthLink</td><td>Internet 1 Gig</td><td><span class="speed-val">1,000/1,000 Mbps</span></td><td class="price-val">$69.95/mo</td><td>Included</td><td>No credit check — unique advantage</td></tr>
-          <tr><td style="font-weight:700;">HughesNet <span class="tag tag-warn">Last Resort</span></td><td>Select 50 GB</td><td><span class="speed-val">Up to 50 Mbps</span></td><td class="price-val">$74.99/mo</td><td>+$14.99/mo lease</td><td>600–800ms latency, 2-yr contract</td></tr>
-          <tr><td style="font-weight:700;">Viasat <span class="tag tag-warn">Last Resort</span></td><td>Unlimited Gold 50</td><td><span class="speed-val">Up to 50 Mbps</span></td><td class="price-val">$99.99/mo</td><td>+$9.99/mo lease</td><td>Deprioritized after threshold, high latency</td></tr>
+          <tr style="background:#f0f9ff;"><td style="font-weight:700;">Starlink <span class="tag tag-best">Recommended</span></td><td>Residential Standard</td><td><span class="speed-val">50–250 Mbps</span></td><td class="price-val">$90/mo</td><td>$349 one-time</td><td>~25ms latency, 30-day trial</td><td style="white-space:nowrap"><a href="https://www.starlink.com" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
+          <tr><td style="font-weight:700;">Starlink</td><td>Residential Max</td><td><span class="speed-val">Up to 400 Mbps</span></td><td class="price-val">$120/mo</td><td>$349 one-time</td><td>Top priority, Router Mini free</td><td style="white-space:nowrap"><a href="https://www.starlink.com" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
+          <tr><td style="font-weight:700;">Starlink</td><td>Mini (portable)</td><td><span class="speed-val">50–100 Mbps</span></td><td class="price-val">$50/mo</td><td>$249 one-time</td><td>50 GB/mo high-speed, backpack-sized</td><td style="white-space:nowrap"><a href="https://www.starlink.com" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
+          <tr><td style="font-weight:700;">EarthLink</td><td>Internet 100</td><td><span class="speed-val">100 Mbps</span></td><td class="price-val">$39.95/mo</td><td>Included</td><td>No credit check required</td><td style="white-space:nowrap"><a href="https://www.starlink.com" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
+          <tr><td style="font-weight:700;">EarthLink</td><td>Internet 500</td><td><span class="speed-val">500 Mbps</span></td><td class="price-val">$49.95/mo</td><td>Included</td><td>No credit check, no contract</td><td style="white-space:nowrap"><a href="https://www.starlink.com" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
+          <tr><td style="font-weight:700;">EarthLink</td><td>Internet 1 Gig</td><td><span class="speed-val">1,000/1,000 Mbps</span></td><td class="price-val">$69.95/mo</td><td>Included</td><td>No credit check — unique advantage</td><td style="white-space:nowrap"><a href="https://www.starlink.com" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
+          <tr><td style="font-weight:700;">HughesNet <span class="tag tag-warn">Last Resort</span></td><td>Select 50 GB</td><td><span class="speed-val">Up to 50 Mbps</span></td><td class="price-val">$74.99/mo</td><td>+$14.99/mo lease</td><td>600–800ms latency, 2-yr contract</td><td style="white-space:nowrap"><a href="https://www.starlink.com" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
+          <tr><td style="font-weight:700;">Viasat <span class="tag tag-warn">Last Resort</span></td><td>Unlimited Gold 50</td><td><span class="speed-val">Up to 50 Mbps</span></td><td class="price-val">$99.99/mo</td><td>+$9.99/mo lease</td><td>Deprioritized after threshold, high latency</td><td style="white-space:nowrap"><a href="https://www.starlink.com" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
         </tbody>
-      </table>
+      </table></div>
     </div>
   </div>
 
@@ -690,14 +1032,14 @@ a{color:inherit;text-decoration:none;}
         </div>
         <div class="prov-right"><span class="coverage-badge cov-high">Coverage: 85%</span></div>
       </div>
-      <table class="plans-table">
-        <thead><tr><th>Plan</th><th>Speed</th><th>Upload</th><th>Promo Price</th><th>Regular Rate</th></tr></thead>
+      <div class="table-wrap"><table class="plans-table">
+        <thead><tr><th>Plan</th><th>Speed</th><th>Upload</th><th>Promo Price</th><th>Regular Rate</th><th>Get Deal</th></tr></thead>
         <tbody>
-          <tr><td><div class="plan-name-cell">Internet Advantage</div></td><td><span class="speed-val">100 Mbps</span></td><td>10 Mbps</td><td class="price-val">$30/mo</td><td><span class="price-reg">~$55–65/mo</span></td></tr>
-          <tr style="background:#f0f9ff;"><td><div class="plan-name-cell">Internet Premier <span class="tag tag-best">Best Value</span></div></td><td><span class="speed-val">500 Mbps</span></td><td>20 Mbps</td><td class="price-val">$50/mo</td><td><span class="price-reg">~$75–80/mo</span></td></tr>
-          <tr><td><div class="plan-name-cell">Internet Gig</div></td><td><span class="speed-val">1,000 Mbps</span></td><td>40 Mbps</td><td class="price-val">$70/mo</td><td><span class="price-reg">~$105/mo</span></td></tr>
+          <tr><td><div class="plan-name-cell">Internet Advantage</div></td><td><span class="speed-val">100 Mbps</span></td><td>10 Mbps</td><td class="price-val">$30/mo</td><td><span class="price-reg">~$55–65/mo</span></td><td style="white-space:nowrap"><a href="https://www.spectrum.com" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
+          <tr style="background:#f0f9ff;"><td><div class="plan-name-cell">Internet Premier <span class="tag tag-best">Best Value</span></div></td><td><span class="speed-val">500 Mbps</span></td><td>20 Mbps</td><td class="price-val">$50/mo</td><td><span class="price-reg">~$75–80/mo</span></td><td style="white-space:nowrap"><a href="https://www.spectrum.com" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
+          <tr><td><div class="plan-name-cell">Internet Gig</div></td><td><span class="speed-val">1,000 Mbps</span></td><td>40 Mbps</td><td class="price-val">$70/mo</td><td><span class="price-reg">~$105/mo</span></td><td style="white-space:nowrap"><a href="https://www.spectrum.com" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
         </tbody>
-      </table>
+      </table></div>
     </div>
 
     <div class="provider-block">
@@ -708,15 +1050,15 @@ a{color:inherit;text-decoration:none;}
         </div>
         <div class="prov-right"><span class="coverage-badge cov-high">Coverage: 100%</span><span class="tag tag-cheap">Cheapest</span></div>
       </div>
-      <table class="plans-table">
-        <thead><tr><th>Plan</th><th>Speed</th><th>Price</th><th>Data Cap</th><th>Notes</th></tr></thead>
+      <div class="table-wrap"><table class="plans-table">
+        <thead><tr><th>Plan</th><th>Speed</th><th>Price</th><th>Data Cap</th><th>Notes</th><th>Get Deal</th></tr></thead>
         <tbody>
-          <tr style="background:#f0f9ff;"><td><div class="plan-name-cell">Access Internet 60 <span class="tag tag-cheap">Lowest Price</span></div></td><td><span class="speed-val">60 Mbps</span></td><td class="price-val">$24.99/mo</td><td>400 GB/mo</td><td>Best starting price in Perris</td></tr>
-          <tr><td><div class="plan-name-cell">Internet 100</div></td><td><span class="speed-val">100 Mbps</span></td><td class="price-val">$39.99/mo</td><td>400 GB/mo</td><td>+$10/mo unlimited data add-on</td></tr>
-          <tr><td><div class="plan-name-cell">Internet 300</div></td><td><span class="speed-val">300 Mbps</span></td><td class="price-val">$49.99/mo</td><td>700 GB/mo</td><td>TV bundle available</td></tr>
-          <tr><td><div class="plan-name-cell">Internet 1 Gig</div></td><td><span class="speed-val">1,000 Mbps</span></td><td class="price-val">$69.99/mo</td><td>Unlimited</td><td>Best Mediacom tier</td></tr>
+          <tr style="background:#f0f9ff;"><td><div class="plan-name-cell">Access Internet 60 <span class="tag tag-cheap">Lowest Price</span></div></td><td><span class="speed-val">60 Mbps</span></td><td class="price-val">$24.99/mo</td><td>400 GB/mo</td><td>Best starting price in Perris</td><td style="white-space:nowrap"><a href="https://www.mediacomcable.com" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
+          <tr><td><div class="plan-name-cell">Internet 100</div></td><td><span class="speed-val">100 Mbps</span></td><td class="price-val">$39.99/mo</td><td>400 GB/mo</td><td>+$10/mo unlimited data add-on</td><td style="white-space:nowrap"><a href="https://www.mediacomcable.com" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
+          <tr><td><div class="plan-name-cell">Internet 300</div></td><td><span class="speed-val">300 Mbps</span></td><td class="price-val">$49.99/mo</td><td>700 GB/mo</td><td>TV bundle available</td><td style="white-space:nowrap"><a href="https://www.mediacomcable.com" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
+          <tr><td><div class="plan-name-cell">Internet 1 Gig</div></td><td><span class="speed-val">1,000 Mbps</span></td><td class="price-val">$69.99/mo</td><td>Unlimited</td><td>Best Mediacom tier</td><td style="white-space:nowrap"><a href="https://www.mediacomcable.com" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
         </tbody>
-      </table>
+      </table></div>
     </div>
 
     <div class="provider-block">
@@ -727,14 +1069,14 @@ a{color:inherit;text-decoration:none;}
         </div>
         <div class="prov-right"><span class="coverage-badge cov-high">Coverage: 78%</span><span class="tag tag-new">5G</span></div>
       </div>
-      <table class="plans-table">
-        <thead><tr><th>Plan</th><th>Speed</th><th>Price</th><th>Notes</th></tr></thead>
+      <div class="table-wrap"><table class="plans-table">
+        <thead><tr><th>Plan</th><th>Speed</th><th>Price</th><th>Notes</th><th>Get Deal</th></tr></thead>
         <tbody>
-          <tr><td><div class="plan-name-cell">5G Home (w/ Verizon mobile)</div></td><td><span class="speed-val">Up to 1 Gbps</span></td><td class="price-val">$35/mo</td><td>Requires qualifying Verizon wireless plan</td></tr>
-          <tr style="background:#f0f9ff;"><td><div class="plan-name-cell">5G Home (standalone) <span class="tag tag-best">Most Popular</span></div></td><td><span class="speed-val">Up to 1 Gbps</span></td><td class="price-val">$50/mo</td><td>Self-install gateway, no contract</td></tr>
-          <tr><td><div class="plan-name-cell">5G Home Plus</div></td><td><span class="speed-val">Up to 1 Gbps</span></td><td class="price-val">$70/mo</td><td>Higher network priority + streaming app included</td></tr>
+          <tr><td><div class="plan-name-cell">5G Home (w/ Verizon mobile)</div></td><td><span class="speed-val">Up to 1 Gbps</span></td><td class="price-val">$35/mo</td><td>Requires qualifying Verizon wireless plan</td><td style="white-space:nowrap"><a href="https://www.verizon.com/home/internet/" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
+          <tr style="background:#f0f9ff;"><td><div class="plan-name-cell">5G Home (standalone) <span class="tag tag-best">Most Popular</span></div></td><td><span class="speed-val">Up to 1 Gbps</span></td><td class="price-val">$50/mo</td><td>Self-install gateway, no contract</td><td style="white-space:nowrap"><a href="https://www.verizon.com/home/internet/" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
+          <tr><td><div class="plan-name-cell">5G Home Plus</div></td><td><span class="speed-val">Up to 1 Gbps</span></td><td class="price-val">$70/mo</td><td>Higher network priority + streaming app included</td><td style="white-space:nowrap"><a href="https://www.verizon.com/home/internet/" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
         </tbody>
-      </table>
+      </table></div>
     </div>
 
     <div class="provider-block">
@@ -745,15 +1087,15 @@ a{color:inherit;text-decoration:none;}
         </div>
         <div class="prov-right"><span class="coverage-badge cov-high">Coverage: 99%</span><span class="tag tag-new">No Credit Check</span></div>
       </div>
-      <table class="plans-table">
-        <thead><tr><th>Plan</th><th>Speed</th><th>Price</th><th>Contract</th><th>Notes</th></tr></thead>
+      <div class="table-wrap"><table class="plans-table">
+        <thead><tr><th>Plan</th><th>Speed</th><th>Price</th><th>Contract</th><th>Notes</th><th>Get Deal</th></tr></thead>
         <tbody>
-          <tr><td><div class="plan-name-cell">Internet 100</div></td><td><span class="speed-val">100 Mbps</span></td><td class="price-val">$39.95/mo</td><td>None</td><td>No credit check</td></tr>
-          <tr style="background:#f0f9ff;"><td><div class="plan-name-cell">Internet 500 <span class="tag tag-best">Best Value</span></div></td><td><span class="speed-val">500 Mbps</span></td><td class="price-val">$49.95/mo</td><td>None</td><td>No credit check</td></tr>
-          <tr><td><div class="plan-name-cell">Internet 1 Gig</div></td><td><span class="speed-val">1,000/1,000 Mbps</span></td><td class="price-val">$69.95/mo</td><td>None</td><td>Symmetric speeds, no credit check</td></tr>
-          <tr><td><div class="plan-name-cell">HyperLink 5G</div></td><td><span class="speed-val">Up to 425 Mbps</span></td><td class="price-val">$49.95/mo</td><td>None</td><td>Plug-in gateway, no technician needed</td></tr>
+          <tr><td><div class="plan-name-cell">Internet 100</div></td><td><span class="speed-val">100 Mbps</span></td><td class="price-val">$39.95/mo</td><td>None</td><td>No credit check</td><td style="white-space:nowrap"><a href="https://www.earthlink.net" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
+          <tr style="background:#f0f9ff;"><td><div class="plan-name-cell">Internet 500 <span class="tag tag-best">Best Value</span></div></td><td><span class="speed-val">500 Mbps</span></td><td class="price-val">$49.95/mo</td><td>None</td><td>No credit check</td><td style="white-space:nowrap"><a href="https://www.earthlink.net" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
+          <tr><td><div class="plan-name-cell">Internet 1 Gig</div></td><td><span class="speed-val">1,000/1,000 Mbps</span></td><td class="price-val">$69.95/mo</td><td>None</td><td>Symmetric speeds, no credit check</td><td style="white-space:nowrap"><a href="https://www.earthlink.net" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
+          <tr><td><div class="plan-name-cell">HyperLink 5G</div></td><td><span class="speed-val">Up to 425 Mbps</span></td><td class="price-val">$49.95/mo</td><td>None</td><td>Plug-in gateway, no technician needed</td><td style="white-space:nowrap"><a href="https://www.earthlink.net" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
         </tbody>
-      </table>
+      </table></div>
       <div class="affiliate-note">💡 Frontier, AT&T, T-Mobile, Starlink, HughesNet, and Viasat are also available in Perris — see Moreno Valley tab for full plan details on those providers.</div>
     </div>
   </div>
@@ -770,17 +1112,17 @@ a{color:inherit;text-decoration:none;}
         </div>
         <div class="prov-right"><span class="coverage-badge cov-med">Coverage: 41%</span><span class="tag tag-best">Best Overall</span></div>
       </div>
-      <table class="plans-table">
-        <thead><tr><th>Plan</th><th>Speed (Symmetric)</th><th>Price (w/ AutoPay)</th><th>Reward Card</th></tr></thead>
+      <div class="table-wrap"><table class="plans-table">
+        <thead><tr><th>Plan</th><th>Speed (Symmetric)</th><th>Price (w/ AutoPay)</th><th>Reward Card</th><th>Get Deal</th></tr></thead>
         <tbody>
-          <tr><td><div class="plan-name-cell">Internet 300</div></td><td><span class="speed-val">300/300 Mbps</span></td><td class="price-val">$35/mo</td><td>$100 Visa</td></tr>
-          <tr style="background:#f0f9ff;"><td><div class="plan-name-cell">Internet 500 <span class="tag tag-best">Most Popular</span></div></td><td><span class="speed-val">500/500 Mbps</span></td><td class="price-val">$45/mo</td><td>$100 Visa</td></tr>
-          <tr><td><div class="plan-name-cell">Internet 1 Gig</div></td><td><span class="speed-val">1,000/1,000 Mbps</span></td><td class="price-val">$65/mo</td><td>$100 Visa</td></tr>
-          <tr><td><div class="plan-name-cell">Internet 2 Gig</div></td><td><span class="speed-val">2,000/2,000 Mbps</span></td><td class="price-val">$110/mo</td><td>$200–300 Visa</td></tr>
-          <tr><td><div class="plan-name-cell">Internet 5 Gig</div></td><td><span class="speed-val">4,700/4,700 Mbps</span></td><td class="price-val">$180/mo</td><td>$300 Visa</td></tr>
-          <tr><td><div class="plan-name-cell">Internet Air <span class="tag tag-new">5G Wireless</span></div></td><td><span class="speed-val">~100–300 Mbps</span></td><td class="price-val">$47/mo</td><td>$100 Visa</td></tr>
+          <tr><td><div class="plan-name-cell">Internet 300</div></td><td><span class="speed-val">300/300 Mbps</span></td><td class="price-val">$35/mo</td><td>$100 Visa</td><td style="white-space:nowrap"><a href="https://www.spectrum.com" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
+          <tr style="background:#f0f9ff;"><td><div class="plan-name-cell">Internet 500 <span class="tag tag-best">Most Popular</span></div></td><td><span class="speed-val">500/500 Mbps</span></td><td class="price-val">$45/mo</td><td>$100 Visa</td><td style="white-space:nowrap"><a href="https://www.spectrum.com" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
+          <tr><td><div class="plan-name-cell">Internet 1 Gig</div></td><td><span class="speed-val">1,000/1,000 Mbps</span></td><td class="price-val">$65/mo</td><td>$100 Visa</td><td style="white-space:nowrap"><a href="https://www.spectrum.com" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
+          <tr><td><div class="plan-name-cell">Internet 2 Gig</div></td><td><span class="speed-val">2,000/2,000 Mbps</span></td><td class="price-val">$110/mo</td><td>$200–300 Visa</td><td style="white-space:nowrap"><a href="https://www.spectrum.com" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
+          <tr><td><div class="plan-name-cell">Internet 5 Gig</div></td><td><span class="speed-val">4,700/4,700 Mbps</span></td><td class="price-val">$180/mo</td><td>$300 Visa</td><td style="white-space:nowrap"><a href="https://www.spectrum.com" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
+          <tr><td><div class="plan-name-cell">Internet Air <span class="tag tag-new">5G Wireless</span></div></td><td><span class="speed-val">~100–300 Mbps</span></td><td class="price-val">$47/mo</td><td>$100 Visa</td><td style="white-space:nowrap"><a href="https://www.spectrum.com" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
         </tbody>
-      </table>
+      </table></div>
     </div>
 
     <div class="provider-block">
@@ -791,15 +1133,15 @@ a{color:inherit;text-decoration:none;}
         </div>
         <div class="prov-right"><span class="coverage-badge cov-high">Coverage: 94.3%</span><span class="tag tag-cheap">Widest Coverage</span></div>
       </div>
-      <table class="plans-table">
-        <thead><tr><th>Plan</th><th>Speed</th><th>Promo Price</th><th>Regular Rate</th><th>Notes</th></tr></thead>
+      <div class="table-wrap"><table class="plans-table">
+        <thead><tr><th>Plan</th><th>Speed</th><th>Promo Price</th><th>Regular Rate</th><th>Notes</th><th>Get Deal</th></tr></thead>
         <tbody>
-          <tr><td><div class="plan-name-cell">Internet Advantage</div></td><td><span class="speed-val">100 Mbps</span></td><td class="price-val">$30/mo</td><td><span class="price-reg">~$55–65/mo</span></td><td>Free modem, no contract</td></tr>
-          <tr style="background:#f0f9ff;"><td><div class="plan-name-cell">Internet Premier <span class="tag tag-best">Best Value</span></div></td><td><span class="speed-val">500 Mbps</span></td><td class="price-val">$50/mo</td><td><span class="price-reg">~$75–80/mo</span></td><td>Free modem</td></tr>
-          <tr><td><div class="plan-name-cell">Internet Gig</div></td><td><span class="speed-val">1,000 Mbps</span></td><td class="price-val">$70/mo</td><td><span class="price-reg">~$105/mo</span></td><td>Free Advanced WiFi router</td></tr>
-          <tr><td><div class="plan-name-cell">Internet Ultra</div></td><td><span class="speed-val">2,000 Mbps</span></td><td class="price-val">$90/mo</td><td><span class="price-reg">~$120/mo</span></td><td>Select areas only</td></tr>
+          <tr><td><div class="plan-name-cell">Internet Advantage</div></td><td><span class="speed-val">100 Mbps</span></td><td class="price-val">$30/mo</td><td><span class="price-reg">~$55–65/mo</span></td><td>Free modem, no contract</td><td style="white-space:nowrap"><a href="https://www.spectrum.com" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
+          <tr style="background:#f0f9ff;"><td><div class="plan-name-cell">Internet Premier <span class="tag tag-best">Best Value</span></div></td><td><span class="speed-val">500 Mbps</span></td><td class="price-val">$50/mo</td><td><span class="price-reg">~$75–80/mo</span></td><td>Free modem</td><td style="white-space:nowrap"><a href="https://www.spectrum.com" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
+          <tr><td><div class="plan-name-cell">Internet Gig</div></td><td><span class="speed-val">1,000 Mbps</span></td><td class="price-val">$70/mo</td><td><span class="price-reg">~$105/mo</span></td><td>Free Advanced WiFi router</td><td style="white-space:nowrap"><a href="https://www.spectrum.com" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
+          <tr><td><div class="plan-name-cell">Internet Ultra</div></td><td><span class="speed-val">2,000 Mbps</span></td><td class="price-val">$90/mo</td><td><span class="price-reg">~$120/mo</span></td><td>Select areas only</td><td style="white-space:nowrap"><a href="https://www.spectrum.com" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
         </tbody>
-      </table>
+      </table></div>
     </div>
 
     <div class="provider-block">
@@ -810,15 +1152,15 @@ a{color:inherit;text-decoration:none;}
         </div>
         <div class="prov-right"><span class="coverage-badge cov-low">Coverage: 3%</span><span class="tag tag-fast">Fastest Available</span></div>
       </div>
-      <table class="plans-table">
-        <thead><tr><th>Plan</th><th>Symmetric Speed</th><th>Price</th><th>Reward Card</th></tr></thead>
+      <div class="table-wrap"><table class="plans-table">
+        <thead><tr><th>Plan</th><th>Symmetric Speed</th><th>Price</th><th>Reward Card</th><th>Get Deal</th></tr></thead>
         <tbody>
-          <tr><td>Fiber 200</td><td><span class="speed-val">200/200 Mbps</span></td><td class="price-val">$29.99/mo</td><td>$50 Visa</td></tr>
-          <tr style="background:#f0f9ff;"><td>Fiber 500 <span class="tag tag-best">Best Value</span></td><td><span class="speed-val">500/500 Mbps</span></td><td class="price-val">$49.99/mo</td><td>$50 Visa</td></tr>
-          <tr><td>Fiber 1 Gig</td><td><span class="speed-val">1,000/1,000 Mbps</span></td><td class="price-val">$74.99/mo</td><td>$100 Visa</td></tr>
-          <tr><td>Fiber 7 Gig</td><td><span class="speed-val">7,000/7,000 Mbps</span></td><td class="price-val">$174.99/mo</td><td>$200 Visa + 2 routers</td></tr>
+          <tr><td>Fiber 200</td><td><span class="speed-val">200/200 Mbps</span></td><td class="price-val">$29.99/mo</td><td>$50 Visa</td><td style="white-space:nowrap"><a href="https://frontier.com/local/california" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
+          <tr style="background:#f0f9ff;"><td>Fiber 500 <span class="tag tag-best">Best Value</span></td><td><span class="speed-val">500/500 Mbps</span></td><td class="price-val">$49.99/mo</td><td>$50 Visa</td><td style="white-space:nowrap"><a href="https://frontier.com/local/california" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
+          <tr><td>Fiber 1 Gig</td><td><span class="speed-val">1,000/1,000 Mbps</span></td><td class="price-val">$74.99/mo</td><td>$100 Visa</td><td style="white-space:nowrap"><a href="https://frontier.com/local/california" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
+          <tr><td>Fiber 7 Gig</td><td><span class="speed-val">7,000/7,000 Mbps</span></td><td class="price-val">$174.99/mo</td><td>$200 Visa + 2 routers</td><td style="white-space:nowrap"><a href="https://frontier.com/local/california" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
         </tbody>
-      </table>
+      </table></div>
       <div class="affiliate-note">⚠️ Only 3% of Riverside has Frontier coverage — check frontier.com/local/california/riverside before recommending to customers.</div>
     </div>
 
@@ -830,22 +1172,62 @@ a{color:inherit;text-decoration:none;}
         </div>
         <div class="prov-right"><span class="coverage-badge cov-high">Verizon: 87%</span><span class="tag tag-new">5G</span></div>
       </div>
-      <table class="plans-table">
-        <thead><tr><th>Provider</th><th>Plan</th><th>Speed</th><th>Price</th><th>Notes</th></tr></thead>
+      <div class="table-wrap"><table class="plans-table">
+        <thead><tr><th>Provider</th><th>Plan</th><th>Speed</th><th>Price</th><th>Notes</th><th>Get Deal</th></tr></thead>
         <tbody>
-          <tr style="background:#f0f9ff;"><td style="font-weight:700;">T-Mobile</td><td>Home Internet (w/ line)</td><td><span class="speed-val">133–415 Mbps</span></td><td class="price-val">$35/mo</td><td>5-yr price lock, self-install, no credit check</td></tr>
-          <tr><td style="font-weight:700;">T-Mobile</td><td>Home Internet (standalone)</td><td><span class="speed-val">133–415 Mbps</span></td><td class="price-val">$50/mo</td><td>No equipment fee</td></tr>
-          <tr><td style="font-weight:700;">Verizon</td><td>5G Home (w/ mobile)</td><td><span class="speed-val">Up to 1 Gbps</span></td><td class="price-val">$35/mo</td><td>Best deal if you have Verizon wireless</td></tr>
-          <tr><td style="font-weight:700;">Verizon</td><td>5G Home (standalone)</td><td><span class="speed-val">Up to 1 Gbps</span></td><td class="price-val">$50/mo</td><td>Self-install, no contract</td></tr>
-          <tr><td style="font-weight:700;">Verizon</td><td>5G Home Plus</td><td><span class="speed-val">Up to 1 Gbps</span></td><td class="price-val">$70/mo</td><td>Higher priority + streaming app</td></tr>
+          <tr style="background:#f0f9ff;"><td style="font-weight:700;">T-Mobile</td><td>Home Internet (w/ line)</td><td><span class="speed-val">133–415 Mbps</span></td><td class="price-val">$35/mo</td><td>5-yr price lock, self-install, no credit check</td><td style="white-space:nowrap"><a href="https://www.spectrum.com" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
+          <tr><td style="font-weight:700;">T-Mobile</td><td>Home Internet (standalone)</td><td><span class="speed-val">133–415 Mbps</span></td><td class="price-val">$50/mo</td><td>No equipment fee</td><td style="white-space:nowrap"><a href="https://www.spectrum.com" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
+          <tr><td style="font-weight:700;">Verizon</td><td>5G Home (w/ mobile)</td><td><span class="speed-val">Up to 1 Gbps</span></td><td class="price-val">$35/mo</td><td>Best deal if you have Verizon wireless</td><td style="white-space:nowrap"><a href="https://www.spectrum.com" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
+          <tr><td style="font-weight:700;">Verizon</td><td>5G Home (standalone)</td><td><span class="speed-val">Up to 1 Gbps</span></td><td class="price-val">$50/mo</td><td>Self-install, no contract</td><td style="white-space:nowrap"><a href="https://www.spectrum.com" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
+          <tr><td style="font-weight:700;">Verizon</td><td>5G Home Plus</td><td><span class="speed-val">Up to 1 Gbps</span></td><td class="price-val">$70/mo</td><td>Higher priority + streaming app</td><td style="white-space:nowrap"><a href="https://www.spectrum.com" target="_blank" rel="noopener noreferrer" class="deal-btn">Get Deal →</a></td></tr>
         </tbody>
-      </table>
+      </table></div>
     </div>
 
     <div class="green-box">
       <strong>🏛️ RivcoConnect Program:</strong> Riverside County's RivcoConnect initiative provides affordable low-cost internet plans for qualifying residents (Medi-Cal, WIC, NSLP, low-income). Free tech vans offer on-site WiFi + training in local neighborhoods. Visit <strong>rivcoconnect.org</strong> to check eligibility — also worth advertising on your site as a value-add for visitors.
     </div>
   </div>
+
+  <!-- FAQ SECTION -->
+  <div class="faq-section">
+    <div class="faq-title">Frequently Asked Questions</div>
+    <div class="faq-sub">Everything people in Moreno Valley, Perris, and Riverside ask about switching internet providers.</div>
+
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Is fiber internet available in Moreno Valley? <span class="faq-arrow">▼</span></div>
+      <div class="faq-a">Yes — both Frontier Fiber and AT&T Fiber are available in parts of Moreno Valley, covering approximately 56–79% of addresses depending on the provider. Frontier covers more of the city. The only way to confirm is to check your exact address, since fiber availability is street-by-street. Enter your ZIP above and we'll show you what's available.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">What's the cheapest internet in Perris, CA? <span class="faq-arrow">▼</span></div>
+      <div class="faq-a">Mediacom's Access Internet 60 plan starts at $24.99/mo and is the cheapest option in Perris with 60 Mbps speeds. Spectrum Internet Advantage is $30/mo for 100 Mbps. For households that qualify (low-income, SNAP, Medicaid, K-12 students), Spectrum Internet Assist can be free or near-free. Check the Perris tab above to compare all current plans.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Can I get internet with no credit check in Riverside County? <span class="faq-arrow">▼</span></div>
+      <div class="faq-a">Yes. EarthLink offers fiber and 5G internet plans with no credit check required in all three cities — starting at $39.95/mo for 100 Mbps. T-Mobile Home Internet and Starlink also don't run credit checks. These options are ideal if you've been declined by Spectrum or AT&T.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Does Starlink work in Moreno Valley, Perris, and Riverside? <span class="faq-arrow">▼</span></div>
+      <div class="faq-a">Yes — Starlink has 100% coverage in all three cities. It's the best satellite option, delivering 50–250 Mbps with ~25ms latency (much lower than older satellite providers like HughesNet or Viasat which average 600–800ms). You'll need a one-time hardware cost of $349 (or as low as $89 in low-congestion areas) plus $90/mo. There's a 30-day free trial.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">What internet provider has the best customer service in the Inland Empire? <span class="faq-arrow">▼</span></div>
+      <div class="faq-a">Based on 2025 customer satisfaction surveys: Starlink ranks #1, T-Mobile Home Internet ranks #3. AT&T Fiber and Frontier both score above average. Spectrum and the legacy satellite providers (HughesNet, Viasat) rank lowest due to long hold times and limited technician availability. For outages in the last 30 days, see our Outages tab.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">What happens after the promotional price ends? <span class="faq-arrow">▼</span></div>
+      <div class="faq-a">Spectrum's promo prices last 12 months, then increase by $20–35/mo. Frontier and AT&T Fiber prices never increase — they're flat for life. T-Mobile guarantees no increases for 5 years. Satellite providers (HughesNet, Viasat) often have 2-year contracts with price escalation. We always show the "regular rate" in our plan tables so you know exactly what to expect.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Can I get a bill credit for an internet outage? <span class="faq-arrow">▼</span></div>
+      <div class="faq-a">Yes — most ISPs will credit your bill for extended outages, but they rarely do it automatically. You have to request it. Call customer service, reference the outage date and duration, and ask for a service credit. Spectrum typically credits $5–10/day for verified outages. AT&T and Frontier will credit a prorated daily amount. You can also call us at (951) 713-7247 and we'll help you escalate.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Is this website affiliated with any internet provider? <span class="faq-arrow">▼</span></div>
+      <div class="faq-a">No — we're an independent comparison site. We earn a referral commission when you sign up through our links, but you pay the exact same price you'd pay going directly to the provider. We include all providers including ones where we earn nothing (like HughesNet and Viasat) because our goal is to give you accurate information. We're based in Riverside County and built this specifically for our community.</div>
+    </div>
+  </div>
+
 </div>
 
 <!-- ══════════════ SECTION: MARKETING ══════════════ -->
@@ -997,8 +1379,11 @@ a{color:inherit;text-decoration:none;}
 
   <!-- CRAIGSLIST AD TEMPLATE -->
   <div class="craigslist-box">
-    <div class="craigslist-title">📋 Sample Craigslist Ad — Copy, Paste, Post (Relist every 48 hours)</div>
-    <div class="cl-ad">
+    <div class="craigslist-title" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+      <span>📋 Sample Craigslist Ad — Copy, Paste, Post (Relist every 48 hours)</span>
+      <button class="copy-btn" id="clCopyBtn" onclick="copyClAd()">📋 Copy Ad Text</button>
+    </div>
+    <div class="cl-ad" id="clAdText">
       <div class="cl-headline">✅ Compare ALL Internet Providers in Moreno Valley, Perris & Riverside — FREE Tool</div>
       <br>
       Are you overpaying for internet? We compared every provider available in the Inland Empire so you don't have to.
@@ -1141,7 +1526,7 @@ a{color:inherit;text-decoration:none;}
             <td style="font-weight:700;color:var(--blue);">300–5,000 Mbps</td>
             <td style="font-weight:700;">$35/mo</td>
             <td style="color:var(--green);">None</td>
-            <td><button onclick="window.open('https://www.att.com/internet/','_blank')" style="padding:7px 14px;background:var(--blue);color:white;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;">Get Deal →</button></td>
+            <td><button onclick="safeOpen('https://www.att.com/internet/')" style="padding:7px 14px;background:var(--blue);color:white;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;">Get Deal →</button></td>
           </tr>
           <tr>
             <td style="font-weight:700;">Frontier Fiber</td>
@@ -1149,7 +1534,7 @@ a{color:inherit;text-decoration:none;}
             <td style="font-weight:700;color:var(--blue);">200–7,000 Mbps</td>
             <td style="font-weight:700;">$29.99/mo</td>
             <td style="color:var(--green);">None</td>
-            <td><button onclick="window.open('https://frontier.com/local/california','_blank')" style="padding:7px 14px;background:var(--blue);color:white;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;">Get Deal →</button></td>
+            <td><button onclick="safeOpen('https://frontier.com/local/california')" style="padding:7px 14px;background:var(--blue);color:white;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;">Get Deal →</button></td>
           </tr>
           <tr>
             <td style="font-weight:700;">Spectrum</td>
@@ -1157,7 +1542,7 @@ a{color:inherit;text-decoration:none;}
             <td style="font-weight:700;color:var(--blue);">100–2,000 Mbps</td>
             <td style="font-weight:700;">$30/mo</td>
             <td style="color:var(--green);">None</td>
-            <td><button onclick="window.open('https://www.spectrum.com','_blank')" style="padding:7px 14px;background:var(--blue);color:white;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;">Get Deal →</button></td>
+            <td><button onclick="safeOpen('https://www.spectrum.com')" style="padding:7px 14px;background:var(--blue);color:white;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;">Get Deal →</button></td>
           </tr>
           <tr>
             <td style="font-weight:700;">T-Mobile Home</td>
@@ -1165,7 +1550,7 @@ a{color:inherit;text-decoration:none;}
             <td style="font-weight:700;color:var(--blue);">133–415 Mbps</td>
             <td style="font-weight:700;">$35/mo</td>
             <td style="color:var(--green);">None</td>
-            <td><button onclick="window.open('https://t-mobile.com/home-internet','_blank')" style="padding:7px 14px;background:var(--blue);color:white;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;">Check →</button></td>
+            <td><button onclick="safeOpen('https://t-mobile.com/home-internet')" style="padding:7px 14px;background:var(--blue);color:white;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;">Check →</button></td>
           </tr>
           <tr>
             <td style="font-weight:700;">EarthLink</td>
@@ -1173,7 +1558,7 @@ a{color:inherit;text-decoration:none;}
             <td style="font-weight:700;color:var(--blue);">100–1,000 Mbps</td>
             <td style="font-weight:700;">$39.95/mo</td>
             <td style="color:var(--green);">None</td>
-            <td><button onclick="window.open('https://www.earthlink.net','_blank')" style="padding:7px 14px;background:var(--blue);color:white;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;">Get Deal →</button></td>
+            <td><button onclick="safeOpen('https://www.earthlink.net')" style="padding:7px 14px;background:var(--blue);color:white;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;">Get Deal →</button></td>
           </tr>
           <tr>
             <td style="font-weight:700;">Starlink</td>
@@ -1181,7 +1566,7 @@ a{color:inherit;text-decoration:none;}
             <td style="font-weight:700;color:var(--blue);">50–400 Mbps</td>
             <td style="font-weight:700;">$90/mo</td>
             <td style="color:var(--green);">None</td>
-            <td><button onclick="window.open('https://www.starlink.com','_blank')" style="padding:7px 14px;background:var(--blue);color:white;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;">Get Deal →</button></td>
+            <td><button onclick="safeOpen('https://www.starlink.com')" style="padding:7px 14px;background:var(--blue);color:white;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;">Get Deal →</button></td>
           </tr>
         </tbody>
       </table>
@@ -1436,14 +1821,15 @@ a{color:inherit;text-decoration:none;}
           </div>
           <div class="of-group">
             <label class="of-label" for="of-since">Outage started (approx.)</label>
-            <input class="of-input" id="of-since" name="outage_started" type="text" placeholder="e.g. Today around 3pm">
+            <input class="of-input" id="of-since" name="outage_started" type="datetime-local" aria-label="Approximate outage start time">
           </div>
         </div>
 
         <div class="of-row single">
           <div class="of-group">
             <label class="of-label" for="of-desc">Describe the issue <span class="req">*</span></label>
-            <textarea class="of-textarea" id="of-desc" name="description" placeholder="e.g. No internet since 2pm, modem lights are all red, TV also out…" required></textarea>
+            <textarea class="of-textarea" id="of-desc" name="description" placeholder="e.g. No internet since 2pm, modem lights are all red, TV also out…" required maxlength="1000" aria-describedby="of-desc-counter"></textarea>
+            <div class="of-char-counter" id="of-desc-counter">0 / 1000</div>
             <span class="of-field-error" id="of-desc-err">Please describe the issue.</span>
           </div>
         </div>
@@ -1477,15 +1863,542 @@ a{color:inherit;text-decoration:none;}
     <a href="tel:9517137247" style="color:var(--blue);font-weight:600;">(951) 713-7247</a>.
     <br><br>
     <strong>Provider outage pages:</strong>
-    <a href="https://www.spectrum.net/support/internet/understanding-charter-outage-information/" target="_blank" style="color:var(--blue);">Spectrum</a> ·
-    <a href="https://frontier.com/local/california" target="_blank" style="color:var(--blue);">Frontier</a> ·
-    <a href="https://www.att.com/outages/" target="_blank" style="color:var(--blue);">AT&T</a> ·
-    <a href="https://www.t-mobile.com/networks/network-experience" target="_blank" style="color:var(--blue);">T-Mobile</a> ·
-    <a href="https://www.verizon.com/support/residential/internet/highspeedinternet/general+support/network+outage/question.htm" target="_blank" style="color:var(--blue);">Verizon</a> ·
-    <a href="https://downdetector.com/status/spectrum/" target="_blank" style="color:var(--blue);">Downdetector (live)</a>
+    <a href="https://www.spectrum.net/support/internet/understanding-charter-outage-information/" target="_blank" rel="noopener noreferrer" style="color:var(--blue);">Spectrum</a> ·
+    <a href="https://frontier.com/local/california" target="_blank" rel="noopener noreferrer" style="color:var(--blue);">Frontier</a> ·
+    <a href="https://www.att.com/outages/" target="_blank" rel="noopener noreferrer" style="color:var(--blue);">AT&T</a> ·
+    <a href="https://www.t-mobile.com/networks/network-experience" target="_blank" rel="noopener noreferrer" style="color:var(--blue);">T-Mobile</a> ·
+    <a href="https://www.verizon.com/support/residential/internet/highspeedinternet/general+support/network+outage/question.htm" target="_blank" rel="noopener noreferrer" style="color:var(--blue);">Verizon</a> ·
+    <a href="https://downdetector.com/status/spectrum/" target="_blank" rel="noopener noreferrer" style="color:var(--blue);">Downdetector (live)</a>
   </div>
 
 </div>
+
+<!-- ══════════════ SECTION: CANCEL ISP GUIDE ══════════════ -->
+<div class="section" id="sec-cancel">
+<div class="cancel-section">
+
+  <div class="cancel-intro">
+    <div class="cancel-intro-inner">
+      <div class="cancel-warning">⚠️ Read before you call — know your rights</div>
+      <h2 style="margin-top:12px;">How to Cancel Every Internet Provider</h2>
+      <p>Step-by-step cancellation guides for every ISP in Moreno Valley, Perris & Riverside. No surprises, no hidden fees — just exactly what to say and do. Data sourced from official provider policies and consumer advocacy guides (updated March 2026).</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;">
+        <span style="background:rgba(212,160,23,0.2);border:1px solid rgba(212,160,23,0.4);color:#D4A017;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:600;">📞 Always get a confirmation number</span>
+        <span style="background:rgba(212,160,23,0.2);border:1px solid rgba(212,160,23,0.4);color:#D4A017;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:600;">📦 Return equipment within 30 days</span>
+        <span style="background:rgba(212,160,23,0.2);border:1px solid rgba(212,160,23,0.4);color:#D4A017;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:600;">🗓️ Time cancellation end of billing cycle</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cancel-grid">
+
+    <!-- SPECTRUM -->
+    <div class="cancel-card">
+      <div class="cancel-card-head">
+        <div class="cancel-card-icon" style="background:#EEF5FF;">📡</div>
+        <div><div class="cancel-card-title">Spectrum</div><div class="cancel-card-sub">Cable • No contracts • No early termination fee</div></div>
+        <span class="cancel-diff diff-medium">Medium</span>
+      </div>
+      <div class="cancel-steps">
+        <div class="cancel-step">
+          <div class="cs-num">1</div>
+          <div class="cs-body">
+            <div class="cs-title">Prepare your account info</div>
+            <div class="cs-desc">Have your account number (on your bill), the phone number on your account, and the last 4 digits of your SSN ready.</div>
+          </div>
+        </div>
+        <div class="cancel-step">
+          <div class="cs-num">2</div>
+          <div class="cs-body">
+            <div class="cs-title">Call the cancellation line</div>
+            <div class="cs-desc">Call <strong>(833) 267-6094</strong>. Online cancellation is not available. When asked why you're calling, say <em>"service changes"</em> — then select <em>"remove service."</em></div>
+            <span class="cs-phone">📞 (833) 267-6094</span>
+          </div>
+        </div>
+        <div class="cancel-step">
+          <div class="cs-num">3</div>
+          <div class="cs-body">
+            <div class="cs-title">Beat the retention script</div>
+            <div class="cs-desc">You'll be transferred to retention. They'll offer upgrades, discounts, and a pause option. If you're certain, say: <em>"I'm moving out of Spectrum's service area"</em> — this ends the script immediately.</div>
+            <div class="cs-tip">💡 Saying "moving" = fastest path to cancellation</div>
+          </div>
+        </div>
+        <div class="cancel-step">
+          <div class="cs-num">4</div>
+          <div class="cs-body">
+            <div class="cs-title">Get your confirmation</div>
+            <div class="cs-desc">Ask for a cancellation confirmation number and email confirmation. Note your service end date — bills are <strong>not prorated</strong>, so time this to end of your billing cycle.</div>
+          </div>
+        </div>
+        <div class="cancel-step">
+          <div class="cs-num">5</div>
+          <div class="cs-body">
+            <div class="cs-title">Return equipment</div>
+            <div class="cs-desc">Return modem/router within 30 days at any Spectrum store or UPS/FedEx store (free). Keep your receipt — it's your proof against future equipment charges.</div>
+            <div class="cs-tip">⚠️ Keep receipt — Spectrum has charged customers after return</div>
+          </div>
+        </div>
+        <div class="cancel-step">
+          <div class="cs-num">6</div>
+          <div class="cs-body">
+            <div class="cs-title">Check your final bill</div>
+            <div class="cs-desc">Log in or call back one billing cycle after cancellation to verify no new charges appear. Spectrum sometimes adds fees post-cancellation.</div>
+          </div>
+        </div>
+      </div>
+      <div class="cancel-card-footer">
+        <div class="cfoot-item"><strong>Early termination fee:</strong> <span class="cfoot-badge fee-no">None</span></div>
+        <div class="cfoot-item"><strong>Disconnect fee:</strong> <span class="cfoot-badge fee-no">None</span></div>
+        <div class="cfoot-item"><strong>Bill prorated?</strong> <span class="cfoot-badge fee-yes">No — full month charged</span></div>
+        <div class="cfoot-item"><strong>Online cancel?</strong> <span class="cfoot-badge fee-yes">No — call or store only</span></div>
+      </div>
+    </div>
+
+    <!-- FRONTIER -->
+    <div class="cancel-card">
+      <div class="cancel-card-head">
+        <div class="cancel-card-icon" style="background:#FFF0EB;">🔆</div>
+        <div><div class="cancel-card-title">Frontier Fiber</div><div class="cancel-card-sub">Fiber • $9.99 disconnect fee • No contracts for most 2026 customers</div></div>
+        <span class="cancel-diff diff-hard">Hard</span>
+      </div>
+      <div class="cancel-steps">
+        <div class="cancel-step">
+          <div class="cs-num">1</div>
+          <div class="cs-body">
+            <div class="cs-title">Check if you're in a contract</div>
+            <div class="cs-desc">Most customers who signed up after 2020 are contract-free. If you have a 1–2 year contract from 2019 or earlier, early termination fees of <strong>$200–$400</strong> apply. Check your original agreement.</div>
+          </div>
+        </div>
+        <div class="cancel-step">
+          <div class="cs-num">2</div>
+          <div class="cs-body">
+            <div class="cs-title">Pay off any disputes first</div>
+            <div class="cs-desc">Frontier is more willing to negotiate outstanding balance disputes <em>before</em> you announce you're canceling. Resolve any billing disputes now for better results.</div>
+            <div class="cs-tip">💡 Negotiate disputed charges before calling to cancel</div>
+          </div>
+        </div>
+        <div class="cancel-step">
+          <div class="cs-num">3</div>
+          <div class="cs-body">
+            <div class="cs-title">Call to cancel — phone only</div>
+            <div class="cs-desc">Call <strong>(800) 921-8101</strong> and ask for the Retention Department. Alternatively, use the live chat at frontier.com/resources/cancel-service. Say you're moving to end retention scripts faster.</div>
+            <span class="cs-phone">📞 (800) 921-8101</span>
+          </div>
+        </div>
+        <div class="cancel-step">
+          <div class="cs-num">4</div>
+          <div class="cs-body">
+            <div class="cs-title">Set your cancellation date & get confirmation</div>
+            <div class="cs-desc">Bills are <strong>not prorated</strong> — you're billed for the full final month regardless. Ask for a confirmation number and email receipt. Get the agent's name and ticket number.</div>
+          </div>
+        </div>
+        <div class="cancel-step">
+          <div class="cs-num">5</div>
+          <div class="cs-body">
+            <div class="cs-title">Return equipment by UPS only</div>
+            <div class="cs-desc">Frontier does <strong>not</strong> accept store drop-offs. Request a prepaid UPS return box — it arrives in 5–7 days. Return within 30 days or face $100–200/device fees. Keep the UPS tracking receipt.</div>
+            <div class="cs-tip">⚠️ No store drop-offs — UPS mail only</div>
+          </div>
+        </div>
+        <div class="cancel-step">
+          <div class="cs-num">6</div>
+          <div class="cs-body">
+            <div class="cs-title">Expect up to 3 more bills</div>
+            <div class="cs-desc">After cancellation, you may receive up to 3 additional bills for residual charges. The $9.99 disconnect fee appears on your final bill. If on AutoPay, it will be auto-drafted — check your bank.</div>
+          </div>
+        </div>
+      </div>
+      <div class="cancel-card-footer">
+        <div class="cfoot-item"><strong>Disconnect fee:</strong> <span class="cfoot-badge fee-yes">$9.99</span></div>
+        <div class="cfoot-item"><strong>ETF (if in contract):</strong> <span class="cfoot-badge fee-yes">$200–$400</span></div>
+        <div class="cfoot-item"><strong>Bill prorated?</strong> <span class="cfoot-badge fee-yes">No</span></div>
+        <div class="cfoot-item"><strong>Online cancel?</strong> <span class="cfoot-badge fee-yes">No — phone or chat</span></div>
+      </div>
+    </div>
+
+    <!-- AT&T -->
+    <div class="cancel-card">
+      <div class="cancel-card-head">
+        <div class="cancel-card-icon" style="background:#EEF5FF;">📶</div>
+        <div><div class="cancel-card-title">AT&T Internet / Fiber</div><div class="cancel-card-sub">Fiber + 5G Air • No contracts • Equipment return within 21 days</div></div>
+        <span class="cancel-diff diff-hard">Hard</span>
+      </div>
+      <div class="cancel-steps">
+        <div class="cancel-step">
+          <div class="cs-num">1</div>
+          <div class="cs-body">
+            <div class="cs-title">Call during business hours — phone only</div>
+            <div class="cs-desc">AT&T internet cancellations cannot be done online. Call <strong>(800) 288-2020</strong> Mon–Fri 8am–7pm or Sat 8am–5pm local time. Say <em>"cancel service"</em> to the automated system to route directly to retention.</div>
+            <span class="cs-phone">📞 (800) 288-2020</span>
+          </div>
+        </div>
+        <div class="cancel-step">
+          <div class="cs-num">2</div>
+          <div class="cs-body">
+            <div class="cs-title">Have your credentials ready</div>
+            <div class="cs-desc">You'll need your account number and the last 4 digits of your Social Security number. Budget 30–45 minutes — AT&T uses a multi-step retention script.</div>
+          </div>
+        </div>
+        <div class="cancel-step">
+          <div class="cs-num">3</div>
+          <div class="cs-body">
+            <div class="cs-title">Decline the retention offers firmly</div>
+            <div class="cs-desc">Expect 3+ counter-offers: a discount, a plan downgrade, and a transfer to a "specialist." Say firmly: <em>"I appreciate it, but I've made my decision to cancel."</em> Repeat as needed.</div>
+            <div class="cs-tip">💡 "I've made my decision" — repeat calmly until they process it</div>
+          </div>
+        </div>
+        <div class="cancel-step">
+          <div class="cs-num">4</div>
+          <div class="cs-body">
+            <div class="cs-title">Get your cancellation confirmation</div>
+            <div class="cs-desc">Ask for a confirmation number and email receipt. Note your exact service end date. AT&T may prorate your final bill — you may receive a partial refund for unused days.</div>
+          </div>
+        </div>
+        <div class="cancel-step">
+          <div class="cs-num">5</div>
+          <div class="cs-body">
+            <div class="cs-title">Return equipment within 21 days</div>
+            <div class="cs-desc">Return the WiFi gateway and any extenders within <strong>21 days</strong> (shorter than most providers). You can return at any AT&T store, UPS store, or FedEx location. Keep your tracking/drop-off receipt.</div>
+            <div class="cs-tip">⚠️ 21-day return window — shorter than other ISPs</div>
+          </div>
+        </div>
+        <div class="cancel-step">
+          <div class="cs-num">6</div>
+          <div class="cs-body">
+            <div class="cs-title">Monitor final 2 billing cycles</div>
+            <div class="cs-desc">Watch for phantom charges — equipment fees, "restocking fees," or prorated amounts that shouldn't appear. If you see unauthorized charges, file at att.com/support or with the FCC at consumercomplaints.fcc.gov.</div>
+          </div>
+        </div>
+      </div>
+      <div class="cancel-card-footer">
+        <div class="cfoot-item"><strong>ETF:</strong> <span class="cfoot-badge fee-no">None (no contracts)</span></div>
+        <div class="cfoot-item"><strong>Disconnect fee:</strong> <span class="cfoot-badge fee-no">None</span></div>
+        <div class="cfoot-item"><strong>Bill prorated?</strong> <span class="cfoot-badge fee-no">Yes — may get refund</span></div>
+        <div class="cfoot-item"><strong>Equipment window:</strong> <span class="cfoot-badge fee-yes">21 days</span></div>
+      </div>
+    </div>
+
+    <!-- T-MOBILE -->
+    <div class="cancel-card">
+      <div class="cancel-card-head">
+        <div class="cancel-card-icon" style="background:#FDF0F8;">📱</div>
+        <div><div class="cancel-card-title">T-Mobile Home Internet</div><div class="cancel-card-sub">5G • No contracts • Easiest cancellation of all major ISPs</div></div>
+        <span class="cancel-diff diff-easy">Easy</span>
+      </div>
+      <div class="cancel-steps">
+        <div class="cancel-step">
+          <div class="cs-num">1</div>
+          <div class="cs-body">
+            <div class="cs-title">Cancel online, in-store, or by phone</div>
+            <div class="cs-desc">T-Mobile is the most flexible — you can cancel through the T-Mobile app, online at T-Mobile.com, at any T-Mobile retail store, or by calling <strong>(800) 937-8997</strong>. No script-required phone gauntlet.</div>
+            <span class="cs-phone">📞 (800) 937-8997</span>
+          </div>
+        </div>
+        <div class="cancel-step">
+          <div class="cs-num">2</div>
+          <div class="cs-body">
+            <div class="cs-title">Request final prorated bill</div>
+            <div class="cs-desc">T-Mobile typically <strong>prorates</strong> your final bill — you pay only for days used in the final billing cycle. Confirm this when you cancel.</div>
+            <div class="cs-tip">💡 One of the few ISPs that prorates the final bill</div>
+          </div>
+        </div>
+        <div class="cancel-step">
+          <div class="cs-num">3</div>
+          <div class="cs-body">
+            <div class="cs-title">Return the gateway device</div>
+            <div class="cs-desc">Return the 5G Home Internet gateway to any T-Mobile store or ship it back. You have <strong>30 days</strong> after cancellation to return it. No restocking fee if returned in good condition.</div>
+          </div>
+        </div>
+        <div class="cancel-step">
+          <div class="cs-num">4</div>
+          <div class="cs-body">
+            <div class="cs-title">Check your wireless plan interaction</div>
+            <div class="cs-desc">If you bundled your home internet with a T-Mobile wireless plan for the $35/mo rate, canceling home internet won't affect your mobile plan — but your mobile discount from the bundle may change.</div>
+          </div>
+        </div>
+      </div>
+      <div class="cancel-card-footer">
+        <div class="cfoot-item"><strong>ETF:</strong> <span class="cfoot-badge fee-no">None</span></div>
+        <div class="cfoot-item"><strong>Disconnect fee:</strong> <span class="cfoot-badge fee-no">None</span></div>
+        <div class="cfoot-item"><strong>Bill prorated?</strong> <span class="cfoot-badge fee-no">Yes</span></div>
+        <div class="cfoot-item"><strong>Online cancel?</strong> <span class="cfoot-badge fee-no">Yes ✓</span></div>
+      </div>
+    </div>
+
+    <!-- VERIZON -->
+    <div class="cancel-card">
+      <div class="cancel-card-head">
+        <div class="cancel-card-icon" style="background:#FFF0F0;">🔴</div>
+        <div><div class="cancel-card-title">Verizon 5G Home Internet</div><div class="cancel-card-sub">5G • No contracts • Cancel online or by phone</div></div>
+        <span class="cancel-diff diff-easy">Easy</span>
+      </div>
+      <div class="cancel-steps">
+        <div class="cancel-step">
+          <div class="cs-num">1</div>
+          <div class="cs-body">
+            <div class="cs-title">Cancel online or call</div>
+            <div class="cs-desc">Visit verizon.com/home/myaccount and navigate to "Manage Plan" → "Cancel Service." Alternatively call <strong>(800) 837-4966</strong>. No contracts means no early termination fees.</div>
+            <span class="cs-phone">📞 (800) 837-4966</span>
+          </div>
+        </div>
+        <div class="cancel-step">
+          <div class="cs-num">2</div>
+          <div class="cs-body">
+            <div class="cs-title">Return the 5G gateway</div>
+            <div class="cs-desc">Return the home router within <strong>30 days</strong> to any Verizon store or via prepaid return label. Equipment not returned within 30 days may result in a charge of $175–299.</div>
+            <div class="cs-tip">⚠️ $175–299 unreturned equipment fee</div>
+          </div>
+        </div>
+        <div class="cancel-step">
+          <div class="cs-num">3</div>
+          <div class="cs-body">
+            <div class="cs-title">Check mobile plan discount</div>
+            <div class="cs-desc">If you used the $15/mo Verizon mobile bundle discount, canceling home internet ends that discount on your wireless bill. Factor this into your total cost comparison.</div>
+          </div>
+        </div>
+      </div>
+      <div class="cancel-card-footer">
+        <div class="cfoot-item"><strong>ETF:</strong> <span class="cfoot-badge fee-no">None</span></div>
+        <div class="cfoot-item"><strong>Disconnect fee:</strong> <span class="cfoot-badge fee-no">None</span></div>
+        <div class="cfoot-item"><strong>Equipment window:</strong> <span class="cfoot-badge fee-yes">30 days</span></div>
+        <div class="cfoot-item"><strong>Online cancel?</strong> <span class="cfoot-badge fee-no">Yes ✓</span></div>
+      </div>
+    </div>
+
+    <!-- STARLINK -->
+    <div class="cancel-card">
+      <div class="cancel-card-head">
+        <div class="cancel-card-icon" style="background:#F5F5F5;">🛰️</div>
+        <div><div class="cancel-card-title">Starlink</div><div class="cancel-card-sub">Satellite • No contracts • Full online cancellation — easiest of all</div></div>
+        <span class="cancel-diff diff-easy">Easiest</span>
+      </div>
+      <div class="cancel-steps">
+        <div class="cancel-step">
+          <div class="cs-num">1</div>
+          <div class="cs-body">
+            <div class="cs-title">Cancel entirely online</div>
+            <div class="cs-desc">Go to <strong>starlink.com</strong> → log in → click MANAGE on your service → click CANCEL SERVICE. No phone call required. No retention agent. No scripts.</div>
+            <div class="cs-tip">💡 The simplest ISP cancellation process — truly online-only</div>
+          </div>
+        </div>
+        <div class="cancel-step">
+          <div class="cs-num">2</div>
+          <div class="cs-body">
+            <div class="cs-title">Cancel before your invoice generates</div>
+            <div class="cs-desc">To avoid being charged for the next month, cancel <strong>before</strong> your monthly invoice date. Starlink sends an email before billing — cancel within that window.</div>
+          </div>
+        </div>
+        <div class="cancel-step">
+          <div class="cs-num">3</div>
+          <div class="cs-body">
+            <div class="cs-title">Stow the dish before returning</div>
+            <div class="cs-desc">Open the Starlink mobile app → Settings → Starlink → move the slider to STOW. This folds the dish safely. Then disassemble the mount, cable, and router.</div>
+          </div>
+        </div>
+        <div class="cancel-step">
+          <div class="cs-num">4</div>
+          <div class="cs-body">
+            <div class="cs-title">Return hardware within 30 days for refund</div>
+            <div class="cs-desc">If within <strong>30 days</strong> of purchase, you get a full hardware refund (minus shipping). After 30 days, hardware is yours to keep or return voluntarily. If you <em>rented</em> a kit, return it or face the full retail charge.</div>
+            <div class="cs-tip">⚠️ Rented kit must be returned — owned hardware is yours</div>
+          </div>
+        </div>
+      </div>
+      <div class="cancel-card-footer">
+        <div class="cfoot-item"><strong>ETF:</strong> <span class="cfoot-badge fee-no">None</span></div>
+        <div class="cfoot-item"><strong>Disconnect fee:</strong> <span class="cfoot-badge fee-no">None</span></div>
+        <div class="cfoot-item"><strong>Hardware refund window:</strong> <span class="cfoot-badge fee-yes">30 days from purchase</span></div>
+        <div class="cfoot-item"><strong>Online cancel?</strong> <span class="cfoot-badge fee-no">Yes ✓ — 100% online</span></div>
+      </div>
+    </div>
+
+    <!-- HUGHESNET -->
+    <div class="cancel-card">
+      <div class="cancel-card-head">
+        <div class="cancel-card-icon" style="background:#EEF5FF;">🌐</div>
+        <div><div class="cancel-card-title">HughesNet</div><div class="cancel-card-sub">Satellite • 2-year contracts • Early termination fee up to $400</div></div>
+        <span class="cancel-diff diff-hard">Hardest</span>
+      </div>
+      <div class="cancel-steps">
+        <div class="cancel-step">
+          <div class="cs-num">1</div>
+          <div class="cs-body">
+            <div class="cs-title">Check your contract status — critical first step</div>
+            <div class="cs-desc">HughesNet requires 2-year contracts. If you're still in contract, the ETF is <strong>$400 in month 1</strong>, decreasing by $15 each month. At month 24 it's $0. Check your contract start date before proceeding.</div>
+            <div class="cs-tip">⚠️ ETF starts at $400 — check contract date first</div>
+          </div>
+        </div>
+        <div class="cancel-step">
+          <div class="cs-num">2</div>
+          <div class="cs-body">
+            <div class="cs-title">Call to cancel — phone only</div>
+            <div class="cs-desc">Call <strong>(866) 347-3292</strong>. Online cancellation is not available. Ask to speak to the cancellation or retention department. Have your account number ready. Expect a sales-heavy retention call — around 20–30 minutes.</div>
+            <span class="cs-phone">📞 (866) 347-3292</span>
+          </div>
+        </div>
+        <div class="cancel-step">
+          <div class="cs-num">3</div>
+          <div class="cs-body">
+            <div class="cs-title">Get a disconnection date and confirmation</div>
+            <div class="cs-desc">Request your service end date and a cancellation confirmation number. HughesNet bills one month in advance — confirm when your last billing cycle ends to avoid extra charges.</div>
+          </div>
+        </div>
+        <div class="cancel-step">
+          <div class="cs-num">4</div>
+          <div class="cs-body">
+            <div class="cs-title">Return the satellite dish and modem</div>
+            <div class="cs-desc">HughesNet will ship you a return box and prepaid label. Return all equipment within <strong>45 days</strong>. Equipment not returned results in charges of $300+ for the dish and $100+ for the modem.</div>
+          </div>
+        </div>
+      </div>
+      <div class="cancel-card-footer">
+        <div class="cfoot-item"><strong>ETF:</strong> <span class="cfoot-badge fee-yes">Up to $400 (decreasing)</span></div>
+        <div class="cfoot-item"><strong>Disconnect fee:</strong> <span class="cfoot-badge fee-no">None (beyond ETF)</span></div>
+        <div class="cfoot-item"><strong>Equipment window:</strong> <span class="cfoot-badge fee-yes">45 days</span></div>
+        <div class="cfoot-item"><strong>Online cancel?</strong> <span class="cfoot-badge fee-yes">No — phone only</span></div>
+      </div>
+    </div>
+
+    <!-- VIASAT -->
+    <div class="cancel-card">
+      <div class="cancel-card-head">
+        <div class="cancel-card-icon" style="background:#F0EBFF;">🔵</div>
+        <div><div class="cancel-card-title">Viasat</div><div class="cancel-card-sub">Satellite • 2-year contracts • ETF up to $500</div></div>
+        <span class="cancel-diff diff-hard">Hardest</span>
+      </div>
+      <div class="cancel-steps">
+        <div class="cancel-step">
+          <div class="cs-num">1</div>
+          <div class="cs-body">
+            <div class="cs-title">Know your ETF before calling</div>
+            <div class="cs-desc">Viasat's 2-year contracts carry an ETF up to <strong>$500</strong> depending on how early you cancel. The fee decreases over time. Check your original service agreement or call to ask your current ETF balance.</div>
+            <div class="cs-tip">⚠️ ETF up to $500 — check balance before canceling</div>
+          </div>
+        </div>
+        <div class="cancel-step">
+          <div class="cs-num">2</div>
+          <div class="cs-body">
+            <div class="cs-title">Call customer service</div>
+            <div class="cs-desc">Call <strong>(855) 463-9333</strong>. No online cancellation available. Request the cancellation department. Have your account number, address on file, and last 4 of SSN ready.</div>
+            <span class="cs-phone">📞 (855) 463-9333</span>
+          </div>
+        </div>
+        <div class="cancel-step">
+          <div class="cs-num">3</div>
+          <div class="cs-body">
+            <div class="cs-title">Return all equipment within 30 days</div>
+            <div class="cs-desc">Return the satellite dish, modem, and any other leased equipment. Viasat will email prepaid shipping labels. Unreturned equipment fees can reach $300+. Keep all tracking receipts.</div>
+          </div>
+        </div>
+        <div class="cancel-step">
+          <div class="cs-num">4</div>
+          <div class="cs-body">
+            <div class="cs-title">Dispute unreasonable fees in writing</div>
+            <div class="cs-desc">If Viasat charges fees you believe are unjust, send a certified letter to their billing department and file a complaint with the FCC (consumercomplaints.fcc.gov) and California AG (oag.ca.gov) if unresolved.</div>
+          </div>
+        </div>
+      </div>
+      <div class="cancel-card-footer">
+        <div class="cfoot-item"><strong>ETF:</strong> <span class="cfoot-badge fee-yes">Up to $500</span></div>
+        <div class="cfoot-item"><strong>Disconnect fee:</strong> <span class="cfoot-badge fee-no">None</span></div>
+        <div class="cfoot-item"><strong>Equipment window:</strong> <span class="cfoot-badge fee-yes">30 days</span></div>
+        <div class="cfoot-item"><strong>Online cancel?</strong> <span class="cfoot-badge fee-yes">No — phone only</span></div>
+      </div>
+    </div>
+
+    <!-- EARTHLINK -->
+    <div class="cancel-card">
+      <div class="cancel-card-head">
+        <div class="cancel-card-icon" style="background:#EBF8EE;">🌿</div>
+        <div><div class="cancel-card-title">EarthLink</div><div class="cancel-card-sub">Fiber + 5G • No contracts • Straightforward cancellation</div></div>
+        <span class="cancel-diff diff-medium">Medium</span>
+      </div>
+      <div class="cancel-steps">
+        <div class="cancel-step">
+          <div class="cs-num">1</div>
+          <div class="cs-body">
+            <div class="cs-title">Call EarthLink customer service</div>
+            <div class="cs-desc">Call <strong>(800) 327-8454</strong>. EarthLink does not offer online cancellation. Have your account number and the email address on your account ready.</div>
+            <span class="cs-phone">📞 (800) 327-8454</span>
+          </div>
+        </div>
+        <div class="cancel-step">
+          <div class="cs-num">2</div>
+          <div class="cs-body">
+            <div class="cs-title">No contracts, no ETF</div>
+            <div class="cs-desc">EarthLink's no-contract policy means you can cancel anytime without penalty fees. One of its key selling points — cancellation is relatively clean compared to cable providers.</div>
+            <div class="cs-tip">💡 No ETF, no early cancellation penalty</div>
+          </div>
+        </div>
+        <div class="cancel-step">
+          <div class="cs-num">3</div>
+          <div class="cs-body">
+            <div class="cs-title">Return equipment</div>
+            <div class="cs-desc">Return any EarthLink-provided equipment (modem/router) within 30 days. EarthLink provides a prepaid shipping label. Failure to return may result in equipment charges of $100+.</div>
+          </div>
+        </div>
+        <div class="cancel-step">
+          <div class="cs-num">4</div>
+          <div class="cs-body">
+            <div class="cs-title">Get confirmation and monitor your account</div>
+            <div class="cs-desc">Request a cancellation confirmation number and email. EarthLink may bill you for the rest of your current billing cycle if you cancel mid-cycle — confirm prorating policy when you call.</div>
+          </div>
+        </div>
+      </div>
+      <div class="cancel-card-footer">
+        <div class="cfoot-item"><strong>ETF:</strong> <span class="cfoot-badge fee-no">None</span></div>
+        <div class="cfoot-item"><strong>Disconnect fee:</strong> <span class="cfoot-badge fee-no">None</span></div>
+        <div class="cfoot-item"><strong>Equipment window:</strong> <span class="cfoot-badge fee-yes">30 days</span></div>
+        <div class="cfoot-item"><strong>Online cancel?</strong> <span class="cfoot-badge fee-yes">No — phone only</span></div>
+      </div>
+    </div>
+
+  </div><!-- end cancel-grid -->
+
+  <!-- UNIVERSAL TIPS -->
+  <div class="cancel-tips-box">
+    <div class="cancel-tips-title">Universal Cancellation Tips</div>
+    <div class="cancel-tips-sub">Apply these to every ISP — they've saved customers hundreds of dollars.</div>
+    <div class="cancel-tips-grid">
+      <div class="ctip">
+        <div class="ctip-icon">🗓️</div>
+        <div class="ctip-title">Time it to your billing cycle</div>
+        <div class="ctip-body">Most ISPs (Spectrum, Frontier) don't prorate final bills. Cancel right before the end of your billing cycle to get full value from your last paid month.</div>
+      </div>
+      <div class="ctip">
+        <div class="ctip-icon">📸</div>
+        <div class="ctip-title">Document everything</div>
+        <div class="ctip-body">Screenshot your account status before canceling. Get a confirmation number via email. Photograph equipment condition before boxing it up for return.</div>
+      </div>
+      <div class="ctip">
+        <div class="ctip-icon">📦</div>
+        <div class="ctip-title">Keep equipment return receipts forever</div>
+        <div class="ctip-body">ISPs have been known to charge for equipment months after it was returned. Your UPS/FedEx receipt is the only proof you have — store it digitally.</div>
+      </div>
+      <div class="ctip">
+        <div class="ctip-icon">💬</div>
+        <div class="ctip-title">The magic phrase</div>
+        <div class="ctip-body">"I'm moving out of the service area" ends retention scripts at Spectrum, Frontier, and AT&T faster than any other reason. Say it even if you're just switching providers.</div>
+      </div>
+      <div class="ctip">
+        <div class="ctip-icon">💰</div>
+        <div class="ctip-title">Request a bill credit for outages</div>
+        <div class="ctip-body">Before canceling, ask for a bill credit for any recent outages. Most ISPs offer $5–10/day for verified outages. Call us at <a href="tel:9517137247" style="color:var(--sienna);font-weight:600;">(951) 713-7247</a> and we'll help.</div>
+      </div>
+      <div class="ctip">
+        <div class="ctip-icon">⚖️</div>
+        <div class="ctip-title">Escalate disputes to the FCC</div>
+        <div class="ctip-body">If an ISP charges fees you believe are wrong, file at consumercomplaints.fcc.gov. ISPs resolve FCC complaints quickly — it's their most effective accountability mechanism.</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="background:#FBF5EB;border:1px solid #E8D9B8;border-radius:12px;padding:16px 20px;margin-top:20px;font-size:13px;color:#8B5E1E;line-height:1.6;">
+    <strong>📌 Data sources:</strong> Cancellation steps sourced from official provider websites, ConnectCalifornia.com, Allconnect.com, JustCancel.io, and consumer advocacy guides. Information verified March 2026. Policies may change — confirm with your provider at the time of cancellation. Need help navigating a cancellation? Call us at <a href="tel:9517137247" style="color:var(--sienna);font-weight:700;">(951) 713-7247</a> — we'll walk you through it for free.
+  </div>
+
+</div>
+</div><!-- end section cancel -->
 
 
 <div class="site-footer">
@@ -1501,7 +2414,7 @@ function showSection(id){
   document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
   document.querySelectorAll('.nav-link').forEach(b=>b.classList.remove('on'));
   document.getElementById('sec-'+id).classList.add('active');
-  const idx = {landing:0,providers:1,marketing:2,landingpage:3,outages:4}[id];
+  const idx = {landing:0,providers:1,marketing:2,landingpage:3,outages:4,cancel:5}[id];
   const navLinks = document.querySelectorAll('.nav-link');
   if(idx !== undefined && navLinks[idx]) navLinks[idx].classList.add('on');
   window.scrollTo(0,0);
@@ -2179,4 +3092,437 @@ document.getElementById('outageForm').addEventListener('submit', function(e){
     document.getElementById('outageFormGlobalErr').style.display = 'none';
   });
 });
+
+// ── SAFE OPEN — prevents tabnapping on all external links ──
+function safeOpen(url){
+  var a = document.createElement('a');
+  a.href = url;
+  a.target = '_blank';
+  a.rel = 'noopener noreferrer';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
+
+// ── PHONE AUTO-FORMATTING ──
+function formatPhone(val){
+  var d = val.replace(/\D/g,'').substring(0,10);
+  if(d.length >= 7) return '('+d.substring(0,3)+') '+d.substring(3,6)+'-'+d.substring(6);
+  if(d.length >= 4) return '('+d.substring(0,3)+') '+d.substring(3);
+  if(d.length > 0)  return '('+d;
+  return '';
+}
+function attachPhoneFormat(id){
+  var el = document.getElementById(id);
+  if(!el) return;
+  el.addEventListener('input', function(){
+    var pos = el.selectionStart;
+    var old = el.value;
+    el.value = formatPhone(old);
+    // keep cursor roughly in place
+    try{ el.setSelectionRange(pos, pos); }catch(e){}
+  });
+}
+attachPhoneFormat('lf-phone');
+attachPhoneFormat('of-phone');
+
+// ── CHAR COUNTERS ──
+function attachCharCounter(textareaId, counterId, max){
+  var ta = document.getElementById(textareaId);
+  var ctr = document.getElementById(counterId);
+  if(!ta || !ctr) return;
+  function update(){
+    var len = ta.value.length;
+    ctr.textContent = len + ' / ' + max;
+    ctr.classList.toggle('warn', len > max * 0.9);
+  }
+  ta.addEventListener('input', update);
+  update();
+}
+attachCharCounter('lf-needs', 'lf-needs-counter', 1000);
+attachCharCounter('of-desc', 'of-desc-counter', 1000);
+
+// ── COPY TO CLIPBOARD (Craigslist ad) ──
+function copyClAd(){
+  var el = document.getElementById('clAdText');
+  var btn = document.getElementById('clCopyBtn');
+  if(!el || !btn) return;
+  var text = el.innerText || el.textContent;
+  navigator.clipboard.writeText(text).then(function(){
+    btn.textContent = '✓ Copied!';
+    btn.classList.add('copied');
+    setTimeout(function(){ btn.textContent = '📋 Copy Ad Text'; btn.classList.remove('copied'); }, 2500);
+  }).catch(function(){
+    // Fallback for older browsers
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try{ document.execCommand('copy'); btn.textContent = '✓ Copied!'; btn.classList.add('copied'); setTimeout(function(){ btn.textContent = '📋 Copy Ad Text'; btn.classList.remove('copied'); },2500); }catch(e){}
+    document.body.removeChild(ta);
+  });
+}
+
+// ── BACK TO TOP BUTTON ──
+window.addEventListener('scroll', function(){
+  var btn = document.getElementById('backTop');
+  if(!btn) return;
+  btn.classList.toggle('show', window.scrollY > 400);
+}, {passive:true});
+
+// ── LOCALSTORAGE — remember last city tab ──
+function saveCity(city){
+  try{ localStorage.setItem('ie_last_city', city); }catch(e){}
+}
+function loadSavedCity(){
+  try{
+    var c = localStorage.getItem('ie_last_city');
+    if(c && document.getElementById('city-'+c)){
+      var tabs = document.querySelectorAll('.city-tab');
+      var cityIdx = {mv:0,perris:1,riverside:2}[c];
+      if(tabs[cityIdx]) showCity(c, tabs[cityIdx]);
+    }
+  }catch(e){}
+}
+// Wrap showCity to save preference
+var _origShowCity = showCity;
+showCity = function(id, btn){
+  _origShowCity(id, btn);
+  saveCity(id);
+};
+
+// ── FIX OUTAGE FORM SUCCESS — hide wrapper, not the form element ──
+// (overrides the existing listener's success callback)
+(function(){
+  var form = document.getElementById('outageForm');
+  if(!form) return;
+  // Clone to remove old listener, re-attach corrected one
+  var newForm = form.cloneNode(true);
+  form.parentNode.replaceChild(newForm, form);
+
+  newForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    var now = Date.now();
+    if(now - lastOutageSubmit < RATE_LIMIT_MS){
+      document.getElementById('outageFormGlobalErr').textContent = 'Please wait before submitting again.';
+      document.getElementById('outageFormGlobalErr').style.display = 'block';
+      return;
+    }
+    var honey = this.querySelector('input[name="_gotcha"]');
+    if(honey && honey.value){ return; }
+    var ok = true;
+    var name = document.getElementById('of-name').value.trim();
+    var phone = document.getElementById('of-phone').value.trim();
+    var email = document.getElementById('of-email').value.trim();
+    var zip = document.getElementById('of-zip').value.trim();
+    var provider = document.getElementById('of-provider').value;
+    var desc = document.getElementById('of-desc').value.trim();
+    setOfFieldError('of-name','of-name-err', !name); if(!name) ok=false;
+    setOfFieldError('of-phone','of-phone-err', !isValidPhone(phone)); if(!isValidPhone(phone)) ok=false;
+    setOfFieldError('of-email','of-email-err', !isValidEmail(email)); if(!isValidEmail(email)) ok=false;
+    setOfFieldError('of-zip','of-zip-err', !isValidZip(zip)); if(!isValidZip(zip)) ok=false;
+    setOfFieldError('of-provider','of-provider-err', !provider); if(!provider) ok=false;
+    setOfFieldError('of-desc','of-desc-err', !desc); if(!desc) ok=false;
+    if(!ok){
+      document.getElementById('outageFormGlobalErr').textContent = 'Please complete all required fields.';
+      document.getElementById('outageFormGlobalErr').style.display = 'block';
+      return;
+    }
+    document.getElementById('outageFormGlobalErr').style.display = 'none';
+    var btn = document.getElementById('outageSubmitBtn');
+    btn.disabled = true; btn.classList.add('loading');
+    btn.querySelector('.btn-text').textContent = 'Submitting…';
+    lastOutageSubmit = Date.now();
+    submitToWeb3Forms(buildOutagePayload(),
+      function(){
+        // Correct: hide the form wrapper div, not the form element
+        document.getElementById('outageFormBody').style.display = 'none';
+        document.getElementById('outageFormSuccess').classList.add('show');
+      },
+      function(){
+        btn.disabled=false; btn.classList.remove('loading');
+        btn.querySelector('.btn-text').textContent='Submit Outage Report';
+      }
+    );
+  });
+  // Re-attach input clear listeners on cloned form
+  ['of-name','of-phone','of-email','of-zip','of-provider','of-desc'].forEach(function(id){
+    var el = document.getElementById(id);
+    if(el) el.addEventListener('input', function(){
+      el.classList.remove('error');
+      var errEl = document.getElementById(id+'-err');
+      if(errEl) errEl.classList.remove('show');
+      document.getElementById('outageFormGlobalErr').style.display='none';
+    });
+  });
+})();
+
+// ── LEAD FORM: ADD SUBMIT ANOTHER LINK ──
+document.getElementById('leadFormSuccess').insertAdjacentHTML('beforeend',
+  '<div style="margin-top:16px;"><button onclick="resetLeadForm()" style="background:transparent;border:none;color:var(--cyan);font-size:13px;cursor:pointer;text-decoration:underline;font-family:\'Outfit\',sans-serif;">Submit another request</button></div>'
+);
+function resetLeadForm(){
+  document.getElementById('leadForm').reset();
+  document.getElementById('leadFormBody').style.display = 'block';
+  document.getElementById('leadFormSuccess').classList.remove('show');
+  var btn = document.getElementById('leadSubmitBtn');
+  btn.disabled = false; btn.classList.remove('loading');
+  btn.querySelector('.btn-text').textContent = 'Get My Free Quote →';
+  lastLeadSubmit = 0;
+}
+
+// ── ARIA: LINK INPUTS TO ERROR MESSAGES ──
+(function(){
+  var pairs = [
+    ['lf-name','lf-name-err'],['lf-phone','lf-phone-err'],
+    ['lf-email','lf-email-err'],['lf-zip','lf-zip-err'],
+    ['of-name','of-name-err'],['of-phone','of-phone-err'],
+    ['of-email','of-email-err'],['of-zip','of-zip-err'],
+    ['of-provider','of-provider-err'],['of-desc','of-desc-err'],
+  ];
+  pairs.forEach(function(p){
+    var inp = document.getElementById(p[0]);
+    var err = document.getElementById(p[1]);
+    if(inp && err){
+      inp.setAttribute('aria-describedby', (inp.getAttribute('aria-describedby')||'')+' '+p[1]);
+      err.setAttribute('role','alert');
+      err.setAttribute('aria-live','polite');
+    }
+  });
+})();
+
+// ── SET DATETIME DEFAULT ON OUTAGE FORM ──
+(function(){
+  var since = document.getElementById('of-since');
+  if(since){
+    var now = new Date();
+    var offset = now.getTimezoneOffset();
+    var local = new Date(now.getTime() - offset*60000);
+    since.value = local.toISOString().slice(0,16);
+  }
+})();
+
+// ── INIT ON LOAD ──
+window.addEventListener('load', function(){
+  loadSavedCity();
+  calcSavings();
+  initSpeedTest();
+});
+
+// ══════════════════════════════════════
+// TOAST NOTIFICATION SYSTEM
+// ══════════════════════════════════════
+function showToast(msg, type, duration){
+  type = type || 'info';
+  duration = duration || 3500;
+  var wrap = document.getElementById('toast-wrap');
+  if(!wrap) return;
+  var icons = {success:'✅', error:'❌', info:'ℹ️'};
+  var t = document.createElement('div');
+  t.className = 'toast toast-'+type;
+  t.innerHTML = '<span class="toast-icon">'+icons[type]+'</span><span>'+msg+'</span><button class="toast-close" onclick="this.parentElement.remove()" aria-label="Dismiss">×</button>';
+  wrap.appendChild(t);
+  requestAnimationFrame(function(){ requestAnimationFrame(function(){ t.classList.add('show'); }); });
+  setTimeout(function(){
+    t.classList.remove('show');
+    setTimeout(function(){ if(t.parentElement) t.remove(); }, 300);
+  }, duration);
+}
+
+// Replace inline form success messages with toasts
+var _origLeadSuccess = null;
+(function(){
+  var origSubmit = document.getElementById('leadForm');
+  if(origSubmit) origSubmit.addEventListener('submit', function(){
+    // Toast fires alongside the existing success state
+  }, false);
+})();
+
+// ══════════════════════════════════════
+// PROVIDER QUICK-FILTER
+// ══════════════════════════════════════
+var _activeTypeFilter = 'all';
+
+function filterProviders(query){
+  query = (query||'').toLowerCase().trim();
+  var blocks = document.querySelectorAll('.provider-block');
+  var visible = 0;
+  blocks.forEach(function(block){
+    var text = block.textContent.toLowerCase();
+    var typeOk = _activeTypeFilter === 'all' || matchesTypeFilter(block, _activeTypeFilter);
+    var queryOk = !query || text.includes(query);
+    var show = typeOk && queryOk;
+    block.style.display = show ? '' : 'none';
+    if(show) visible++;
+  });
+  var nr = document.getElementById('noResults');
+  if(nr) nr.classList.toggle('show', visible === 0);
+}
+
+function matchesTypeFilter(block, type){
+  var text = block.textContent.toLowerCase();
+  var typeMap = {
+    fiber: ['fiber', 'fibre', '100% fiber'],
+    cable: ['cable', '(hfc)', 'coax'],
+    '5g': ['5g', 'fixed wireless', 'home internet'],
+    satellite: ['satellite', 'starlink', 'hughesnet', 'viasat', 'leo', 'geo']
+  };
+  var keywords = typeMap[type] || [];
+  return keywords.some(function(k){ return text.includes(k); });
+}
+
+function setTypeFilter(type, btn){
+  _activeTypeFilter = type;
+  document.querySelectorAll('.filter-chip').forEach(function(b){ b.classList.remove('on'); });
+  if(btn) btn.classList.add('on');
+  var q = document.getElementById('provSearch');
+  filterProviders(q ? q.value : '');
+}
+
+function resetProviderFilter(){
+  _activeTypeFilter = 'all';
+  var q = document.getElementById('provSearch');
+  if(q) q.value = '';
+  document.querySelectorAll('.filter-chip').forEach(function(b){ b.classList.toggle('on', b.dataset.type==='all'); });
+  document.querySelectorAll('.provider-block').forEach(function(b){ b.style.display=''; });
+  var nr = document.getElementById('noResults');
+  if(nr) nr.classList.remove('show');
+}
+
+// ══════════════════════════════════════
+// SAVINGS CALCULATOR
+// ══════════════════════════════════════
+var SAVINGS_PLANS = [
+  {name:'Spectrum Internet Advantage', price:30, speed:100, url:'https://www.spectrum.com'},
+  {name:'T-Mobile Home Internet', price:35, speed:300, url:'https://t-mobile.com/home-internet'},
+  {name:'AT&T Internet 300 (Fiber)', price:35, speed:300, url:'https://www.att.com/internet/'},
+  {name:'Frontier Fiber 200', price:29.99, speed:200, url:'https://frontier.com/local/california'},
+  {name:'Frontier Fiber 500', price:49.99, speed:500, url:'https://frontier.com/local/california'},
+  {name:'AT&T Internet 500 (Fiber)', price:45, speed:500, url:'https://www.att.com/internet/'},
+  {name:'Spectrum Internet Premier', price:50, speed:500, url:'https://www.spectrum.com'},
+  {name:'EarthLink Internet 500', price:49.95, speed:500, url:'https://www.earthlink.net'},
+  {name:'AT&T Internet 1 Gig', price:65, speed:1000, url:'https://www.att.com/internet/'},
+  {name:'Frontier Fiber 1 Gig', price:74.99, speed:1000, url:'https://frontier.com/local/california'},
+  {name:'Starlink Residential', price:90, speed:250, url:'https://www.starlink.com'},
+  {name:'Frontier Fiber 2 Gig', price:109.99, speed:2000, url:'https://frontier.com/local/california'},
+];
+
+function calcSavings(){
+  var bill = parseFloat(document.getElementById('sc-bill').value) || 0;
+  var speed = parseInt(document.getElementById('sc-speed').value) || 100;
+
+  // Find best plan that meets speed requirement at lower cost
+  var candidates = SAVINGS_PLANS.filter(function(p){ return p.speed >= speed * 0.8; });
+  candidates.sort(function(a,b){ return a.price - b.price; });
+  var best = candidates[0];
+
+  if(!best){
+    document.getElementById('sc-rec').textContent = 'Enter your current bill to see savings';
+    document.getElementById('sc-amount').textContent = '$0';
+    document.getElementById('sc-label').textContent = 'estimated annual savings';
+    return;
+  }
+
+  var monthlySave = Math.max(0, bill - best.price);
+  var annualSave = Math.round(monthlySave * 12);
+
+  document.getElementById('sc-amount').textContent = '$' + annualSave.toLocaleString();
+  document.getElementById('sc-label').textContent = annualSave > 0 ? 'estimated annual savings' : 'you\'re already getting a good deal';
+  document.getElementById('sc-rec').textContent = annualSave > 0
+    ? 'Switch to: ' + best.name
+    : 'Best comparable: ' + best.name;
+  document.getElementById('sc-detail').textContent = best.speed + ' Mbps for $' + best.price + '/mo — saves $' + monthlySave.toFixed(2) + '/mo';
+
+  // Color the amount
+  var amtEl = document.getElementById('sc-amount');
+  amtEl.style.color = annualSave > 0 ? 'var(--cyan)' : '#6ee7b7';
+}
+
+document.getElementById('sc-bill').addEventListener('input', calcSavings);
+document.getElementById('sc-provider').addEventListener('change', calcSavings);
+document.getElementById('sc-speed').addEventListener('change', calcSavings);
+
+// ══════════════════════════════════════
+// SPEED TEST (simulated — links to fast.com)
+// ══════════════════════════════════════
+function initSpeedTest(){
+  // Speed test is a redirect to fast.com (Netflix's free tool)
+  // We simulate a quick "measuring" state then open it
+}
+
+function runSpeedTest(){
+  var btn = document.getElementById('speedTestBtn');
+  if(!btn) return;
+  btn.textContent = 'Opening speed test…';
+  btn.disabled = true;
+  showToast('Opening Fast.com speed test in a new tab…', 'info', 2500);
+  setTimeout(function(){
+    safeOpen('https://fast.com');
+    btn.textContent = 'Run Speed Test Again';
+    btn.disabled = false;
+  }, 800);
+}
+
+// ══════════════════════════════════════
+// FAQ ACCORDION
+// ══════════════════════════════════════
+function toggleFaq(item){
+  var isOpen = item.classList.contains('open');
+  // Close all others
+  document.querySelectorAll('.faq-item.open').forEach(function(el){
+    if(el !== item) el.classList.remove('open');
+  });
+  item.classList.toggle('open', !isOpen);
+}
+
+// ══════════════════════════════════════
+// ENHANCED FORM TOASTS
+// ══════════════════════════════════════
+// Wire into lead form success/error
+(function(){
+  var origLeadForm = document.getElementById('leadForm');
+  if(!origLeadForm) return;
+  origLeadForm.addEventListener('submit', function(){
+    // Check if already going to succeed — add toast in parallel
+    // The actual success state is handled by the existing listener
+    // We just add toast feedback here
+  });
+  // Watch for success state to show toast
+  var observer = new MutationObserver(function(muts){
+    muts.forEach(function(mut){
+      mut.addedNodes.forEach(function(n){
+        if(n.classList && n.classList.contains('show') && n.id === 'leadFormSuccess'){
+          showToast('Quote request sent! We\'ll call you within 1 hour.', 'success', 5000);
+        }
+      });
+    });
+  });
+  var wrap = document.getElementById('leadFormWrap');
+  if(wrap) observer.observe(wrap, {subtree:true, attributes:true, attributeFilter:['class']});
+})();
+
+// ══════════════════════════════════════
+// KEYBOARD NAVIGATION ENHANCEMENT
+// ══════════════════════════════════════
+document.addEventListener('keydown', function(e){
+  // Escape key closes any open FAQ items
+  if(e.key === 'Escape'){
+    document.querySelectorAll('.faq-item.open').forEach(function(el){ el.classList.remove('open'); });
+  }
+});
+
+// ══════════════════════════════════════
+// SMOOTH CITY TAB SWITCHING WITH FILTER RESET
+// ══════════════════════════════════════
+var _origShowCityWrapped = showCity;
+showCity = function(id, btn){
+  _origShowCityWrapped(id, btn);
+  saveCity(id);
+  // Reset provider filter when switching cities
+  resetProviderFilter();
+};
+
 </script>
+</body>
+</html>
