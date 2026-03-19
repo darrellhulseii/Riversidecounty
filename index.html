@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="description" content="Compare every internet provider in Moreno Valley, Perris & Riverside CA. Spectrum, AT&T, Frontier, T-Mobile, Starlink & more. Find the cheapest plan at your address — free, no commitment.">
 <meta property="og:title" content="Inland Empire Internet — Compare All Providers">
 <meta property="og:description" content="9 providers, 40+ plans. Compare internet options in Moreno Valley, Perris & Riverside CA instantly. Free — same price as going direct.">
@@ -10,10 +10,15 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Inland Empire Internet — Compare All Providers">
 <meta name="robots" content="index, follow">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<!-- Content Security Policy -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'unsafe-inline' https://fonts.googleapis.com https://api.web3forms.com; style-src 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src https://api.web3forms.com https://fast.com; frame-src 'none'; object-src 'none'; base-uri 'self';">
 <!-- Referrer policy: don't leak user data to affiliate sites -->
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📡</text></svg>">
 <title>Inland Empire Internet — Compare All Providers | Moreno Valley, Perris & Riverside CA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
@@ -34,27 +39,33 @@
   --chalk:#F5F0E8;         /* warm chalk white — canvas tone */
   --white:#ffffff;
   --off:#F8F4EE;           /* warm cream off-white */
-  --muted:#6B5F52;         /* warm sepia muted */
+  --muted:#4A3826;         /* darkened warm brown — WCAG AA compliant */
   --border:#DDD4C4;        /* warm parchment border */
   --card:#FFFCF7;          /* warm card white */
   --accent1:#C1440E;       /* sienna accent */
   --accent2:#D4A017;       /* ochre accent */
   --accent3:#1B5EA8;       /* cobalt accent */
 }
-body{font-family:'Outfit',sans-serif;background:var(--off);color:var(--navy);line-height:1.6;-webkit-font-smoothing:antialiased;}
+html{scroll-behavior:smooth;}
+body{font-family:'Outfit',sans-serif;background:var(--off);color:#1A120B;line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
 a{color:inherit;text-decoration:none;}
 
 /* ── NAV ── */
 .site-nav{background:var(--navy);position:sticky;top:0;z-index:100;border-bottom:2px solid var(--sienna);}
 .nav-inner{max-width:1200px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:58px;}
-.nav-logo{font-family:'Bebas Neue',cursive;font-size:22px;color:var(--white);letter-spacing:2px;}
+.nav-logo{font-family:'Bebas Neue',cursive;font-size:22px;color:#F5F0E8;letter-spacing:2px;}
 .nav-logo span{color:var(--cyan);}
 .nav-links{display:flex;gap:4px;}
-.nav-link{padding:6px 14px;border-radius:6px;font-size:13px;font-weight:500;color:rgba(255,255,255,0.7);cursor:pointer;transition:all 0.15s;border:none;background:transparent;}
+.nav-link{padding:6px 14px;border-radius:6px;font-size:13px;font-weight:500;color:rgba(245,240,232,0.88);cursor:pointer;transition:all 0.15s;border:none;background:transparent;}
 .nav-link:hover,.nav-link.on{background:var(--sienna);color:var(--white);}
+.nav-link[data-section="cancel"]{color:#D4A017;}
+.nav-link[data-section="cancel"].on{background:var(--sienna);color:white;}
+.nav-link[data-section="outages"]{color:#f87171;}
+.nav-link[data-section="outages"].on{background:#B32418;color:white;}
 
 /* ── SECTIONS ── */
-.section{display:none;max-width:1200px;margin:0 auto;padding:32px 20px 60px;animation:none;}
+.section{display:none;max-width:1200px;margin:0 auto;padding:32px 20px 60px;}
+.section.active{animation:fadeSlideIn 0.18s ease-out;}
 .section.active{display:block;}
 
 /* ── HERO / LANDING PAGE ── */
@@ -63,58 +74,57 @@ a{color:inherit;text-decoration:none;}
 .hero-badge{display:inline-block;background:rgba(212,160,23,0.18);border:1px solid rgba(212,160,23,0.45);color:var(--ochre);font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:20px;}
 .hero h1{font-family:'Bebas Neue',cursive;font-size:clamp(42px,7vw,82px);letter-spacing:2px;line-height:1;margin-bottom:16px;}
 .hero h1 span{color:var(--cyan);}
-.hero-sub{font-size:18px;color:rgba(255,255,255,0.7);max-width:600px;margin:0 auto 36px;font-weight:300;}
+.hero-sub{font-size:18px;color:rgba(245,240,232,0.85);max-width:600px;margin:0 auto 36px;font-weight:400;}
 .zip-form{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:24px;}
 .zip-input{padding:14px 20px;border-radius:10px;border:2px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.1);color:var(--white);font-size:16px;font-family:'Outfit',sans-serif;width:220px;outline:none;}
 .zip-input::placeholder{color:rgba(255,255,255,0.4);}
 .zip-input:focus{border-color:var(--cyan);}
-.btn-primary{padding:14px 28px;border-radius:10px;background:var(--blue);color:var(--white);font-size:15px;font-weight:600;font-family:'Outfit',sans-serif;border:none;cursor:pointer;transition:all 0.15s;}
-.btn-primary:hover{background:var(--blue-light);}
-.btn-cta{padding:14px 28px;border-radius:10px;background:var(--cyan);color:var(--navy);font-size:15px;font-weight:700;font-family:'Outfit',sans-serif;border:none;cursor:pointer;transition:all 0.15s;}
-.btn-cta:hover{opacity:0.9;}
+.btn-cta{padding:14px 28px;border-radius:10px;background:var(--sienna);color:var(--white);font-size:15px;font-weight:700;font-family:'Outfit',sans-serif;border:none;cursor:pointer;transition:all 0.15s;}
+.btn-cta:hover{background:var(--ochre);color:var(--navy);}
 .hero-cities{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;}
 .city-pill{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.8);padding:6px 14px;border-radius:20px;font-size:13px;}
 .stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:800px;margin:40px auto 0;}
 .stat{text-align:center;}
 .stat-num{font-family:'Bebas Neue',cursive;font-size:42px;color:var(--cyan);letter-spacing:1px;}
-.stat-lbl{font-size:13px;color:rgba(255,255,255,0.6);}
+.stat-lbl{font-size:13px;color:rgba(245,240,232,0.90);}
 
 /* ── HOW IT WORKS ── */
 .how-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:32px 0;}
 .step-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px 24px;text-align:center;}
 .step-num{width:48px;height:48px;border-radius:50%;background:var(--sienna);color:var(--white);font-family:'Bebas Neue',cursive;font-size:24px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;}
-.step-title{font-size:16px;font-weight:600;margin-bottom:8px;}
-.step-desc{font-size:13px;color:var(--muted);line-height:1.6;}
+.step-title{font-size:16px;font-weight:600;margin-bottom:8px;color:#1A120B;}
+.step-desc{font-size:14px;color:#4A3826;line-height:1.65;}
 
 /* ── ISP SECTION ── */
-.page-title{font-family:'Bebas Neue',cursive;font-size:42px;letter-spacing:1px;margin-bottom:6px;color:var(--navy);}
-.page-sub{font-size:15px;color:var(--muted);margin-bottom:28px;}
+.page-title{font-family:'Bebas Neue',cursive;font-size:42px;letter-spacing:1px;margin-bottom:6px;color:#1A120B;}
+.page-sub{font-size:15px;color:#4A3826;margin-bottom:28px;}
 .city-tabs{display:flex;gap:6px;margin-bottom:24px;flex-wrap:wrap;}
-.city-tab{padding:8px 20px;border-radius:8px;border:1.5px solid var(--border);font-size:13px;font-weight:600;cursor:pointer;background:var(--white);color:var(--muted);transition:all 0.15s;}
+.city-tab{padding:8px 20px;border-radius:8px;border:1.5px solid var(--border);font-size:13px;font-weight:600;cursor:pointer;background:var(--white);color:#4A3826;transition:all 0.15s;}
 .city-tab.on{background:var(--sienna);color:var(--white);border-color:var(--sienna);}
 .city-panel{display:none;}
 .city-panel.active{display:block;}
-.provider-block{background:var(--white);border:1px solid var(--border);border-radius:16px;margin-bottom:20px;overflow:hidden;}
+.provider-block{background:var(--white);border:1.5px solid var(--border);border-radius:16px;margin-bottom:20px;overflow:hidden;transition:border-color 0.15s,box-shadow 0.15s;}
+.provider-block:hover{border-color:var(--sienna);box-shadow:0 4px 20px rgba(193,68,14,0.1);}
 .provider-header{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid var(--border);flex-wrap:wrap;gap:10px;}
 .prov-left{display:flex;align-items:center;gap:14px;}
 .prov-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
-.prov-name{font-size:18px;font-weight:700;}
-.prov-type{font-size:11px;color:var(--muted);margin-top:2px;}
+.prov-name{font-size:18px;font-weight:700;color:#1A120B;}
+.prov-type{font-size:12px;color:#4A3826;margin-top:2px;}
 .prov-right{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
 .coverage-badge{font-size:12px;font-weight:600;padding:4px 10px;border-radius:20px;}
 .cov-high{background:#D4F0E3;color:#1E7B4B;}
 .cov-med{background:#FEF0C0;color:#A86010;}
 .cov-low{background:#FFE4DC;color:#B32418;}
 .plans-table{width:100%;border-collapse:collapse;}
-.plans-table thead th{background:#F5EEE2;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted);padding:10px 16px;text-align:left;border-bottom:1px solid var(--border);}
-.plans-table tbody td{padding:14px 16px;border-bottom:1px solid var(--border);font-size:13px;vertical-align:middle;}
+.plans-table thead th{background:#F5EEE2;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:#4A3826;padding:10px 16px;text-align:left;border-bottom:1px solid var(--border);}
+.plans-table tbody td{padding:14px 16px;border-bottom:1px solid var(--border);font-size:13px;vertical-align:middle;color:#1A120B;}
 .plans-table tbody tr:last-child td{border-bottom:none;}
 .plans-table tbody tr:hover{background:#FBF5EB;}
-.plan-name-cell{font-weight:600;font-size:14px;}
-.plan-note{font-size:11px;color:var(--muted);margin-top:2px;}
-.speed-val{font-weight:700;color:var(--cobalt, #1B5EA8);}
-.price-val{font-weight:700;font-size:15px;}
-.price-reg{font-size:11px;color:var(--muted);}
+.plan-name-cell{font-weight:600;font-size:14px;color:#1A120B;}
+.plan-note{font-size:12px;color:#4A3826;margin-top:2px;}
+.speed-val{font-weight:700;color:#1354A0;font-size:14px;}
+.price-val{font-weight:700;font-size:15px;color:#1A120B;}
+.price-reg{font-size:12px;color:#4A3826;}
 .tag{display:inline-block;font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px;text-transform:uppercase;letter-spacing:0.05em;}
 .tag-best{background:#dbeafe;color:#1B5EA8;}
 .tag-cheap{background:#d1fae5;color:#1E7B4B;}
@@ -127,32 +137,32 @@ a{color:inherit;text-decoration:none;}
 /* ── MARKETING PLAN ── */
 .budget-bar{background:var(--navy);border-radius:16px;padding:28px 32px;color:var(--white);margin-bottom:28px;position:relative;overflow:hidden;}
 .budget-bar::after{content:'$1,000';position:absolute;right:32px;top:50%;transform:translateY(-50%);font-family:'Bebas Neue',cursive;font-size:60px;color:rgba(255,255,255,0.05);letter-spacing:2px;}
-.budget-label{font-size:13px;color:var(--cyan);font-weight:600;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px;}
-.budget-title{font-size:24px;font-weight:700;margin-bottom:16px;}
+.budget-label{font-size:13px;color:var(--ochre);font-weight:600;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px;}
+.budget-title{font-size:24px;font-weight:700;margin-bottom:16px;color:#F5F0E8;}
 .budget-breakdown{display:flex;gap:0;border-radius:8px;overflow:hidden;height:12px;margin-bottom:12px;}
 .budget-seg{height:100%;transition:width 0.3s;}
 .budget-legend{display:flex;flex-wrap:wrap;gap:12px;}
-.legend-item{display:flex;align-items:center;gap:6px;font-size:12px;color:rgba(255,255,255,0.8);}
+.legend-item{display:flex;align-items:center;gap:6px;font-size:13px;color:rgba(245,240,232,0.92);}
 .legend-dot{width:10px;height:10px;border-radius:2px;flex-shrink:0;}
 
 .marketing-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-bottom:28px;}
 .mcard{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:22px;}
 .mcard-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;}
-.mcard-title{font-size:16px;font-weight:700;}
+.mcard-title{font-size:16px;font-weight:700;color:#1A120B;}
 .mcard-budget{font-family:'Bebas Neue',cursive;font-size:22px;color:var(--blue);}
-.mcard-type{font-size:11px;color:var(--muted);margin-top:1px;}
+.mcard-type{font-size:12px;color:#4A3826;margin-top:1px;}
 .roi-bar{height:6px;border-radius:3px;background:var(--border);margin:10px 0 6px;}
 .roi-fill{height:6px;border-radius:3px;}
-.roi-label{font-size:11px;color:var(--muted);display:flex;justify-content:space-between;}
+.roi-label{font-size:12px;color:#4A3826;display:flex;justify-content:space-between;}
 .mcard-tips{list-style:none;margin-top:12px;}
-.mcard-tips li{font-size:12px;color:var(--muted);padding:3px 0 3px 16px;position:relative;line-height:1.5;}
+.mcard-tips li{font-size:13px;color:#4A3826;padding:4px 0 4px 16px;position:relative;line-height:1.6;}
 .mcard-tips li::before{content:'→';position:absolute;left:0;color:var(--cyan);}
 
 .free-section{background:linear-gradient(135deg,#0a0e1a 0%,#1a2744 100%);border-radius:16px;padding:28px 32px;color:var(--white);margin-bottom:28px;}
 .free-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:20px;}
 .free-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:16px;}
 .free-card-title{font-size:14px;font-weight:600;color:var(--cyan);margin-bottom:8px;}
-.free-card-body{font-size:12px;color:rgba(255,255,255,0.7);line-height:1.6;}
+.free-card-body{font-size:13px;color:rgba(245,240,232,0.95);line-height:1.65;}
 .free-badge{display:inline-block;font-size:10px;font-weight:700;background:rgba(16,185,129,0.2);color:#34d399;border:1px solid rgba(16,185,129,0.3);padding:2px 8px;border-radius:10px;margin-bottom:8px;}
 
 .craigslist-box{background:#fefce8;border:1.5px solid #fef08a;border-radius:14px;padding:24px;margin-bottom:20px;}
@@ -163,88 +173,89 @@ a{color:inherit;text-decoration:none;}
 .week-timeline{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:20px;}
 .week-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:16px;}
 .week-num{font-family:'Bebas Neue',cursive;font-size:28px;color:var(--blue);line-height:1;}
-.week-title{font-size:13px;font-weight:600;margin-bottom:8px;}
-.week-items{font-size:11px;color:var(--muted);line-height:1.7;}
+.week-title{font-size:13px;font-weight:600;margin-bottom:8px;color:#1A120B;}
+.week-items{font-size:12px;color:#4A3826;line-height:1.7;}
 
 /* ── LANDING PAGE PREVIEW ── */
 .lp-preview-wrap{border:2px solid var(--border);border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.12);}
 .lp-nav{background:var(--navy);padding:14px 24px;display:flex;justify-content:space-between;align-items:center;}
-.lp-nav-logo{font-family:'Bebas Neue',cursive;font-size:20px;color:var(--white);letter-spacing:2px;}
+.lp-nav-logo{font-family:'Bebas Neue',cursive;font-size:20px;color:#F5F0E8;letter-spacing:2px;}
 .lp-nav-logo span{color:var(--cyan);}
 .lp-nav-cta{padding:8px 18px;background:var(--cyan);border:none;border-radius:8px;font-size:13px;font-weight:700;font-family:'Outfit',sans-serif;cursor:pointer;color:var(--navy);}
 .lp-hero{background:var(--navy);padding:50px 40px;text-align:center;position:relative;overflow:hidden;}
 .lp-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 30%,rgba(6,182,212,0.15) 0%,transparent 60%);}
-.lp-hero h2{font-family:'Bebas Neue',cursive;font-size:clamp(28px,5vw,52px);color:var(--white);letter-spacing:1px;line-height:1.1;margin-bottom:12px;position:relative;}
+.lp-hero h2{font-family:'Bebas Neue',cursive;font-size:clamp(28px,5vw,52px);color:#F5F0E8;letter-spacing:1px;line-height:1.1;margin-bottom:12px;position:relative;}
 .lp-hero h2 span{color:var(--cyan);}
-.lp-hero p{font-size:15px;color:rgba(255,255,255,0.65);margin-bottom:28px;position:relative;}
+.lp-hero p{font-size:15px;color:rgba(245,240,232,0.88);margin-bottom:28px;position:relative;}
 .lp-form{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;position:relative;}
 .lp-zip{padding:12px 18px;border-radius:8px;border:2px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.1);color:white;font-size:15px;width:200px;}
 .lp-zip::placeholder{color:rgba(255,255,255,0.4);}
-.lp-submit{padding:12px 24px;border-radius:8px;background:var(--blue);border:none;color:white;font-size:15px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;}
+.lp-submit{padding:12px 24px;border-radius:8px;background:var(--sienna);border:none;color:white;font-size:15px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;transition:background 0.15s;}
+.lp-submit:hover{background:var(--ochre);color:var(--navy);}
 .lp-trust{display:flex;justify-content:center;gap:20px;margin-top:24px;flex-wrap:wrap;position:relative;}
-.lp-trust-item{font-size:12px;color:rgba(255,255,255,0.6);display:flex;align-items:center;gap:5px;}
+.lp-trust-item{font-size:13px;color:rgba(245,240,232,0.85);display:flex;align-items:center;gap:5px;}
 .trust-check{color:var(--green);font-size:14px;}
-.lp-compare{background:#f1f5f9;padding:32px 40px;}
-.lp-compare h3{font-size:20px;font-weight:700;text-align:center;margin-bottom:20px;}
+.lp-compare{background:#F5EEE2;padding:32px 40px;color:#1A120B;}
+.lp-compare h3{font-size:20px;font-weight:700;text-align:center;margin-bottom:20px;color:#1A120B;}
 .lp-table{width:100%;border-collapse:collapse;background:white;border-radius:12px;overflow:hidden;border:1px solid var(--border);}
 .lp-table thead{background:var(--navy);}
 .lp-table thead th{color:white;font-size:12px;font-weight:600;padding:12px 16px;text-align:left;}
-.lp-table tbody td{padding:13px 16px;font-size:13px;border-bottom:1px solid var(--border);}
+.lp-table tbody td{padding:13px 16px;font-size:13px;color:#1A120B;border-bottom:1px solid var(--border);}
 .lp-table tbody tr:last-child td{border-bottom:none;}
 .lp-table tbody tr:hover{background:#f8faff;}
 .lp-table .best-row{background:#f0f9ff;}
 .lp-table .best-row td:first-child{border-left:3px solid var(--blue);}
 .speed-chip{display:inline-block;background:#DDEEFF;color:#1B5EA8;font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px;}
-.lp-cta-bar{background:var(--blue);padding:28px 40px;text-align:center;color:white;}
+.lp-cta-bar{background:var(--sienna);padding:28px 40px;text-align:center;color:white;}
 .lp-cta-bar h3{font-family:'Bebas Neue',cursive;font-size:28px;letter-spacing:1px;margin-bottom:12px;}
-.lp-cta-bar p{font-size:14px;color:rgba(255,255,255,0.75);margin-bottom:18px;}
+.lp-cta-bar p{font-size:14px;color:rgba(245,240,232,0.92);margin-bottom:18px;}
 .lp-cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
 .btn-white{padding:12px 24px;border-radius:8px;background:white;color:var(--blue);font-size:14px;font-weight:700;border:none;cursor:pointer;font-family:'Outfit',sans-serif;}
 .btn-outline{padding:12px 24px;border-radius:8px;background:transparent;color:white;font-size:14px;font-weight:600;border:2px solid rgba(255,255,255,0.4);cursor:pointer;font-family:'Outfit',sans-serif;}
 .lp-social-proof{background:white;padding:24px 40px;display:flex;gap:20px;flex-wrap:wrap;justify-content:center;}
 .proof-item{text-align:center;flex:1;min-width:120px;}
-.proof-num{font-family:'Bebas Neue',cursive;font-size:36px;color:var(--blue);}
-.proof-lbl{font-size:12px;color:var(--muted);}
-.lp-reviews{background:#f8faff;padding:24px 40px;}
+.proof-num{font-family:'Bebas Neue',cursive;font-size:36px;color:var(--sienna);}
+.proof-lbl{font-size:12px;color:#4A3826;}
+.lp-reviews{background:#F5F0E8;padding:24px 40px;}
 .reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px;}
 .review-card{background:white;border:1px solid var(--border);border-radius:10px;padding:14px;}
 .review-stars{color:#f59e0b;font-size:14px;margin-bottom:6px;}
-.review-text{font-size:12px;color:#374151;line-height:1.5;margin-bottom:8px;}
-.review-name{font-size:11px;font-weight:600;color:var(--muted);}
+.review-text{font-size:13px;color:#2D1F14;line-height:1.65;margin-bottom:8px;}
+.review-name{font-size:12px;font-weight:600;color:#4A3826;}
 
 /* ── UTILITIES ── */
 .section-title{font-family:'Bebas Neue',cursive;font-size:32px;letter-spacing:1px;margin-bottom:6px;}
-.section-sub{font-size:14px;color:var(--muted);margin-bottom:24px;}
+.section-sub{font-size:14px;color:#4A3826;margin-bottom:24px;}
 .divider{height:1px;background:var(--border);margin:32px 0;}
-.info-box{background:#EEF5FF;border:1px solid #B8D0F0;border-radius:12px;padding:16px 20px;font-size:13px;color:#1B4D8A;line-height:1.6;margin-bottom:20px;}
-.warn-box{background:#fffbeb;border:1px solid #fde68a;border-radius:12px;padding:16px 20px;font-size:13px;color:#92400e;line-height:1.6;margin-bottom:20px;}
+.info-box{background:#EEF5FF;border:1px solid #B8D0F0;border-radius:12px;padding:16px 20px;font-size:13px;color:#0F3268;line-height:1.6;margin-bottom:20px;}
+.warn-box{background:#fffbeb;border:1px solid #fde68a;border-radius:12px;padding:16px 20px;font-size:13px;color:#78350f;line-height:1.6;margin-bottom:20px;}
 .green-box{background:#EBF8EE;border:1px solid #9FDBAE;border-radius:12px;padding:16px 20px;font-size:13px;color:#1E7B4B;line-height:1.6;margin-bottom:20px;}
 
 /* ── FOOTER ── */
-.site-footer{background:var(--navy);color:rgba(245,240,232,0.5);text-align:center;padding:28px 20px;font-size:12px;line-height:1.9;border-top:3px solid var(--sienna);}
+.site-footer{background:var(--navy);color:rgba(245,240,232,0.82);text-align:center;padding:28px 20px;font-size:12px;line-height:1.9;border-top:3px solid var(--sienna);}
 
 /* ── OUTAGES ── */
 .outage-hero{background:linear-gradient(135deg,#150808 0%,#2A0C0C 100%);border-radius:16px;padding:28px 32px;color:white;margin-bottom:28px;border:1px solid rgba(193,68,14,0.35);}
 .outage-hero-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:20px;}
 .outage-title-block{}
 .outage-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(239,68,68,0.15);border:1px solid rgba(239,68,68,0.4);color:#fca5a5;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:10px;}
-.outage-badge-dot{width:7px;height:7px;border-radius:50%;background:#ef4444;animation:blink 1.2s infinite;}
+.outage-badge-dot{width:7px;height:7px;border-radius:50%;background:var(--sienna);animation:blink 1.2s infinite;}
 @keyframes blink{0%,100%{opacity:1;}50%{opacity:0.2;}}
 .outage-big-title{font-family:'Bebas Neue',cursive;font-size:36px;letter-spacing:1px;margin-bottom:4px;}
-.outage-updated{font-size:12px;color:rgba(255,255,255,0.45);}
+.outage-updated{font-size:12px;color:rgba(245,240,232,0.82);}
 .outage-summary-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
 .outage-stat{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:14px 16px;text-align:center;}
 .outage-stat-num{font-family:'Bebas Neue',cursive;font-size:32px;line-height:1;}
-.outage-stat-lbl{font-size:11px;color:rgba(255,255,255,0.5);margin-top:3px;}
+.outage-stat-lbl{font-size:12px;color:rgba(245,240,232,0.75);margin-top:3px;}
 .outage-city-tabs{display:flex;gap:6px;margin-bottom:22px;flex-wrap:wrap;}
-.outage-city-tab{padding:8px 20px;border-radius:8px;border:1.5px solid var(--border);font-size:13px;font-weight:600;cursor:pointer;background:white;color:var(--muted);transition:all 0.15s;}
-.outage-city-tab.on{background:var(--navy);color:white;border-color:var(--navy);}
+.outage-city-tab{padding:8px 20px;border-radius:8px;border:1.5px solid var(--border);font-size:13px;font-weight:600;cursor:pointer;background:white;color:#4A3826;transition:all 0.15s;}
+.outage-city-tab.on{background:var(--sienna);color:white;border-color:var(--sienna);}
 .outage-city-panel{display:none;}
 .outage-city-panel.active{display:block;}
 .outage-provider-row{background:white;border:1px solid var(--border);border-radius:14px;margin-bottom:14px;overflow:hidden;}
 .outage-provider-head{display:flex;align-items:center;gap:14px;padding:18px 22px;border-bottom:1px solid var(--border);}
 .outage-prov-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
-.outage-prov-name{font-size:16px;font-weight:700;flex:1;}
+.outage-prov-name{font-size:16px;font-weight:700;flex:1;color:#1A120B;}
 .outage-status-badge{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;padding:5px 12px;border-radius:20px;}
 .status-outage{background:#fee2e2;color:#991b1b;}
 .status-partial{background:#fef3c7;color:#92400e;}
@@ -257,9 +268,9 @@ a{color:inherit;text-decoration:none;}
 .incident-row{padding:14px 0;border-bottom:0.5px solid var(--border);}
 .incident-row:last-child{border-bottom:none;}
 .incident-header{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:6px;}
-.incident-date{font-size:11px;font-weight:600;color:var(--muted);white-space:nowrap;}
-.incident-title{font-size:14px;font-weight:600;color:var(--navy);}
-.incident-desc{font-size:13px;color:var(--muted);line-height:1.6;}
+.incident-date{font-size:12px;font-weight:600;color:#4A3826;white-space:nowrap;}
+.incident-title{font-size:14px;font-weight:600;color:#1A120B;}
+.incident-desc{font-size:13px;color:#3D2E1E;line-height:1.65;}
 .incident-meta{display:flex;gap:12px;margin-top:6px;flex-wrap:wrap;}
 .incident-tag{font-size:11px;font-weight:600;padding:2px 8px;border-radius:4px;}
 .itag-area{background:#eff6ff;color:#1e40af;}
@@ -276,17 +287,24 @@ a{color:inherit;text-decoration:none;}
 .trend-bar-wrap{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;}
 .trend-bar{width:100%;border-radius:3px 3px 0 0;transition:opacity 0.15s;cursor:default;}
 .trend-bar:hover{opacity:0.75;}
-.trend-label{font-size:9px;color:var(--muted);text-align:center;}
+.trend-label{font-size:11px;color:#4A3826;text-align:center;}
 .trend-legend{display:flex;gap:16px;flex-wrap:wrap;}
-.trend-legend-item{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--muted);}
+.trend-legend-item{display:flex;align-items:center;gap:5px;font-size:12px;color:#4A3826;}
 .trend-dot{width:10px;height:10px;border-radius:2px;}
-.sources-box{background:#f8faff;border:1px solid var(--border);border-radius:12px;padding:18px 22px;margin-top:20px;font-size:12px;color:var(--muted);line-height:1.8;}
+.sources-box{background:#F5EEE2;border:1px solid var(--border);border-radius:12px;padding:18px 22px;margin-top:20px;font-size:13px;color:#3D2E1E;line-height:1.8;}
 .sources-box strong{color:var(--navy);}
-.outage-tip{background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:14px 18px;font-size:13px;color:#92400e;margin-bottom:16px;line-height:1.6;}
+.outage-tip{background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:14px 18px;font-size:13px;color:#78350f;margin-bottom:16px;line-height:1.6;}
 
-@media(max-width:900px){
+@media(max-width:1050px){
   .nav-links{gap:2px;}
-  .nav-link{padding:5px 9px;font-size:12px;}
+  .nav-link{padding:5px 9px;font-size:11px;}
+}
+@media(max-width:768px){
+  .nav-inner{flex-wrap:wrap;height:auto;padding:10px 14px 4px;gap:6px;}
+  .nav-links{order:3;width:100%;overflow-x:auto;flex-wrap:nowrap;padding-bottom:6px;scrollbar-width:none;}
+  .nav-links::-webkit-scrollbar{display:none;}
+  .nav-link{white-space:nowrap;flex-shrink:0;font-size:11px;padding:5px 9px;}
+  .nav-phone-link{order:2;font-size:12px;}
 }
 @media(max-width:768px){
   .nav-inner{flex-wrap:wrap;height:auto;padding:10px 14px;gap:8px;}
@@ -315,16 +333,16 @@ a{color:inherit;text-decoration:none;}
 /* ── FORMS ── */
 .form-section{background:var(--navy);padding:48px 20px;margin:-32px -20px 0;}
 .form-section-inner{max-width:680px;margin:0 auto;}
-.form-eyebrow{font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--cyan);margin-bottom:8px;}
+.form-eyebrow{font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ochre);margin-bottom:8px;}
 .form-title{font-family:'Bebas Neue',cursive;font-size:36px;letter-spacing:1px;color:var(--white);margin-bottom:6px;}
-.form-sub{font-size:14px;color:rgba(255,255,255,0.55);margin-bottom:28px;}
+.form-sub{font-size:14px;color:rgba(245,240,232,0.88);margin-bottom:28px;}
 .form-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:28px 32px;}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
 .form-row.single{grid-template-columns:1fr;}
 .form-group{display:flex;flex-direction:column;gap:5px;}
-.form-label{font-size:12px;font-weight:600;color:rgba(255,255,255,0.65);letter-spacing:0.03em;}
+.form-label{font-size:13px;font-weight:600;color:rgba(245,240,232,0.88);letter-spacing:0.03em;}
 .form-label .req{color:var(--red);margin-left:2px;}
-.form-input,.form-select,.form-textarea{padding:11px 14px;border-radius:8px;border:1.5px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.07);color:var(--white);font-size:14px;font-family:'Outfit',sans-serif;outline:none;transition:border-color 0.15s;width:100%;}
+.form-input,.form-select,.form-textarea{padding:11px 14px;border-radius:8px;border:1.5px solid rgba(255,255,255,0.25);background:rgba(255,255,255,0.1);color:#F5F0E8;font-size:14px;font-family:'Outfit',sans-serif;outline:none;transition:border-color 0.15s;width:100%;}
 .form-input::placeholder,.form-textarea::placeholder{color:rgba(255,255,255,0.3);}
 .form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--cyan);}
 .form-input.error,.form-select.error,.form-textarea.error{border-color:var(--red);}
@@ -344,34 +362,34 @@ a{color:inherit;text-decoration:none;}
 .form-success.show{display:block;}
 .form-success-icon{font-size:48px;margin-bottom:14px;}
 .form-success-title{font-family:'Bebas Neue',cursive;font-size:28px;color:var(--white);letter-spacing:1px;margin-bottom:8px;}
-.form-success-msg{font-size:14px;color:rgba(255,255,255,0.65);line-height:1.7;}
-.form-privacy{font-size:11px;color:rgba(255,255,255,0.35);text-align:center;margin-top:14px;line-height:1.6;}
+.form-success-msg{font-size:14px;color:rgba(245,240,232,0.90);line-height:1.7;}
+.form-privacy{font-size:12px;color:rgba(245,240,232,0.72);text-align:center;margin-top:14px;line-height:1.6;}
 .form-honey{display:none !important;visibility:hidden !important;position:absolute !important;left:-9999px !important;}
 
 /* Outage form (light) */
 .outage-form-card{background:white;border:1px solid var(--border);border-radius:16px;padding:28px;margin-top:20px;}
 .outage-form-title{font-size:16px;font-weight:700;margin-bottom:6px;}
-.outage-form-sub{font-size:13px;color:var(--muted);margin-bottom:20px;}
+.outage-form-sub{font-size:14px;color:#3D2E1E;margin-bottom:20px;}
 .of-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;}
 .of-row.single{grid-template-columns:1fr;}
 .of-group{display:flex;flex-direction:column;gap:4px;}
-.of-label{font-size:12px;font-weight:600;color:var(--navy);}
+.of-label{font-size:13px;font-weight:600;color:#1A120B;}
 .of-label .req{color:var(--red);}
-.of-input,.of-select,.of-textarea{padding:10px 13px;border-radius:8px;border:1.5px solid var(--border);background:var(--white);color:var(--navy);font-size:13px;font-family:'Outfit',sans-serif;outline:none;transition:border-color 0.15s;width:100%;}
+.of-input,.of-select,.of-textarea{padding:10px 13px;border-radius:8px;border:1.5px solid var(--border);background:var(--white);color:#1A120B;font-size:14px;font-family:'Outfit',sans-serif;outline:none;transition:border-color 0.15s;width:100%;}
 .of-input:focus,.of-select:focus,.of-textarea:focus{border-color:var(--blue);}
 .of-input.error,.of-select.error,.of-textarea.error{border-color:var(--red);}
 .of-select option{color:var(--navy);}
 .of-field-error{font-size:11px;color:var(--red);display:none;}
 .of-field-error.show{display:block;}
 .of-textarea{resize:vertical;min-height:80px;}
-.of-submit{padding:12px 28px;background:var(--blue);color:white;border:none;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;transition:background 0.15s;position:relative;}
-.of-submit:hover:not(:disabled){background:var(--blue-light);}
+.of-submit{padding:12px 28px;background:var(--sienna);color:white;border:none;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;transition:background 0.15s;position:relative;}
+.of-submit:hover:not(:disabled){background:var(--ochre);color:var(--navy);}
 .of-submit:disabled{opacity:0.6;cursor:not-allowed;}
 .of-submit .btn-spinner{display:none;width:14px;height:14px;border:2px solid rgba(255,255,255,0.3);border-top-color:white;border-radius:50%;animation:spin 0.7s linear infinite;position:absolute;right:12px;top:50%;transform:translateY(-50%);}
 .of-submit.loading .btn-spinner{display:block;}
-.of-success{display:none;padding:16px;background:#ecfdf5;border:1px solid #a7f3d0;border-radius:10px;margin-top:14px;font-size:13px;color:#065f46;}
+.of-success{display:none;padding:16px;background:#EBF8EE;border:1px solid #9FDBAE;border-radius:10px;margin-top:14px;font-size:13px;color:#1E7B4B;}
 .of-success.show{display:block;}
-.of-privacy{font-size:11px;color:var(--muted);margin-top:10px;line-height:1.6;}
+.of-privacy{font-size:12px;color:#4A3826;margin-top:10px;line-height:1.6;}
 /* ── ACCESSIBILITY & FOCUS ── */
 :focus-visible{outline:3px solid var(--cyan);outline-offset:2px;}
 .skip-nav{position:absolute;left:-9999px;top:4px;padding:8px 16px;background:var(--cyan);color:var(--navy);font-weight:700;border-radius:6px;z-index:9999;text-decoration:none;}
@@ -394,9 +412,9 @@ a{color:inherit;text-decoration:none;}
 .copy-btn.copied{background:#d1fae5;color:#065f46;border-color:#a7f3d0;}
 
 /* ── CHAR COUNTER ── */
-.char-counter{font-size:11px;color:rgba(255,255,255,0.35);text-align:right;margin-top:3px;}
+.char-counter{font-size:12px;color:rgba(255,255,255,0.35);text-align:right;margin-top:3px;}
 .char-counter.warn{color:#f87171;}
-.of-char-counter{font-size:11px;color:var(--muted);text-align:right;margin-top:3px;}
+.of-char-counter{font-size:12px;color:#4A3826;text-align:right;margin-top:3px;}
 
 /* ── GET DEAL IN TABLE ── */
 .deal-btn{display:inline-flex;align-items:center;gap:4px;padding:7px 14px;background:var(--sienna);color:white;border:none;border-radius:6px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;transition:all 0.15s;white-space:nowrap;text-decoration:none;}
@@ -412,9 +430,9 @@ a{color:inherit;text-decoration:none;}
   .provider-block,.step-card,.mcard,.week-card,.review-card,.trend-section,.outage-provider-row,.outage-form-card{background:var(--card);border-color:var(--border);}
   .plans-table thead th{background:#1a2540;}
   .plans-table tbody tr:hover{background:#1a2540;}
-  .city-tab{background:var(--card);color:var(--muted);border-color:var(--border);}
+  .city-tab{background:var(--card);color:#4A3826;border-color:var(--border);}
   .city-tab.on{background:var(--blue);color:white;}
-  .outage-city-tab{background:var(--card);color:var(--muted);border-color:var(--border);}
+  .outage-city-tab{background:var(--card);color:#4A3826;border-color:var(--border);}
   .info-box{background:#0d1e3a;border-color:#1e3a6e;color:#93c5fd;}
   .warn-box{background:#2d1f06;border-color:#713f12;color:#fbbf24;}
   .green-box{background:#052e16;border-color:#065f46;color:#6ee7b7;}
@@ -426,7 +444,7 @@ a{color:inherit;text-decoration:none;}
   .lp-table{background:var(--card);}
   .lp-table tbody td{border-color:var(--border);}
   .lp-table tbody tr:hover{background:#1a2540;}
-  .lp-social-proof{background:var(--card);}
+  .lp-social-proof{background:#FFFCF7;}
   .lp-reviews{background:var(--off);}
   .outage-form-card{background:var(--card);}
   .of-input,.of-select,.of-textarea{background:#1a2540;color:#e2e8f0;border-color:var(--border);}
@@ -447,7 +465,7 @@ a{color:inherit;text-decoration:none;}
 .toast.toast-error{border-left:4px solid var(--red);}
 .toast.toast-info{border-left:4px solid var(--cyan);}
 .toast-icon{font-size:16px;flex-shrink:0;}
-.toast-close{margin-left:auto;background:transparent;border:none;color:rgba(255,255,255,0.5);cursor:pointer;font-size:16px;line-height:1;padding:0;}
+.toast-close{margin-left:auto;background:transparent;border:none;color:rgba(245,240,232,0.85);cursor:pointer;font-size:16px;line-height:1;padding:0;}
 
 /* ── SECTION TRANSITIONS ── */
 .section{animation:none;}
@@ -456,55 +474,49 @@ a{color:inherit;text-decoration:none;}
 
 /* ── PROVIDER QUICK-FILTER ── */
 .provider-filter-bar{display:flex;align-items:center;gap:10px;margin-bottom:20px;flex-wrap:wrap;}
-.provider-filter-bar label{font-size:13px;font-weight:600;color:var(--muted);}
+.provider-filter-bar label{font-size:13px;font-weight:600;color:#4A3826;}
 .provider-search{padding:9px 14px;border-radius:8px;border:1.5px solid var(--border);background:var(--white);font-size:13px;font-family:'Outfit',sans-serif;width:220px;outline:none;color:var(--navy);}
 .provider-search:focus{border-color:var(--blue);}
-.filter-chip{padding:6px 14px;border-radius:20px;border:1.5px solid var(--border);font-size:12px;font-weight:600;cursor:pointer;background:var(--white);color:var(--muted);transition:all 0.15s;font-family:'Outfit',sans-serif;}
-.filter-chip.on{background:var(--navy);color:white;border-color:var(--navy);}
-.no-results{text-align:center;padding:40px;color:var(--muted);font-size:14px;display:none;}
+.filter-chip{padding:6px 14px;border-radius:20px;border:1.5px solid var(--border);font-size:12px;font-weight:600;cursor:pointer;background:var(--white);color:#4A3826;transition:all 0.15s;font-family:'Outfit',sans-serif;}
+.filter-chip.on{background:var(--sienna);color:white;border-color:var(--sienna);}
+.no-results{text-align:center;padding:40px;color:#4A3826;font-size:14px;display:none;}
 .no-results.show{display:block;}
 
 /* ── SAVINGS CALCULATOR ── */
 .savings-calc{background:linear-gradient(135deg,#0e0c0a 0%,#180e08 50%,#0a0e16 100%);border-radius:16px;padding:28px 32px;color:white;margin-bottom:28px;}
 .savings-calc h3{font-family:'Bebas Neue',cursive;font-size:28px;letter-spacing:1px;margin-bottom:4px;}
-.savings-calc p{font-size:14px;color:rgba(255,255,255,0.6);margin-bottom:24px;}
+.savings-calc p{font-size:14px;color:rgba(245,240,232,0.85);margin-bottom:24px;}
 .savings-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;align-items:end;}
-.savings-field label{font-size:11px;font-weight:600;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.06em;display:block;margin-bottom:6px;}
+.savings-field label{font-size:11px;font-weight:600;color:rgba(245,240,232,0.90);text-transform:uppercase;letter-spacing:0.06em;display:block;margin-bottom:6px;}
 .savings-input,.savings-select{width:100%;padding:11px 14px;border-radius:8px;border:1.5px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.08);color:white;font-size:14px;font-family:'Outfit',sans-serif;outline:none;}
 .savings-input:focus,.savings-select:focus{border-color:var(--cyan);}
 .savings-select option{background:#0a0e1a;color:white;}
 .savings-result{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:20px;margin-top:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
 .savings-num{font-family:'Bebas Neue',cursive;font-size:48px;color:var(--ochre);letter-spacing:1px;line-height:1;}
-.savings-label{font-size:13px;color:rgba(255,255,255,0.55);margin-top:4px;}
+.savings-label{font-size:13px;color:rgba(245,240,232,0.8);margin-top:4px;}
 .savings-plan{font-size:15px;font-weight:600;color:white;margin-bottom:4px;}
 .savings-cta{padding:12px 24px;background:var(--blue);border:none;border-radius:8px;color:white;font-size:14px;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;transition:background 0.15s;}
-.savings-cta:hover{background:var(--cyan);color:var(--navy);}
+.savings-cta:hover{background:var(--ochre);color:var(--navy);}
 @media(max-width:640px){.savings-grid{grid-template-columns:1fr;}}
 
 /* ── SPEED TEST WIDGET ── */
 .speed-test-bar{background:linear-gradient(135deg,#0a0e1a,#162040);border-radius:16px;padding:24px 28px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
 .speed-test-left h4{font-size:16px;font-weight:700;color:white;margin-bottom:4px;}
-.speed-test-left p{font-size:13px;color:rgba(255,255,255,0.55);}
+.speed-test-left p{font-size:13px;color:rgba(245,240,232,0.88);}
 .speed-test-btn{padding:11px 22px;background:var(--cyan);border:none;border-radius:8px;color:var(--navy);font-size:14px;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;white-space:nowrap;transition:opacity 0.15s;}
 .speed-test-btn:hover{opacity:0.85;}
-.speed-test-results{display:none;margin-top:16px;display:flex;gap:20px;flex-wrap:wrap;}
-.speed-metric{text-align:center;background:rgba(255,255,255,0.06);border-radius:10px;padding:14px 20px;min-width:100px;}
-.speed-metric-val{font-family:'Bebas Neue',cursive;font-size:32px;color:var(--cyan);line-height:1;}
-.speed-metric-lbl{font-size:11px;color:rgba(255,255,255,0.5);margin-top:3px;}
-.speed-test-running{display:none;align-items:center;gap:10px;margin-top:12px;font-size:13px;color:rgba(255,255,255,0.6);}
-.speed-spinner{width:18px;height:18px;border:2px solid rgba(255,255,255,0.2);border-top-color:var(--cyan);border-radius:50%;animation:spin 0.7s linear infinite;}
 @keyframes spin{to{transform:rotate(360deg);}}
 
 /* ── FAQ SECTION ── */
 .faq-section{margin-top:40px;}
 .faq-title{font-family:'Bebas Neue',cursive;font-size:32px;letter-spacing:1px;margin-bottom:6px;}
-.faq-sub{font-size:14px;color:var(--muted);margin-bottom:20px;}
+.faq-sub{font-size:14px;color:#4A3826;margin-bottom:20px;}
 .faq-item{background:var(--white);border:1px solid var(--border);border-radius:12px;margin-bottom:10px;overflow:hidden;}
-.faq-q{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;cursor:pointer;font-size:14px;font-weight:600;user-select:none;gap:12px;}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;cursor:pointer;font-size:15px;font-weight:600;color:#1A120B;user-select:none;gap:12px;}
 .faq-q:hover{background:#FBF5EB;}
-.faq-arrow{font-size:18px;color:var(--muted);transition:transform 0.2s;flex-shrink:0;}
+.faq-arrow{font-size:18px;color:#4A3826;transition:transform 0.2s;flex-shrink:0;}
 .faq-item.open .faq-arrow{transform:rotate(180deg);}
-.faq-a{display:none;padding:0 20px 16px;font-size:13px;color:var(--muted);line-height:1.7;}
+.faq-a{display:none;padding:0 20px 16px;font-size:14px;color:#3D2E1E;line-height:1.75;}
 .faq-item.open .faq-a{display:block;}
 
 /* ── PRINT STYLES ── */
@@ -521,7 +533,7 @@ a{color:inherit;text-decoration:none;}
 .deals-banner-icon{font-size:20px;flex-shrink:0;}
 .deals-banner-text{font-size:13px;color:white;flex:1;}
 .deals-banner-text strong{color:#6ee7b7;}
-.deals-dismiss{background:transparent;border:none;color:rgba(255,255,255,0.5);cursor:pointer;font-size:18px;margin-left:auto;flex-shrink:0;}
+.deals-dismiss{background:transparent;border:none;color:rgba(245,240,232,0.85);cursor:pointer;font-size:18px;margin-left:auto;flex-shrink:0;}
 .deals-dismiss:hover{color:white;}
 
 /* Dark mode additions */
@@ -529,21 +541,19 @@ a{color:inherit;text-decoration:none;}
   .faq-item{background:var(--card);border-color:var(--border);}
   .faq-q:hover{background:#1a2540;}
   .provider-search{background:var(--card);color:#e2e8f0;border-color:var(--border);}
-  .filter-chip{background:var(--card);color:var(--muted);border-color:var(--border);}
+  .filter-chip{background:var(--card);color:#4A3826;border-color:var(--border);}
   .savings-input,.savings-select{background:rgba(255,255,255,0.05);}
 }
 
 /* ── MOTTOLA ABSTRACT STROKES — decorative SVG texture overlays ── */
-.mottola-stripe{position:absolute;pointer-events:none;overflow:hidden;}
-.hero-strokes{position:absolute;inset:0;pointer-events:none;overflow:hidden;opacity:0.18;}
 
 /* ── CANCELLATION GUIDE ── */
 .cancel-section{}
 .cancel-intro{background:linear-gradient(135deg,#150808 0%,#2A0c0a 50%,#0a0e1a 100%);border-radius:16px;padding:28px 32px;color:white;margin-bottom:28px;position:relative;overflow:hidden;}
 .cancel-intro::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 80% 50%,rgba(193,68,14,0.3) 0%,transparent 60%),radial-gradient(ellipse 40% 60% at 10% 80%,rgba(27,94,168,0.25) 0%,transparent 55%);pointer-events:none;}
 .cancel-intro-inner{position:relative;}
-.cancel-intro h2{font-family:'Bebas Neue',cursive;font-size:36px;letter-spacing:1px;color:var(--chalk);margin-bottom:6px;}
-.cancel-intro p{font-size:14px;color:rgba(245,240,232,0.6);margin-bottom:16px;}
+.cancel-intro h2{font-family:'Bebas Neue',cursive;font-size:36px;letter-spacing:1px;color:#F5F0E8;margin-bottom:6px;}
+.cancel-intro p{font-size:14px;color:rgba(245,240,232,0.85);margin-bottom:16px;}
 .cancel-warning{display:inline-flex;align-items:center;gap:8px;background:rgba(193,68,14,0.18);border:1px solid rgba(193,68,14,0.4);color:#FCA98A;padding:8px 14px;border-radius:8px;font-size:13px;font-weight:600;}
 
 .cancel-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:18px;margin-bottom:24px;}
@@ -551,8 +561,8 @@ a{color:inherit;text-decoration:none;}
 .cancel-card:hover{box-shadow:0 6px 28px rgba(14,12,10,0.12);border-color:var(--sienna);}
 .cancel-card-head{padding:18px 20px;display:flex;align-items:center;gap:14px;border-bottom:1px solid var(--border);}
 .cancel-card-icon{width:46px;height:46px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
-.cancel-card-title{font-size:16px;font-weight:700;color:var(--navy);}
-.cancel-card-sub{font-size:12px;color:var(--muted);margin-top:2px;}
+.cancel-card-title{font-size:16px;font-weight:700;color:#1A120B;}
+.cancel-card-sub{font-size:13px;color:#4A3826;margin-top:2px;}
 .cancel-diff{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;margin-left:auto;flex-shrink:0;}
 .diff-easy{background:#D4F0E3;color:#1E7B4B;}
 .diff-medium{background:#FEF0C0;color:#A86010;}
@@ -563,25 +573,25 @@ a{color:inherit;text-decoration:none;}
 .cancel-step:last-child{border-bottom:none;}
 .cs-num{width:24px;height:24px;border-radius:50%;background:var(--sienna);color:white;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
 .cs-body{}
-.cs-title{font-size:13px;font-weight:600;color:var(--navy);margin-bottom:3px;}
-.cs-desc{font-size:12px;color:var(--muted);line-height:1.6;}
+.cs-title{font-size:14px;font-weight:600;color:#1A120B;margin-bottom:3px;}
+.cs-desc{font-size:13px;color:#4A3826;line-height:1.65;}
 .cs-tip{display:inline-flex;align-items:center;gap:5px;background:#FBF5EB;border:1px solid #E8D9B8;border-radius:6px;padding:4px 9px;font-size:11px;color:#8B5E1E;margin-top:5px;}
 .cs-phone{display:block;margin-top:4px;font-size:12px;font-weight:700;color:var(--sienna);}
 .cancel-card-footer{padding:12px 20px;background:#FBF5EB;border-top:1px solid var(--border);display:flex;gap:16px;flex-wrap:wrap;}
-.cfoot-item{font-size:11px;color:var(--muted);display:flex;align-items:center;gap:4px;}
+.cfoot-item{font-size:12px;color:#3D2E1E;display:flex;align-items:center;gap:4px;}
 .cfoot-item strong{color:var(--navy);}
 .cfoot-badge{display:inline-block;font-size:10px;font-weight:700;padding:1px 7px;border-radius:4px;}
 .fee-yes{background:#FFE4DC;color:#B32418;}
 .fee-no{background:#D4F0E3;color:#1E7B4B;}
 
 .cancel-tips-box{background:var(--card);border:1.5px solid var(--border);border-radius:16px;padding:24px;margin-top:6px;}
-.cancel-tips-title{font-family:'Bebas Neue',cursive;font-size:24px;letter-spacing:1px;color:var(--navy);margin-bottom:4px;}
-.cancel-tips-sub{font-size:13px;color:var(--muted);margin-bottom:16px;}
+.cancel-tips-title{font-family:'Bebas Neue',cursive;font-size:24px;letter-spacing:1px;color:#1A120B;margin-bottom:4px;}
+.cancel-tips-sub{font-size:14px;color:#4A3826;margin-bottom:16px;}
 .cancel-tips-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
 .ctip{background:var(--off);border-radius:10px;padding:14px;border:1px solid var(--border);}
-.ctip-icon{font-size:22px;margin-bottom:6px;}
+.ctip-icon{font-size:24px;margin-bottom:8px;}
 .ctip-title{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:4px;}
-.ctip-body{font-size:12px;color:var(--muted);line-height:1.6;}
+.ctip-body{font-size:13px;color:#4A3826;line-height:1.65;}
 
 @media(max-width:768px){
   .cancel-grid{grid-template-columns:1fr;}
@@ -599,6 +609,66 @@ a{color:inherit;text-decoration:none;}
   .cs-tip{background:#1a2540;border-color:#2a3650;color:#D4A017;}
   .ctip{background:#1a2540;border-color:#2a3650;}
   .cancel-tips-box{background:#161e2e;border-color:#2a3650;}
+
+  /* Ensure body text is readable in dark mode */
+  body{color:#E8DDD0;}
+  .provider-block,.step-card,.mcard,.week-card,.cancel-card,.cancel-tips-box,.faq-item,.trend-section,.outage-form-card,.outage-provider-row,.lp-table{color:#E8DDD0;}
+  .page-title,.week-title,.mcard-title,.step-title,.cancel-card-title,.cs-title,.incident-title,.faq-q,.prov-name,.of-label,.ctip-title,.cancel-tips-title{color:#F0E6D8 !important;}
+  .page-sub,.step-desc,.prov-type,.plan-note,.price-reg,.mcard-type,.roi-label,.week-items,.proof-lbl,.review-name,.incident-date,.trend-label,.trend-legend-item,.sources-box,.of-privacy,.of-char-counter,.cancel-card-sub,.cs-desc,.ctip-body,.section-sub,.outage-form-sub,.faq-a,.cancel-tips-sub,.incident-desc,.outage-city-tab,.outage-updated,.stat-lbl{color:#C4AA90 !important;}
+  .plans-table tbody td{color:#E8DDD0;}
+  .info-box{color:#93C5FD;}
+  .warn-box{color:#FCD34D;}
+  .green-box{color:#6EE7B7;}
+  .affiliate-note{color:#B8A07A;}
+  .sources-box{background:#1a2540;color:#C4AA90;}
+  .review-text{color:#C4AA90 !important;}
+
+  /* Landing page dark mode — tables and quiz on dark bg */
+  .lp-compare{background:#0f1623;}
+  .lp-table{background:#161e2e;color:#E8DDD0;}
+  .lp-table thead{background:#0a0e1a;}
+  .lp-table thead th{color:#F5F0E8;}
+  .lp-table tbody td{color:#E8DDD0;border-color:#2a3650;}
+  .lp-table tbody tr:hover{background:#1a2540;}
+  .lp-table .best-row{background:#1a2a3a;}
+  .lp-table .best-row td:first-child{border-left-color:var(--sienna);}
+  .lp-social-proof{background:#161e2e;}
+  .proof-lbl{color:#C4AA90 !important;}
+  .lp-reviews{background:#0f1623;}
+  .review-card{background:#161e2e;border-color:#2a3650;}
+  /* Quiz on dark bg — cards stay white-ish */
+  .lpq-opt{background:rgba(245,240,232,0.08) !important;border-color:rgba(245,240,232,0.2) !important;}
+  .lpq-opt div{color:#E8DDD0 !important;}
+
+  /* Main provider tables — ensure readable on dark cards */
+  .plans-table tbody td{color:#E8DDD0;}
+  .plans-table thead th{background:#1a2540;color:#C4AA90;}
+  .plan-name-cell{color:#F0E6D8;}
+  .plan-note{color:#C4AA90 !important;}
+  .prov-name{color:#F0E6D8 !important;}
+  .prov-type{color:#C4AA90 !important;}
+  .speed-val{color:#7BB3E0 !important;}
+  .price-val{color:#F0E6D8 !important;}
+  .price-reg{color:#C4AA90 !important;}
+  .provider-header{border-color:#2a3650;}
+  .affiliate-note{background:#1a2540;border-color:#2a3650;color:#B8A07A;}
+  /* Cancel guide dark mode */
+  .cs-desc{color:#C4AA90 !important;}
+  .cs-title{color:#F0E6D8 !important;}
+  .cancel-card-sub{color:#C4AA90 !important;}
+  .cancel-card-footer{background:#1a2540;}
+  .cfoot-item{color:#C4AA90 !important;}
+  .ctip-body{color:#C4AA90 !important;}
+  .ctip-title{color:#F0E6D8 !important;}
+  /* FAQ dark mode */
+  .faq-q{color:#F0E6D8 !important;}
+  .faq-a{color:#C4AA90 !important;}
+  .faq-item:hover{border-color:var(--sienna);}
+  /* Info/warn boxes dark mode */
+  .info-box{background:#0d1e3a;border-color:#1e3a6e;color:#93C5FD;}
+  .warn-box{background:#2d1f06;border-color:#713f12;color:#FCD34D;}
+  .green-box{background:#052e16;border-color:#065f46;color:#6EE7B7;}
+  .outage-tip{background:#2d1f06;border-color:#713f12;color:#FCD34D;}
 }
 
 </style>
@@ -607,7 +677,7 @@ a{color:inherit;text-decoration:none;}
 <a class="skip-nav" href="#main-content">Skip to main content</a>
 
 <!-- BACK TO TOP -->
-<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" title="Back to top">↑</button>
 
 
 <!-- TOAST CONTAINER -->
@@ -622,8 +692,8 @@ a{color:inherit;text-decoration:none;}
       <button class="nav-link" onclick="showSection('providers')">Compare Providers</button>
       <button class="nav-link" onclick="showSection('marketing')">Marketing Plan</button>
       <button class="nav-link" onclick="showSection('landingpage')">Landing Page</button>
-      <button class="nav-link" onclick="showSection('outages')" style="color:#f87171;">🚨 Outages</button>
-      <button class="nav-link" onclick="showSection('cancel')" style="color:var(--ochre,#D4A017);">❌ Cancel ISP</button>
+      <button class="nav-link" onclick="showSection('outages')" data-section="outages">🚨 Outages</button>
+      <button class="nav-link" onclick="showSection('cancel')" data-section="cancel">❌ Cancel ISP</button>
     </div>
     <a href="tel:9517137247" class="nav-phone-link" style="color:var(--cyan);font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap;display:flex;align-items:center;gap:5px;flex-shrink:0;">📞 (951) 713-7247</a>
   </div>
@@ -703,7 +773,7 @@ a{color:inherit;text-decoration:none;}
         </div>
         <div>
           <div class="savings-plan" id="sc-rec">Calculating…</div>
-          <div style="font-size:12px;color:rgba(255,255,255,0.5);" id="sc-detail"></div>
+          <div style="font-size:12px;color:rgba(245,240,232,0.85);" id="sc-detail"></div>
         </div>
         <button class="savings-cta" onclick="showSection('providers')">See This Plan →</button>
       </div>
@@ -745,17 +815,17 @@ a{color:inherit;text-decoration:none;}
       <div style="background:white;border:1px solid var(--border);border-radius:14px;padding:22px;text-align:center;cursor:pointer;transition:box-shadow 0.15s;" onclick="heroGoCity('mv')" onmouseover="this.style.boxShadow='0 4px 20px rgba(26,86,219,0.15)'" onmouseout="this.style.boxShadow=''">
         <div style="font-size:32px;margin-bottom:10px;">🏆</div>
         <div style="font-weight:700;margin-bottom:6px;">Best Overall: AT&T Fiber</div>
-        <div style="font-size:13px;color:var(--muted);">Symmetrical speeds, flat pricing, no contracts. Starts at $35/mo.</div>
+        <div style="font-size:13px;color:#4A3826;">Symmetrical speeds, flat pricing, no contracts. Starts at $35/mo.</div>
       </div>
       <div style="background:white;border:1px solid var(--border);border-radius:14px;padding:22px;text-align:center;cursor:pointer;transition:box-shadow 0.15s;" onclick="heroGoCity('mv')" onmouseover="this.style.boxShadow='0 4px 20px rgba(26,86,219,0.15)'" onmouseout="this.style.boxShadow=''">
         <div style="font-size:32px;margin-bottom:10px;">💰</div>
         <div style="font-weight:700;margin-bottom:6px;">Cheapest: Spectrum</div>
-        <div style="font-size:13px;color:var(--muted);">100 Mbps for $30/mo. Best coverage in Moreno Valley at 97%.</div>
+        <div style="font-size:13px;color:#4A3826;">100 Mbps for $30/mo. Best coverage in Moreno Valley at 97%.</div>
       </div>
       <div style="background:white;border:1px solid var(--border);border-radius:14px;padding:22px;text-align:center;cursor:pointer;transition:box-shadow 0.15s;" onclick="heroGoCity('mv')" onmouseover="this.style.boxShadow='0 4px 20px rgba(26,86,219,0.15)'" onmouseout="this.style.boxShadow=''">
         <div style="font-size:32px;margin-bottom:10px;">⚡</div>
         <div style="font-weight:700;margin-bottom:6px;">Fastest: Frontier Fiber</div>
-        <div style="font-size:13px;color:var(--muted);">Up to 7 Gbps symmetric. Price never increases after year 1.</div>
+        <div style="font-size:13px;color:#4A3826;">Up to 7 Gbps symmetric. Price never increases after year 1.</div>
       </div>
     </div>
   </div>
@@ -771,7 +841,7 @@ a{color:inherit;text-decoration:none;}
 
     <div class="form-card" id="leadFormWrap">
       <div id="leadFormBody">
-        <form id="leadForm" novalidate>
+        <form id="leadForm" novalidate method="post" action="#" autocomplete="on">
           <!-- Honeypot — hidden from real users, catches bots -->
           <input class="form-honey" type="text" name="_gotcha" tabindex="-1" autocomplete="off">
 
@@ -882,7 +952,7 @@ a{color:inherit;text-decoration:none;}
   <!-- PROVIDER QUICK FILTER -->
   <div class="provider-filter-bar" id="provFilterBar">
     <label for="provSearch">Filter:</label>
-    <input type="text" id="provSearch" class="provider-search" placeholder="Search providers or plans…" oninput="filterProviders(this.value)" autocomplete="off" maxlength="60">
+    <input type="text" id="provSearch" class="provider-search" placeholder="Search providers or plans…" oninput="filterProviders(this.value)" autocomplete="off" maxlength="50" spellcheck="false">
     <button class="filter-chip on" data-type="all" onclick="setTypeFilter('all',this)">All</button>
     <button class="filter-chip" data-type="fiber" onclick="setTypeFilter('fiber',this)">Fiber</button>
     <button class="filter-chip" data-type="cable" onclick="setTypeFilter('cable',this)">Cable</button>
@@ -1195,35 +1265,35 @@ a{color:inherit;text-decoration:none;}
     <div class="faq-sub">Everything people in Moreno Valley, Perris, and Riverside ask about switching internet providers.</div>
 
     <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">Is fiber internet available in Moreno Valley? <span class="faq-arrow">▼</span></div>
+      <div class="faq-q" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this.closest('.faq-item'))}">Is fiber internet available in Moreno Valley? <span class="faq-arrow">▼</span></div>
       <div class="faq-a">Yes — both Frontier Fiber and AT&T Fiber are available in parts of Moreno Valley, covering approximately 56–79% of addresses depending on the provider. Frontier covers more of the city. The only way to confirm is to check your exact address, since fiber availability is street-by-street. Enter your ZIP above and we'll show you what's available.</div>
     </div>
     <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">What's the cheapest internet in Perris, CA? <span class="faq-arrow">▼</span></div>
+      <div class="faq-q" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this.closest('.faq-item'))}">What's the cheapest internet in Perris, CA? <span class="faq-arrow">▼</span></div>
       <div class="faq-a">Mediacom's Access Internet 60 plan starts at $24.99/mo and is the cheapest option in Perris with 60 Mbps speeds. Spectrum Internet Advantage is $30/mo for 100 Mbps. For households that qualify (low-income, SNAP, Medicaid, K-12 students), Spectrum Internet Assist can be free or near-free. Check the Perris tab above to compare all current plans.</div>
     </div>
     <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">Can I get internet with no credit check in Riverside County? <span class="faq-arrow">▼</span></div>
+      <div class="faq-q" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this.closest('.faq-item'))}">Can I get internet with no credit check in Riverside County? <span class="faq-arrow">▼</span></div>
       <div class="faq-a">Yes. EarthLink offers fiber and 5G internet plans with no credit check required in all three cities — starting at $39.95/mo for 100 Mbps. T-Mobile Home Internet and Starlink also don't run credit checks. These options are ideal if you've been declined by Spectrum or AT&T.</div>
     </div>
     <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">Does Starlink work in Moreno Valley, Perris, and Riverside? <span class="faq-arrow">▼</span></div>
+      <div class="faq-q" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this.closest('.faq-item'))}">Does Starlink work in Moreno Valley, Perris, and Riverside? <span class="faq-arrow">▼</span></div>
       <div class="faq-a">Yes — Starlink has 100% coverage in all three cities. It's the best satellite option, delivering 50–250 Mbps with ~25ms latency (much lower than older satellite providers like HughesNet or Viasat which average 600–800ms). You'll need a one-time hardware cost of $349 (or as low as $89 in low-congestion areas) plus $90/mo. There's a 30-day free trial.</div>
     </div>
     <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">What internet provider has the best customer service in the Inland Empire? <span class="faq-arrow">▼</span></div>
+      <div class="faq-q" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this.closest('.faq-item'))}">What internet provider has the best customer service in the Inland Empire? <span class="faq-arrow">▼</span></div>
       <div class="faq-a">Based on 2025 customer satisfaction surveys: Starlink ranks #1, T-Mobile Home Internet ranks #3. AT&T Fiber and Frontier both score above average. Spectrum and the legacy satellite providers (HughesNet, Viasat) rank lowest due to long hold times and limited technician availability. For outages in the last 30 days, see our Outages tab.</div>
     </div>
     <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">What happens after the promotional price ends? <span class="faq-arrow">▼</span></div>
+      <div class="faq-q" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this.closest('.faq-item'))}">What happens after the promotional price ends? <span class="faq-arrow">▼</span></div>
       <div class="faq-a">Spectrum's promo prices last 12 months, then increase by $20–35/mo. Frontier and AT&T Fiber prices never increase — they're flat for life. T-Mobile guarantees no increases for 5 years. Satellite providers (HughesNet, Viasat) often have 2-year contracts with price escalation. We always show the "regular rate" in our plan tables so you know exactly what to expect.</div>
     </div>
     <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">Can I get a bill credit for an internet outage? <span class="faq-arrow">▼</span></div>
-      <div class="faq-a">Yes — most ISPs will credit your bill for extended outages, but they rarely do it automatically. You have to request it. Call customer service, reference the outage date and duration, and ask for a service credit. Spectrum typically credits $5–10/day for verified outages. AT&T and Frontier will credit a prorated daily amount. You can also call us at (951) 713-7247 and we'll help you escalate.</div>
+      <div class="faq-q" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this.closest('.faq-item'))}">Can I get a bill credit for an internet outage? <span class="faq-arrow">▼</span></div>
+      <div class="faq-a">Yes — most ISPs will credit your bill for extended outages, but they rarely do it automatically. You have to request it. Call customer service, reference the outage date and duration, and ask for a service credit. Spectrum typically credits $5–10/day for verified outages. AT&T and Frontier will credit a prorated daily amount. You can also call us at <a href="tel:9517137247" style="color:var(--sienna);font-weight:600;">(951) 713-7247</a> and we'll help you escalate.</div>
     </div>
     <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">Is this website affiliated with any internet provider? <span class="faq-arrow">▼</span></div>
+      <div class="faq-q" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this.closest('.faq-item'))}">Is this website affiliated with any internet provider? <span class="faq-arrow">▼</span></div>
       <div class="faq-a">No — we're an independent comparison site. We earn a referral commission when you sign up through our links, but you pay the exact same price you'd pay going directly to the provider. We include all providers including ones where we earn nothing (like HughesNet and Viasat) because our goal is to give you accurate information. We're based in Riverside County and built this specifically for our community.</div>
     </div>
   </div>
@@ -1262,7 +1332,7 @@ a{color:inherit;text-decoration:none;}
       </div>
       <div class="roi-bar"><div class="roi-fill" style="width:90%;background:var(--blue);"></div></div>
       <div class="roi-label"><span>Estimated ROI</span><span>Highest</span></div>
-      <p style="font-size:13px;color:var(--muted);margin:10px 0;">Target people actively searching for internet right now. At $0.75–$1.50 CPC, $300 drives 200–400 targeted clicks.</p>
+      <p style="font-size:13px;color:#4A3826;margin:10px 0;">Target people actively searching for internet right now. At $0.75–$1.50 CPC, $300 drives 200–400 targeted clicks.</p>
       <ul class="mcard-tips">
         <li>Keywords: "internet providers Moreno Valley", "cheap internet Perris CA", "Spectrum vs AT&T Riverside", "best internet 92551", "internet deals Riverside County"</li>
         <li>Negative keywords: jobs, careers, login, pay bill, outage</li>
@@ -1279,7 +1349,7 @@ a{color:inherit;text-decoration:none;}
       </div>
       <div class="roi-bar"><div class="roi-fill" style="width:75%;background:var(--cyan);"></div></div>
       <div class="roi-label"><span>Estimated ROI</span><span>High</span></div>
-      <p style="font-size:13px;color:var(--muted);margin:10px 0;">Target ZIP codes with a radius as tight as 1 mile. Best for reaching people who don't know they have options.</p>
+      <p style="font-size:13px;color:#4A3826;margin:10px 0;">Target ZIP codes with a radius as tight as 1 mile. Best for reaching people who don't know they have options.</p>
       <ul class="mcard-tips">
         <li>Ad format: Lead Generation form (captures name + phone without leaving Facebook)</li>
         <li>Audience: Homeowners, 25–55, Moreno Valley + Perris ZIPs, "home improvement" interest</li>
@@ -1296,7 +1366,7 @@ a{color:inherit;text-decoration:none;}
       </div>
       <div class="roi-bar"><div class="roi-fill" style="width:80%;background:#8b5cf6;"></div></div>
       <div class="roi-label"><span>Estimated ROI</span><span>Very High (underpriced)</span></div>
-      <p style="font-size:13px;color:var(--muted);margin:10px 0;">Moreno Valley and Perris residents ask "which internet provider do you use?" weekly on Nextdoor. CPCs as low as $0.30–$0.80.</p>
+      <p style="font-size:13px;color:#4A3826;margin:10px 0;">Moreno Valley and Perris residents ask "which internet provider do you use?" weekly on Nextdoor. CPCs as low as $0.30–$0.80.</p>
       <ul class="mcard-tips">
         <li>Create a free Nextdoor Business Page first — post organic before spending</li>
         <li>Post: "Here are all 9 internet options in Moreno Valley and what they cost" — can go viral for free</li>
@@ -1312,7 +1382,7 @@ a{color:inherit;text-decoration:none;}
       </div>
       <div class="roi-bar"><div class="roi-fill" style="width:65%;background:var(--green);"></div></div>
       <div class="roi-label"><span>Estimated ROI</span><span>Long-term highest</span></div>
-      <p style="font-size:13px;color:var(--muted);margin:10px 0;">Spend $150 on tools and time. A verified Google Business Profile gets you on Maps and local search for free.</p>
+      <p style="font-size:13px;color:#4A3826;margin:10px 0;">Spend $150 on tools and time. A verified Google Business Profile gets you on Maps and local search for free.</p>
       <ul class="mcard-tips">
         <li>Google Business name: "Riverside County Internet — Compare All Providers"</li>
         <li>Set service areas: Moreno Valley, Perris, Riverside + all ZIP codes</li>
@@ -1327,7 +1397,7 @@ a{color:inherit;text-decoration:none;}
   <!-- FREE METHODS -->
   <div class="free-section">
     <div class="section-title" style="color:var(--white);font-size:26px;">Free Marketing Methods — $0 Budget</div>
-    <p style="font-size:13px;color:rgba(255,255,255,0.6);margin-top:4px;">These cost only time. Combined with the paid channels above, they can double your traffic.</p>
+    <p style="font-size:13px;color:rgba(245,240,232,0.90);margin-top:4px;">These cost only time. Combined with the paid channels above, they can double your traffic.</p>
     <div class="free-grid">
       <div class="free-card">
         <div class="free-badge">FREE</div>
@@ -1475,7 +1545,7 @@ a{color:inherit;text-decoration:none;}
     <div class="lp-nav">
       <div class="lp-nav-logo">INLAND EMPIRE <span>INTERNET</span></div>
       <div style="display:flex;gap:10px;align-items:center;">
-        <a href="tel:9517137247" style="color:rgba(255,255,255,0.6);font-size:13px;text-decoration:none;">📞 (951) 713-7247</a>
+        <a href="tel:9517137247" style="color:rgba(245,240,232,0.90);font-size:13px;text-decoration:none;">📞 (951) 713-7247</a>
         <button class="lp-nav-cta" onclick="showSection('providers')">Compare Now →</button>
       </div>
     </div>
@@ -1499,10 +1569,10 @@ a{color:inherit;text-decoration:none;}
 
     <!-- LP SOCIAL PROOF -->
     <div class="lp-social-proof">
-      <div class="proof-item"><div class="proof-num">2,400+</div><div class="proof-lbl">Locals compared plans</div></div>
-      <div class="proof-item"><div class="proof-num">9</div><div class="proof-lbl">Providers listed</div></div>
-      <div class="proof-item"><div class="proof-num">$0</div><div class="proof-lbl">Cost to use this tool</div></div>
-      <div class="proof-item"><div class="proof-num">$660</div><div class="proof-lbl">Avg annual savings found</div></div>
+      <div class="proof-item"><div class="proof-num" style="color:var(--sienna);">2,400+</div><div class="proof-lbl">Locals compared plans</div></div>
+      <div class="proof-item"><div class="proof-num" style="color:var(--sienna);">9</div><div class="proof-lbl">Providers listed</div></div>
+      <div class="proof-item"><div class="proof-num" style="color:var(--sienna);">$0</div><div class="proof-lbl">Cost to use this tool</div></div>
+      <div class="proof-item"><div class="proof-num" style="color:var(--sienna);">$660</div><div class="proof-lbl">Avg annual savings found</div></div>
     </div>
 
     <!-- LP COMPARE TABLE -->
@@ -1521,7 +1591,7 @@ a{color:inherit;text-decoration:none;}
         </thead>
         <tbody>
           <tr class="best-row">
-            <td style="font-weight:700;">AT&T Fiber <span style="background:#dbeafe;color:#1e40af;font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;">BEST</span></td>
+            <td style="font-weight:700;color:inherit;">AT&T Fiber <span style="background:#dbeafe;color:#1354A0;font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;">BEST</span></td>
             <td><span class="speed-chip">Fiber</span></td>
             <td style="font-weight:700;color:var(--blue);">300–5,000 Mbps</td>
             <td style="font-weight:700;">$35/mo</td>
@@ -1529,7 +1599,7 @@ a{color:inherit;text-decoration:none;}
             <td><button onclick="safeOpen('https://www.att.com/internet/')" style="padding:7px 14px;background:var(--blue);color:white;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;">Get Deal →</button></td>
           </tr>
           <tr>
-            <td style="font-weight:700;">Frontier Fiber</td>
+            <td style="font-weight:700;color:inherit;">Frontier Fiber</td>
             <td><span class="speed-chip">Fiber</span></td>
             <td style="font-weight:700;color:var(--blue);">200–7,000 Mbps</td>
             <td style="font-weight:700;">$29.99/mo</td>
@@ -1537,7 +1607,7 @@ a{color:inherit;text-decoration:none;}
             <td><button onclick="safeOpen('https://frontier.com/local/california')" style="padding:7px 14px;background:var(--blue);color:white;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;">Get Deal →</button></td>
           </tr>
           <tr>
-            <td style="font-weight:700;">Spectrum</td>
+            <td style="font-weight:700;color:inherit;">Spectrum</td>
             <td><span style="background:#fef3c7;color:#92400e;font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px;">Cable</span></td>
             <td style="font-weight:700;color:var(--blue);">100–2,000 Mbps</td>
             <td style="font-weight:700;">$30/mo</td>
@@ -1545,7 +1615,7 @@ a{color:inherit;text-decoration:none;}
             <td><button onclick="safeOpen('https://www.spectrum.com')" style="padding:7px 14px;background:var(--blue);color:white;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;">Get Deal →</button></td>
           </tr>
           <tr>
-            <td style="font-weight:700;">T-Mobile Home</td>
+            <td style="font-weight:700;color:inherit;">T-Mobile Home</td>
             <td><span style="background:#fdf4ff;color:#7e22ce;font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px;">5G</span></td>
             <td style="font-weight:700;color:var(--blue);">133–415 Mbps</td>
             <td style="font-weight:700;">$35/mo</td>
@@ -1553,7 +1623,7 @@ a{color:inherit;text-decoration:none;}
             <td><button onclick="safeOpen('https://t-mobile.com/home-internet')" style="padding:7px 14px;background:var(--blue);color:white;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;">Check →</button></td>
           </tr>
           <tr>
-            <td style="font-weight:700;">EarthLink</td>
+            <td style="font-weight:700;color:inherit;">EarthLink</td>
             <td><span class="speed-chip">Fiber/5G</span></td>
             <td style="font-weight:700;color:var(--blue);">100–1,000 Mbps</td>
             <td style="font-weight:700;">$39.95/mo</td>
@@ -1561,7 +1631,7 @@ a{color:inherit;text-decoration:none;}
             <td><button onclick="safeOpen('https://www.earthlink.net')" style="padding:7px 14px;background:var(--blue);color:white;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;">Get Deal →</button></td>
           </tr>
           <tr>
-            <td style="font-weight:700;">Starlink</td>
+            <td style="font-weight:700;color:inherit;">Starlink</td>
             <td><span style="background:#f1f5f9;color:#475569;font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px;">Satellite</span></td>
             <td style="font-weight:700;color:var(--blue);">50–400 Mbps</td>
             <td style="font-weight:700;">$90/mo</td>
@@ -1574,31 +1644,31 @@ a{color:inherit;text-decoration:none;}
 
     <!-- QUIZ SECTION -->
     <div style="padding:28px 40px;background:white;border-top:1px solid var(--border);">
-      <h3 style="font-size:18px;font-weight:700;margin-bottom:6px;">Not sure which plan is right for you?</h3>
-      <p style="font-size:13px;color:var(--muted);margin-bottom:16px;">Answer 3 quick questions and we'll match you to the best option.</p>
+      <h3 style="font-size:18px;font-weight:700;margin-bottom:6px;color:#1A120B;">Not sure which plan is right for you?</h3>
+      <p style="font-size:13px;color:#4A3826;margin-bottom:16px;">Answer 3 quick questions and we'll match you to the best option.</p>
 
       <!-- Step 1 -->
       <div id="lpq-step0">
-        <p style="font-size:14px;font-weight:600;margin-bottom:10px;">1. How many people use internet in your home?</p>
+        <p style="font-size:14px;font-weight:600;margin-bottom:10px;color:#1A120B;">1. How many people use internet in your home?</p>
         <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
           <div class="lpq-opt" onclick="lpqAnswer(0,'solo',this)" data-step="0" style="border:2px solid var(--border);border-radius:10px;padding:14px;text-align:center;cursor:pointer;transition:all 0.15s;">
             <div style="font-size:22px;margin-bottom:6px;">🧑</div>
-            <div style="font-weight:600;font-size:13px;">Just me</div>
+            <div style="font-weight:600;font-size:13px;color:#1A120B;">Just me</div>
           </div>
           <div class="lpq-opt" onclick="lpqAnswer(0,'small',this)" data-step="0" style="border:2px solid var(--border);border-radius:10px;padding:14px;text-align:center;cursor:pointer;transition:all 0.15s;">
             <div style="font-size:22px;margin-bottom:6px;">👫</div>
-            <div style="font-weight:600;font-size:13px;">2–3 people</div>
+            <div style="font-weight:600;font-size:13px;color:#1A120B;">2–3 people</div>
           </div>
           <div class="lpq-opt" onclick="lpqAnswer(0,'family',this)" data-step="0" style="border:2px solid var(--border);border-radius:10px;padding:14px;text-align:center;cursor:pointer;transition:all 0.15s;">
             <div style="font-size:22px;margin-bottom:6px;">👨‍👩‍👧‍👦</div>
-            <div style="font-weight:600;font-size:13px;">4+ people</div>
+            <div style="font-weight:600;font-size:13px;color:#1A120B;">4+ people</div>
           </div>
         </div>
       </div>
 
       <!-- Step 2 -->
       <div id="lpq-step1" style="display:none;">
-        <p style="font-size:14px;font-weight:600;margin-bottom:10px;">2. What do you mostly use it for?</p>
+        <p style="font-size:14px;font-weight:600;margin-bottom:10px;color:#1A120B;">2. What do you mostly use it for?</p>
         <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
           <div class="lpq-opt" onclick="lpqAnswer(1,'basic',this)" data-step="1" style="border:2px solid var(--border);border-radius:10px;padding:14px;text-align:center;cursor:pointer;transition:all 0.15s;">
             <div style="font-size:22px;margin-bottom:6px;">🌐</div>
@@ -1617,7 +1687,7 @@ a{color:inherit;text-decoration:none;}
 
       <!-- Step 3 -->
       <div id="lpq-step2" style="display:none;">
-        <p style="font-size:14px;font-weight:600;margin-bottom:10px;">3. What's your monthly budget?</p>
+        <p style="font-size:14px;font-weight:600;margin-bottom:10px;color:#1A120B;">3. What's your monthly budget?</p>
         <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
           <div class="lpq-opt" onclick="lpqAnswer(2,'tight',this)" data-step="2" style="border:2px solid var(--border);border-radius:10px;padding:14px;text-align:center;cursor:pointer;transition:all 0.15s;">
             <div style="font-size:22px;margin-bottom:6px;">💰</div>
@@ -1638,10 +1708,10 @@ a{color:inherit;text-decoration:none;}
       <div id="lpq-result" style="display:none;margin-top:16px;background:#eff6ff;border:1.5px solid #bfdbfe;border-radius:12px;padding:18px 20px;">
         <div style="font-size:11px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Your best match</div>
         <div style="font-size:18px;font-weight:700;" id="lpq-name">—</div>
-        <div style="font-size:14px;color:var(--muted);margin:4px 0 10px;" id="lpq-desc">—</div>
+        <div style="font-size:14px;color:#4A3826;margin:4px 0 10px;" id="lpq-desc">—</div>
         <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
           <button id="lpq-cta" onclick="" style="padding:10px 20px;background:var(--blue);color:white;border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;">Get This Deal →</button>
-          <button onclick="lpqReset()" style="padding:10px 14px;background:transparent;color:var(--muted);border:1px solid var(--border);border-radius:8px;font-size:13px;cursor:pointer;font-family:'Outfit',sans-serif;">Start over</button>
+          <button onclick="lpqReset()" style="padding:10px 14px;background:transparent;color:#4A3826;border:1px solid var(--border);border-radius:8px;font-size:13px;cursor:pointer;font-family:'Outfit',sans-serif;">Start over</button>
         </div>
       </div>
 
@@ -1686,7 +1756,7 @@ a{color:inherit;text-decoration:none;}
     </div>
 
     <!-- TRANSPARENCY FOOTER -->
-    <div style="background:#f8faff;padding:16px 40px;font-size:11px;color:var(--muted);border-top:1px solid var(--border);line-height:1.8;">
+    <div style="background:#f8faff;padding:16px 40px;font-size:11px;color:#4A3826;border-top:1px solid var(--border);line-height:1.8;">
       <strong>How this works:</strong> This is an independent comparison website. We earn a referral commission when you sign up through our links — you pay the exact same price you'd pay going directly to the provider, and often receive bonus gift cards that direct customers don't always get. We list all providers including those we don't earn from, because our goal is to show you every option. Prices shown are approximate as of March 2026 and vary by address. Not affiliated with any specific provider.
     </div>
 
@@ -1772,7 +1842,7 @@ a{color:inherit;text-decoration:none;}
     <div class="outage-form-sub">Experiencing an outage? Tell us and we'll help troubleshoot, confirm if it's a known issue, and escalate to the provider. We also track reports to update this page.</div>
 
     <div id="outageFormBody">
-      <form id="outageForm" novalidate>
+      <form id="outageForm" novalidate method="post" action="#" autocomplete="on">
         <input class="form-honey" type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none!important;visibility:hidden!important;position:absolute!important;left:-9999px!important;">
 
         <div class="of-row">
@@ -1783,7 +1853,7 @@ a{color:inherit;text-decoration:none;}
           </div>
           <div class="of-group">
             <label class="of-label" for="of-phone">Phone <span class="req">*</span></label>
-            <input class="of-input" id="of-phone" name="phone" type="tel" placeholder="(951) 555-1234" autocomplete="tel" required>
+            <input class="of-input" id="of-phone" name="phone" type="tel" placeholder="(951) 555-1234" autocomplete="tel" required aria-autocomplete="list">
             <span class="of-field-error" id="of-phone-err">Valid phone required.</span>
           </div>
         </div>
@@ -1820,7 +1890,7 @@ a{color:inherit;text-decoration:none;}
             <span class="of-field-error" id="of-provider-err">Please select a provider.</span>
           </div>
           <div class="of-group">
-            <label class="of-label" for="of-since">Outage started (approx.)</label>
+            <label class="of-label" for="of-since">Outage started (date &amp; time)</label>
             <input class="of-input" id="of-since" name="outage_started" type="datetime-local" aria-label="Approximate outage start time">
           </div>
         </div>
@@ -2413,19 +2483,47 @@ a{color:inherit;text-decoration:none;}
 function showSection(id){
   document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
   document.querySelectorAll('.nav-link').forEach(b=>b.classList.remove('on'));
-  document.getElementById('sec-'+id).classList.add('active');
-  const idx = {landing:0,providers:1,marketing:2,landingpage:3,outages:4,cancel:5}[id];
-  const navLinks = document.querySelectorAll('.nav-link');
-  if(idx !== undefined && navLinks[idx]) navLinks[idx].classList.add('on');
-  window.scrollTo(0,0);
+  var sec = document.getElementById('sec-'+id);
+  if(sec) sec.classList.add('active');
+  // Match by data-section attribute OR by positional index
+  var matched = document.querySelector('.nav-link[data-section="'+id+'"]');
+  if(matched){
+    matched.classList.add('on');
+  } else {
+    var idx = {landing:0,providers:1,marketing:2,landingpage:3,outages:4,cancel:5}[id];
+    var navLinks = document.querySelectorAll('.nav-link');
+    if(idx !== undefined && navLinks[idx]) navLinks[idx].classList.add('on');
+  }
+  window.scrollTo({top:0,behavior:'smooth'});
   if(id==='outages') initOutages();
 }
 
+// ── CITY PREFERENCE (localStorage) ──
+function saveCity(city){
+  try{ localStorage.setItem('ie_last_city', city); }catch(e){}
+}
+function loadSavedCity(){
+  try{
+    var c = localStorage.getItem('ie_last_city');
+    if(c && document.getElementById('city-'+c)){
+      var tabs = document.querySelectorAll('.city-tab');
+      var cityIdx = {mv:0,perris:1,riverside:2}[c];
+      if(tabs[cityIdx]) showCity(c, tabs[cityIdx]);
+    }
+  }catch(e){}
+}
+
 function showCity(id, btn){
-  document.querySelectorAll('.city-panel').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.city-tab').forEach(b=>b.classList.remove('on'));
-  document.getElementById('city-'+id).classList.add('active');
+  document.querySelectorAll('.city-panel').forEach(function(p){ p.classList.remove('active'); });
+  document.querySelectorAll('.city-tab').forEach(function(b){ b.classList.remove('on'); });
+  var panel = document.getElementById('city-'+id);
+  if(panel) panel.classList.add('active');
   if(btn) btn.classList.add('on');
+  saveCity(id);
+  // Reset filter and re-apply to new city's providers
+  var q = document.getElementById('provSearch');
+  if(q) q.value = '';
+  filterProviders('');
 }
 
 // ── HERO ZIP ROUTING ──
@@ -2440,7 +2538,8 @@ const IE_ZIPS = {
 };
 
 function heroZipGo(){
-  var zip = (document.getElementById('heroZip').value||'').trim();
+  var zipEl = document.getElementById('heroZip');
+  var zip = (zipEl ? zipEl.value : '').trim();
   var errEl = document.getElementById('heroZipError');
   if(!/^\d{5}$/.test(zip)){
     errEl.textContent = 'Please enter a valid 5-digit ZIP code.';
@@ -2500,11 +2599,13 @@ function lpqAnswer(step, val, el){
   lpqAnswers[step] = val;
   // highlight selected
   document.querySelectorAll('[data-step="'+step+'"].lpq-opt').forEach(function(o){
-    o.style.borderColor = 'var(--border)';
-    o.style.background = 'white';
+    o.style.borderColor = 'rgba(255,255,255,0.12)';
+    o.style.background = 'rgba(255,255,255,0.06)';
+    o.setAttribute('aria-selected','false');
   });
-  el.style.borderColor = 'var(--blue)';
-  el.style.background = '#eff6ff';
+  el.style.borderColor = 'var(--sienna)';
+  el.style.background = 'rgba(193,68,14,0.25)';
+  el.setAttribute('aria-selected','true');
 
   setTimeout(function(){
     document.getElementById('lpq-step'+step).style.display = 'none';
@@ -2548,7 +2649,7 @@ function lpqShowResult(){
 
   document.getElementById('lpq-name').textContent = name;
   document.getElementById('lpq-desc').textContent = desc;
-  document.getElementById('lpq-cta').onclick = function(){ window.open(url,'_blank'); };
+  document.getElementById('lpq-cta').onclick = function(){ safeOpen(url); };
   document.getElementById('lpq-result').style.display = 'block';
   document.getElementById('lpq-progress').style.display = 'none';
   // fill all progress bars
@@ -2564,7 +2665,8 @@ function lpqReset(){
     if(dot) dot.style.background = i===0?'var(--blue)':'var(--border)';
     // reset selection styles
     document.querySelectorAll('[data-step="'+i+'"].lpq-opt').forEach(function(o){
-      o.style.borderColor='var(--border)';o.style.background='white';
+      o.style.borderColor='rgba(255,255,255,0.12)';o.style.background='rgba(255,255,255,0.06)';
+      o.setAttribute('aria-selected','false');
     });
   }
   document.getElementById('lpq-result').style.display = 'none';
@@ -2748,10 +2850,12 @@ const TREND_DATA = {
 const PROVIDER_COLORS = {spectrum:'#ef4444',frontier:'#e8000d',att:'#00a8e0',tmobile:'#e20074',verizon:'#cd040b',other:'#888'};
 
 function renderTrendChart(){
+  try{
   const maxVal = Math.max(...TREND_WEEKS.map((_,i)=>
     Object.values(TREND_DATA).reduce((s,arr)=>s+arr[i],0)
   ));
   const el = document.getElementById('trendChart');
+  if(!el){ return; }
   el.innerHTML = TREND_WEEKS.map((week,wi)=>{
     const total = Object.values(TREND_DATA).reduce((s,arr)=>s+arr[wi],0);
     const h = Math.max(8, Math.round((total/maxVal)*76));
@@ -2764,6 +2868,7 @@ function renderTrendChart(){
       <div class="trend-label">${week.replace('Feb ','').replace('Mar ','')}</div>
     </div>`;
   }).join('');
+  }catch(e){ /* trend render failed gracefully */ }
 }
 
 function getSeverityClass(s){return s==='high'?'sev-high':s==='med'?'sev-med':'sev-low';}
@@ -2777,7 +2882,7 @@ function renderProviderOutages(provId, cityFilter){
   const p = OUTAGE_DATA[provId];
   const filtered = cityFilter==='all' ? p.incidents : p.incidents.filter(i=>i.cities.includes(cityFilter));
   const incHtml = filtered.length===0
-    ? `<div style="padding:16px 22px;font-size:13px;color:var(--muted);">✓ No reported incidents${cityFilter!=='all'?' in this city':''} in the last 30 days.</div>`
+    ? `<div style="padding:16px 22px;font-size:13px;color:#4A3826;">✓ No reported incidents${cityFilter!=='all'?' in this city':''} in the last 30 days.</div>`
     : filtered.map(inc=>`
     <div class="incident-row">
       <div class="incident-header">
@@ -2801,7 +2906,7 @@ function renderProviderOutages(provId, cityFilter){
       <div class="outage-prov-icon" style="background:${p.iconBg};">${p.icon}</div>
       <div class="outage-prov-name">${p.name}</div>
       ${getStatusBadge(p.status, p.statusText)}
-      <div style="margin-left:auto;font-size:12px;color:var(--muted);">${p.totalIncidents} incident${p.totalIncidents!==1?'s':''} / 30 days</div>
+      <div style="margin-left:auto;font-size:12px;color:#4A3826;">${p.totalIncidents} incident${p.totalIncidents!==1?'s':''} / 30 days</div>
     </div>
     <div class="outage-incidents">${incHtml}</div>
   </div>`;
@@ -2845,7 +2950,12 @@ var lastOutageSubmit = 0;
 var RATE_LIMIT_MS = 30000; // 30 seconds between submissions
 
 // ── VALIDATION HELPERS ──
-function isValidEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()); }
+function isValidEmail(v){
+  var s = (v||'').trim();
+  if(!s || s.length > 254) return false;
+  // RFC 5322 simplified — no script injection possible via regex test
+  return /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*\.[a-zA-Z]{2,}$/.test(s);
+}
 function isValidPhone(v){ return /^[\d\s\-\+\(\)]{7,}$/.test(v.trim()); }
 function isValidZip(v){ return /^\d{5}$/.test(v.trim()); }
 function isInServiceArea(v){ return Object.keys(IE_ZIPS).includes(v.trim()); }
@@ -2868,36 +2978,38 @@ function setOfFieldError(fieldId, errId, show){
 
 // ── BUILD FORM PAYLOAD ──
 function buildLeadPayload(){
+  var clean = sanitizeHTML;
   return {
     access_key: WEB3FORMS_KEY,
     subject: 'New Internet Quote Request — Inland Empire Internet',
     from_name: 'Inland Empire Internet Site',
-    replyto: document.getElementById('lf-email').value.trim(),
-    name: document.getElementById('lf-name').value.trim(),
-    email: document.getElementById('lf-email').value.trim(),
-    phone: document.getElementById('lf-phone').value.trim(),
-    zip: document.getElementById('lf-zip').value.trim(),
-    current_provider: document.getElementById('lf-provider').value,
-    budget: document.getElementById('lf-budget').value,
-    message: document.getElementById('lf-needs').value.trim(),
+    replyto: clean(document.getElementById('lf-email').value.trim()),
+    name: clean(document.getElementById('lf-name').value.trim()),
+    email: clean(document.getElementById('lf-email').value.trim()),
+    phone: clean(document.getElementById('lf-phone').value.trim()),
+    zip: clean(document.getElementById('lf-zip').value.trim()),
+    current_provider: clean(document.getElementById('lf-provider').value),
+    budget: clean(document.getElementById('lf-budget').value),
+    message: clean(document.getElementById('lf-needs').value.trim()).substring(0, 1000),
     form_type: 'Quote Request',
     timestamp: new Date().toLocaleString('en-US',{timeZone:'America/Los_Angeles'})
   };
 }
 
 function buildOutagePayload(){
+  var clean = sanitizeHTML;
   return {
     access_key: WEB3FORMS_KEY,
     subject: 'Outage Report Submitted — Inland Empire Internet',
     from_name: 'Inland Empire Internet — Outage Tracker',
-    replyto: document.getElementById('of-email').value.trim(),
-    name: document.getElementById('of-name').value.trim(),
-    email: document.getElementById('of-email').value.trim(),
-    phone: document.getElementById('of-phone').value.trim(),
-    zip: document.getElementById('of-zip').value.trim(),
-    provider: document.getElementById('of-provider').value,
-    outage_started: document.getElementById('of-since').value.trim(),
-    description: document.getElementById('of-desc').value.trim(),
+    replyto: clean(document.getElementById('of-email').value.trim()),
+    name: clean(document.getElementById('of-name').value.trim()),
+    email: clean(document.getElementById('of-email').value.trim()),
+    phone: clean(document.getElementById('of-phone').value.trim()),
+    zip: clean(document.getElementById('of-zip').value.trim()),
+    provider: clean(document.getElementById('of-provider').value),
+    outage_started: clean(document.getElementById('of-since').value.trim()),
+    description: clean(document.getElementById('of-desc').value.trim()).substring(0, 1000),
     form_type: 'Outage Report',
     timestamp: new Date().toLocaleString('en-US',{timeZone:'America/Los_Angeles'})
   };
@@ -2919,12 +3031,16 @@ function submitToWeb3Forms(payload, onSuccess, onError){
     return;
   }
 
+  var controller = new AbortController();
+  var timeoutId = setTimeout(function(){ controller.abort(); }, 10000); // 10s timeout
   fetch('https://api.web3forms.com/submit', {
     method: 'POST',
     headers: {'Content-Type':'application/json','Accept':'application/json'},
-    body: JSON.stringify(payload)
+    body: JSON.stringify(payload),
+    signal: controller.signal
   })
   .then(function(res){
+    clearTimeout(timeoutId);
     if(!res.ok) throw new Error('HTTP '+res.status);
     return res.json();
   })
@@ -2934,7 +3050,7 @@ function submitToWeb3Forms(payload, onSuccess, onError){
   })
   .catch(function(err){
     // On any network/API error, fall back to mailto so lead is never lost
-    console.warn('Web3Forms error, falling back to mailto:', err);
+    // [submission error handled — falling back to mailto]
     var body = Object.entries(payload)
       .filter(function(e){ return !['access_key','subject','from_name','replyto'].includes(e[0]); })
       .map(function(e){ return e[0]+': '+e[1]; }).join('\n');
@@ -2969,8 +3085,9 @@ document.getElementById('leadForm').addEventListener('submit', function(e){
   var email = document.getElementById('lf-email').value.trim();
   var zip = document.getElementById('lf-zip').value.trim();
 
-  setFieldError('lf-name','lf-name-err', !name);
-  if(!name) ok = false;
+  var nameSafe = name.length <= 100 && !/[<>{}]/.test(name);
+  setFieldError('lf-name','lf-name-err', !name || !nameSafe);
+  if(!name || !nameSafe) ok = false;
 
   setFieldError('lf-phone','lf-phone-err', !isValidPhone(phone));
   if(!isValidPhone(phone)) ok = false;
@@ -3021,247 +3138,6 @@ document.getElementById('leadForm').addEventListener('submit', function(e){
   });
 });
 
-// ── OUTAGE FORM HANDLER ──
-document.getElementById('outageForm').addEventListener('submit', function(e){
-  e.preventDefault();
-
-  var now = Date.now();
-  if(now - lastOutageSubmit < RATE_LIMIT_MS){
-    document.getElementById('outageFormGlobalErr').textContent = 'Please wait before submitting again.';
-    document.getElementById('outageFormGlobalErr').style.display = 'block';
-    return;
-  }
-
-  var honey = this.querySelector('input[name="_gotcha"]');
-  if(honey && honey.value){ return; }
-
-  var ok = true;
-  var name = document.getElementById('of-name').value.trim();
-  var phone = document.getElementById('of-phone').value.trim();
-  var email = document.getElementById('of-email').value.trim();
-  var zip = document.getElementById('of-zip').value.trim();
-  var provider = document.getElementById('of-provider').value;
-  var desc = document.getElementById('of-desc').value.trim();
-
-  setOfFieldError('of-name','of-name-err', !name);
-  if(!name) ok = false;
-  setOfFieldError('of-phone','of-phone-err', !isValidPhone(phone));
-  if(!isValidPhone(phone)) ok = false;
-  setOfFieldError('of-email','of-email-err', !isValidEmail(email));
-  if(!isValidEmail(email)) ok = false;
-  setOfFieldError('of-zip','of-zip-err', !isValidZip(zip));
-  if(!isValidZip(zip)) ok = false;
-  setOfFieldError('of-provider','of-provider-err', !provider);
-  if(!provider) ok = false;
-  setOfFieldError('of-desc','of-desc-err', !desc);
-  if(!desc) ok = false;
-
-  if(!ok){
-    document.getElementById('outageFormGlobalErr').textContent = 'Please complete all required fields.';
-    document.getElementById('outageFormGlobalErr').style.display = 'block';
-    return;
-  }
-  document.getElementById('outageFormGlobalErr').style.display = 'none';
-
-  var btn = document.getElementById('outageSubmitBtn');
-  btn.disabled = true;
-  btn.classList.add('loading');
-  btn.querySelector('.btn-text').textContent = 'Submitting…';
-
-  lastOutageSubmit = Date.now();
-
-  submitToWeb3Forms(buildOutagePayload(),
-    function(){
-      document.getElementById('outageForm').style.display = 'none';
-      document.getElementById('outageFormSuccess').classList.add('show');
-    },
-    function(){
-      btn.disabled = false;
-      btn.classList.remove('loading');
-      btn.querySelector('.btn-text').textContent = 'Submit Outage Report';
-    }
-  );
-});
-
-['of-name','of-phone','of-email','of-zip','of-provider','of-desc'].forEach(function(id){
-  var el = document.getElementById(id);
-  if(el) el.addEventListener('input', function(){
-    el.classList.remove('error');
-    var errEl = document.getElementById(id+'-err');
-    if(errEl) errEl.classList.remove('show');
-    document.getElementById('outageFormGlobalErr').style.display = 'none';
-  });
-});
-
-// ── SAFE OPEN — prevents tabnapping on all external links ──
-function safeOpen(url){
-  var a = document.createElement('a');
-  a.href = url;
-  a.target = '_blank';
-  a.rel = 'noopener noreferrer';
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-}
-
-// ── PHONE AUTO-FORMATTING ──
-function formatPhone(val){
-  var d = val.replace(/\D/g,'').substring(0,10);
-  if(d.length >= 7) return '('+d.substring(0,3)+') '+d.substring(3,6)+'-'+d.substring(6);
-  if(d.length >= 4) return '('+d.substring(0,3)+') '+d.substring(3);
-  if(d.length > 0)  return '('+d;
-  return '';
-}
-function attachPhoneFormat(id){
-  var el = document.getElementById(id);
-  if(!el) return;
-  el.addEventListener('input', function(){
-    var pos = el.selectionStart;
-    var old = el.value;
-    el.value = formatPhone(old);
-    // keep cursor roughly in place
-    try{ el.setSelectionRange(pos, pos); }catch(e){}
-  });
-}
-attachPhoneFormat('lf-phone');
-attachPhoneFormat('of-phone');
-
-// ── CHAR COUNTERS ──
-function attachCharCounter(textareaId, counterId, max){
-  var ta = document.getElementById(textareaId);
-  var ctr = document.getElementById(counterId);
-  if(!ta || !ctr) return;
-  function update(){
-    var len = ta.value.length;
-    ctr.textContent = len + ' / ' + max;
-    ctr.classList.toggle('warn', len > max * 0.9);
-  }
-  ta.addEventListener('input', update);
-  update();
-}
-attachCharCounter('lf-needs', 'lf-needs-counter', 1000);
-attachCharCounter('of-desc', 'of-desc-counter', 1000);
-
-// ── COPY TO CLIPBOARD (Craigslist ad) ──
-function copyClAd(){
-  var el = document.getElementById('clAdText');
-  var btn = document.getElementById('clCopyBtn');
-  if(!el || !btn) return;
-  var text = el.innerText || el.textContent;
-  navigator.clipboard.writeText(text).then(function(){
-    btn.textContent = '✓ Copied!';
-    btn.classList.add('copied');
-    setTimeout(function(){ btn.textContent = '📋 Copy Ad Text'; btn.classList.remove('copied'); }, 2500);
-  }).catch(function(){
-    // Fallback for older browsers
-    var ta = document.createElement('textarea');
-    ta.value = text;
-    ta.style.position = 'fixed'; ta.style.opacity = '0';
-    document.body.appendChild(ta);
-    ta.select();
-    try{ document.execCommand('copy'); btn.textContent = '✓ Copied!'; btn.classList.add('copied'); setTimeout(function(){ btn.textContent = '📋 Copy Ad Text'; btn.classList.remove('copied'); },2500); }catch(e){}
-    document.body.removeChild(ta);
-  });
-}
-
-// ── BACK TO TOP BUTTON ──
-window.addEventListener('scroll', function(){
-  var btn = document.getElementById('backTop');
-  if(!btn) return;
-  btn.classList.toggle('show', window.scrollY > 400);
-}, {passive:true});
-
-// ── LOCALSTORAGE — remember last city tab ──
-function saveCity(city){
-  try{ localStorage.setItem('ie_last_city', city); }catch(e){}
-}
-function loadSavedCity(){
-  try{
-    var c = localStorage.getItem('ie_last_city');
-    if(c && document.getElementById('city-'+c)){
-      var tabs = document.querySelectorAll('.city-tab');
-      var cityIdx = {mv:0,perris:1,riverside:2}[c];
-      if(tabs[cityIdx]) showCity(c, tabs[cityIdx]);
-    }
-  }catch(e){}
-}
-// Wrap showCity to save preference
-var _origShowCity = showCity;
-showCity = function(id, btn){
-  _origShowCity(id, btn);
-  saveCity(id);
-};
-
-// ── FIX OUTAGE FORM SUCCESS — hide wrapper, not the form element ──
-// (overrides the existing listener's success callback)
-(function(){
-  var form = document.getElementById('outageForm');
-  if(!form) return;
-  // Clone to remove old listener, re-attach corrected one
-  var newForm = form.cloneNode(true);
-  form.parentNode.replaceChild(newForm, form);
-
-  newForm.addEventListener('submit', function(e){
-    e.preventDefault();
-    var now = Date.now();
-    if(now - lastOutageSubmit < RATE_LIMIT_MS){
-      document.getElementById('outageFormGlobalErr').textContent = 'Please wait before submitting again.';
-      document.getElementById('outageFormGlobalErr').style.display = 'block';
-      return;
-    }
-    var honey = this.querySelector('input[name="_gotcha"]');
-    if(honey && honey.value){ return; }
-    var ok = true;
-    var name = document.getElementById('of-name').value.trim();
-    var phone = document.getElementById('of-phone').value.trim();
-    var email = document.getElementById('of-email').value.trim();
-    var zip = document.getElementById('of-zip').value.trim();
-    var provider = document.getElementById('of-provider').value;
-    var desc = document.getElementById('of-desc').value.trim();
-    setOfFieldError('of-name','of-name-err', !name); if(!name) ok=false;
-    setOfFieldError('of-phone','of-phone-err', !isValidPhone(phone)); if(!isValidPhone(phone)) ok=false;
-    setOfFieldError('of-email','of-email-err', !isValidEmail(email)); if(!isValidEmail(email)) ok=false;
-    setOfFieldError('of-zip','of-zip-err', !isValidZip(zip)); if(!isValidZip(zip)) ok=false;
-    setOfFieldError('of-provider','of-provider-err', !provider); if(!provider) ok=false;
-    setOfFieldError('of-desc','of-desc-err', !desc); if(!desc) ok=false;
-    if(!ok){
-      document.getElementById('outageFormGlobalErr').textContent = 'Please complete all required fields.';
-      document.getElementById('outageFormGlobalErr').style.display = 'block';
-      return;
-    }
-    document.getElementById('outageFormGlobalErr').style.display = 'none';
-    var btn = document.getElementById('outageSubmitBtn');
-    btn.disabled = true; btn.classList.add('loading');
-    btn.querySelector('.btn-text').textContent = 'Submitting…';
-    lastOutageSubmit = Date.now();
-    submitToWeb3Forms(buildOutagePayload(),
-      function(){
-        // Correct: hide the form wrapper div, not the form element
-        document.getElementById('outageFormBody').style.display = 'none';
-        document.getElementById('outageFormSuccess').classList.add('show');
-      },
-      function(){
-        btn.disabled=false; btn.classList.remove('loading');
-        btn.querySelector('.btn-text').textContent='Submit Outage Report';
-      }
-    );
-  });
-  // Re-attach input clear listeners on cloned form
-  ['of-name','of-phone','of-email','of-zip','of-provider','of-desc'].forEach(function(id){
-    var el = document.getElementById(id);
-    if(el) el.addEventListener('input', function(){
-      el.classList.remove('error');
-      var errEl = document.getElementById(id+'-err');
-      if(errEl) errEl.classList.remove('show');
-      document.getElementById('outageFormGlobalErr').style.display='none';
-    });
-  });
-})();
-
-// ── LEAD FORM: ADD SUBMIT ANOTHER LINK ──
-document.getElementById('leadFormSuccess').insertAdjacentHTML('beforeend',
-  '<div style="margin-top:16px;"><button onclick="resetLeadForm()" style="background:transparent;border:none;color:var(--cyan);font-size:13px;cursor:pointer;text-decoration:underline;font-family:\'Outfit\',sans-serif;">Submit another request</button></div>'
-);
 function resetLeadForm(){
   document.getElementById('leadForm').reset();
   document.getElementById('leadFormBody').style.display = 'block';
@@ -3269,7 +3145,8 @@ function resetLeadForm(){
   var btn = document.getElementById('leadSubmitBtn');
   btn.disabled = false; btn.classList.remove('loading');
   btn.querySelector('.btn-text').textContent = 'Get My Free Quote →';
-  lastLeadSubmit = 0;
+  // Rate limit: enforce short cooldown even after reset to prevent spam
+  lastLeadSubmit = Date.now() - RATE_LIMIT_MS + 5000;
 }
 
 // ── ARIA: LINK INPUTS TO ERROR MESSAGES ──
@@ -3304,10 +3181,16 @@ function resetLeadForm(){
 })();
 
 // ── INIT ON LOAD ──
-window.addEventListener('load', function(){
+document.addEventListener('DOMContentLoaded', function(){
   loadSavedCity();
   calcSavings();
-  initSpeedTest();
+  // Attach form event listeners that depend on DOM being ready
+  var scBill = document.getElementById('sc-bill');
+  var scProv = document.getElementById('sc-provider');
+  var scSpeed = document.getElementById('sc-speed');
+  if(scBill) scBill.addEventListener('input', calcSavings);
+  if(scProv) scProv.addEventListener('change', calcSavings);
+  if(scSpeed) scSpeed.addEventListener('change', calcSavings);
 });
 
 // ══════════════════════════════════════
@@ -3330,14 +3213,6 @@ function showToast(msg, type, duration){
   }, duration);
 }
 
-// Replace inline form success messages with toasts
-var _origLeadSuccess = null;
-(function(){
-  var origSubmit = document.getElementById('leadForm');
-  if(origSubmit) origSubmit.addEventListener('submit', function(){
-    // Toast fires alongside the existing success state
-  }, false);
-})();
 
 // ══════════════════════════════════════
 // PROVIDER QUICK-FILTER
@@ -3345,8 +3220,12 @@ var _origLeadSuccess = null;
 var _activeTypeFilter = 'all';
 
 function filterProviders(query){
-  query = (query||'').toLowerCase().trim();
-  var blocks = document.querySelectorAll('.provider-block');
+  query = (query||'').substring(0, 50).toLowerCase().trim();
+  // Only filter within the currently active city panel
+  var activePanel = document.querySelector('.city-panel.active');
+  var blocks = activePanel
+    ? activePanel.querySelectorAll('.provider-block')
+    : document.querySelectorAll('.provider-block');
   var visible = 0;
   blocks.forEach(function(block){
     var text = block.textContent.toLowerCase();
@@ -3409,8 +3288,11 @@ var SAVINGS_PLANS = [
 ];
 
 function calcSavings(){
-  var bill = parseFloat(document.getElementById('sc-bill').value) || 0;
-  var speed = parseInt(document.getElementById('sc-speed').value) || 100;
+  var billEl = document.getElementById('sc-bill');
+  var bill = parseFloat(billEl ? billEl.value : 0) || 0;
+  bill = Math.min(Math.max(0, bill), 9999); // clamp
+  var speedEl = document.getElementById('sc-speed');
+  var speed = parseInt(speedEl ? speedEl.value : 100) || 100;
 
   // Find best plan that meets speed requirement at lower cost
   var candidates = SAVINGS_PLANS.filter(function(p){ return p.speed >= speed * 0.8; });
@@ -3439,9 +3321,6 @@ function calcSavings(){
   amtEl.style.color = annualSave > 0 ? 'var(--cyan)' : '#6ee7b7';
 }
 
-document.getElementById('sc-bill').addEventListener('input', calcSavings);
-document.getElementById('sc-provider').addEventListener('change', calcSavings);
-document.getElementById('sc-speed').addEventListener('change', calcSavings);
 
 // ══════════════════════════════════════
 // SPEED TEST (simulated — links to fast.com)
@@ -3483,23 +3362,24 @@ function toggleFaq(item){
 (function(){
   var origLeadForm = document.getElementById('leadForm');
   if(!origLeadForm) return;
-  origLeadForm.addEventListener('submit', function(){
-    // Check if already going to succeed — add toast in parallel
-    // The actual success state is handled by the existing listener
-    // We just add toast feedback here
-  });
+  // Toast feedback via MutationObserver below
   // Watch for success state to show toast
-  var observer = new MutationObserver(function(muts){
+  var moObserver = new MutationObserver(function(muts){
     muts.forEach(function(mut){
-      mut.addedNodes.forEach(function(n){
-        if(n.classList && n.classList.contains('show') && n.id === 'leadFormSuccess'){
+      if(mut.type === 'attributes' && mut.attributeName === 'class'){
+        var el = mut.target;
+        if(el.id === 'leadFormSuccess' && el.classList.contains('show')){
           showToast('Quote request sent! We\'ll call you within 1 hour.', 'success', 5000);
+          moObserver.disconnect(); // Disconnect after first fire — no memory leak
         }
-      });
+      }
     });
   });
   var wrap = document.getElementById('leadFormWrap');
-  if(wrap) observer.observe(wrap, {subtree:true, attributes:true, attributeFilter:['class']});
+  if(wrap){
+    var successEl = document.getElementById('leadFormSuccess');
+    if(successEl) moObserver.observe(successEl, {attributes:true, attributeFilter:['class']});
+  }
 })();
 
 // ══════════════════════════════════════
@@ -3514,15 +3394,69 @@ document.addEventListener('keydown', function(e){
 
 // ══════════════════════════════════════
 // SMOOTH CITY TAB SWITCHING WITH FILTER RESET
-// ══════════════════════════════════════
-var _origShowCityWrapped = showCity;
-showCity = function(id, btn){
-  _origShowCityWrapped(id, btn);
-  saveCity(id);
-  // Reset provider filter when switching cities
-  resetProviderFilter();
-};
+// ══════════════════════════════════════// ── OUTAGE FORM HANDLER (single, clean definition) ──
+document.addEventListener('DOMContentLoaded', function(){
+  var outageForm = document.getElementById('outageForm');
+  if(!outageForm) return;
+  outageForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    var now = Date.now();
+    if(now - lastOutageSubmit < RATE_LIMIT_MS){
+      document.getElementById('outageFormGlobalErr').textContent = 'Please wait before submitting again.';
+      document.getElementById('outageFormGlobalErr').style.display = 'block';
+      return;
+    }
+    var honey = this.querySelector('input[name="_gotcha"]');
+    if(honey && honey.value){ return; }
+    var ok = true;
+    var clean = sanitizeHTML;
+    var name = clean(document.getElementById('of-name').value.trim());
+    var phone = clean(document.getElementById('of-phone').value.trim());
+    var email = clean(document.getElementById('of-email').value.trim());
+    var zip = clean(document.getElementById('of-zip').value.trim());
+    var provider = clean(document.getElementById('of-provider').value);
+    var desc = clean(document.getElementById('of-desc').value.trim());
+    setOfFieldError('of-name','of-name-err', !name); if(!name) ok=false;
+    setOfFieldError('of-phone','of-phone-err', !isValidPhone(phone)); if(!isValidPhone(phone)) ok=false;
+    setOfFieldError('of-email','of-email-err', !isValidEmail(email)); if(!isValidEmail(email)) ok=false;
+    setOfFieldError('of-zip','of-zip-err', !isValidZip(zip)); if(!isValidZip(zip)) ok=false;
+    setOfFieldError('of-provider','of-provider-err', !provider); if(!provider) ok=false;
+    setOfFieldError('of-desc','of-desc-err', !desc); if(!desc) ok=false;
+    if(!ok){
+      document.getElementById('outageFormGlobalErr').textContent = 'Please complete all required fields.';
+      document.getElementById('outageFormGlobalErr').style.display = 'block';
+      return;
+    }
+    document.getElementById('outageFormGlobalErr').style.display = 'none';
+    var btn = document.getElementById('outageSubmitBtn');
+    btn.disabled = true;
+    btn.classList.add('loading');
+    btn.querySelector('.btn-text').textContent = 'Submitting…';
+    lastOutageSubmit = Date.now();
+    submitToWeb3Forms(buildOutagePayload(),
+      function(){
+        document.getElementById('outageFormBody').style.display = 'none';
+        document.getElementById('outageFormSuccess').classList.add('show');
+      },
+      function(){
+        btn.disabled = false;
+        btn.classList.remove('loading');
+        btn.querySelector('.btn-text').textContent = 'Submit Outage Report';
+      }
+    );
+  });
 
+  // Clear errors on input
+  ['of-name','of-phone','of-email','of-zip','of-provider','of-desc'].forEach(function(id){
+    var el = document.getElementById(id);
+    if(el) el.addEventListener('input', function(){
+      el.classList.remove('error');
+      var errEl = document.getElementById(id+'-err');
+      if(errEl) errEl.classList.remove('show');
+      document.getElementById('outageFormGlobalErr').style.display = 'none';
+    });
+  });
+});
 </script>
 </body>
 </html>
