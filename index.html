@@ -273,6 +273,7 @@ section{padding:84px 0}
 .field input:focus,.field select:focus{outline:none;border-color:var(--red);
   box-shadow:0 0 0 3px rgba(236,28,52,.18)}
 .field input::placeholder{color:var(--faint)}
+.field-note{font-size:11px;color:var(--faint);line-height:1.45}
 .form-card .btn{width:100%;justify-content:center;margin-top:18px;font-size:15.5px;padding:15px}
 .form-fine{font-size:11.5px;color:var(--faint);margin-top:14px;line-height:1.5}
 .form-err{display:none;font-size:13px;color:#ff9aa6;background:rgba(236,28,52,.1);
@@ -905,6 +906,23 @@ footer{background:#06101c;border-top:1px solid var(--line);padding:56px 0 30px}
               <option>ADT Gold</option>
               <option>Not sure — tell me about security</option>
             </select>
+          </div>
+          <div class="field full">
+            <label for="f-found">How did you find us?</label>
+            <select id="f-found" name="how_found">
+              <option value="">Select one</option>
+              <option>A rep came to my door</option>
+              <option>Referred by a friend or family</option>
+              <option>Flyer or mailer</option>
+              <option>Online search</option>
+              <option>Social media</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label for="f-refname">Rep or referral name</label>
+            <input id="f-refname" name="referral_name" type="text" placeholder="Their name">
+            <span class="field-note">If a rep visited you or someone referred you, please type their name so we can credit them.</span>
           </div>
         </div>
         <button type="submit" class="btn btn-red" id="submitBtn">Check My Availability</button>
