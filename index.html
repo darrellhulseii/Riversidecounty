@@ -20,25 +20,21 @@
   OFFERS CURRENT AS OF: Frontier 5/21/26 · EarthLink 5/1/26.
   Re-verify all pricing/offers with PV before each publish.
 
-  PLACEHOLDERS TO REPLACE before launch (search for [[ ]]):
-    [[LICENSE_LINE]]           - CA alarm license / agent ID line (see note)
-    [[WEB3FORMS_ACCESS_KEY]]   - access key from web3forms.com
-
   HOME SECURITY (ADT) NOTE: the Bronze/Silver/Gold package contents
   below are reasonable defaults — confirm they match your actual
-  ADT/DPS offering and add pricing if desired. Selling/advertising
-  alarm systems in California generally requires an Alarm Company
-  Operator (ACO) license from the Bureau of Security & Investigative
-  Services; that license number usually must appear in advertising —
-  put it in [[LICENSE_LINE]] in the footer. ADT/security marketing
-  may also need approval under your ADT authorized-dealer agreement.
+  ADT/DPS offering and add pricing if desired. ADT-monitored security
+  is offered through Direct Protection Security (an ADT Authorized
+  Dealer); the CA alarm licenses are shown in the footer disclosure
+  (ACO No. 6446, Direct Protection Security; ACE No. 552544). ADT/
+  security marketing may also need approval under the applicable ADT
+  authorized-dealer agreement.
 
-  FORM EMAIL SETUP (one time): the availability form emails every
-  submission to your private inbox via Web3Forms. Register your
-  destination email at https://web3forms.com to receive a free
-  access key, then paste the key in place of [[WEB3FORMS_ACCESS_KEY]]
-  below. The destination email is stored on Web3Forms' servers and
-  never appears anywhere in this page's source.
+  FORM EMAIL: the availability form sends every submission via
+  Web3Forms to the inbox registered to the access key at
+  web3forms.com. The key is embedded in the "access_key" hidden input
+  below. To change the destination inbox, update it in your Web3Forms
+  account (or swap the key). The destination email is never shown in
+  this page's source.
 ============================================================ -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -279,6 +275,8 @@ section{padding:84px 0}
 .field input::placeholder{color:var(--faint)}
 .form-card .btn{width:100%;justify-content:center;margin-top:18px;font-size:15.5px;padding:15px}
 .form-fine{font-size:11.5px;color:var(--faint);margin-top:14px;line-height:1.5}
+.form-err{display:none;font-size:13px;color:#ff9aa6;background:rgba(236,28,52,.1);
+  border:1px solid rgba(236,28,52,.32);border-radius:10px;padding:11px 13px;margin-top:12px}
 .form-done{text-align:center;padding:24px 10px;display:none}
 .form-done .ck{width:60px;height:60px;border-radius:50%;background:rgba(236,28,52,.15);
   display:grid;place-items:center;margin:0 auto 16px;font-size:28px;color:var(--red-br)}
@@ -738,7 +736,7 @@ footer{background:#06101c;border-top:1px solid var(--line);padding:56px 0 30px}
     <div class="sec-head reveal">
       <div class="eyebrow" style="color:var(--blue-br)">Home Security</div>
       <h2>Add ADT-monitored security to your home</h2>
-      <p>Bundle a professionally monitored ADT security system with your internet. Choose the level of coverage that fits your home — Bronze, Silver, or Gold — and your agent builds the quote.</p>
+      <p>Bundle a professionally monitored ADT security system with your internet, offered through Direct Protection Security, an ADT Authorized Dealer. Choose the level of coverage that fits your home — Bronze, Silver, or Gold — and your agent builds the quote.</p>
     </div>
     <div class="plan-grid">
 
@@ -794,7 +792,8 @@ footer{background:#06101c;border-top:1px solid var(--line);padding:56px 0 30px}
     </div>
     <p class="fee-note">Home security packages are professionally monitored by ADT. Equipment, installation,
       monitoring rates, and any monitoring agreement or term length are quoted based on your home and confirmed at
-      the point of sale. ADT® is a trademark of ADT LLC; Complete Home Today is an authorized dealer and is not ADT.</p>
+      the point of sale. ADT® is a trademark of ADT LLC. Home security is offered through Direct Protection
+      Security, an ADT Authorized Dealer.</p>
   </div>
 </section>
 
@@ -832,7 +831,7 @@ footer{background:#06101c;border-top:1px solid var(--line);padding:56px 0 30px}
     <div class="form-card reveal">
       <form id="leadForm" action="https://api.web3forms.com/submit" method="POST"
             target="w3f_target" novalidate>
-        <input type="hidden" name="access_key" value="[[WEB3FORMS_ACCESS_KEY]]">
+        <input type="hidden" name="access_key" value="94f15b07-ca25-44d8-8413-6933fc25533a">
         <input type="hidden" name="from_name" value="Complete Home Today Website">
         <input type="hidden" name="subject" id="w3fSubject" value="New Website Lead">
         <input type="hidden" name="replyto" id="w3fReplyto" value="">
@@ -909,6 +908,7 @@ footer{background:#06101c;border-top:1px solid var(--line);padding:56px 0 30px}
           </div>
         </div>
         <button type="submit" class="btn btn-red" id="submitBtn">Check My Availability</button>
+        <p class="form-err" id="formErr"></p>
         <p class="form-fine">
           By submitting, you agree to be contacted by an Authorized Sales Agent about Frontier, EarthLink, and
           ADT-monitored security services by phone, text, or email. Consent is not a condition of purchase.
@@ -960,10 +960,10 @@ footer{background:#06101c;border-top:1px solid var(--line);padding:56px 0 30px}
           Verizon postpaid mobile plan, you may unlock extra Frontier savings — the $15/mo Mobile + Home discount,
           Verizon Perks, and the FOX One offer. It's a bonus, not a requirement.</div></details>
       <details class="reveal"><summary>Do you offer home security? <span class="pm">+</span></summary>
-        <div class="ans">Yes. We're an authorized dealer of ADT-monitored home security and offer three packages —
-          Bronze (essential entry protection), Silver (adds video and more sensors), and Gold (full coverage with
-          smart-home automation). Equipment and 24/7 monitoring are quoted for your home; just pick a package on the
-          availability form and your agent handles the rest.</div></details>
+        <div class="ans">Yes. We offer ADT-monitored home security through Direct Protection Security, an ADT
+          Authorized Dealer, with three packages — Bronze (essential entry protection), Silver (adds video and more
+          sensors), and Gold (full coverage with smart-home automation). Equipment and 24/7 monitoring are quoted
+          for your home; just pick a package on the availability form and your agent handles the rest.</div></details>
       <details class="reveal"><summary>Is the pricing on this site final? <span class="pm">+</span></summary>
         <div class="ans">Offers and pricing change periodically and vary by address. Your authorized agent confirms
           exact, current pricing and terms for your home at the point of sale.</div></details>
@@ -1001,8 +1001,9 @@ footer{background:#06101c;border-top:1px solid var(--line);padding:56px 0 30px}
     </div>
     <div class="disclosure">
       <b>Authorized Sales Agent Disclosure.</b> Complete Home Today LLC is an independent
-      Authorized Sales Agent for Frontier Communications and EarthLink, and an authorized dealer of ADT-monitored
-      home security. It is not Frontier, EarthLink, or ADT. Frontier® (a Verizon company), EarthLink®, ADT®, and
+      Authorized Sales Agent for Frontier Communications and EarthLink, and offers ADT-monitored home security
+      through Direct Protection Security, an ADT Authorized Dealer. It is not Frontier, EarthLink, or ADT. Frontier®
+      (a Verizon company), EarthLink®, ADT®, and
       related logos and marks are trademarks of their respective owners. All other trademarks are the property of
       their respective owners. &nbsp;
       <b>Pricing &amp; offers.</b> Advertised Frontier monthly prices reflect enrollment in AutoPay (a $10 discount)
@@ -1013,8 +1014,10 @@ footer{background:#06101c;border-top:1px solid var(--line);padding:56px 0 30px}
       equipment, and promotional offers vary by address and are subject to change without notice; final pricing
       and offers are confirmed at the point of sale. Internet speeds are not guaranteed and may vary. Some
       promotions require a 12-month term and may carry an early termination fee. Streaming, video, and Verizon
-      mobile offers are provided under their own separate terms and may require customer action to activate.
-      [[LICENSE_LINE]]
+      mobile offers are provided under their own separate terms and may require customer action to activate. &nbsp;
+      <b>Licensing.</b> Home security in California is sold and installed under Alarm Company Operator (ACO)
+      License No. 6446, Direct Protection Security, and Alarm Company Employee (ACE) License No. 552544, issued by
+      the California Bureau of Security &amp; Investigative Services (BSIS).
       <div class="copyr">© <span id="yr"></span> Complete Home Today. All rights reserved.</div>
     </div>
   </div>
@@ -1088,12 +1091,24 @@ function showThanks(){
   done.scrollIntoView({behavior:"smooth", block:"center"});
 }
 
-/* The form posts into the hidden iframe; this fires when it completes. */
+function showError(msg){
+  submitBtn.disabled = false;
+  submitBtn.textContent = "Check My Availability";
+  var box = document.getElementById("formErr");
+  if(box){
+    box.textContent = "⚠ " + msg + " Please try again, or call (408) 909-4484.";
+    box.style.display = "block";
+  }
+}
+
+/* the iframe is the fallback post target; this fires when it completes */
 w3fFrame.addEventListener("load", function(){
   if(sending) showThanks();
 });
 
 form.addEventListener("submit", function(e){
+  e.preventDefault();
+
   /* required-field validation */
   var req = ["name","address","zip","phone","email"];
   var ok = true;
@@ -1102,26 +1117,62 @@ form.addEventListener("submit", function(e){
     if(!el.value.trim()){ ok=false; el.style.borderColor = "var(--red)"; }
     else { el.style.borderColor = ""; }
   });
-  if(!ok){ e.preventDefault(); return; }
+  if(!ok){ return; }
 
   /* honeypot — a bot ticked the hidden checkbox */
   if(form.elements["botcheck"] && form.elements["botcheck"].checked){
-    e.preventDefault(); showThanks(); return;
+    showThanks(); return;
   }
 
-  /* fill the dynamic Web3Forms fields, then let the form post natively */
-  document.getElementById("w3fSubject").value =
-    "New Website Lead — " + form.elements["name"].value.trim() +
-    " (" + form.elements["zip"].value.trim() + ")";
-  document.getElementById("w3fReplyto").value = form.elements["email"].value.trim();
+  var nm = form.elements["name"].value.trim();
+  var em = form.elements["email"].value.trim();
+  var zp = form.elements["zip"].value.trim();
+  var subj = "New Website Lead — " + nm + " (" + zp + ")";
 
-  sending = true;
+  /* keep the hidden inputs in sync for the fallback post */
+  document.getElementById("w3fSubject").value = subj;
+  document.getElementById("w3fReplyto").value = em;
+
+  var errBox = document.getElementById("formErr");
+  if(errBox) errBox.style.display = "none";
   submitBtn.textContent = "Sending…";
   submitBtn.disabled = true;
 
-  /* fallback: show the thank-you even if the iframe load event is missed */
-  setTimeout(showThanks, 3500);
-  /* no preventDefault — the browser submits the form into w3f_target */
+  var payload = {
+    access_key: form.elements["access_key"].value,
+    subject: subj,
+    from_name: "Complete Home Today Website",
+    replyto: em,
+    "Name": nm,
+    "Service address": form.elements["address"].value.trim(),
+    "ZIP code": zp,
+    "Phone": form.elements["phone"].value.trim(),
+    "Email": em,
+    "Provider interest": form.elements["provider"].value || "No preference",
+    "Speed interest": form.elements["plan"].value || "Not sure",
+    "Verizon mobile": form.elements["has_verizon"].value || "Not specified",
+    "Home security": form.elements["adt_package"].value || "Internet only",
+    "Submitted from": "Website availability form"
+  };
+
+  /* primary path: fetch, so we can confirm success or surface an error */
+  fetch("https://api.web3forms.com/submit", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "Accept": "application/json" },
+    body: JSON.stringify(payload)
+  })
+  .then(function(r){ return r.json(); })
+  .then(function(res){
+    if(res && res.success){ showThanks(); }
+    else { showError(res && res.message ? res.message : "That didn't go through."); }
+  })
+  .catch(function(){
+    /* fetch was blocked (e.g. the page was opened as a local file) —
+       fall back to a native form post into the hidden iframe. */
+    sending = true;
+    form.submit();
+    setTimeout(showThanks, 3500);
+  });
 });
 </script>
 </body>
