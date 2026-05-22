@@ -829,12 +829,12 @@ footer{background:#06101c;border-top:1px solid var(--line);padding:56px 0 30px}
       </div>
     </div>
     <div class="form-card reveal">
-      <form id="leadForm" action="https://api.web3forms.com/submit" method="POST"
-            target="w3f_target" novalidate>
+      <form id="leadForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
         <input type="hidden" name="access_key" value="94f15b07-ca25-44d8-8413-6933fc25533a">
         <input type="hidden" name="from_name" value="Complete Home Today Website">
-        <input type="hidden" name="subject" id="w3fSubject" value="New Website Lead">
+        <input type="hidden" name="subject" id="w3fSubject" value="New Website Lead — Complete Home Today">
         <input type="hidden" name="replyto" id="w3fReplyto" value="">
+        <input type="hidden" name="redirect" id="w3fRedirect" value="https://web3forms.com/success">
         <input type="checkbox" name="botcheck" tabindex="-1" aria-hidden="true"
           style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
         <div class="form-grid">
@@ -1023,10 +1023,6 @@ footer{background:#06101c;border-top:1px solid var(--line);padding:56px 0 30px}
   </div>
 </footer>
 
-<!-- Hidden target so the form posts without leaving the page (no CORS, works offline-hosted) -->
-<iframe name="w3f_target" id="w3fTarget" title="form target"
-        style="position:absolute;left:-9999px;width:0;height:0;border:0"></iframe>
-
 <script>
 /* ---------- config ----------
    The availability form posts to Web3Forms, which emails each
@@ -1080,35 +1076,28 @@ document.querySelectorAll("[data-adt]").forEach(function(a){
 var form = document.getElementById("leadForm");
 var done = document.getElementById("formDone");
 var submitBtn = document.getElementById("submitBtn");
-var w3fFrame = document.getElementById("w3fTarget");
-var doneShown = false, sending = false;
+var errBox = document.getElementById("formErr");
 
 function showThanks(){
-  if(doneShown) return;
-  doneShown = true;
   form.style.display = "none";
   done.style.display = "block";
   done.scrollIntoView({behavior:"smooth", block:"center"});
 }
 
-function showError(msg){
-  submitBtn.disabled = false;
-  submitBtn.textContent = "Check My Availability";
-  var box = document.getElementById("formErr");
-  if(box){
-    box.textContent = "⚠ " + msg + " Please try again, or call (408) 909-4484.";
-    box.style.display = "block";
+/* Web3Forms emails the lead, then redirects the browser back here with
+   ?submitted=1. Point that redirect at this exact page, wherever it is hosted. */
+var rd = document.getElementById("w3fRedirect");
+if(rd) rd.value = location.origin + location.pathname + "?submitted=1#availability";
+
+/* returning from a successful submission */
+if(location.search.indexOf("submitted=1") !== -1){
+  showThanks();
+  if(window.history && history.replaceState){
+    history.replaceState({}, "", location.pathname + "#availability");
   }
 }
 
-/* the iframe is the fallback post target; this fires when it completes */
-w3fFrame.addEventListener("load", function(){
-  if(sending) showThanks();
-});
-
 form.addEventListener("submit", function(e){
-  e.preventDefault();
-
   /* required-field validation */
   var req = ["name","address","zip","phone","email"];
   var ok = true;
@@ -1117,62 +1106,29 @@ form.addEventListener("submit", function(e){
     if(!el.value.trim()){ ok=false; el.style.borderColor = "var(--red)"; }
     else { el.style.borderColor = ""; }
   });
-  if(!ok){ return; }
+  if(!ok){
+    e.preventDefault();
+    if(errBox){
+      errBox.textContent = "⚠ Please fill in the highlighted fields and try again.";
+      errBox.style.display = "block";
+    }
+    return;
+  }
 
   /* honeypot — a bot ticked the hidden checkbox */
   if(form.elements["botcheck"] && form.elements["botcheck"].checked){
-    showThanks(); return;
+    e.preventDefault(); showThanks(); return;
   }
 
-  var nm = form.elements["name"].value.trim();
-  var em = form.elements["email"].value.trim();
-  var zp = form.elements["zip"].value.trim();
-  var subj = "New Website Lead — " + nm + " (" + zp + ")";
+  /* set the dynamic Web3Forms fields, then let the form post natively */
+  document.getElementById("w3fSubject").value =
+    "New Website Lead — " + form.elements["name"].value.trim() +
+    " (" + form.elements["zip"].value.trim() + ")";
+  document.getElementById("w3fReplyto").value = form.elements["email"].value.trim();
 
-  /* keep the hidden inputs in sync for the fallback post */
-  document.getElementById("w3fSubject").value = subj;
-  document.getElementById("w3fReplyto").value = em;
-
-  var errBox = document.getElementById("formErr");
   if(errBox) errBox.style.display = "none";
   submitBtn.textContent = "Sending…";
-  submitBtn.disabled = true;
-
-  var payload = {
-    access_key: form.elements["access_key"].value,
-    subject: subj,
-    from_name: "Complete Home Today Website",
-    replyto: em,
-    "Name": nm,
-    "Service address": form.elements["address"].value.trim(),
-    "ZIP code": zp,
-    "Phone": form.elements["phone"].value.trim(),
-    "Email": em,
-    "Provider interest": form.elements["provider"].value || "No preference",
-    "Speed interest": form.elements["plan"].value || "Not sure",
-    "Verizon mobile": form.elements["has_verizon"].value || "Not specified",
-    "Home security": form.elements["adt_package"].value || "Internet only",
-    "Submitted from": "Website availability form"
-  };
-
-  /* primary path: fetch, so we can confirm success or surface an error */
-  fetch("https://api.web3forms.com/submit", {
-    method: "POST",
-    headers: { "Content-Type": "application/json", "Accept": "application/json" },
-    body: JSON.stringify(payload)
-  })
-  .then(function(r){ return r.json(); })
-  .then(function(res){
-    if(res && res.success){ showThanks(); }
-    else { showError(res && res.message ? res.message : "That didn't go through."); }
-  })
-  .catch(function(){
-    /* fetch was blocked (e.g. the page was opened as a local file) —
-       fall back to a native form post into the hidden iframe. */
-    sending = true;
-    form.submit();
-    setTimeout(showThanks, 3500);
-  });
+  /* no preventDefault — the browser posts straight to Web3Forms */
 });
 </script>
 </body>
