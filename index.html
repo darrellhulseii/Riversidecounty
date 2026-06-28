@@ -185,6 +185,20 @@ a[href^="mailto:"]{overflow-wrap:anywhere}
 }
 @media(max-width:360px){.wrap{padding:0 13px}}
 @media(hover:none) and (pointer:coarse){.btn,button{min-height:44px}}
+.voices{padding:64px 0;background:var(--navy2);border-top:1px solid rgba(245,166,35,.14);border-bottom:1px solid rgba(245,166,35,.14)}
+.qgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:30px}
+@media(max-width:780px){.qgrid{grid-template-columns:1fr}}
+.qcard{background:var(--navy);border:1px solid var(--line);border-radius:14px;padding:24px 24px 26px;transition:.2s}
+.qcard:hover{border-color:var(--line2);transform:translateY(-2px)}
+.qcard .qmark{font-family:'Archivo',sans-serif;font-size:44px;line-height:.6;color:var(--gold-br);opacity:.55;height:24px}
+.qcard .qtext{font-size:18px;font-weight:700;color:var(--ink);line-height:1.4;letter-spacing:-.01em;margin:0}
+.qcard .qsrc{display:block;font-size:12.5px;color:var(--muted);margin-top:12px;font-style:italic}
+.qcard .qstat{font-size:13px;color:var(--muted);line-height:1.55;margin:16px 0 0;padding-top:14px;border-top:1px solid var(--line)}
+.qcard .qstat b{color:var(--gold-br);font-weight:700}
+.qcard .qstat .qcite{display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:9px;letter-spacing:.09em;text-transform:uppercase;color:var(--faint);margin-top:8px}
+.voices-flip{margin-top:28px;font-size:15.5px;color:var(--muted);line-height:1.65;max-width:840px}
+.voices-flip b{color:var(--gold-br);font-weight:700}
+.voices-disc{margin-top:16px;font-size:11.5px;color:var(--faint);line-height:1.55;max-width:840px}
 </style>
 <script type="application/ld+json">
 {
@@ -448,6 +462,68 @@ a[href^="mailto:"]{overflow-wrap:anywhere}
   </div>
 </section>
 
+<!-- NOW HIRING (W-2 complaints + apply) -->
+<section class="voices" id="careers">
+  <div class="wrap">
+    <div class="sec-head center reveal" style="max-width:780px;margin-left:auto;margin-right:auto">
+      <div class="eyebrow">Now Hiring &middot; San Bernardino County</div>
+      <h2>The 9-to-5 isn't working &mdash; build something better</h2>
+      <p>We are hiring field representatives across San Bernardino County &mdash; Redlands, Yucaipa, Victorville, Hesperia, Apple Valley, and the surrounding communities. Before you settle for another salaried grind, look at what the research and the headlines say about the typical 9-to-5 &mdash; and here in the Inland Empire, the daily commute runs among the longest in the nation, about 32 minutes each way, before the workday even starts.</p>
+    </div>
+    <div class="qgrid">
+      <div class="qcard reveal">
+        <div class="qmark">&ldquo;</div>
+        <p class="qtext">We work full-time and have degrees. And we're getting nowhere.</p>
+        <span class="qsrc">&mdash; A full-time worker, quoted by CNN Business, 2025</span>
+        <p class="qstat">About <b>62%</b> of U.S. adults live paycheck to paycheck &mdash; including 44% of those earning over $100,000 a year.<span class="qcite">LendingClub &amp; PYMNTS, 2025</span></p>
+      </div>
+      <div class="qcard reveal">
+        <div class="qmark">&ldquo;</div>
+        <p class="qtext">You're just going to really struggle to keep up.</p>
+        <span class="qsrc">&mdash; Bank of America Institute economist, on wages vs. inflation, 2025</span>
+        <p class="qstat">After-tax wages rose about <b>2%</b> while prices rose about 3% &mdash; costs have outpaced income gains for five straight years.<span class="qcite">Bank of America Institute; EY-Parthenon, 2025</span></p>
+      </div>
+      <div class="qcard reveal">
+        <div class="qmark">&ldquo;</div>
+        <p class="qtext">A growing trend of employee detachment from organizations.</p>
+        <span class="qsrc">&mdash; Gallup, on record-low engagement, 2024</span>
+        <p class="qstat">Just <b>31%</b> of U.S. employees are engaged and 17% are actively disengaged &mdash; the lowest in a decade.<span class="qcite">Gallup, 2024</span></p>
+      </div>
+      <div class="qcard reveal">
+        <div class="qmark">&ldquo;</div>
+        <p class="qtext">51% of employees feel "used up" at the end of the workday.</p>
+        <span class="qsrc">&mdash; SHRM workplace survey</span>
+        <p class="qstat"><b>55%</b> of U.S. workers report burnout, rising to 66% among Gen Z.<span class="qcite">Eagle Hill Consulting / Ipsos, 2025</span></p>
+      </div>
+    </div>
+    <p class="voices-flip">The pattern is the same everywhere: <b>capped pay, a long commute, a manager who decides your ceiling, and not much left at the end of the month.</b> A commission-based field role with Complete Home Today flips that &mdash; you set your own schedule, you are your own boss, and what you earn reflects the work you put in, not a salary band someone else picked.</p>
+    <div class="form-card reveal" style="max-width:680px;margin:30px auto 0">
+      <div class="fsec" style="margin-top:0;padding-top:0;border-top:none">Apply now</div>
+      <form id="hireForm" novalidate>
+        <input type="checkbox" name="botcheck" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+        <div class="form-grid">
+          <div class="field full"><label for="hire-name">Full name *</label><input id="hire-name" name="name" type="text" placeholder="Jordan Rivera" required></div>
+          <div class="field"><label for="hire-phone">Phone *</label><input id="hire-phone" name="phone" type="tel" placeholder="(000) 000-0000" required></div>
+          <div class="field"><label for="hire-email">Email *</label><input id="hire-email" name="email" type="email" placeholder="you@email.com" required></div>
+          <div class="field"><label for="hire-city">City / area</label><select id="hire-city" name="city"><option value="">Select</option><option>Big Bear</option><option>Big Bear City</option><option>Redlands</option><option>Yucaipa</option><option>Victorville</option><option>Hesperia</option><option>Apple Valley</option><option>Other in San Bernardino County</option></select></div>
+          <div class="field"><label for="hire-avail">Availability</label><select id="hire-avail" name="availability"><option value="">Select</option><option>Full-time</option><option>Part-time</option><option>Weekends</option><option>Flexible</option></select></div>
+          <div class="field full"><label for="hire-exp">Sales experience</label><select id="hire-exp" name="sales_experience"><option value="">Select</option><option>None yet</option><option>Some</option><option>Experienced</option></select></div>
+          <div class="field full"><label for="hire-why">Why are you interested? (optional)</label><textarea id="hire-why" name="why_interested" placeholder="Tell us a little about yourself and what you are looking for"></textarea></div>
+        </div>
+        <label class="consent" for="hire-consent"><input type="checkbox" id="hire-consent" name="consent" value="Yes - agreed to be contacted about the opportunity" required><span>I agree to be contacted by Complete Home Today about this independent contractor opportunity by phone call, text, or email. This is a 1099 commission-based role, not W-2 employment.</span></label>
+        <button type="submit" class="btn btn-red" id="hireBtn" style="width:100%;justify-content:center;margin-top:18px;font-size:15.5px;padding:15px">Apply Now</button>
+        <p class="form-err" id="hireErr"></p>
+      </form>
+      <div class="form-done" id="hireDone">
+        <div class="ck">&#10003;</div>
+        <h3>Thanks for your interest</h3>
+        <p>A member of our team will reach out about next steps.</p>
+      </div>
+    </div>
+    <p class="voices-disc">This is a 1099 independent contractor opportunity, not W-2 employment. Income is commission-based, varies with individual effort and results, and is not guaranteed. The statistics above describe the general U.S. workforce and are cited from the listed sources; they are not claims about earnings with Complete Home Today.</p>
+  </div>
+</section>
+
 <footer>
   <div class="wrap">
     <div class="foot-grid">
@@ -546,6 +622,37 @@ a[href^="mailto:"]{overflow-wrap:anywhere}
         if(btn){ btn.textContent = "Send My Information"; btn.disabled = false; }
         if(errEl){ errEl.textContent = "Network error. Please check your connection and try again."; errEl.style.display = "block"; }
       });
+  });
+})();
+
+(function(){
+  var form = document.getElementById("hireForm");
+  if(!form) return;
+  var btn = document.getElementById("hireBtn");
+  var errEl = document.getElementById("hireErr");
+  var doneEl = document.getElementById("hireDone");
+  var consentEl = document.getElementById("hire-consent");
+  form.addEventListener("submit", function(ev){
+    ev.preventDefault();
+    var required = ["name","phone","email"]; var missing = false;
+    required.forEach(function(n){
+      var f = form.elements[n];
+      if(f){ if(!f.value || !f.value.trim()){ missing = true; f.style.borderColor = "var(--red)"; } else { f.style.borderColor = ""; } }
+    });
+    if(consentEl && !consentEl.checked) missing = true;
+    if(missing){ if(errEl){ errEl.textContent = "Please fill in name, phone, and email, and check the box."; errEl.style.display = "block"; } return; }
+    if(errEl) errEl.style.display = "none";
+    if(btn){ btn.textContent = "Sending..."; btn.disabled = true; }
+    var data = { access_key: "94f15b07-ca25-44d8-8413-6933fc25533a", subject: "Careers - San Bernardino County - Complete Home Today", from_name: "Complete Home Today Careers" };
+    var es = form.elements;
+    for(var i=0;i<es.length;i++){ var f = es[i]; if(!f.name || f.name==="access_key" || f.name==="botcheck") continue; if(f.tagName==="BUTTON") continue; if(f.type==="checkbox"){ if(f.checked && f.value) data[f.name] = f.value; continue; } if(f.value && f.value.trim()) data[f.name] = f.value.trim(); }
+    var em = form.elements["email"]; if(em && em.value.trim()) data.replyto = em.value.trim();
+    var now = new Date(); data.submitted_at = now.toLocaleString("en-US", { dateStyle: "medium", timeStyle: "long" });
+    if(consentEl && consentEl.checked){ data.consent_timestamp_utc = now.toISOString(); data.consent_page = window.location.href; }
+    fetch("https://api.web3forms.com/submit", { method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json" }, body: JSON.stringify(data) })
+      .then(function(r){ return r.json(); })
+      .then(function(j){ if(j.success){ form.style.display = "none"; if(doneEl){ doneEl.style.display = "block"; doneEl.scrollIntoView({ behavior: "smooth", block: "center" }); } } else { if(btn){ btn.textContent = "Apply Now"; btn.disabled = false; } if(errEl){ errEl.textContent = "Something went wrong. Please try again or call us directly."; errEl.style.display = "block"; } } })
+      .catch(function(){ if(btn){ btn.textContent = "Apply Now"; btn.disabled = false; } if(errEl){ errEl.textContent = "Network error. Please check your connection and try again."; errEl.style.display = "block"; } });
   });
 })();
 </script>
