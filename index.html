@@ -401,7 +401,7 @@ a[href^="mailto:"]{overflow-wrap:anywhere}
 
           <div class="fsec">Your current services</div>
           <div class="form-grid">
-            <div class="field full"><label for="q-isp">Current internet provider</label><select id="q-isp" name="current_internet_provider"><option value="">Select provider</option><option>AT&amp;T</option><option>Spectrum</option><option>Frontier</option><option>Xfinity / Comcast</option><option>Cox</option><option>T-Mobile</option><option>Verizon</option><option>Optimum</option><option>CenturyLink</option><option>Starlink</option><option>Other</option><option>None / no internet</option></select></div>
+            <div class="field full"><label for="q-isp">Current internet provider</label><select id="q-isp" name="current_internet_provider"><option value="">Select provider</option><option>AT&amp;T</option><option>Spectrum</option><option>Frontier</option><option>Xfinity / Comcast</option><option>Cox</option><option>T-Mobile</option><option>Verizon</option><option>Optimum</option><option>CenturyLink</option><option>Starlink</option><option>Other</option><option>New home / no current service</option><option>None / no internet</option></select></div>
             <div class="field"><label for="q-speed">Current speed</label><select id="q-speed" name="current_speed"><option value="">Not sure</option><option>Under 100 Mbps</option><option>100-300 Mbps</option><option>300-500 Mbps</option><option>500 Mbps - 1 Gig</option><option>1 Gig or higher</option></select></div>
             <div class="field"><label for="q-tv">Is there a TV service?</label><select id="q-tv" name="has_tv_service"><option value="">Select</option><option>No</option><option>Yes</option></select></div>
             <div class="field full cond" id="cond-tvprov" hidden><label for="q-tvprov">TV service provider</label><select id="q-tvprov" name="tv_provider"><option value="">Select provider</option><option>DirecTV</option><option>Dish</option><option>Spectrum TV</option><option>Xfinity TV</option><option>AT&amp;T / U-verse</option><option>YouTube TV</option><option>Hulu Live</option><option>Other streaming</option><option>Other</option></select></div>
@@ -557,6 +557,7 @@ a[href^="mailto:"]{overflow-wrap:anywhere}
   var doneEl = document.getElementById("qFormDone");
   var consentEl = document.getElementById("q-consent");
   function val(id){ var e = document.getElementById(id); return e ? e.value : ""; }
+  function setField(id, show){ var e = document.getElementById(id); if(!e) return; var w = e.closest(".field"); if(w) w.style.display = show ? "" : "none"; e.disabled = !show; }
   function setCond(id, show){
     var el = document.getElementById(id);
     if(!el) return;
@@ -565,14 +566,17 @@ a[href^="mailto:"]{overflow-wrap:anywhere}
     for(var i=0;i<inputs.length;i++){ inputs[i].disabled = !show; }
   }
   function sync(){
-    setCond("cond-tvprov", val("q-tv") === "Yes");
-    setCond("cond-lines", val("q-mobile") === "Yes");
+    var isp = val("q-isp");
+    var newHome = (isp === "New home / no current service" || isp === "None / no internet");
+    ["q-speed","q-tv","q-homephone","q-mobile","q-bill","q-tenure","q-bill-photo"].forEach(function(id){ setField(id, !newHome); });
+    setCond("cond-tvprov", !newHome && val("q-tv") === "Yes");
+    setCond("cond-lines", !newHome && val("q-mobile") === "Yes");
     var alarm = val("q-alarm") === "Yes";
     setCond("cond-alarm", alarm);
     setCond("cond-smart", alarm && (val("q-pkg") === "Silver" || val("q-pkg") === "Gold"));
     setCond("cond-camcount", alarm && val("q-cam") === "Yes");
   }
-  ["q-tv","q-mobile","q-alarm","q-pkg","q-cam"].forEach(function(id){
+  ["q-isp","q-tv","q-mobile","q-alarm","q-pkg","q-cam"].forEach(function(id){
     var e = document.getElementById(id); if(e) e.addEventListener("change", sync);
   });
   sync();
