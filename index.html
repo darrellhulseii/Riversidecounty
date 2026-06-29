@@ -59,7 +59,7 @@ a{color:inherit;text-decoration:none}
 .topbar b{color:var(--ink);font-weight:600}
 
 /* nav */
-.nav{position:sticky;top:0;z-index:50;background:rgba(8,8,10,.95);border-bottom:1px solid var(--line)}
+.nav{position:sticky;top:0;z-index:50;background:#08080a;border-bottom:1px solid var(--line)}
 .nav-in{display:flex;align-items:center;justify-content:space-between;height:70px}
 .logo{display:flex;align-items:center;gap:11px}
 .logo-mark{font-family:'Archivo',sans-serif;font-weight:900;font-size:23px;letter-spacing:-.03em;color:#fff}
@@ -218,8 +218,8 @@ section{padding:84px 0}
 .hiring-hero{position:relative;overflow:hidden;background:linear-gradient(160deg,#0d1f0f 0%,#0a1810 40%,#040405 100%);border-top:1px solid rgba(245,166,35,.18);border-bottom:1px solid rgba(245,166,35,.18);padding:96px 0 80px}
 .hiring-hero::before{content:"";position:absolute;top:-180px;right:-80px;width:640px;height:640px;background:radial-gradient(ellipse,rgba(245,166,35,.11),transparent 65%);pointer-events:none}
 .hiring-pulse{position:absolute;top:32px;right:32px;display:flex;align-items:center;gap:8px;font-family:'Archivo',sans-serif;font-weight:800;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-br)}
-.pulse-dot{width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 0 rgba(245,166,35,.6);animation:pulse 1.8s ease-out infinite}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(245,166,35,.6)}70%{box-shadow:0 0 0 10px rgba(245,166,35,0)}100%{box-shadow:0 0 0 0 rgba(245,166,35,0)}}
+.pulse-dot{position:relative;width:9px;height:9px;border-radius:50%;background:var(--gold)}.pulse-dot::after{content:"";position:absolute;inset:0;border-radius:50%;background:var(--gold);animation:pulse 1.8s ease-out infinite;will-change:transform,opacity}
+@keyframes pulse{0%{transform:scale(1);opacity:.55}70%{transform:scale(3);opacity:0}100%{transform:scale(3);opacity:0}}
 .hiring-hero-in{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:start}
 .hiring-hero h2{font-size:clamp(32px,4.8vw,56px);font-weight:900;margin:14px 0 18px;line-height:1.02}
 .hiring-hero h2 em{font-style:normal;color:var(--gold-br)}
@@ -390,7 +390,7 @@ body.show-hiring .burger{display:none}
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
   .fiber span{animation:none;opacity:0}
-  .pulse-dot{animation:none}
+  .pulse-dot::after{animation:none}
   .sc-fill{animation:none;width:100%}
 }
 /* hiring: W-2 research stats */
@@ -480,6 +480,9 @@ a[href^="mailto:"]{overflow-wrap:anywhere}
 .foot-legal a{color:var(--ink);text-decoration:none}
 .foot-legal a:hover{color:var(--gold-br);text-decoration:underline}
 .foot-legal .sep{color:var(--faint);margin:0 10px}
+
+/* scroll performance: skip rendering offscreen sections */
+section{content-visibility:auto;contain-intrinsic-size:auto 800px}
 </style>
 <script type="application/ld+json">
 {
@@ -620,14 +623,13 @@ a[href^="mailto:"]{overflow-wrap:anywhere}
         <a href="#addons">Add-Ons</a>
         <a href="#tv">TV</a>
         <a href="#security">Security</a>
-        <a href="#quote">Get a Quote</a>
         <a href="#faq">FAQ</a>
         <a href="#" class="hiring-link" id="navHiringBtn">Now Hiring</a>
       </div>
     </div>
     <button class="nav-back" id="navBackBtn">← Back to Main Site</button>
     <div class="nav-cta">
-      <a href="#availability" class="btn btn-red">Check Availability</a>
+      <a href="#quote" class="btn btn-red">Check Service Availability</a>
       <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -649,7 +651,7 @@ a[href^="mailto:"]{overflow-wrap:anywhere}
       <h1 class="reveal">Find the <em>fastest internet</em> your home can get.</h1>
       <p class="lead reveal">We connect homes with fast, reliable fiber internet from leading providers — plus alarm systems and professional monitoring from Direct Protection Security. Compare real plans and let a local agent handle the switch for you.</p>
       <div class="hero-cta reveal">
-        <a href="#availability" class="btn btn-red">Check My Address →</a>
+        <a href="#quote" class="btn btn-red">Check My Address →</a>
         <a href="#plans" class="btn btn-ghost">Compare Plans</a>
       </div>
       <p class="hero-note reveal">Symmetrical fiber speeds · Unlimited data · Current new-customer offers</p>
@@ -705,12 +707,12 @@ a[href^="mailto:"]{overflow-wrap:anywhere}
     </div>
     <div>
       <div class="plan-grid">
-        <div class="plan reveal"><div class="p-name">Fiber 200M</div><div class="p-tier">Fiber · Standard</div><div class="p-speed">200<small> / 200 Mbps</small></div><div class="p-quote"><span class="pq-main">Custom quote</span><span class="pq-sub">priced by address</span></div><div class="p-best">Lighter use — browsing, email, and a few devices.</div><ul><li>Symmetrical fiber speed</li><li>eero Wi-Fi router included</li><li>Unlimited data</li></ul><a href="#availability" class="btn btn-ghost">Check Availability</a></div>
-        <div class="plan reveal"><div class="p-name">Fiber 500M</div><div class="p-tier">Fiber · Standard</div><div class="p-speed">500<small> / 500 Mbps</small></div><div class="p-quote"><span class="pq-main">Custom quote</span><span class="pq-sub">priced by address</span></div><div class="p-best">Streaming, shopping, and social for a typical home.</div><ul><li>Symmetrical fiber speed</li><li>eero Wi-Fi router included</li><li>Unlimited data</li></ul><a href="#availability" class="btn btn-ghost">Check Availability</a></div>
-        <div class="plan feat reveal"><span class="ribbon">Most Popular</span><div class="p-name">Fiber 1 Gig</div><div class="p-tier">Fiber · Performance</div><div class="p-speed">1000<small> / 1000 Mbps</small></div><div class="p-quote"><span class="pq-main">Custom quote</span><span class="pq-sub">priced by address</span></div><div class="p-best">The sweet spot — work, stream, and game on many devices at once.</div><ul><li>Symmetrical fiber speed</li><li>eero Pro Wi-Fi router included</li><li>Unlimited data</li><li>Pro installation included</li></ul><a href="#availability" class="btn btn-red">Check Availability</a></div>
-        <div class="plan reveal"><div class="p-name">Fiber 2 Gig</div><div class="p-tier">Fiber · Performance</div><div class="p-speed">2000<small> / 2000 Mbps</small></div><div class="p-quote"><span class="pq-main">Custom quote</span><span class="pq-sub">priced by address</span></div><div class="p-best">Heavy households — 4K streaming and lots of simultaneous users.</div><ul><li>Symmetrical fiber speed</li><li>eero Pro Wi-Fi router included</li><li>Unlimited data</li></ul><a href="#availability" class="btn btn-ghost">Check Availability</a></div>
-        <div class="plan reveal"><div class="p-name">Fiber 5 Gig</div><div class="p-tier">Fiber · Power</div><div class="p-speed">5000<small> / 5000 Mbps</small></div><div class="p-quote"><span class="pq-main">Custom quote</span><span class="pq-sub">priced by address</span></div><div class="p-best">Power users — creators, large smart homes, demanding setups.</div><ul><li>Symmetrical fiber speed</li><li>eero Max Wi-Fi router included</li><li>Unlimited data</li></ul><a href="#availability" class="btn btn-ghost">Check Availability</a></div>
-        <div class="plan reveal"><div class="p-name">Fiber 7 Gig</div><div class="p-tier">Fiber · Power</div><div class="p-speed">7000<small> / 7000 Mbps</small></div><div class="p-quote"><span class="pq-main">Custom quote</span><span class="pq-sub">priced by address</span></div><div class="p-best">Top-tier, future-proof speed for the fastest available.</div><ul><li>Symmetrical fiber speed</li><li>Two eero Max Wi-Fi routers</li><li>Unlimited data</li></ul><a href="#availability" class="btn btn-ghost">Check Availability</a></div>
+        <div class="plan reveal"><div class="p-name">Fiber 200M</div><div class="p-tier">Fiber · Standard</div><div class="p-speed">200<small> / 200 Mbps</small></div><div class="p-quote"><span class="pq-main">Custom quote</span><span class="pq-sub">priced by address</span></div><div class="p-best">Lighter use — browsing, email, and a few devices.</div><ul><li>Symmetrical fiber speed</li><li>eero Wi-Fi router included</li><li>Unlimited data</li></ul><a href="#quote" class="btn btn-ghost">Check Service Availability</a></div>
+        <div class="plan reveal"><div class="p-name">Fiber 500M</div><div class="p-tier">Fiber · Standard</div><div class="p-speed">500<small> / 500 Mbps</small></div><div class="p-quote"><span class="pq-main">Custom quote</span><span class="pq-sub">priced by address</span></div><div class="p-best">Streaming, shopping, and social for a typical home.</div><ul><li>Symmetrical fiber speed</li><li>eero Wi-Fi router included</li><li>Unlimited data</li></ul><a href="#quote" class="btn btn-ghost">Check Service Availability</a></div>
+        <div class="plan feat reveal"><span class="ribbon">Most Popular</span><div class="p-name">Fiber 1 Gig</div><div class="p-tier">Fiber · Performance</div><div class="p-speed">1000<small> / 1000 Mbps</small></div><div class="p-quote"><span class="pq-main">Custom quote</span><span class="pq-sub">priced by address</span></div><div class="p-best">The sweet spot — work, stream, and game on many devices at once.</div><ul><li>Symmetrical fiber speed</li><li>eero Pro Wi-Fi router included</li><li>Unlimited data</li><li>Pro installation included</li></ul><a href="#quote" class="btn btn-red">Check Service Availability</a></div>
+        <div class="plan reveal"><div class="p-name">Fiber 2 Gig</div><div class="p-tier">Fiber · Performance</div><div class="p-speed">2000<small> / 2000 Mbps</small></div><div class="p-quote"><span class="pq-main">Custom quote</span><span class="pq-sub">priced by address</span></div><div class="p-best">Heavy households — 4K streaming and lots of simultaneous users.</div><ul><li>Symmetrical fiber speed</li><li>eero Pro Wi-Fi router included</li><li>Unlimited data</li></ul><a href="#quote" class="btn btn-ghost">Check Service Availability</a></div>
+        <div class="plan reveal"><div class="p-name">Fiber 5 Gig</div><div class="p-tier">Fiber · Power</div><div class="p-speed">5000<small> / 5000 Mbps</small></div><div class="p-quote"><span class="pq-main">Custom quote</span><span class="pq-sub">priced by address</span></div><div class="p-best">Power users — creators, large smart homes, demanding setups.</div><ul><li>Symmetrical fiber speed</li><li>eero Max Wi-Fi router included</li><li>Unlimited data</li></ul><a href="#quote" class="btn btn-ghost">Check Service Availability</a></div>
+        <div class="plan reveal"><div class="p-name">Fiber 7 Gig</div><div class="p-tier">Fiber · Power</div><div class="p-speed">7000<small> / 7000 Mbps</small></div><div class="p-quote"><span class="pq-main">Custom quote</span><span class="pq-sub">priced by address</span></div><div class="p-best">Top-tier, future-proof speed for the fastest available.</div><ul><li>Symmetrical fiber speed</li><li>Two eero Max Wi-Fi routers</li><li>Unlimited data</li></ul><a href="#quote" class="btn btn-ghost">Check Service Availability</a></div>
       </div>
       <p class="fee-note">Plans, speeds, and equipment vary by address. Pricing is not shown here and is confirmed at the point of sale; it is subject to change, and AutoPay enrollment may be required for the best available rate. Taxes and surcharges may apply.</p>
     </div>
@@ -747,8 +749,8 @@ a[href^="mailto:"]{overflow-wrap:anywhere}
   <div class="wrap">
     <div class="sec-head reveal"><div class="eyebrow">TV &amp; Streaming</div><h2>Add entertainment to your fiber</h2><p>Bundle streaming with your fiber service — one bill, one powerful experience.</p></div>
     <div class="tv-grid">
-      <div class="tv reveal"><h3>Netflix &amp; Pro Wi-Fi Bundle</h3><p style="color:var(--muted);font-size:14px">Entertainment and coverage in one simple package.</p><div class="tv-quote">Custom quote at availability check</div><ul><li>Netflix Premium — ad-free movies &amp; shows</li><li>Whole-Home Wi-Fi mesh coverage</li><li>Wi-Fi Security included</li><li>Billed alongside your internet service</li></ul><a href="#availability" class="btn btn-ghost" style="margin-top:auto;justify-content:center">Ask About This Bundle</a></div>
-      <div class="tv reveal"><h3>YouTube TV</h3><p style="color:var(--muted);font-size:14px">Cable-free live TV that pairs perfectly with fiber.</p><div class="tv-quote">Custom quote at availability check</div><ul><li>100+ channels of live sports, news &amp; shows</li><li>Unlimited DVR storage</li><li>Up to six accounts per household</li><li>No contracts — customer activation required</li></ul><a href="#availability" class="btn btn-ghost" style="margin-top:auto;justify-content:center">Ask About YouTube TV</a></div>
+      <div class="tv reveal"><h3>Netflix &amp; Pro Wi-Fi Bundle</h3><p style="color:var(--muted);font-size:14px">Entertainment and coverage in one simple package.</p><div class="tv-quote">Custom quote at availability check</div><ul><li>Netflix Premium — ad-free movies &amp; shows</li><li>Whole-Home Wi-Fi mesh coverage</li><li>Wi-Fi Security included</li><li>Billed alongside your internet service</li></ul><a href="#quote" class="btn btn-ghost" style="margin-top:auto;justify-content:center">Ask About This Bundle</a></div>
+      <div class="tv reveal"><h3>YouTube TV</h3><p style="color:var(--muted);font-size:14px">Cable-free live TV that pairs perfectly with fiber.</p><div class="tv-quote">Custom quote at availability check</div><ul><li>100+ channels of live sports, news &amp; shows</li><li>Unlimited DVR storage</li><li>Up to six accounts per household</li><li>No contracts — customer activation required</li></ul><a href="#quote" class="btn btn-ghost" style="margin-top:auto;justify-content:center">Ask About YouTube TV</a></div>
     </div>
   </div>
 </section>
@@ -758,9 +760,9 @@ a[href^="mailto:"]{overflow-wrap:anywhere}
   <div class="wrap">
     <div class="sec-head reveal"><div class="eyebrow" style="color:var(--blue-br)">Home Security</div><h2>Add a Direct Protection Security alarm system</h2><p>Bundle a professionally monitored home alarm system with your internet, provided and monitored by Direct Protection Security.</p></div>
     <div class="plan-grid">
-      <div class="plan adt reveal"><div class="p-name">Bronze</div><div class="p-tier">Monitored Alarm · Essential</div><div class="p-price"><span class="amt">$53.99</span><span class="per">/mo monitoring</span></div><div class="p-best">Core protection for your home's main entry points and a reliable first line of defense.</div><ul><li>24/7 professional alarm monitoring</li><li>Digital control panel / smart hub</li><li>Door &amp; window entry sensors</li><li>Motion detector</li><li>Mobile app — arm, disarm &amp; alerts</li><li>Yard sign &amp; window decals</li></ul><div class="sec-meta">$99 professional install · 24/7 monitored</div><a href="#availability" class="btn btn-ghost" data-adt="Bronze">Add to My Quote</a></div>
-      <div class="plan adt feat reveal"><span class="ribbon">Most Popular</span><div class="p-name">Silver</div><div class="p-tier">Monitored Alarm · Plus</div><div class="p-price"><span class="amt">$59.99</span><span class="per">/mo monitoring</span></div><div class="p-best">Adds video so you can see what's happening and get smarter, clearer alerts.</div><ul><li>Everything in Bronze</li><li>HD security camera or video doorbell</li><li>Live video &amp; recorded clips in the app</li><li>Additional entry &amp; motion sensors</li><li>Smart alerts on motion or entry</li><li>24/7 professional alarm monitoring</li></ul><div class="sec-meta">$99 professional install · 24/7 monitored</div><a href="#availability" class="btn btn-red" data-adt="Silver">Add to My Quote</a></div>
-      <div class="plan adt reveal"><div class="p-name">Gold</div><div class="p-tier">Monitored Alarm · Complete</div><div class="p-price"><span class="amt">$63.99</span><span class="per">/mo monitoring</span></div><div class="p-best">Full coverage with smart-home automation for the most connected, protected home.</div><ul><li>Everything in Silver</li><li>Indoor + outdoor camera coverage</li><li>Smart automation — locks, lighting &amp; thermostat</li><li>Expanded whole-home sensor coverage</li><li>Premium 24/7 monitoring &amp; priority support</li><li>Mobile app — full smart-home control</li></ul><div class="sec-meta">$99 professional install · 24/7 monitored</div><a href="#availability" class="btn btn-ghost" data-adt="Gold">Add to My Quote</a></div>
+      <div class="plan adt reveal"><div class="p-name">Bronze</div><div class="p-tier">Monitored Alarm · Essential</div><div class="p-price"><span class="amt">$53.99</span><span class="per">/mo monitoring</span></div><div class="p-best">Core protection for your home's main entry points and a reliable first line of defense.</div><ul><li>24/7 professional alarm monitoring</li><li>Digital control panel / smart hub</li><li>Door &amp; window entry sensors</li><li>Motion detector</li><li>Mobile app — arm, disarm &amp; alerts</li><li>Yard sign &amp; window decals</li></ul><div class="sec-meta">$99 professional install · 24/7 monitored</div><a href="#quote" class="btn btn-ghost" data-adt="Bronze">Add to My Quote</a></div>
+      <div class="plan adt feat reveal"><span class="ribbon">Most Popular</span><div class="p-name">Silver</div><div class="p-tier">Monitored Alarm · Plus</div><div class="p-price"><span class="amt">$59.99</span><span class="per">/mo monitoring</span></div><div class="p-best">Adds video so you can see what's happening and get smarter, clearer alerts.</div><ul><li>Everything in Bronze</li><li>HD security camera or video doorbell</li><li>Live video &amp; recorded clips in the app</li><li>Additional entry &amp; motion sensors</li><li>Smart alerts on motion or entry</li><li>24/7 professional alarm monitoring</li></ul><div class="sec-meta">$99 professional install · 24/7 monitored</div><a href="#quote" class="btn btn-red" data-adt="Silver">Add to My Quote</a></div>
+      <div class="plan adt reveal"><div class="p-name">Gold</div><div class="p-tier">Monitored Alarm · Complete</div><div class="p-price"><span class="amt">$63.99</span><span class="per">/mo monitoring</span></div><div class="p-best">Full coverage with smart-home automation for the most connected, protected home.</div><ul><li>Everything in Silver</li><li>Indoor + outdoor camera coverage</li><li>Smart automation — locks, lighting &amp; thermostat</li><li>Expanded whole-home sensor coverage</li><li>Premium 24/7 monitoring &amp; priority support</li><li>Mobile app — full smart-home control</li></ul><div class="sec-meta">$99 professional install · 24/7 monitored</div><a href="#quote" class="btn btn-ghost" data-adt="Gold">Add to My Quote</a></div>
     </div>
     <p class="fee-note">Prices shown are starting monthly monitoring rates with professional installation from $99. Equipment selection, your final monitoring rate, and the monitoring agreement term are confirmed for your home at the point of sale. Home alarm systems are professionally monitored by Direct Protection Security.</p>
   </div>
@@ -779,54 +781,11 @@ a[href^="mailto:"]{overflow-wrap:anywhere}
   </div>
 </section>
 
-<!-- AVAILABILITY FORM -->
-<section class="avail" id="availability">
-  <div class="wrap avail-in">
-    <div class="avail-copy reveal">
-      <div class="eyebrow">Check Availability</div>
-      <h2>See what's available at your address</h2>
-      <p>Fiber availability varies street by street, and not every provider reaches every home. Share your details and a local Complete Home Today agent will confirm your options and current offers.</p>
-      <div class="ac-row"><span class="tick">✓</span> No obligation — it's just a quick check</div>
-      <div class="ac-row"><span class="tick">✓</span> Real pricing and offers for your address</div>
-      <div class="ac-row"><span class="tick">✓</span> Help comparing fiber plans</div>
-      <div class="ac-row" style="margin-top:22px;font-size:13px;color:var(--faint)">Prefer to email instead? Reach us at <a href="mailto:darrell@completehomellc.com" style="color:var(--ink);font-weight:600">darrell@completehomellc.com</a>.</div>
-    </div>
-    <div class="form-card reveal">
-      <form id="leadForm" novalidate>
-        <input type="hidden" name="xxTrustedFormCertUrl"><input type="hidden" name="xxTrustedFormPingUrl">
-        <input type="checkbox" name="botcheck" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
-        <div class="form-grid">
-          <div class="field full"><label for="f-name">Full name *</label><input id="f-name" name="name" type="text" placeholder="Jordan Rivera" required></div>
-          <div class="field full"><label for="f-address">Service address *</label><input id="f-address" name="address" type="text" placeholder="123 Main St, City, CA" required></div>
-          <div class="field"><label for="f-zip">ZIP code *</label><input id="f-zip" name="zip" type="text" inputmode="numeric" placeholder="92562" required></div>
-          <div class="field"><label for="f-phone">Phone *</label><input id="f-phone" name="phone" type="tel" placeholder="(000) 000-0000" required></div>
-          <div class="field full"><label for="f-email">Email *</label><input id="f-email" name="email" type="email" placeholder="you@email.com" required></div>
-          <div class="field"><label for="f-prov">Internet interest</label><select id="f-prov" name="provider"><option value="">No preference</option><option>Fiber internet</option><option>Wireless 5G home internet</option><option>Whatever's fastest</option></select></div>
-          <div class="field"><label for="f-plan">Speed of interest</label><select id="f-plan" name="plan"><option value="">Not sure yet</option><option>Up to 500 Mbps</option><option>1 Gig</option><option>2 Gig or higher</option><option>5G Home Internet (wireless)</option><option>TV / Streaming bundle</option></select></div>
-          <div class="field"><label for="f-time">Best time to reach you</label><select id="f-time" name="best_time"><option value="">Anytime</option><option>Morning</option><option>Afternoon</option><option>Evening</option></select></div>
-          <div class="field full"><label for="f-adt">Add a home alarm system?</label><select id="f-adt" name="adt_package"><option value="">No — internet only</option><option>Bronze</option><option>Silver</option><option>Gold</option><option>Not sure — tell me about security</option></select></div>
-          <div class="field full"><label for="f-found">How did you find us?</label><select id="f-found" name="how_found"><option value="">Select one</option><option>A rep came to my door</option><option>Referred by a friend or family</option><option>Flyer or mailer</option><option>Online search</option><option>Social media</option><option>Other</option></select></div>
-          <div class="field full"><label for="f-refname">Rep or referral name</label><input id="f-refname" name="referral_name" type="text" placeholder="Their name"><span class="field-note">If a rep visited you or someone referred you, please type their name so we can credit them.</span></div>
-        </div>
-        <label class="consent" for="f-consent"><input type="checkbox" id="f-consent" name="consent" value="Yes — agreed to be contacted and to the Privacy Policy" required><span>I agree to be contacted by Complete Home Today about internet and home alarm and monitoring services by phone call, text, or email — including by automated or prerecorded means — at the number and email I provide. I agree to the <a href="#privacy">Privacy Policy</a>. Consent is not a condition of purchase.</span></label>
-        <button type="submit" class="btn btn-red" id="submitBtn" style="width:100%;justify-content:center;margin-top:18px;font-size:15.5px;padding:15px">Check My Availability</button>
-        <p class="form-err" id="formErr"></p>
-        <p class="form-fine">Submitting this form is a request to check availability — it does not place an order or guarantee service or pricing. Message &amp; data rates may apply; reply STOP to opt out of texts.</p>
-      </form>
-      <div class="form-done" id="formDone">
-        <div class="ck">✓</div>
-        <h3>Thanks — we've got your request</h3>
-        <p>A local Complete Home Today agent will reach out shortly to confirm availability and current offers for your address.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- DETAILED INTAKE / QUOTE FORM -->
 <section class="avail" id="quote">
   <div class="wrap avail-in">
     <div class="avail-copy reveal">
-      <div class="eyebrow">Get a Quote</div>
+      <div class="eyebrow">Check Service Availability</div>
       <h2>Tell us about your current services</h2>
       <p>Share what you have today and what you are looking for, and a local Complete Home Today representative will put together your best options. The more you tell us, the more accurate your quote.</p>
       <div class="ac-row"><span class="tick">&#10003;</span> Takes about 2 minutes</div>
@@ -923,7 +882,7 @@ a[href^="mailto:"]{overflow-wrap:anywhere}
         <h4>Work With Us</h4>
         <a href="#" id="footerHiringBtn" style="color:var(--gold-br);font-weight:700">Now Hiring — Sales Reps →</a>
         <h4 style="margin-top:18px">Get in touch</h4>
-        <a href="#availability">Check Availability</a><a href="mailto:darrell@completehomellc.com">darrell@completehomellc.com</a><span>Serving California</span>
+        <a href="#quote">Check Service Availability</a><a href="mailto:darrell@completehomellc.com">darrell@completehomellc.com</a><span>Serving California</span>
       </div>
     </div>
     <div class="disclosure">
@@ -1320,21 +1279,6 @@ function submitToWeb3Forms(formEl, requiredFields, subjectVal, opts) {
     });
   });
 }
-
-// ---- CUSTOMER LEAD FORM ----
-submitToWeb3Forms(
-  document.getElementById("leadForm"),
-  ["name","address","zip","phone","email"],
-  "New Website Lead — Complete Home Today",
-  {
-    btnEl: document.getElementById("submitBtn"),
-    btnLabel: "Check My Availability",
-    errEl: document.getElementById("formErr"),
-    doneEl: document.getElementById("formDone"),
-    fromName: "Complete Home Today Website",
-    accentColor: "var(--red)"
-  }
-);
 
 // ---- HIRING APPLICATION FORM ----
 submitToWeb3Forms(
