@@ -859,7 +859,10 @@ section{content-visibility:auto;contain-intrinsic-size:auto 800px}
           <div class="field full"><label for="q-name">Full name *</label><input id="q-name" name="name" type="text" placeholder="Jordan Rivera" required></div>
           <div class="field"><label for="q-phone">Phone *</label><input id="q-phone" name="phone" type="tel" placeholder="(000) 000-0000" required></div>
           <div class="field"><label for="q-email">Email *</label><input id="q-email" name="email" type="email" placeholder="you@email.com" required></div>
-          <div class="field full"><label for="q-address">Service address</label><input id="q-address" name="address" type="text" placeholder="123 Main St, City, CA"></div>
+          <div class="field full"><label for="q-street">Street address *</label><input id="q-street" name="street_address" type="text" placeholder="123 Main St" required></div>
+          <div class="field"><label for="q-city">City *</label><input id="q-city" name="city" type="text" placeholder="Riverside" required></div>
+          <div class="field"><label for="q-state">State *</label><input id="q-state" name="state" type="text" placeholder="CA" maxlength="2" autocapitalize="characters" required></div>
+          <div class="field"><label for="q-zip">ZIP code *</label><input id="q-zip" name="zip" type="text" inputmode="numeric" placeholder="92596" maxlength="10" required></div>
         </div>
 
         <div class="fsec">Your current services</div>
@@ -1414,7 +1417,7 @@ submitToWeb3Forms(
 
   form.addEventListener("submit", function(ev){
     ev.preventDefault();
-    var required = ["name","phone","email"];
+    var required = ["name","phone","email","street_address","city","state","zip"];
     var missing = false;
     required.forEach(function(n){
       var f = form.elements[n];
@@ -1422,7 +1425,7 @@ submitToWeb3Forms(
     });
     if(consentEl && !consentEl.checked) missing = true;
     if(missing){
-      if(errEl){ errEl.textContent = "Please fill in name, phone, and email, and check the consent box."; errEl.style.display = "block"; }
+      if(errEl){ errEl.textContent = "Please fill in name, phone, email, and your full service address, and check the consent box."; errEl.style.display = "block"; }
       return;
     }
     if(errEl) errEl.style.display = "none";
