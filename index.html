@@ -1277,7 +1277,7 @@ function submitToWeb3Forms(formEl, requiredFields, subjectVal, opts) {
     if(opts.btnEl) { opts.btnEl.textContent = "Sending…"; opts.btnEl.disabled = true; }
 
     // build JSON payload from all named form fields
-    var data = { access_key: "ca27e8ab-8552-4fd0-8767-c8c4381fc400" };
+    var data = { access_key: "9d10e41c-0e59-4a69-9f0f-7754e9100483" };
     data.subject = subjectVal;
     data.from_name = opts.fromName || "Complete Home Today Website";
 
@@ -1436,7 +1436,7 @@ submitToWeb3Forms(
     if(btn){ btn.textContent = "Sending..."; btn.disabled = true; }
 
     var fd = new FormData(form);
-    fd.append("access_key", "ca27e8ab-8552-4fd0-8767-c8c4381fc400");
+    fd.append("access_key", "9d10e41c-0e59-4a69-9f0f-7754e9100483");
     fd.append("subject", "New Quote Request - Complete Home Today");
     fd.append("from_name", "Complete Home Today Website");
     var em = form.elements["email"]; if(em && em.value.trim()) fd.append("replyto", em.value.trim());
