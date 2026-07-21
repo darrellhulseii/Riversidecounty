@@ -13,8 +13,24 @@
 <meta name="theme-color" content="#0a0a0c">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="format-detection" content="telephone=no">
-<!-- Content-Security-Policy: this is a best-effort client-side baseline. Directives that browsers only honor
-     from an HTTP response header (frame-ancestors, report-to) MUST also be set server-side; see deployment notes. -->
+<!--
+  Content-Security-Policy notes:
+  - script-src is hash-pinned to this page's own 9 inline script blocks (including the
+    two JSON-LD blocks — CSP applies to JSON-LD script elements too, not just JS). This means
+    an injected inline <script> (e.g. via a compromised ad, a browser extension writing to
+    the DOM, or any future XSS) CANNOT execute, even though 'unsafe-inline' is also listed —
+    modern browsers ignore 'unsafe-inline' whenever a hash/nonce is present; it's kept only
+    as a harmless fallback for very old browsers that don't understand hash-source at all.
+  - IMPORTANT: if you edit ANY inline <script> block's contents (including replacing the
+    GTM-XXXXXXX / G-XXXXXXXXXX placeholders, or editing the JSON-LD), its hash changes and
+    the browser will block it until you regenerate hashes and update the list below. To
+    regenerate: for each <script>...</script> block, compute
+      openssl dgst -sha256 -binary | openssl base64
+    over its exact inner text (no tag, no trimming) and swap the corresponding 'sha256-...' value.
+  - Directives that only take effect as real HTTP response headers (frame-ancestors,
+    Strict-Transport-Security, and a second, header-level CSP as defense in depth) cannot be
+    set via <meta> and must be configured at the server/CDN. See deployment notes at end of file.
+-->
 <meta http-equiv="Content-Security-Policy" content="
   default-src 'self';
   base-uri 'self';
@@ -23,11 +39,24 @@
   img-src 'self' data: https:;
   font-src 'self' https://fonts.gstatic.com;
   style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-  script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://api.trustedform.com;
+  script-src 'self' 'unsafe-inline'
+    'sha256-rx5b+h0/XaxtGJymOJOqFzU7L+bdbUrjhPy7bxhi4pc='
+    'sha256-CQqH8MYIg2VhEN3Y6C5bc1AHtA4ZnTeaENYcUwcddY0='
+    'sha256-86QVsgSVG4hW9g3l+LAB/ngmX5uWeRHq/7LAMTH+Nhk='
+    'sha256-H4uzleFaTY6XHV8wraxpri7w+DSoOcuiO9TqLfy7+QU='
+    'sha256-JAyTQ1kvsGIBjCBRenuyS7l+OsRMaxBO7tFWCWzf5Vw='
+    'sha256-wwGiwRFHwCUDrcC1Es3Gkcxv+k2OYSiEIFSGyc5CmxA='
+    'sha256-PSUpUfPx4RBsqcCNAI62dkh/3w30xLKpGvM9dpRmTa8='
+    'sha256-ZVoRD9CUbm7TgEC/2Lx7MCFw2ARA4GzvRfrCHVVJQ9Q='
+    'sha256-OCS+X5xcsM4UMh0HBXiRd9t2zely62RJl2C9rpAY/Js='
+    https://www.googletagmanager.com https://www.google-analytics.com https://api.trustedform.com;
   connect-src 'self' https://api.web3forms.com https://www.google-analytics.com https://api.trustedform.com;
   upgrade-insecure-requests;
 ">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
+<!-- COOP/CORP are only honored from real response headers, not <meta>; listed here as
+     documentation of intent — set them server-side (see deployment notes at end of file). -->
+<meta http-equiv="Permissions-Policy" content="geolocation=(), camera=(), microphone=(), payment=(), usb=(), interest-cohort=()">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230a0a0c'/><circle cx='16' cy='16' r='6.5' fill='none' stroke='%23f5a623' stroke-width='3'/></svg>">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Complete Home Today">
@@ -906,7 +935,7 @@ section{content-visibility:auto;contain-intrinsic-size:auto 800px}
           <div class="field"><label for="q-homephone">Is there a home phone?</label><select id="q-homephone" name="has_home_phone"><option value="">Select</option><option>No</option><option>Yes</option></select></div>
           <div class="field"><label for="q-mobile">Is there mobile / cellular?</label><select id="q-mobile" name="has_mobile"><option value="">Select</option><option>No</option><option>Yes</option></select></div>
           <div class="field cond" id="cond-lines" hidden><label for="q-lines">How many lines?</label><select id="q-lines" name="mobile_lines"><option value="">Select</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option></select></div>
-          <div class="field"><label for="q-bill">How much is the monthly bill?</label><input id="q-bill" name="monthly_bill" type="text" inputmode="decimal" placeholder="$150"></div>
+          <div class="field"><label for="q-bill">How much is the monthly bill?</label><input id="q-bill" name="monthly_bill" type="text" inputmode="decimal" placeholder="$150" maxlength="12"></div>
           <div class="field"><label for="q-tenure">How long with this service?</label><select id="q-tenure" name="service_tenure"><option value="">Select</option><option>Less than 6 months</option><option>6-12 months</option><option>1-2 years</option><option>2-5 years</option><option>5+ years</option></select></div>
           <div class="field full"><label for="q-bill-photo">Photo of most current bill (optional)</label><input id="q-bill-photo" name="current_bill_photo" type="file" accept="image/*,application/pdf"><span class="field-note">Optional. A clear photo of your latest bill helps us match or beat it. Max 5 MB.</span></div>
         </div>
@@ -919,17 +948,17 @@ section{content-visibility:auto;contain-intrinsic-size:auto 800px}
           <div class="form-grid">
             <div class="field"><label for="q-doors">Doors that lead outside</label><select id="q-doors" name="exterior_doors"><option value="">Select</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
             <div class="field"><label for="q-pkg">Which package?</label><select id="q-pkg" name="alarm_package"><option value="">Select</option><option>Bronze</option><option>Silver</option><option>Gold</option></select></div>
-            <div class="field full cond" id="cond-smart" hidden><label for="q-smart">Which smart equipment did you want?</label><input id="q-smart" name="smart_equipment" type="text" placeholder="e.g., smart lock, thermostat, video doorbell, garage control"></div>
+            <div class="field full cond" id="cond-smart" hidden><label for="q-smart">Which smart equipment did you want?</label><input id="q-smart" name="smart_equipment" type="text" placeholder="e.g., smart lock, thermostat, video doorbell, garage control" maxlength="300"></div>
             <div class="field"><label for="q-cam">Do you want cameras?</label><select id="q-cam" name="wants_cameras"><option value="">Select</option><option>No</option><option>Yes</option></select></div>
             <div class="field cond" id="cond-camcount" hidden><label for="q-camcount">How many cameras?</label><select id="q-camcount" name="camera_count"><option value="">Select</option><option>1</option><option>2</option></select></div>
-            <div class="field full"><label for="q-alarm-other">Anything else for the alarm system?</label><textarea id="q-alarm-other" name="alarm_notes" placeholder="Tell us what else you are looking to add"></textarea></div>
+            <div class="field full"><label for="q-alarm-other">Anything else for the alarm system?</label><textarea id="q-alarm-other" name="alarm_notes" placeholder="Tell us what else you are looking to add" maxlength="1000"></textarea></div>
           </div>
         </div>
 
         <div class="fsec">How you found us</div>
         <div class="form-grid">
           <div class="field full"><label for="q-found">How did you find us?</label><select id="q-found" name="how_found"><option value="">Select one</option><option>A rep came to my door</option><option>Referred by a friend or family</option><option>Flyer or mailer</option><option>Online search</option><option>Social media</option><option>Other</option></select></div>
-          <div class="field full"><label for="q-refname">Who referred you? (optional)</label><input id="q-refname" name="referral_name" type="text" placeholder="Rep or referral name"><span class="field-note">If a rep visited you or someone referred you, type their name so we can credit them.</span></div>
+          <div class="field full"><label for="q-refname">Who referred you? (optional)</label><input id="q-refname" name="referral_name" type="text" placeholder="Rep or referral name" maxlength="100"><span class="field-note">If a rep visited you or someone referred you, type their name so we can credit them.</span></div>
         </div>
         <label class="consent" for="q-consent"><input type="checkbox" id="q-consent" name="consent" value="Yes - agreed to be contacted and to the Privacy Policy" required><span>I agree to be contacted by Complete Home Today about internet, TV, phone, and home alarm and monitoring services by phone call, text, or email, including by automated or prerecorded means, at the number and email I provide. I agree to the <a href="#privacy">Privacy Policy</a>. Consent is not a condition of purchase.</span></label>
         <button type="submit" class="btn btn-red" id="qSubmitBtn" style="width:100%;justify-content:center;margin-top:18px;font-size:15.5px;padding:15px">Check My Address — Free &amp; No Obligation</button>
@@ -1149,8 +1178,8 @@ section{content-visibility:auto;contain-intrinsic-size:auto 800px}
           <div class="field"><label for="h-transport">Reliable transportation?</label><select id="h-transport" name="transportation"><option value="Yes">Yes</option><option value="No">No</option></select></div>
           <div class="field"><label for="h-avail">Available to start</label><select id="h-avail" name="availability"><option>Immediately</option><option>Within 1 week</option><option>Within 2 weeks</option><option>More than 2 weeks</option></select></div>
           <div class="field"><label for="h-ref">How did you hear about us?</label><select id="h-ref" name="referral_source"><option value="">Select</option><option>LinkedIn</option><option>ZipRecruiter</option><option>OfferUp</option><option>Facebook</option><option>Word of mouth</option><option>Other</option></select></div>
-          <div class="field full"><label for="h-refname">Referred by (if applicable)</label><input id="h-refname" name="referred_by" type="text" placeholder="Rep or team member's name"><span class="field-note">If someone on the team referred you, their name here ensures they get credit.</span></div>
-          <div class="field full"><label for="h-note">Anything else you want us to know?</label><textarea id="h-note" name="notes" placeholder="Optional — tell us about yourself, your goals, or any questions you have."></textarea></div>
+          <div class="field full"><label for="h-refname">Referred by (if applicable)</label><input id="h-refname" name="referred_by" type="text" placeholder="Rep or team member's name" maxlength="100"><span class="field-note">If someone on the team referred you, their name here ensures they get credit.</span></div>
+          <div class="field full"><label for="h-note">Anything else you want us to know?</label><textarea id="h-note" name="notes" placeholder="Optional — tell us about yourself, your goals, or any questions you have." maxlength="1500"></textarea></div>
         </div>
         <label class="consent" for="h-consent"><input type="checkbox" id="h-consent" name="consent" value="Yes — agreed to be contacted and to the Privacy Policy" required><span>I agree to be contacted by Complete Home Today about this 1099 contractor opportunity by phone call, text, or email — including by automated or prerecorded means — at the number and email I provide. I agree to the <a href="#privacy-hire">Privacy Policy</a>. Consent is not a condition of any purchase.</span></label>
         <button type="submit" class="btn btn-gold" id="hSubmitBtn" style="width:100%;justify-content:center;margin-top:18px;font-size:15.5px;padding:15px">Submit Application →</button>
@@ -1274,6 +1303,29 @@ document.querySelectorAll("[data-adt]").forEach(function(a){
 // authorizes submissions to this specific form endpoint, it is not a secret credential and
 // does not grant read access to prior submissions. Do not treat it as something to hide,
 // but do rotate it in the Web3Forms dashboard if this page is ever repurposed for another site.
+// ---- LIGHTWEIGHT CLIENT-SIDE SUBMISSION THROTTLE ----
+// This is a UX/abuse-deterrence layer only, not a real rate limit — a bot posting
+// directly to the Web3Forms endpoint bypasses this page entirely. Real rate limiting
+// has to live server-side (Web3Forms' own abuse controls, or a WAF/CDN rule in front
+// of the domain). This just stops a confused browser tab or script running *on this
+// page* from firing the same form repeatedly.
+function throttleSubmit(formKey, cooldownMs, maxPerSession) {
+  cooldownMs = cooldownMs || 8000;
+  maxPerSession = maxPerSession || 8;
+  var lastKey = "cht_last_submit_" + formKey;
+  var countKey = "cht_submit_count_" + formKey;
+  try {
+    var last = parseInt(sessionStorage.getItem(lastKey) || "0", 10);
+    var count = parseInt(sessionStorage.getItem(countKey) || "0", 10);
+    var now = Date.now();
+    if (count >= maxPerSession) return { ok: false, reason: "Too many submissions this session. Please call or email us directly." };
+    if (now - last < cooldownMs) return { ok: false, reason: "Please wait a few seconds before submitting again." };
+    sessionStorage.setItem(lastKey, String(now));
+    sessionStorage.setItem(countKey, String(count + 1));
+  } catch (e) { /* sessionStorage unavailable (private mode, etc.) — fail open, let the submit through */ }
+  return { ok: true };
+}
+
 // ---- SHARED AJAX SUBMIT HELPER ----
 function submitToWeb3Forms(formEl, requiredFields, subjectVal, opts) {
   // opts: { btnEl, errEl, doneEl, accentColor }
@@ -1325,6 +1377,13 @@ function submitToWeb3Forms(formEl, requiredFields, subjectVal, opts) {
     }
 
     if(opts.errEl) opts.errEl.style.display = "none";
+
+    var throttle = throttleSubmit("hire", 8000, 8);
+    if(!throttle.ok) {
+      if(opts.errEl) { opts.errEl.textContent = "⚠ " + throttle.reason; opts.errEl.style.display = "block"; }
+      return;
+    }
+
     if(opts.btnEl) { opts.btnEl.textContent = "Sending…"; opts.btnEl.disabled = true; }
 
     // build JSON payload from all named form fields
@@ -1485,14 +1544,17 @@ submitToWeb3Forms(
     if(fileEl && fileEl.files && fileEl.files[0]){
       var billFile = fileEl.files[0];
       var allowedTypes = ["image/jpeg","image/png","image/webp","image/heic","image/heif","application/pdf"];
+      var allowedExts = /\.(jpe?g|png|webp|heic|heif|pdf)$/i;
       if(billFile.size > 5 * 1024 * 1024){
         if(errEl){ errEl.textContent = "That bill photo is larger than 5 MB. Please attach a smaller image, or leave it off and submit."; errEl.style.display = "block"; }
         return;
       }
-      // Client-side MIME allowlist. This is a UX convenience only, not a security boundary —
-      // MIME type is client-reported and can be spoofed, so the receiving service (Web3Forms)
-      // must independently validate/sanitize the upload server-side.
-      if(billFile.type && allowedTypes.indexOf(billFile.type) === -1){
+      // Client-side MIME + extension allowlist. This is a UX convenience only, not a security
+      // boundary — both the reported MIME type and the filename are client-controlled and can
+      // be spoofed, so the receiving service (Web3Forms) must independently validate/sanitize
+      // the upload server-side (and this page never renders the uploaded file itself, so there's
+      // no local rendering/execution risk either way).
+      if((billFile.type && allowedTypes.indexOf(billFile.type) === -1) || !allowedExts.test(billFile.name || "")){
         if(errEl){ errEl.textContent = "Please attach a JPG, PNG, WEBP, HEIC, or PDF file."; errEl.style.display = "block"; }
         return;
       }
@@ -1505,6 +1567,12 @@ submitToWeb3Forms(
     if(!form.checkValidity()){
       form.reportValidity();
       if(errEl){ errEl.textContent = "Please double-check the highlighted fields — some don't look like valid values."; errEl.style.display = "block"; }
+      return;
+    }
+
+    var throttle = throttleSubmit("quote", 8000, 8);
+    if(!throttle.ok) {
+      if(errEl){ errEl.textContent = "⚠ " + throttle.reason; errEl.style.display = "block"; }
       return;
     }
 
