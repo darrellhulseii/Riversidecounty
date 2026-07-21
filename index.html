@@ -11,6 +11,23 @@
 <meta name="geo.placename" content="South Bay and Inland Empire, California">
 <link rel="canonical" href="https://completehomellc.com/">
 <meta name="theme-color" content="#0a0a0c">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="format-detection" content="telephone=no">
+<!-- Content-Security-Policy: this is a best-effort client-side baseline. Directives that browsers only honor
+     from an HTTP response header (frame-ancestors, report-to) MUST also be set server-side; see deployment notes. -->
+<meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  base-uri 'self';
+  object-src 'none';
+  form-action 'self' https://api.web3forms.com;
+  img-src 'self' data: https:;
+  font-src 'self' https://fonts.gstatic.com;
+  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+  script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://api.trustedform.com;
+  connect-src 'self' https://api.web3forms.com https://www.google-analytics.com https://api.trustedform.com;
+  upgrade-insecure-requests;
+">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230a0a0c'/><circle cx='16' cy='16' r='6.5' fill='none' stroke='%23f5a623' stroke-width='3'/></svg>">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Complete Home Today">
@@ -869,15 +886,15 @@ section{content-visibility:auto;contain-intrinsic-size:auto 800px}
     </div>
     <div class="form-card reveal">
       <form id="quoteForm" novalidate enctype="multipart/form-data">
-        <input type="checkbox" name="botcheck" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+        <input type="checkbox" name="botcheck" tabindex="-1" aria-hidden="true" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
         <div class="form-grid">
-          <div class="field full"><label for="q-name">Full name *</label><input id="q-name" name="name" type="text" placeholder="Jordan Rivera" required></div>
-          <div class="field"><label for="q-phone">Phone *</label><input id="q-phone" name="phone" type="tel" placeholder="(000) 000-0000" required></div>
-          <div class="field"><label for="q-email">Email *</label><input id="q-email" name="email" type="email" placeholder="you@email.com" required></div>
-          <div class="field full"><label for="q-street">Street address *</label><input id="q-street" name="street_address" type="text" placeholder="123 Main St" required></div>
-          <div class="field"><label for="q-city">City *</label><input id="q-city" name="city" type="text" placeholder="Riverside" required></div>
-          <div class="field"><label for="q-state">State *</label><input id="q-state" name="state" type="text" placeholder="CA" maxlength="2" autocapitalize="characters" required></div>
-          <div class="field"><label for="q-zip">ZIP code *</label><input id="q-zip" name="zip" type="text" inputmode="numeric" placeholder="92596" maxlength="10" required></div>
+          <div class="field full"><label for="q-name">Full name *</label><input id="q-name" name="name" type="text" placeholder="Jordan Rivera" autocomplete="name" maxlength="100" required></div>
+          <div class="field"><label for="q-phone">Phone *</label><input id="q-phone" name="phone" type="tel" placeholder="(000) 000-0000" autocomplete="tel" pattern="^[0-9()+\-.\s]{7,20}$" maxlength="20" required></div>
+          <div class="field"><label for="q-email">Email *</label><input id="q-email" name="email" type="email" placeholder="you@email.com" autocomplete="email" maxlength="254" required></div>
+          <div class="field full"><label for="q-street">Street address *</label><input id="q-street" name="street_address" type="text" placeholder="123 Main St" autocomplete="street-address" maxlength="150" required></div>
+          <div class="field"><label for="q-city">City *</label><input id="q-city" name="city" type="text" placeholder="Riverside" autocomplete="address-level2" maxlength="80" required></div>
+          <div class="field"><label for="q-state">State *</label><input id="q-state" name="state" type="text" placeholder="CA" maxlength="2" pattern="^[A-Za-z]{2}$" autocapitalize="characters" autocomplete="address-level1" required></div>
+          <div class="field"><label for="q-zip">ZIP code *</label><input id="q-zip" name="zip" type="text" inputmode="numeric" placeholder="92596" pattern="^[0-9]{5}(-[0-9]{4})?$" maxlength="10" autocomplete="postal-code" required></div>
         </div>
 
         <div class="fsec">Your current services</div>
@@ -968,7 +985,7 @@ section{content-visibility:auto;contain-intrinsic-size:auto 800px}
       <b>Contractor Disclosure.</b> Sales representatives engaged by Complete Home Today LLC operate as independent contractors under 1099 agreements structured in compliance with California Labor Code §2775 et seq. (AB5) and the Borello multi-factor test. Independent contractor status does not guarantee any minimum earnings. Commission is earned per confirmed installation and is subject to chargeback as defined in the applicable IC agreement. &nbsp;
       <b>Licensing.</b> Home security in California is sold and installed under Alarm Company Operator (ACO) License No. 6446, Direct Protection Security, and Alarm Company Employee (ACE) License No. 552544, issued by the California Bureau of Security &amp; Investigative Services (BSIS). &nbsp;
       <b id="privacy">Privacy.</b> When you submit a form on this site, Complete Home Today LLC collects the information you provide — such as your name, service address, ZIP code, phone, and email — to check service availability and to contact you about internet and home alarm and monitoring services. To fulfill your request, we may share this information with the applicable service providers and their authorized program administrators. We do not sell your personal information. To verify and document your consent, a third-party service (TrustedForm, by ActiveProspect) records your interaction with this page — including the content shown, your form activity, IP address, and browser details — and creates a certificate of your submission. You can opt out of marketing contact at any time by replying STOP to texts, asking to be removed during a call, or emailing darrell@completehomellc.com. Consent to contact is not a condition of any purchase.
-      <div class="foot-legal"><a href="privacy-policy.html">Privacy Policy</a><span class="sep">&middot;</span><a href="terms-and-conditions.html">Terms &amp; Conditions</a><span class="sep">&middot;</span><a href="https://www.instagram.com/completehometoday" target="_blank" rel="noopener">Instagram</a><span class="sep">&middot;</span><a href="https://www.linkedin.com/company/completehomellc/" target="_blank" rel="noopener">LinkedIn</a><span class="sep">&middot;</span><a href="https://youtube.com/@completehometoday" target="_blank" rel="noopener">YouTube</a></div>
+      <div class="foot-legal"><a href="privacy-policy.html">Privacy Policy</a><span class="sep">&middot;</span><a href="terms-and-conditions.html">Terms &amp; Conditions</a><span class="sep">&middot;</span><a href="https://www.instagram.com/completehometoday" target="_blank" rel="noopener noreferrer">Instagram</a><span class="sep">&middot;</span><a href="https://www.linkedin.com/company/completehomellc/" target="_blank" rel="noopener noreferrer">LinkedIn</a><span class="sep">&middot;</span><a href="https://youtube.com/@completehometoday" target="_blank" rel="noopener noreferrer">YouTube</a></div>
       <div class="copyr">© <span id="yr"></span> Complete Home Today. All rights reserved.</div>
     </div>
   </div>
@@ -1122,12 +1139,12 @@ section{content-visibility:auto;contain-intrinsic-size:auto 800px}
     <div class="hire-form-card reveal">
       <form id="hireForm" novalidate>
         <input type="hidden" name="xxTrustedFormCertUrl"><input type="hidden" name="xxTrustedFormPingUrl">
-        <input type="checkbox" name="botcheck" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+        <input type="checkbox" name="botcheck" tabindex="-1" aria-hidden="true" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
         <div class="form-grid">
-          <div class="field"><label for="h-name">Full name *</label><input id="h-name" name="name" type="text" placeholder="Jordan Rivera" required></div>
-          <div class="field"><label for="h-phone">Phone *</label><input id="h-phone" name="phone" type="tel" placeholder="(000) 000-0000" required></div>
-          <div class="field full"><label for="h-email">Email *</label><input id="h-email" name="email" type="email" placeholder="you@email.com" required></div>
-          <div class="field"><label for="h-city">City you'd work in *</label><input id="h-city" name="city" type="text" placeholder="Gilroy, Salinas, Monterey…" required></div>
+          <div class="field"><label for="h-name">Full name *</label><input id="h-name" name="name" type="text" placeholder="Jordan Rivera" autocomplete="name" maxlength="100" required></div>
+          <div class="field"><label for="h-phone">Phone *</label><input id="h-phone" name="phone" type="tel" placeholder="(000) 000-0000" autocomplete="tel" pattern="^[0-9()+\-.\s]{7,20}$" maxlength="20" required></div>
+          <div class="field full"><label for="h-email">Email *</label><input id="h-email" name="email" type="email" placeholder="you@email.com" autocomplete="email" maxlength="254" required></div>
+          <div class="field"><label for="h-city">City you'd work in *</label><input id="h-city" name="city" type="text" placeholder="Gilroy, Salinas, Monterey…" autocomplete="address-level2" maxlength="80" required></div>
           <div class="field"><label for="h-exp">Sales experience</label><select id="h-exp" name="experience"><option value="">Select</option><option>None — ready to learn</option><option>Less than 1 year</option><option>1–3 years</option><option>3+ years D2D sales</option><option>Former fiber/telecom rep</option><option>Former security sales rep</option></select></div>
           <div class="field"><label for="h-transport">Reliable transportation?</label><select id="h-transport" name="transportation"><option value="Yes">Yes</option><option value="No">No</option></select></div>
           <div class="field"><label for="h-avail">Available to start</label><select id="h-avail" name="availability"><option>Immediately</option><option>Within 1 week</option><option>Within 2 weeks</option><option>More than 2 weeks</option></select></div>
@@ -1191,7 +1208,7 @@ section{content-visibility:auto;contain-intrinsic-size:auto 800px}
       <b>Contractor Disclosure.</b> Sales representatives engaged by Complete Home Today LLC operate as independent contractors under 1099 agreements structured in compliance with California Labor Code §2775 et seq. (AB5) and the Borello multi-factor test. Independent contractor status does not guarantee any minimum earnings. Commission is earned per confirmed installation and is subject to chargeback as defined in the applicable IC agreement. &nbsp;
       <b>Licensing.</b> Home security in California is sold and installed under Alarm Company Operator (ACO) License No. 6446, Direct Protection Security, and Alarm Company Employee (ACE) License No. 552544, issued by the California Bureau of Security &amp; Investigative Services (BSIS).
       <b id="privacy-hire">Privacy.</b> When you submit the application form, Complete Home Today LLC collects the information you provide — such as your name, city, phone, and email — to evaluate your interest in a 1099 independent-contractor sales role and to contact you about the opportunity. We use it only for recruiting and onboarding, do not sell your personal information, and you can ask us to delete it at any time by emailing darrell@completehomellc.com. To verify and document your consent, a third-party service (TrustedForm, by ActiveProspect) records your interaction with this page — including the content shown, your form activity, IP address, and browser details — and creates a certificate of your submission. Consent to be contacted is not a condition of any purchase or engagement. &nbsp;
-      <div class="foot-legal"><a href="privacy-policy.html">Privacy Policy</a><span class="sep">&middot;</span><a href="terms-and-conditions.html">Terms &amp; Conditions</a><span class="sep">&middot;</span><a href="https://www.instagram.com/completehometoday" target="_blank" rel="noopener">Instagram</a><span class="sep">&middot;</span><a href="https://www.linkedin.com/company/completehomellc/" target="_blank" rel="noopener">LinkedIn</a><span class="sep">&middot;</span><a href="https://youtube.com/@completehometoday" target="_blank" rel="noopener">YouTube</a></div>
+      <div class="foot-legal"><a href="privacy-policy.html">Privacy Policy</a><span class="sep">&middot;</span><a href="terms-and-conditions.html">Terms &amp; Conditions</a><span class="sep">&middot;</span><a href="https://www.instagram.com/completehometoday" target="_blank" rel="noopener noreferrer">Instagram</a><span class="sep">&middot;</span><a href="https://www.linkedin.com/company/completehomellc/" target="_blank" rel="noopener noreferrer">LinkedIn</a><span class="sep">&middot;</span><a href="https://youtube.com/@completehometoday" target="_blank" rel="noopener noreferrer">YouTube</a></div>
       <div class="copyr">© <span id="yr2"></span> Complete Home Today. All rights reserved.</div>
     </div>
   </div>
@@ -1252,6 +1269,11 @@ document.querySelectorAll("[data-adt]").forEach(function(a){
   a.addEventListener("click", function(){ var s=document.getElementById("f-adt"); if(s) s.value=a.getAttribute("data-adt"); });
 });
 
+// NOTE on access_key below: Web3Forms' "access key" is a public site identifier by design
+// (comparable to a reCAPTCHA site key) — it is meant to ship in client-side code and only
+// authorizes submissions to this specific form endpoint, it is not a secret credential and
+// does not grant read access to prior submissions. Do not treat it as something to hide,
+// but do rotate it in the Web3Forms dashboard if this page is ever repurposed for another site.
 // ---- SHARED AJAX SUBMIT HELPER ----
 function submitToWeb3Forms(formEl, requiredFields, subjectVal, opts) {
   // opts: { btnEl, errEl, doneEl, accentColor }
@@ -1286,6 +1308,17 @@ function submitToWeb3Forms(formEl, requiredFields, subjectVal, opts) {
     if(!ok) {
       if(opts.errEl) {
         opts.errEl.textContent = "⚠ Please fill in the highlighted fields and try again.";
+        opts.errEl.style.display = "block";
+      }
+      return;
+    }
+    // Re-check format constraints (email, phone pattern, maxlength, etc.) via the
+    // Constraint Validation API so a tampered/disabled `required`/`pattern` attribute
+    // can't slip an obviously malformed value past the client.
+    if(!formEl.checkValidity()) {
+      formEl.reportValidity();
+      if(opts.errEl) {
+        opts.errEl.textContent = "⚠ Some fields don't look like valid values — please double-check and try again.";
         opts.errEl.style.display = "block";
       }
       return;
@@ -1388,9 +1421,12 @@ submitToWeb3Forms(
 (function() {
   var tf = document.createElement("script");
   tf.type = "text/javascript"; tf.async = true;
-  tf.src = (document.location.protocol === "https:" ? "https" : "http") +
-    "://api.trustedform.com/trustedform.js?field=xxTrustedFormCertUrl&ping_field=xxTrustedFormPingUrl&l=" +
+  // Always load over HTTPS. The old protocol-sniffing fallback would silently
+  // downgrade to plaintext HTTP if the page were ever served over HTTP,
+  // exposing the cert/ping URLs to network interception.
+  tf.src = "https://api.trustedform.com/trustedform.js?field=xxTrustedFormCertUrl&ping_field=xxTrustedFormPingUrl&l=" +
     new Date().getTime() + Math.random();
+  tf.referrerPolicy = "strict-origin-when-cross-origin";
   var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(tf, s);
 })();
 </script>
@@ -1446,8 +1482,29 @@ submitToWeb3Forms(
     if(errEl) errEl.style.display = "none";
 
     var fileEl = document.getElementById("q-bill-photo");
-    if(fileEl && fileEl.files && fileEl.files[0] && fileEl.files[0].size > 5 * 1024 * 1024){
-      if(errEl){ errEl.textContent = "That bill photo is larger than 5 MB. Please attach a smaller image, or leave it off and submit."; errEl.style.display = "block"; }
+    if(fileEl && fileEl.files && fileEl.files[0]){
+      var billFile = fileEl.files[0];
+      var allowedTypes = ["image/jpeg","image/png","image/webp","image/heic","image/heif","application/pdf"];
+      if(billFile.size > 5 * 1024 * 1024){
+        if(errEl){ errEl.textContent = "That bill photo is larger than 5 MB. Please attach a smaller image, or leave it off and submit."; errEl.style.display = "block"; }
+        return;
+      }
+      // Client-side MIME allowlist. This is a UX convenience only, not a security boundary —
+      // MIME type is client-reported and can be spoofed, so the receiving service (Web3Forms)
+      // must independently validate/sanitize the upload server-side.
+      if(billFile.type && allowedTypes.indexOf(billFile.type) === -1){
+        if(errEl){ errEl.textContent = "Please attach a JPG, PNG, WEBP, HEIC, or PDF file."; errEl.style.display = "block"; }
+        return;
+      }
+    }
+
+    // Belt-and-suspenders validation beyond "not empty" for fields with a known format.
+    // Native `pattern`/`type` attributes already block submission in-browser; this re-checks
+    // via the Constraint Validation API so a user can't bypass it by disabling attributes in devtools
+    // and still relies on the receiving service to validate/sanitize server-side.
+    if(!form.checkValidity()){
+      form.reportValidity();
+      if(errEl){ errEl.textContent = "Please double-check the highlighted fields — some don't look like valid values."; errEl.style.display = "block"; }
       return;
     }
 
