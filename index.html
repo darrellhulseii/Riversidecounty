@@ -11,52 +11,6 @@
 <meta name="geo.placename" content="South Bay and Inland Empire, California">
 <link rel="canonical" href="https://completehomellc.com/">
 <meta name="theme-color" content="#0a0a0c">
-<meta name="referrer" content="strict-origin-when-cross-origin">
-<meta name="format-detection" content="telephone=no">
-<!--
-  Content-Security-Policy notes:
-  - script-src is hash-pinned to this page's own 9 inline script blocks (including the
-    two JSON-LD blocks — CSP applies to JSON-LD script elements too, not just JS). This means
-    an injected inline <script> (e.g. via a compromised ad, a browser extension writing to
-    the DOM, or any future XSS) CANNOT execute, even though 'unsafe-inline' is also listed —
-    modern browsers ignore 'unsafe-inline' whenever a hash/nonce is present; it's kept only
-    as a harmless fallback for very old browsers that don't understand hash-source at all.
-  - IMPORTANT: if you edit ANY inline <script> block's contents (including replacing the
-    GTM-XXXXXXX / G-XXXXXXXXXX placeholders, or editing the JSON-LD), its hash changes and
-    the browser will block it until you regenerate hashes and update the list below. To
-    regenerate: for each <script>...</script> block, compute
-      openssl dgst -sha256 -binary | openssl base64
-    over its exact inner text (no tag, no trimming) and swap the corresponding 'sha256-...' value.
-  - Directives that only take effect as real HTTP response headers (frame-ancestors,
-    Strict-Transport-Security, and a second, header-level CSP as defense in depth) cannot be
-    set via <meta> and must be configured at the server/CDN. See deployment notes at end of file.
--->
-<meta http-equiv="Content-Security-Policy" content="
-  default-src 'self';
-  base-uri 'self';
-  object-src 'none';
-  form-action 'self' https://api.web3forms.com;
-  img-src 'self' data: https:;
-  font-src 'self' https://fonts.gstatic.com;
-  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-  script-src 'self' 'unsafe-inline'
-    'sha256-rx5b+h0/XaxtGJymOJOqFzU7L+bdbUrjhPy7bxhi4pc='
-    'sha256-CQqH8MYIg2VhEN3Y6C5bc1AHtA4ZnTeaENYcUwcddY0='
-    'sha256-86QVsgSVG4hW9g3l+LAB/ngmX5uWeRHq/7LAMTH+Nhk='
-    'sha256-H4uzleFaTY6XHV8wraxpri7w+DSoOcuiO9TqLfy7+QU='
-    'sha256-JAyTQ1kvsGIBjCBRenuyS7l+OsRMaxBO7tFWCWzf5Vw='
-    'sha256-wwGiwRFHwCUDrcC1Es3Gkcxv+k2OYSiEIFSGyc5CmxA='
-    'sha256-PSUpUfPx4RBsqcCNAI62dkh/3w30xLKpGvM9dpRmTa8='
-    'sha256-gIJXXEZE6CLzE6vgQvcirisxAFCE+TaOh4MZv7OMewI='
-    'sha256-OCS+X5xcsM4UMh0HBXiRd9t2zely62RJl2C9rpAY/Js='
-    https://www.googletagmanager.com https://www.google-analytics.com https://api.trustedform.com;
-  connect-src 'self' https://api.web3forms.com https://www.google-analytics.com https://api.trustedform.com;
-  upgrade-insecure-requests;
-">
-<meta http-equiv="X-Content-Type-Options" content="nosniff">
-<!-- COOP/CORP are only honored from real response headers, not <meta>; listed here as
-     documentation of intent — set them server-side (see deployment notes at end of file). -->
-<meta http-equiv="Permissions-Policy" content="geolocation=(), camera=(), microphone=(), payment=(), usb=(), interest-cohort=()">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230a0a0c'/><circle cx='16' cy='16' r='6.5' fill='none' stroke='%23f5a623' stroke-width='3'/></svg>">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Complete Home Today">
@@ -557,6 +511,14 @@ a[href^="mailto:"]{overflow-wrap:anywhere}
 .partners-logos .plogo{height:58px;width:auto;max-width:260px;object-fit:contain}
 .partners-logos .pdiv{width:1px;height:48px;background:var(--line2)}
 .partners-note{text-align:center;color:var(--faint);font-size:12px;line-height:1.6;margin:20px auto 0;max-width:600px}
+.promo-bar{background:linear-gradient(135deg,rgba(236,28,52,.12),rgba(245,166,35,.10));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.promo-in{max-width:1100px;margin:0 auto;padding:26px 22px}
+.promo-title{font-family:'Archivo',sans-serif;font-weight:900;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-br);margin-bottom:14px}
+.promo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.promo{background:rgba(0,0,0,.28);border:1px solid var(--line2);border-radius:12px;padding:14px 16px;font-size:14px;color:#d7e0ea;line-height:1.5}
+.promo b{color:var(--ink);font-family:'Archivo',sans-serif}
+.promo .tag{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--red-br);margin-bottom:5px}
+@media(max-width:760px){.promo-grid{grid-template-columns:1fr}}
 .cred-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
 .cred{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:14px;padding:18px 20px;text-align:center}
 .cred .cnum{font-family:'Archivo',sans-serif;font-weight:900;font-size:22px;color:var(--gold-br);line-height:1.2}
@@ -769,7 +731,7 @@ section{content-visibility:auto;contain-intrinsic-size:auto 800px}
         <a href="#quote" class="btn btn-red">Check My Address →</a>
         <a href="#plans" class="btn btn-ghost">Compare Plans</a>
       </div>
-      <p class="hero-note reveal">Takes about 30 seconds · No obligation · Unlimited data · Current new-customer offers</p>
+      <p class="hero-note reveal">Takes about 30 seconds · No obligation · Unlimited data</p>
     </div>
     <div class="hero-vis reveal">
       <div class="speed-card">
@@ -785,6 +747,19 @@ section{content-visibility:auto;contain-intrinsic-size:auto 800px}
     </div>
   </div>
 </header>
+
+<!-- CURRENT PROMOTIONS -->
+<section class="promo-bar" aria-label="Current promotions">
+  <div class="promo-in">
+    <div class="promo-title">Current New-Customer Offers</div>
+    <div class="promo-grid">
+      <div class="promo"><span class="tag">Limited Time</span><br><b>NFL Sunday Ticket on us</b> with new 1 Gig+ fiber service &mdash; a $480 value. Lower speed tiers qualify for a deep discount.</div>
+      <div class="promo"><span class="tag">Price Lock</span><br><b>3&ndash;5 year price guarantees</b> on every fiber speed, with no early termination fees and Whole-Home Wi&#8209;Fi included on 1&nbsp;Gig and up.</div>
+      <div class="promo"><span class="tag">Stack &amp; Save</span><br><b>Save up to $25/mo</b> with AutoPay plus a qualifying mobile bundle &mdash; and a $400 Samsung promotion is available on eligible orders.</div>
+    </div>
+    <p class="fee-note" style="margin-top:12px">Offers are limited-time, subject to eligibility and availability at your address, and confirmed at the point of sale. Ask your agent for current terms.</p>
+  </div>
+</section>
 
 <div class="trust">
   <div class="wrap trust-in">
@@ -827,14 +802,14 @@ section{content-visibility:auto;contain-intrinsic-size:auto 800px}
     </div>
     <div>
       <div class="plan-grid">
-        <div class="plan reveal"><div class="p-name">Fiber 200M</div><div class="p-tier">Fiber · Standard</div><div class="p-speed">200<small> / 200 Mbps</small></div><div class="p-quote"><span class="pq-main">Custom quote</span><span class="pq-sub">priced by address</span></div><div class="p-best">Lighter use — browsing, email, and a few devices.</div><ul><li>Symmetrical fiber speed</li><li>eero Wi-Fi router included</li><li>Unlimited data</li></ul><a href="#quote" class="btn btn-ghost">Check Service Availability</a></div>
-        <div class="plan reveal"><div class="p-name">Fiber 500M</div><div class="p-tier">Fiber · Standard</div><div class="p-speed">500<small> / 500 Mbps</small></div><div class="p-quote"><span class="pq-main">Custom quote</span><span class="pq-sub">priced by address</span></div><div class="p-best">Streaming, shopping, and social for a typical home.</div><ul><li>Symmetrical fiber speed</li><li>eero Wi-Fi router included</li><li>Unlimited data</li></ul><a href="#quote" class="btn btn-ghost">Check Service Availability</a></div>
-        <div class="plan feat reveal"><span class="ribbon">Most Popular</span><div class="p-name">Fiber 1 Gig</div><div class="p-tier">Fiber · Performance</div><div class="p-speed">1000<small> / 1000 Mbps</small></div><div class="p-quote"><span class="pq-main">Custom quote</span><span class="pq-sub">priced by address</span></div><div class="p-best">The sweet spot — work, stream, and game on many devices at once.</div><ul><li>Symmetrical fiber speed</li><li>eero Pro Wi-Fi router included</li><li>Unlimited data</li><li>Pro installation included</li></ul><a href="#quote" class="btn btn-red">Check Service Availability</a></div>
-        <div class="plan reveal"><div class="p-name">Fiber 2 Gig</div><div class="p-tier">Fiber · Performance</div><div class="p-speed">2000<small> / 2000 Mbps</small></div><div class="p-quote"><span class="pq-main">Custom quote</span><span class="pq-sub">priced by address</span></div><div class="p-best">Heavy households — 4K streaming and lots of simultaneous users.</div><ul><li>Symmetrical fiber speed</li><li>eero Pro Wi-Fi router included</li><li>Unlimited data</li></ul><a href="#quote" class="btn btn-ghost">Check Service Availability</a></div>
-        <div class="plan reveal"><div class="p-name">Fiber 5 Gig</div><div class="p-tier">Fiber · Power</div><div class="p-speed">5000<small> / 5000 Mbps</small></div><div class="p-quote"><span class="pq-main">Custom quote</span><span class="pq-sub">priced by address</span></div><div class="p-best">Power users — creators, large smart homes, demanding setups.</div><ul><li>Symmetrical fiber speed</li><li>eero Max Wi-Fi router included</li><li>Unlimited data</li></ul><a href="#quote" class="btn btn-ghost">Check Service Availability</a></div>
-        <div class="plan reveal"><div class="p-name">Fiber 7 Gig</div><div class="p-tier">Fiber · Power</div><div class="p-speed">7000<small> / 7000 Mbps</small></div><div class="p-quote"><span class="pq-main">Custom quote</span><span class="pq-sub">priced by address</span></div><div class="p-best">Top-tier, future-proof speed for the fastest available.</div><ul><li>Symmetrical fiber speed</li><li>Two eero Max Wi-Fi routers</li><li>Unlimited data</li></ul><a href="#quote" class="btn btn-ghost">Check Service Availability</a></div>
+        <div class="plan reveal"><div class="p-name">Fiber 200M</div><div class="p-tier">Fiber · Standard</div><div class="p-speed">200<small> / 200 Mbps</small></div><div class="p-quote"><span class="pq-main">Custom quote</span><span class="pq-sub">priced by address</span></div><div class="p-best">Lighter use — browsing, email, and a few devices.</div><ul><li>3-year price guarantee</li><li>Symmetrical fiber speed</li><li>eero Wi-Fi router included</li><li>Unlimited data</li></ul><a href="#quote" class="btn btn-ghost">Check Service Availability</a></div>
+        <div class="plan reveal"><div class="p-name">Fiber 500M</div><div class="p-tier">Fiber · Standard</div><div class="p-speed">500<small> / 500 Mbps</small></div><div class="p-quote"><span class="pq-main">Custom quote</span><span class="pq-sub">priced by address</span></div><div class="p-best">Streaming, shopping, and social for a typical home.</div><ul><li>4-year price guarantee</li><li>Symmetrical fiber speed</li><li>eero Wi-Fi router included</li><li>Unlimited data</li></ul><a href="#quote" class="btn btn-ghost">Check Service Availability</a></div>
+        <div class="plan feat reveal"><span class="ribbon">Most Popular</span><div class="p-name">Fiber 1 Gig</div><div class="p-tier">Fiber · Performance</div><div class="p-speed">1000<small> / 1000 Mbps</small></div><div class="p-quote"><span class="pq-main">Custom quote</span><span class="pq-sub">priced by address</span></div><div class="p-best">The sweet spot — work, stream, and game on many devices at once.</div><ul><li>5-year price guarantee</li><li>Symmetrical fiber speed</li><li>Whole-Home Wi-Fi &amp; eero Pro router included</li><li>Unlimited data</li><li>Pro installation included</li></ul><a href="#quote" class="btn btn-red">Check Service Availability</a></div>
+        <div class="plan reveal"><div class="p-name">Fiber 2 Gig</div><div class="p-tier">Fiber · Performance</div><div class="p-speed">2000<small> / 2000 Mbps</small></div><div class="p-quote"><span class="pq-main">Custom quote</span><span class="pq-sub">priced by address</span></div><div class="p-best">Heavy households — 4K streaming and lots of simultaneous users.</div><ul><li>5-year price guarantee</li><li>Symmetrical fiber speed</li><li>Whole-Home Wi-Fi &amp; pro install included</li><li>Unlimited data</li></ul><a href="#quote" class="btn btn-ghost">Check Service Availability</a></div>
+        <div class="plan reveal"><div class="p-name">Fiber 5 Gig</div><div class="p-tier">Fiber · Power</div><div class="p-speed">5000<small> / 5000 Mbps</small></div><div class="p-quote"><span class="pq-main">Custom quote</span><span class="pq-sub">priced by address</span></div><div class="p-best">Power users — creators, large smart homes, demanding setups.</div><ul><li>5-year price guarantee</li><li>Symmetrical fiber speed</li><li>eero Max Wi-Fi router included</li><li>Unlimited data</li></ul><a href="#quote" class="btn btn-ghost">Check Service Availability</a></div>
+        <div class="plan reveal"><div class="p-name">Fiber 7 Gig</div><div class="p-tier">Fiber · Power</div><div class="p-speed">7000<small> / 7000 Mbps</small></div><div class="p-quote"><span class="pq-main">Custom quote</span><span class="pq-sub">priced by address</span></div><div class="p-best">Top-tier, future-proof speed for the fastest available.</div><ul><li>5-year price guarantee</li><li>Symmetrical fiber speed</li><li>Two eero Max Wi-Fi routers</li><li>Unlimited data</li></ul><a href="#quote" class="btn btn-ghost">Check Service Availability</a></div>
       </div>
-      <p class="fee-note">Plans, speeds, and equipment vary by address. Pricing is not shown here and is confirmed at the point of sale; it is subject to change, and AutoPay enrollment may be required for the best available rate. Taxes and surcharges may apply.</p>
+      <p class="fee-note">Plans, speeds, and equipment vary by address. Current fiber plans carry no early termination or restocking fees. Pricing is not shown here and is confirmed at the point of sale; it is subject to change, and AutoPay enrollment may be required for the best available rate. Taxes and surcharges may apply.</p>
     </div>
   </div>
 </section>
@@ -914,32 +889,16 @@ section{content-visibility:auto;contain-intrinsic-size:auto 800px}
       <div class="ac-row" style="margin-top:22px;font-size:13px;color:var(--faint)">Prefer to email instead? Reach us at <a href="mailto:darrell@completehomellc.com" style="color:var(--ink);font-weight:600">darrell@completehomellc.com</a>.</div>
     </div>
     <div class="form-card reveal">
-      <form id="quoteForm" novalidate enctype="multipart/form-data" method="POST" action="https://api.web3forms.com/submit">
-        <!--
-          method/action above are a NO-JS FALLBACK ONLY. Normal operation: the submit handler
-          below calls ev.preventDefault() and sends this via fetch() instead, so the browser
-          never actually performs this native POST while JS is working.
-          Why this matters: an HTML form with no action/method defaults to a GET submission to
-          the CURRENT PAGE if its JS listener ever fails to attach (blocked script, disabled JS,
-          a browser extension interfering, etc). A same-page GET fallback would put the visitor's
-          name/phone/email/address into the URL — which then lands in browser history, server
-          logs, and Google Analytics' auto-captured page_location field. Pointing action straight
-          at Web3Forms means a JS failure degrades to "form still submits, no fancy inline
-          success state" instead of "PII leaks into the URL and page history."
-        -->
-        <input type="hidden" name="access_key" value="9d10e41c-0e59-4a69-9f0f-7754e9100483">
-        <input type="hidden" name="subject" value="New Quote Request - Complete Home Today">
-        <input type="hidden" name="from_name" value="Complete Home Today Website">
-        <input type="hidden" name="redirect" value="https://completehomellc.com/#quote">
-        <input type="checkbox" name="botcheck" tabindex="-1" aria-hidden="true" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+      <form id="quoteForm" novalidate enctype="multipart/form-data">
+        <input type="checkbox" name="botcheck" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
         <div class="form-grid">
-          <div class="field full"><label for="q-name">Full name *</label><input id="q-name" name="name" type="text" placeholder="Jordan Rivera" autocomplete="name" maxlength="100" required></div>
-          <div class="field"><label for="q-phone">Phone *</label><input id="q-phone" name="phone" type="tel" placeholder="(000) 000-0000" autocomplete="tel" pattern="^[0-9()+\-.\s]{7,20}$" maxlength="20" required></div>
-          <div class="field"><label for="q-email">Email *</label><input id="q-email" name="email" type="email" placeholder="you@email.com" autocomplete="email" maxlength="254" required></div>
-          <div class="field full"><label for="q-street">Street address *</label><input id="q-street" name="street_address" type="text" placeholder="123 Main St" autocomplete="street-address" maxlength="150" required></div>
-          <div class="field"><label for="q-city">City *</label><input id="q-city" name="city" type="text" placeholder="Riverside" autocomplete="address-level2" maxlength="80" required></div>
-          <div class="field"><label for="q-state">State *</label><input id="q-state" name="state" type="text" placeholder="CA" maxlength="2" pattern="^[A-Za-z]{2}$" autocapitalize="characters" autocomplete="address-level1" required></div>
-          <div class="field"><label for="q-zip">ZIP code *</label><input id="q-zip" name="zip" type="text" inputmode="numeric" placeholder="92596" pattern="^[0-9]{5}(-[0-9]{4})?$" maxlength="10" autocomplete="postal-code" required></div>
+          <div class="field full"><label for="q-name">Full name *</label><input id="q-name" name="name" type="text" placeholder="Jordan Rivera" required></div>
+          <div class="field"><label for="q-phone">Phone *</label><input id="q-phone" name="phone" type="tel" placeholder="(000) 000-0000" required></div>
+          <div class="field"><label for="q-email">Email *</label><input id="q-email" name="email" type="email" placeholder="you@email.com" required></div>
+          <div class="field full"><label for="q-street">Street address *</label><input id="q-street" name="street_address" type="text" placeholder="123 Main St" required></div>
+          <div class="field"><label for="q-city">City *</label><input id="q-city" name="city" type="text" placeholder="Riverside" required></div>
+          <div class="field"><label for="q-state">State *</label><input id="q-state" name="state" type="text" placeholder="CA" maxlength="2" autocapitalize="characters" required></div>
+          <div class="field"><label for="q-zip">ZIP code *</label><input id="q-zip" name="zip" type="text" inputmode="numeric" placeholder="92596" maxlength="10" required></div>
         </div>
 
         <div class="fsec">Your current services</div>
@@ -951,7 +910,7 @@ section{content-visibility:auto;contain-intrinsic-size:auto 800px}
           <div class="field"><label for="q-homephone">Is there a home phone?</label><select id="q-homephone" name="has_home_phone"><option value="">Select</option><option>No</option><option>Yes</option></select></div>
           <div class="field"><label for="q-mobile">Is there mobile / cellular?</label><select id="q-mobile" name="has_mobile"><option value="">Select</option><option>No</option><option>Yes</option></select></div>
           <div class="field cond" id="cond-lines" hidden><label for="q-lines">How many lines?</label><select id="q-lines" name="mobile_lines"><option value="">Select</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option></select></div>
-          <div class="field"><label for="q-bill">How much is the monthly bill?</label><input id="q-bill" name="monthly_bill" type="text" inputmode="decimal" placeholder="$150" maxlength="12"></div>
+          <div class="field"><label for="q-bill">How much is the monthly bill?</label><input id="q-bill" name="monthly_bill" type="text" inputmode="decimal" placeholder="$150"></div>
           <div class="field"><label for="q-tenure">How long with this service?</label><select id="q-tenure" name="service_tenure"><option value="">Select</option><option>Less than 6 months</option><option>6-12 months</option><option>1-2 years</option><option>2-5 years</option><option>5+ years</option></select></div>
           <div class="field full"><label for="q-bill-photo">Photo of most current bill (optional)</label><input id="q-bill-photo" name="current_bill_photo" type="file" accept="image/*,application/pdf"><span class="field-note">Optional. A clear photo of your latest bill helps us match or beat it. Max 5 MB.</span></div>
         </div>
@@ -964,17 +923,17 @@ section{content-visibility:auto;contain-intrinsic-size:auto 800px}
           <div class="form-grid">
             <div class="field"><label for="q-doors">Doors that lead outside</label><select id="q-doors" name="exterior_doors"><option value="">Select</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
             <div class="field"><label for="q-pkg">Which package?</label><select id="q-pkg" name="alarm_package"><option value="">Select</option><option>Bronze</option><option>Silver</option><option>Gold</option></select></div>
-            <div class="field full cond" id="cond-smart" hidden><label for="q-smart">Which smart equipment did you want?</label><input id="q-smart" name="smart_equipment" type="text" placeholder="e.g., smart lock, thermostat, video doorbell, garage control" maxlength="300"></div>
+            <div class="field full cond" id="cond-smart" hidden><label for="q-smart">Which smart equipment did you want?</label><input id="q-smart" name="smart_equipment" type="text" placeholder="e.g., smart lock, thermostat, video doorbell, garage control"></div>
             <div class="field"><label for="q-cam">Do you want cameras?</label><select id="q-cam" name="wants_cameras"><option value="">Select</option><option>No</option><option>Yes</option></select></div>
             <div class="field cond" id="cond-camcount" hidden><label for="q-camcount">How many cameras?</label><select id="q-camcount" name="camera_count"><option value="">Select</option><option>1</option><option>2</option></select></div>
-            <div class="field full"><label for="q-alarm-other">Anything else for the alarm system?</label><textarea id="q-alarm-other" name="alarm_notes" placeholder="Tell us what else you are looking to add" maxlength="1000"></textarea></div>
+            <div class="field full"><label for="q-alarm-other">Anything else for the alarm system?</label><textarea id="q-alarm-other" name="alarm_notes" placeholder="Tell us what else you are looking to add"></textarea></div>
           </div>
         </div>
 
         <div class="fsec">How you found us</div>
         <div class="form-grid">
           <div class="field full"><label for="q-found">How did you find us?</label><select id="q-found" name="how_found"><option value="">Select one</option><option>A rep came to my door</option><option>Referred by a friend or family</option><option>Flyer or mailer</option><option>Online search</option><option>Social media</option><option>Other</option></select></div>
-          <div class="field full"><label for="q-refname">Who referred you? (optional)</label><input id="q-refname" name="referral_name" type="text" placeholder="Rep or referral name" maxlength="100"><span class="field-note">If a rep visited you or someone referred you, type their name so we can credit them.</span></div>
+          <div class="field full"><label for="q-refname">Who referred you? (optional)</label><input id="q-refname" name="referral_name" type="text" placeholder="Rep or referral name"><span class="field-note">If a rep visited you or someone referred you, type their name so we can credit them.</span></div>
         </div>
         <label class="consent" for="q-consent"><input type="checkbox" id="q-consent" name="consent" value="Yes - agreed to be contacted and to the Privacy Policy" required><span>I agree to be contacted by Complete Home Today about internet, TV, phone, and home alarm and monitoring services by phone call, text, or email, including by automated or prerecorded means, at the number and email I provide. I agree to the <a href="#privacy">Privacy Policy</a>. Consent is not a condition of purchase.</span></label>
         <button type="submit" class="btn btn-red" id="qSubmitBtn" style="width:100%;justify-content:center;margin-top:18px;font-size:15.5px;padding:15px">Check My Address — Free &amp; No Obligation</button>
@@ -1030,7 +989,7 @@ section{content-visibility:auto;contain-intrinsic-size:auto 800px}
       <b>Contractor Disclosure.</b> Sales representatives engaged by Complete Home Today LLC operate as independent contractors under 1099 agreements structured in compliance with California Labor Code §2775 et seq. (AB5) and the Borello multi-factor test. Independent contractor status does not guarantee any minimum earnings. Commission is earned per confirmed installation and is subject to chargeback as defined in the applicable IC agreement. &nbsp;
       <b>Licensing.</b> Home security in California is sold and installed under Alarm Company Operator (ACO) License No. 6446, Direct Protection Security, and Alarm Company Employee (ACE) License No. 552544, issued by the California Bureau of Security &amp; Investigative Services (BSIS). &nbsp;
       <b id="privacy">Privacy.</b> When you submit a form on this site, Complete Home Today LLC collects the information you provide — such as your name, service address, ZIP code, phone, and email — to check service availability and to contact you about internet and home alarm and monitoring services. To fulfill your request, we may share this information with the applicable service providers and their authorized program administrators. We do not sell your personal information. To verify and document your consent, a third-party service (TrustedForm, by ActiveProspect) records your interaction with this page — including the content shown, your form activity, IP address, and browser details — and creates a certificate of your submission. You can opt out of marketing contact at any time by replying STOP to texts, asking to be removed during a call, or emailing darrell@completehomellc.com. Consent to contact is not a condition of any purchase.
-      <div class="foot-legal"><a href="privacy-policy.html">Privacy Policy</a><span class="sep">&middot;</span><a href="terms-and-conditions.html">Terms &amp; Conditions</a><span class="sep">&middot;</span><a href="https://www.instagram.com/completehometoday" target="_blank" rel="noopener noreferrer">Instagram</a><span class="sep">&middot;</span><a href="https://www.linkedin.com/company/completehomellc/" target="_blank" rel="noopener noreferrer">LinkedIn</a><span class="sep">&middot;</span><a href="https://youtube.com/@completehometoday" target="_blank" rel="noopener noreferrer">YouTube</a></div>
+      <div class="foot-legal"><a href="privacy-policy.html">Privacy Policy</a><span class="sep">&middot;</span><a href="terms-and-conditions.html">Terms &amp; Conditions</a><span class="sep">&middot;</span><a href="https://www.instagram.com/completehometoday" target="_blank" rel="noopener">Instagram</a><span class="sep">&middot;</span><a href="https://www.linkedin.com/company/completehomellc/" target="_blank" rel="noopener">LinkedIn</a><span class="sep">&middot;</span><a href="https://youtube.com/@completehometoday" target="_blank" rel="noopener">YouTube</a></div>
       <div class="copyr">© <span id="yr"></span> Complete Home Today. All rights reserved.</div>
     </div>
   </div>
@@ -1182,26 +1141,20 @@ section{content-visibility:auto;contain-intrinsic-size:auto 800px}
       <div style="margin-top:22px;font-size:13px;color:var(--faint)">Prefer email? Reach us at <a href="mailto:darrell@completehomellc.com" style="color:var(--ink);font-weight:600">darrell@completehomellc.com</a></div>
     </div>
     <div class="hire-form-card reveal">
-      <form id="hireForm" novalidate method="POST" action="https://api.web3forms.com/submit">
-        <!-- See quoteForm above for why action/method are set: no-JS/JS-failure fallback so this
-             never defaults to a same-page GET that would put PII in the URL. -->
-        <input type="hidden" name="access_key" value="9d10e41c-0e59-4a69-9f0f-7754e9100483">
-        <input type="hidden" name="subject" value="New Job Application — Complete Home Today">
-        <input type="hidden" name="from_name" value="Complete Home Today — Job Applicant">
-        <input type="hidden" name="redirect" value="https://completehomellc.com/#hire-apply">
+      <form id="hireForm" novalidate>
         <input type="hidden" name="xxTrustedFormCertUrl"><input type="hidden" name="xxTrustedFormPingUrl">
-        <input type="checkbox" name="botcheck" tabindex="-1" aria-hidden="true" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+        <input type="checkbox" name="botcheck" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
         <div class="form-grid">
-          <div class="field"><label for="h-name">Full name *</label><input id="h-name" name="name" type="text" placeholder="Jordan Rivera" autocomplete="name" maxlength="100" required></div>
-          <div class="field"><label for="h-phone">Phone *</label><input id="h-phone" name="phone" type="tel" placeholder="(000) 000-0000" autocomplete="tel" pattern="^[0-9()+\-.\s]{7,20}$" maxlength="20" required></div>
-          <div class="field full"><label for="h-email">Email *</label><input id="h-email" name="email" type="email" placeholder="you@email.com" autocomplete="email" maxlength="254" required></div>
-          <div class="field"><label for="h-city">City you'd work in *</label><input id="h-city" name="city" type="text" placeholder="Gilroy, Salinas, Monterey…" autocomplete="address-level2" maxlength="80" required></div>
+          <div class="field"><label for="h-name">Full name *</label><input id="h-name" name="name" type="text" placeholder="Jordan Rivera" required></div>
+          <div class="field"><label for="h-phone">Phone *</label><input id="h-phone" name="phone" type="tel" placeholder="(000) 000-0000" required></div>
+          <div class="field full"><label for="h-email">Email *</label><input id="h-email" name="email" type="email" placeholder="you@email.com" required></div>
+          <div class="field"><label for="h-city">City you'd work in *</label><input id="h-city" name="city" type="text" placeholder="Gilroy, Salinas, Monterey…" required></div>
           <div class="field"><label for="h-exp">Sales experience</label><select id="h-exp" name="experience"><option value="">Select</option><option>None — ready to learn</option><option>Less than 1 year</option><option>1–3 years</option><option>3+ years D2D sales</option><option>Former fiber/telecom rep</option><option>Former security sales rep</option></select></div>
           <div class="field"><label for="h-transport">Reliable transportation?</label><select id="h-transport" name="transportation"><option value="Yes">Yes</option><option value="No">No</option></select></div>
           <div class="field"><label for="h-avail">Available to start</label><select id="h-avail" name="availability"><option>Immediately</option><option>Within 1 week</option><option>Within 2 weeks</option><option>More than 2 weeks</option></select></div>
           <div class="field"><label for="h-ref">How did you hear about us?</label><select id="h-ref" name="referral_source"><option value="">Select</option><option>LinkedIn</option><option>ZipRecruiter</option><option>OfferUp</option><option>Facebook</option><option>Word of mouth</option><option>Other</option></select></div>
-          <div class="field full"><label for="h-refname">Referred by (if applicable)</label><input id="h-refname" name="referred_by" type="text" placeholder="Rep or team member's name" maxlength="100"><span class="field-note">If someone on the team referred you, their name here ensures they get credit.</span></div>
-          <div class="field full"><label for="h-note">Anything else you want us to know?</label><textarea id="h-note" name="notes" placeholder="Optional — tell us about yourself, your goals, or any questions you have." maxlength="1500"></textarea></div>
+          <div class="field full"><label for="h-refname">Referred by (if applicable)</label><input id="h-refname" name="referred_by" type="text" placeholder="Rep or team member's name"><span class="field-note">If someone on the team referred you, their name here ensures they get credit.</span></div>
+          <div class="field full"><label for="h-note">Anything else you want us to know?</label><textarea id="h-note" name="notes" placeholder="Optional — tell us about yourself, your goals, or any questions you have."></textarea></div>
         </div>
         <label class="consent" for="h-consent"><input type="checkbox" id="h-consent" name="consent" value="Yes — agreed to be contacted and to the Privacy Policy" required><span>I agree to be contacted by Complete Home Today about this 1099 contractor opportunity by phone call, text, or email — including by automated or prerecorded means — at the number and email I provide. I agree to the <a href="#privacy-hire">Privacy Policy</a>. Consent is not a condition of any purchase.</span></label>
         <button type="submit" class="btn btn-gold" id="hSubmitBtn" style="width:100%;justify-content:center;margin-top:18px;font-size:15.5px;padding:15px">Submit Application →</button>
@@ -1259,7 +1212,7 @@ section{content-visibility:auto;contain-intrinsic-size:auto 800px}
       <b>Contractor Disclosure.</b> Sales representatives engaged by Complete Home Today LLC operate as independent contractors under 1099 agreements structured in compliance with California Labor Code §2775 et seq. (AB5) and the Borello multi-factor test. Independent contractor status does not guarantee any minimum earnings. Commission is earned per confirmed installation and is subject to chargeback as defined in the applicable IC agreement. &nbsp;
       <b>Licensing.</b> Home security in California is sold and installed under Alarm Company Operator (ACO) License No. 6446, Direct Protection Security, and Alarm Company Employee (ACE) License No. 552544, issued by the California Bureau of Security &amp; Investigative Services (BSIS).
       <b id="privacy-hire">Privacy.</b> When you submit the application form, Complete Home Today LLC collects the information you provide — such as your name, city, phone, and email — to evaluate your interest in a 1099 independent-contractor sales role and to contact you about the opportunity. We use it only for recruiting and onboarding, do not sell your personal information, and you can ask us to delete it at any time by emailing darrell@completehomellc.com. To verify and document your consent, a third-party service (TrustedForm, by ActiveProspect) records your interaction with this page — including the content shown, your form activity, IP address, and browser details — and creates a certificate of your submission. Consent to be contacted is not a condition of any purchase or engagement. &nbsp;
-      <div class="foot-legal"><a href="privacy-policy.html">Privacy Policy</a><span class="sep">&middot;</span><a href="terms-and-conditions.html">Terms &amp; Conditions</a><span class="sep">&middot;</span><a href="https://www.instagram.com/completehometoday" target="_blank" rel="noopener noreferrer">Instagram</a><span class="sep">&middot;</span><a href="https://www.linkedin.com/company/completehomellc/" target="_blank" rel="noopener noreferrer">LinkedIn</a><span class="sep">&middot;</span><a href="https://youtube.com/@completehometoday" target="_blank" rel="noopener noreferrer">YouTube</a></div>
+      <div class="foot-legal"><a href="privacy-policy.html">Privacy Policy</a><span class="sep">&middot;</span><a href="terms-and-conditions.html">Terms &amp; Conditions</a><span class="sep">&middot;</span><a href="https://www.instagram.com/completehometoday" target="_blank" rel="noopener">Instagram</a><span class="sep">&middot;</span><a href="https://www.linkedin.com/company/completehomellc/" target="_blank" rel="noopener">LinkedIn</a><span class="sep">&middot;</span><a href="https://youtube.com/@completehometoday" target="_blank" rel="noopener">YouTube</a></div>
       <div class="copyr">© <span id="yr2"></span> Complete Home Today. All rights reserved.</div>
     </div>
   </div>
@@ -1320,34 +1273,6 @@ document.querySelectorAll("[data-adt]").forEach(function(a){
   a.addEventListener("click", function(){ var s=document.getElementById("f-adt"); if(s) s.value=a.getAttribute("data-adt"); });
 });
 
-// NOTE on access_key below: Web3Forms' "access key" is a public site identifier by design
-// (comparable to a reCAPTCHA site key) — it is meant to ship in client-side code and only
-// authorizes submissions to this specific form endpoint, it is not a secret credential and
-// does not grant read access to prior submissions. Do not treat it as something to hide,
-// but do rotate it in the Web3Forms dashboard if this page is ever repurposed for another site.
-// ---- LIGHTWEIGHT CLIENT-SIDE SUBMISSION THROTTLE ----
-// This is a UX/abuse-deterrence layer only, not a real rate limit — a bot posting
-// directly to the Web3Forms endpoint bypasses this page entirely. Real rate limiting
-// has to live server-side (Web3Forms' own abuse controls, or a WAF/CDN rule in front
-// of the domain). This just stops a confused browser tab or script running *on this
-// page* from firing the same form repeatedly.
-function throttleSubmit(formKey, cooldownMs, maxPerSession) {
-  cooldownMs = cooldownMs || 8000;
-  maxPerSession = maxPerSession || 8;
-  var lastKey = "cht_last_submit_" + formKey;
-  var countKey = "cht_submit_count_" + formKey;
-  try {
-    var last = parseInt(sessionStorage.getItem(lastKey) || "0", 10);
-    var count = parseInt(sessionStorage.getItem(countKey) || "0", 10);
-    var now = Date.now();
-    if (count >= maxPerSession) return { ok: false, reason: "Too many submissions this session. Please call or email us directly." };
-    if (now - last < cooldownMs) return { ok: false, reason: "Please wait a few seconds before submitting again." };
-    sessionStorage.setItem(lastKey, String(now));
-    sessionStorage.setItem(countKey, String(count + 1));
-  } catch (e) { /* sessionStorage unavailable (private mode, etc.) — fail open, let the submit through */ }
-  return { ok: true };
-}
-
 // ---- SHARED AJAX SUBMIT HELPER ----
 function submitToWeb3Forms(formEl, requiredFields, subjectVal, opts) {
   // opts: { btnEl, errEl, doneEl, accentColor }
@@ -1386,26 +1311,8 @@ function submitToWeb3Forms(formEl, requiredFields, subjectVal, opts) {
       }
       return;
     }
-    // Re-check format constraints (email, phone pattern, maxlength, etc.) via the
-    // Constraint Validation API so a tampered/disabled `required`/`pattern` attribute
-    // can't slip an obviously malformed value past the client.
-    if(!formEl.checkValidity()) {
-      formEl.reportValidity();
-      if(opts.errEl) {
-        opts.errEl.textContent = "⚠ Some fields don't look like valid values — please double-check and try again.";
-        opts.errEl.style.display = "block";
-      }
-      return;
-    }
 
     if(opts.errEl) opts.errEl.style.display = "none";
-
-    var throttle = throttleSubmit("hire", 8000, 8);
-    if(!throttle.ok) {
-      if(opts.errEl) { opts.errEl.textContent = "⚠ " + throttle.reason; opts.errEl.style.display = "block"; }
-      return;
-    }
-
     if(opts.btnEl) { opts.btnEl.textContent = "Sending…"; opts.btnEl.disabled = true; }
 
     // build JSON payload from all named form fields
@@ -1502,12 +1409,9 @@ submitToWeb3Forms(
 (function() {
   var tf = document.createElement("script");
   tf.type = "text/javascript"; tf.async = true;
-  // Always load over HTTPS. The old protocol-sniffing fallback would silently
-  // downgrade to plaintext HTTP if the page were ever served over HTTP,
-  // exposing the cert/ping URLs to network interception.
-  tf.src = "https://api.trustedform.com/trustedform.js?field=xxTrustedFormCertUrl&ping_field=xxTrustedFormPingUrl&l=" +
+  tf.src = (document.location.protocol === "https:" ? "https" : "http") +
+    "://api.trustedform.com/trustedform.js?field=xxTrustedFormCertUrl&ping_field=xxTrustedFormPingUrl&l=" +
     new Date().getTime() + Math.random();
-  tf.referrerPolicy = "strict-origin-when-cross-origin";
   var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(tf, s);
 })();
 </script>
@@ -1563,50 +1467,17 @@ submitToWeb3Forms(
     if(errEl) errEl.style.display = "none";
 
     var fileEl = document.getElementById("q-bill-photo");
-    if(fileEl && fileEl.files && fileEl.files[0]){
-      var billFile = fileEl.files[0];
-      var allowedTypes = ["image/jpeg","image/png","image/webp","image/heic","image/heif","application/pdf"];
-      var allowedExts = /\.(jpe?g|png|webp|heic|heif|pdf)$/i;
-      if(billFile.size > 5 * 1024 * 1024){
-        if(errEl){ errEl.textContent = "That bill photo is larger than 5 MB. Please attach a smaller image, or leave it off and submit."; errEl.style.display = "block"; }
-        return;
-      }
-      // Client-side MIME + extension allowlist. This is a UX convenience only, not a security
-      // boundary — both the reported MIME type and the filename are client-controlled and can
-      // be spoofed, so the receiving service (Web3Forms) must independently validate/sanitize
-      // the upload server-side (and this page never renders the uploaded file itself, so there's
-      // no local rendering/execution risk either way).
-      if((billFile.type && allowedTypes.indexOf(billFile.type) === -1) || !allowedExts.test(billFile.name || "")){
-        if(errEl){ errEl.textContent = "Please attach a JPG, PNG, WEBP, HEIC, or PDF file."; errEl.style.display = "block"; }
-        return;
-      }
-    }
-
-    // Belt-and-suspenders validation beyond "not empty" for fields with a known format.
-    // Native `pattern`/`type` attributes already block submission in-browser; this re-checks
-    // via the Constraint Validation API so a user can't bypass it by disabling attributes in devtools
-    // and still relies on the receiving service to validate/sanitize server-side.
-    if(!form.checkValidity()){
-      form.reportValidity();
-      if(errEl){ errEl.textContent = "Please double-check the highlighted fields — some don't look like valid values."; errEl.style.display = "block"; }
-      return;
-    }
-
-    var throttle = throttleSubmit("quote", 8000, 8);
-    if(!throttle.ok) {
-      if(errEl){ errEl.textContent = "⚠ " + throttle.reason; errEl.style.display = "block"; }
+    if(fileEl && fileEl.files && fileEl.files[0] && fileEl.files[0].size > 5 * 1024 * 1024){
+      if(errEl){ errEl.textContent = "That bill photo is larger than 5 MB. Please attach a smaller image, or leave it off and submit."; errEl.style.display = "block"; }
       return;
     }
 
     if(btn){ btn.textContent = "Sending..."; btn.disabled = true; }
 
     var fd = new FormData(form);
-    // access_key/subject/from_name now also exist as hidden inputs (for the no-JS POST
-    // fallback — see the form's opening-tag comment above), so FormData(form) already has them.
-    // Use set(), not append(), to avoid sending each field twice.
-    fd.set("access_key", "9d10e41c-0e59-4a69-9f0f-7754e9100483");
-    fd.set("subject", "New Quote Request - Complete Home Today");
-    fd.set("from_name", "Complete Home Today Website");
+    fd.append("access_key", "9d10e41c-0e59-4a69-9f0f-7754e9100483");
+    fd.append("subject", "New Quote Request - Complete Home Today");
+    fd.append("from_name", "Complete Home Today Website");
     var em = form.elements["email"]; if(em && em.value.trim()) fd.append("replyto", em.value.trim());
     fd.delete("botcheck");
     var now = new Date();
