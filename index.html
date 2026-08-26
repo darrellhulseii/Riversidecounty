@@ -542,6 +542,17 @@ a[href^="mailto:"]{overflow-wrap:anywhere}
 .offer .btn{margin-top:18px;align-self:flex-start}
 .plan.el-plan{border-color:rgba(21,181,163,.28)}
 .plan.el-plan .p-tier{color:var(--earth-br)}
+.noc{background:rgba(255,255,255,.03);border:1px solid var(--line2);border-radius:12px;padding:14px 16px;margin:0 0 18px;font-size:12.5px;color:var(--muted);line-height:1.6}
+.noc b{color:var(--ink);font-weight:700;display:block;margin-bottom:5px;font-family:'Archivo',sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.noc a{color:var(--gold-br)}
+.rights{background:#060608;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.rights-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
+.rights-card{background:var(--navy2);border:1px solid var(--line);border-radius:16px;padding:22px 22px}
+.rights-card h3{font-size:17px;margin-bottom:9px;color:var(--gold-br)}
+.rights-card p{font-size:14px;color:#cbd6e3;line-height:1.6;margin-bottom:9px}
+.rights-card .es{font-size:13px;color:var(--muted);font-style:italic;border-top:1px solid var(--line);padding-top:9px;margin-top:4px}
+.rights-card a{color:var(--gold-br);font-size:13.5px;font-weight:600}
+@media(max-width:860px){.rights-grid{grid-template-columns:1fr}}
 .notify-opt{display:flex;gap:11px;align-items:flex-start;background:rgba(245,166,35,.05);border:1px solid rgba(245,166,35,.24);border-radius:12px;padding:13px 15px;cursor:pointer;font-weight:400}
 .notify-opt input{margin-top:3px;flex-shrink:0;width:17px;height:17px;accent-color:var(--gold)}
 .notify-opt span{font-size:13.5px;color:var(--muted);line-height:1.55}
@@ -612,6 +623,7 @@ section{content-visibility:auto;contain-intrinsic-size:auto 800px}
   "image": "https://completehomellc.com/og-image.jpg",
   "logo": "https://completehomellc.com/og-image.jpg",
   "email": "darrell@completehomellc.com",
+  "telephone": "+1-408-909-4484",
   "sameAs": [
     "https://www.instagram.com/completehometoday",
     "https://www.linkedin.com/company/completehomellc/",
@@ -753,6 +765,7 @@ section{content-visibility:auto;contain-intrinsic-size:auto 800px}
         <a href="#tv">TV</a>
         <a href="#security">Security</a>
         <a href="#reviews">Reviews</a>
+        <a href="#your-rights">Your Rights</a>
         <a href="#faq">FAQ</a>
         <a href="#" class="hiring-link" id="navHiringBtn">Contract With Us</a>
       </div>
@@ -769,7 +782,7 @@ section{content-visibility:auto;contain-intrinsic-size:auto 800px}
 <!-- MAIN SITE VIEW -->
 <div id="main-view">
 <div class="topbar">
-  <b>Complete Home Today</b> is an independent authorized sales agent and reseller for third-party internet providers — we are a separate company, not the providers themselves. &nbsp;|&nbsp; <a href="#" id="topbarHiringBtn" style="color:var(--gold-br);font-weight:700">Contract With Us — 1099 Sales →</a>
+  <b>Complete Home Today</b> is an independent authorized sales agent and reseller for third-party internet providers — we are a separate company, not the providers themselves. &nbsp;|&nbsp; <a href="tel:+14089094484" style="color:var(--ink);font-weight:700">(408) 909-4484</a> &nbsp;|&nbsp; <a href="#" id="topbarHiringBtn" style="color:var(--gold-br);font-weight:700">Contract With Us — 1099 Sales →</a>
 </div>
 
 <!-- HERO -->
@@ -1066,6 +1079,7 @@ section{content-visibility:auto;contain-intrinsic-size:auto 800px}
           <div class="field"><label for="q-zip">ZIP code *</label><input id="q-zip" name="zip" type="text" inputmode="numeric" placeholder="92596" maxlength="10" autocomplete="postal-code" required></div>
         </div>
 
+        <div class="noc"><b>Notice at Collection</b>We collect the identifiers and service details you enter here &mdash; your name, address, phone, email, and information about your current and desired services &mdash; to check availability at your address, prepare a quote, and contact you about internet and home alarm services. We share them with the providers needed to fulfill your request. We do not sell your personal information. We keep inquiry and consent records for up to five years. Full details, and how to exercise your rights, are in our <a href="privacy-policy.html">Privacy Policy</a>. Questions or requests: <a href="tel:+14089094484">(408) 909-4484</a>.</div>
         <div class="fsec">Your current services</div>
         <div class="form-grid">
           <div class="field full"><label for="q-isp">Current internet provider</label><select id="q-isp" name="current_internet_provider"><option value="">Select provider</option><option>AT&amp;T</option><option>Spectrum</option><option>Frontier</option><option>Xfinity / Comcast</option><option>Cox</option><option>T-Mobile</option><option>Verizon</option><option>Optimum</option><option>CenturyLink</option><option>Starlink</option><option>Other</option><option>New home / no current service</option><option>None / no internet</option></select></div>
@@ -1106,7 +1120,7 @@ section{content-visibility:auto;contain-intrinsic-size:auto 800px}
           <div class="field full"><label for="q-found">How did you find us?</label><select id="q-found" name="how_found"><option value="">Select one</option><option>A rep came to my door</option><option>Referred by a friend or family</option><option>Flyer or mailer</option><option>Online search</option><option>Social media</option><option>Other</option></select></div>
           <div class="field full"><label for="q-refname">Who referred you? (optional)</label><input id="q-refname" name="referral_name" type="text" placeholder="Rep or referral name" maxlength="80"><span class="field-note">If a rep visited you or someone referred you, type their name so we can credit them.</span></div>
         </div>
-        <label class="consent" for="q-consent"><input type="checkbox" id="q-consent" name="consent" value="Yes - agreed to be contacted and to the Privacy Policy" required><span>By checking this box and submitting this form, I consent for Complete Home Today LLC and its affiliate service providers to contact me using automated technology &mdash; including texts, phone calls, prerecorded messages, email, or other digital technology &mdash; at the number and email I provide, about offers that may or may not be directly related to this specific campaign, including through other affiliate companies. This consent is not required to make a purchase, and checking this box constitutes my electronic signature. Message and data rates may apply; reply STOP to opt out. I agree to the <a href="#privacy">Privacy Policy</a> and <a href="terms-and-conditions.html">Terms &amp; Conditions</a>.</span></label>
+        <label class="consent" for="q-consent"><input type="checkbox" id="q-consent" name="consent" value="Yes - agreed to be contacted and to the Privacy Policy" required><span>By checking this box and submitting this form, I give my express written consent for <b>Complete Home Today LLC</b> and the specific companies whose programs it is authorized to represent &mdash; <b>Frontier</b>, <b>EarthLink</b>, and <b>Direct Protection Security</b> &mdash; to contact me about internet, TV, phone, and home alarm and monitoring services at the phone number and email address I provide, including by automated dialing systems, prerecorded or artificial voice messages, text messages, and email. I understand calls may be recorded or monitored for quality and training, and that I may be contacted about offers that are not directly related to the specific campaign through which I reached them. This consent is not required to purchase any goods or services, and checking this box constitutes my electronic signature. Message frequency varies; message and data rates may apply; reply STOP to opt out or HELP for help. I agree to the <a href="#privacy">Privacy Policy</a> and <a href="terms-and-conditions.html">Terms &amp; Conditions</a>.</span></label>
         <button type="submit" class="btn btn-red" id="qSubmitBtn" style="width:100%;justify-content:center;margin-top:18px;font-size:15.5px;padding:15px">Check My Address — Free &amp; No Obligation</button>
         <p class="form-err" id="qFormErr"></p>
         <p class="form-fine">Submitting this form is a request for a quote. This website does not process or submit service orders &mdash; all enrollments are completed by the service provider through provider-approved systems, and submission does not guarantee approval or activation of service. Service availability, speeds, and pricing vary by location and provider and are determined solely by the provider. Message &amp; data rates may apply; reply STOP to opt out of texts.</p>
@@ -1117,6 +1131,41 @@ section{content-visibility:auto;contain-intrinsic-size:auto 800px}
         <p>A representative will help you shortly. If fiber has not reached your street yet and you asked to stay on the list, we will reach out as soon as it does.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- YOUR RIGHTS AT THE DOOR -->
+<section id="your-rights" class="rights">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow gold">Know Your Rights</div>
+      <h2>What you are entitled to when we knock</h2>
+      <p>If a representative signs you up at your home, California law gives you specific protections. We would rather you know them up front than find out later.</p>
+    </div>
+    <div class="rights-grid">
+
+      <div class="rights-card reveal">
+        <h3>You have three days to cancel</h3>
+        <p>For any sale of more than $25 made at your home, you may cancel until <b>midnight of the third business day</b> after you sign, for any reason and with no penalty. Your representative must hand you two copies of a completed Notice of Cancellation at the time you sign. Mail or deliver one to us, or call us, and the sale is off.</p>
+        <p class="es">Usted tiene hasta la medianoche del tercer d&iacute;a h&aacute;bil para cancelar esta venta, sin penalidad ni obligaci&oacute;n.</p>
+        <a href="notice-of-cancellation.html">Read or print the cancellation notice &rarr;</a>
+      </div>
+
+      <div class="rights-card reveal">
+        <h3>Contracts in your language</h3>
+        <p>If a representative negotiates with you primarily in <b>Spanish, Chinese, Tagalog, Vietnamese, or Korean</b>, California law entitles you to a written translation of the contract in that language before you sign. Ask for it &mdash; it is your right, not a favor.</p>
+        <p class="es">Si negociamos con usted principalmente en espa&ntilde;ol, tiene derecho a recibir una traducci&oacute;n escrita del contrato en espa&ntilde;ol antes de firmar. Ll&aacute;menos al (408) 909-4484 si no la recibi&oacute;.</p>
+        <a href="tel:+14089094484">Call (408) 909-4484 &rarr;</a>
+      </div>
+
+      <div class="rights-card reveal">
+        <h3>Calls, texts and recording</h3>
+        <p>You can ask to stop hearing from us at any time &mdash; reply STOP to a text, say so on a call, or email us &mdash; and we will add you to our internal do-not-call list within a business day. Some calls are recorded or monitored for quality and training; if you are on a recorded call and prefer not to be, say so and we will stop the recording or end the call.</p>
+        <a href="do-not-call-policy.html">Read our do-not-call policy &rarr;</a>
+      </div>
+
+    </div>
+    <p class="fee-note">Complete Home Today LLC representatives carry identification and, where a city requires one, a solicitor&rsquo;s permit. Ask to see it. A representative will never ask you for a password, PIN, Social Security number, or payment in cash. If someone at your door claims to be with us and you are unsure, call <a href="tel:+14089094484" style="color:var(--gold-br)">(408) 909-4484</a> before signing anything.</p>
   </div>
 </section>
 
@@ -1158,6 +1207,7 @@ section{content-visibility:auto;contain-intrinsic-size:auto 800px}
         <input type="hidden" name="xxTrustedFormCertUrl"><input type="hidden" name="xxTrustedFormPingUrl">
         <input type="checkbox" name="botcheck" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
 
+        <div class="noc"><b>Notice at Collection</b>We collect your name, city, email, rating, review text, the representative you name, and any photo you attach, in order to verify and publish your review. Your email is never published. We do not sell your personal information. Full details are in our <a href="privacy-policy.html">Privacy Policy</a>. Questions or requests: <a href="tel:+14089094484">(408) 909-4484</a>.</div>
         <div class="fsec" style="border-top:none;padding-top:0;margin-top:0">Your review</div>
         <div class="form-grid">
           <div class="field"><label for="r-name">Your name *</label><input id="r-name" name="reviewer_name" type="text" placeholder="Jordan R." autocomplete="name" maxlength="60" required><span class="field-note">First name and last initial is fine &mdash; this is what gets published.</span></div>
@@ -1215,7 +1265,7 @@ section{content-visibility:auto;contain-intrinsic-size:auto 800px}
       </div>
       <div class="foot-col">
         <h4>Explore</h4>
-        <a href="#plans">Plans</a><a href="#offers">Offers</a><a href="#addons">Add-Ons</a><a href="#tv">TV &amp; Streaming</a><a href="#security">Home Security</a><a href="#reviews">Reviews</a><a href="#faq">FAQ</a>
+        <a href="#plans">Plans</a><a href="#offers">Offers</a><a href="#addons">Add-Ons</a><a href="#tv">TV &amp; Streaming</a><a href="#security">Home Security</a><a href="#reviews">Reviews</a><a href="#your-rights">Your Rights</a><a href="#faq">FAQ</a>
       </div>
       <div class="foot-col">
         <h4>Service Areas</h4>
@@ -1228,7 +1278,7 @@ section{content-visibility:auto;contain-intrinsic-size:auto 800px}
         <h4>Contract With Us</h4>
         <a href="#" id="footerHiringBtn" style="color:var(--gold-br);font-weight:700">Contract With Us — 1099 Sales Contractors →</a>
         <h4 style="margin-top:18px">Get in touch</h4>
-        <a href="#quote">Check Service Availability</a><a href="mailto:darrell@completehomellc.com">darrell@completehomellc.com</a><span>Serving California</span>
+        <a href="#quote">Check Service Availability</a><a href="tel:+14089094484">(408) 909-4484</a><a href="mailto:darrell@completehomellc.com">darrell@completehomellc.com</a><span>Serving California</span>
       </div>
     </div>
     <div class="disclosure">
@@ -1238,7 +1288,7 @@ section{content-visibility:auto;contain-intrinsic-size:auto 800px}
       <b>Contractor Disclosure.</b> Sales professionals engaged by Complete Home Today LLC operate as independent contractors under written 1099 agreements. They are not employees. Agreements are drafted with reference to California Labor Code §2775 et seq. (AB5) as amended by AB 2257, the Borello multi-factor test, and the IRS common-law factors. Contractors set their own schedules, choose their own service areas and routes, use their own methods, tools, and vehicles, may engage their own helpers, may contract with other companies including competitors, and may accept or decline any opportunity. Complete Home Today LLC does not assign territories or routes, require meetings or reports, set quotas, or supervise sales methods. Compensation is commission-only, paid per completed installation and activation under a negotiated rate card rather than by time worked, and is subject to chargeback as defined in the applicable agreement. <b>No earnings claim is made.</b> Complete Home Today LLC does not promise, project, or imply any level of income; earnings are not guaranteed and many contractors earn nothing. Contractors are responsible for their own taxes, licensing, insurance, and business expenses. &nbsp;
       <b>Licensing.</b> Home security in California is sold and installed under Alarm Company Operator (ACO) License No. 6446, Direct Protection Security, and Alarm Company Employee (ACE) License No. 552544, issued by the California Bureau of Security &amp; Investigative Services (BSIS). &nbsp;
       <b id="privacy">Privacy.</b> When you submit a form on this site, Complete Home Today LLC collects the information you provide — such as your name, service address, ZIP code, phone, and email — to check service availability and to contact you about internet and home alarm and monitoring services. To fulfill your request, we may share this information with the applicable service providers and their authorized program administrators. We do not sell your personal information. To verify and document your consent, a third-party service (TrustedForm, by ActiveProspect) records your interaction with this page — including the content shown, your form activity, IP address, and browser details — and creates a certificate of your submission. You can opt out of marketing contact at any time by replying STOP to texts, asking to be removed during a call, or emailing darrell@completehomellc.com. Consent to contact is not a condition of any purchase.
-      <div class="foot-legal"><a href="privacy-policy.html">Privacy Policy</a><span class="sep">&middot;</span><a href="terms-and-conditions.html">Terms &amp; Conditions</a><span class="sep">&middot;</span><a href="#" id="privacyChoicesLink">Your Privacy Choices</a><span class="sep">&middot;</span><a href="https://www.instagram.com/completehometoday" target="_blank" rel="noopener">Instagram</a><span class="sep">&middot;</span><a href="https://www.linkedin.com/company/completehomellc/" target="_blank" rel="noopener">LinkedIn</a><span class="sep">&middot;</span><a href="https://youtube.com/@completehometoday" target="_blank" rel="noopener">YouTube</a></div>
+      <div class="foot-legal"><a href="privacy-policy.html">Privacy Policy</a><span class="sep">&middot;</span><a href="terms-and-conditions.html">Terms &amp; Conditions</a><span class="sep">&middot;</span><a href="do-not-call-policy.html">Do-Not-Call Policy</a><span class="sep">&middot;</span><a href="notice-of-cancellation.html">Right to Cancel</a><span class="sep">&middot;</span><a href="#" id="privacyChoicesLink">Your Privacy Choices</a><span class="sep">&middot;</span><a href="https://www.instagram.com/completehometoday" target="_blank" rel="noopener">Instagram</a><span class="sep">&middot;</span><a href="https://www.linkedin.com/company/completehomellc/" target="_blank" rel="noopener">LinkedIn</a><span class="sep">&middot;</span><a href="https://youtube.com/@completehometoday" target="_blank" rel="noopener">YouTube</a></div>
       <div class="copyr">© <span id="yr"></span> Complete Home Today. All rights reserved.</div>
     </div>
   </div>
@@ -1375,6 +1425,7 @@ section{content-visibility:auto;contain-intrinsic-size:auto 800px}
       <form id="hireForm" novalidate>
         <input type="hidden" name="xxTrustedFormCertUrl"><input type="hidden" name="xxTrustedFormPingUrl">
         <input type="checkbox" name="botcheck" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+        <div class="noc"><b>Notice at Collection</b>We collect your name, city, phone, email, and the details you provide about your interest, in order to evaluate and respond to your contracting inquiry. This information is retained internally, is not sold, and is not shared for marketing. Full details are in our <a href="privacy-policy.html">Privacy Policy</a>. Questions or requests: <a href="tel:+14089094484">(408) 909-4484</a>.</div>
         <div class="form-grid">
           <div class="field"><label for="h-name">Full name *</label><input id="h-name" name="name" type="text" placeholder="Jordan Rivera" autocomplete="name" maxlength="80" required></div>
           <div class="field"><label for="h-phone">Phone *</label><input id="h-phone" name="phone" type="tel" placeholder="(000) 000-0000" autocomplete="tel" maxlength="25" required></div>
@@ -1470,6 +1521,7 @@ section{content-visibility:auto;contain-intrinsic-size:auto 800px}
       <div class="foot-col">
         <h4>Get in touch</h4>
         
+        <a href="tel:+14089094484">(408) 909-4484</a>
         <a href="mailto:darrell@completehomellc.com">darrell@completehomellc.com</a>
         <span>Serving California</span>
         <a href="#" id="footerBackBtn" style="margin-top:14px;color:var(--gold-br);font-weight:700">← Back to Main Site</a>
@@ -1479,7 +1531,7 @@ section{content-visibility:auto;contain-intrinsic-size:auto 800px}
       <b>Contractor Disclosure.</b> Sales professionals engaged by Complete Home Today LLC operate as independent contractors under written 1099 agreements. They are not employees. Agreements are drafted with reference to California Labor Code §2775 et seq. (AB5) as amended by AB 2257, the Borello multi-factor test, and the IRS common-law factors. Contractors set their own schedules, choose their own service areas and routes, use their own methods, tools, and vehicles, may engage their own helpers, may contract with other companies including competitors, and may accept or decline any opportunity. Complete Home Today LLC does not assign territories or routes, require meetings or reports, set quotas, or supervise sales methods. Compensation is commission-only, paid per completed installation and activation under a negotiated rate card rather than by time worked, and is subject to chargeback as defined in the applicable agreement. <b>No earnings claim is made.</b> Complete Home Today LLC does not promise, project, or imply any level of income; earnings are not guaranteed and many contractors earn nothing. Contractors are responsible for their own taxes, licensing, insurance, and business expenses. &nbsp;
       <b>Licensing.</b> Home security in California is sold and installed under Alarm Company Operator (ACO) License No. 6446, Direct Protection Security, and Alarm Company Employee (ACE) License No. 552544, issued by the California Bureau of Security &amp; Investigative Services (BSIS).
       <b id="privacy-hire">Privacy.</b> When you submit the application form, Complete Home Today LLC collects the information you provide — such as your name, city, phone, and email — to evaluate your interest in a 1099 independent-contractor sales role and to contact you about the opportunity. We use it only for recruiting and onboarding, do not sell your personal information, and you can ask us to delete it at any time by emailing darrell@completehomellc.com. To verify and document your consent, a third-party service (TrustedForm, by ActiveProspect) records your interaction with this page — including the content shown, your form activity, IP address, and browser details — and creates a certificate of your submission. Consent to be contacted is not a condition of any purchase or engagement. &nbsp;
-      <div class="foot-legal"><a href="privacy-policy.html">Privacy Policy</a><span class="sep">&middot;</span><a href="terms-and-conditions.html">Terms &amp; Conditions</a><span class="sep">&middot;</span><a href="#" id="privacyChoicesLink">Your Privacy Choices</a><span class="sep">&middot;</span><a href="https://www.instagram.com/completehometoday" target="_blank" rel="noopener">Instagram</a><span class="sep">&middot;</span><a href="https://www.linkedin.com/company/completehomellc/" target="_blank" rel="noopener">LinkedIn</a><span class="sep">&middot;</span><a href="https://youtube.com/@completehometoday" target="_blank" rel="noopener">YouTube</a></div>
+      <div class="foot-legal"><a href="privacy-policy.html">Privacy Policy</a><span class="sep">&middot;</span><a href="terms-and-conditions.html">Terms &amp; Conditions</a><span class="sep">&middot;</span><a href="do-not-call-policy.html">Do-Not-Call Policy</a><span class="sep">&middot;</span><a href="notice-of-cancellation.html">Right to Cancel</a><span class="sep">&middot;</span><a href="#" id="privacyChoicesLink">Your Privacy Choices</a><span class="sep">&middot;</span><a href="https://www.instagram.com/completehometoday" target="_blank" rel="noopener">Instagram</a><span class="sep">&middot;</span><a href="https://www.linkedin.com/company/completehomellc/" target="_blank" rel="noopener">LinkedIn</a><span class="sep">&middot;</span><a href="https://youtube.com/@completehometoday" target="_blank" rel="noopener">YouTube</a></div>
       <div class="copyr">© <span id="yr2"></span> Complete Home Today. All rights reserved.</div>
     </div>
   </div>
