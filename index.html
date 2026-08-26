@@ -509,6 +509,22 @@ a[href^="mailto:"]{overflow-wrap:anywhere}
 .promo b{color:var(--ink);font-family:'Archivo',sans-serif}
 .promo .tag{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--red-br);margin-bottom:5px}
 @media(max-width:760px){.promo-grid{grid-template-columns:1fr}}
+
+/* offers section */
+.offer-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.offer{background:var(--navy2);border:1px solid var(--line);border-radius:18px;padding:24px;display:flex;flex-direction:column;transition:.2s}
+.offer:hover{border-color:var(--line2);transform:translateY(-4px)}
+.offer.lead{border-color:rgba(245,166,35,.4);background:linear-gradient(180deg,rgba(245,166,35,.07),var(--navy2))}
+.offer .otag{display:inline-block;align-self:flex-start;font-family:'Archivo',sans-serif;font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-br);border:1px solid rgba(245,166,35,.35);border-radius:999px;padding:4px 10px;margin-bottom:12px}
+.offer.alt .otag{color:var(--red-br);border-color:rgba(236,28,52,.38)}
+.offer h3{font-size:21px;margin-bottom:8px}
+.offer .osub{font-size:14.5px;color:var(--muted);line-height:1.6}
+.offer ul{list-style:none;margin:14px 0 0}
+.offer li{font-size:14px;color:#cbd6e3;padding:7px 0 7px 24px;position:relative;border-top:1px solid var(--line)}
+.offer li:before{content:"✓";position:absolute;left:0;top:7px;color:var(--gold-br);font-weight:800;font-size:13px}
+.offer .ofine{font-size:12px;color:var(--faint);line-height:1.6;margin-top:14px}
+.offer .btn{margin-top:18px;align-self:flex-start}
+@media(max-width:860px){.offer-grid{grid-template-columns:1fr}}
 .cred-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
 .cred{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:14px;padding:18px 20px;text-align:center}
 .cred .cnum{font-family:'Archivo',sans-serif;font-weight:900;font-size:22px;color:var(--gold-br);line-height:1.2}
@@ -662,6 +678,14 @@ section{content-visibility:auto;contain-intrinsic-size:auto 800px}
     },
     {
       "@type": "Question",
+      "name": "How do I know if I qualify for the current offers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Promotions are created and administered by the providers, not by Complete Home Today, and they are not available at every address. Some, including the current two-months-on-us fiber promotion, are limited to specific qualifying addresses on the provider's lead lists, so being serviceable is not the same as being eligible. Your agent checks your address against the provider's system and confirms which offers apply before anything is signed."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "Is the pricing on this site final?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -741,11 +765,11 @@ section{content-visibility:auto;contain-intrinsic-size:auto 800px}
 <!-- CURRENT PROMOTIONS -->
 <section class="promo-bar" aria-label="Current promotions">
   <div class="promo-in">
-    <div class="promo-title">Current New-Customer Offers</div>
+    <div class="promo-title">Current New Customer Offers &mdash; D2D</div>
     <div class="promo-grid">
+      <div class="promo"><span class="tag">Now through Sept 30</span><br><b>First 2 months on us</b> on new 500&nbsp;Mbps or 1&nbsp;Gig fiber at qualifying addresses &mdash; plus your choice of a $400 Samsung credit or a season of NFL Sunday Ticket.</div>
       <div class="promo"><span class="tag">Limited Time</span><br><b>NFL Sunday Ticket on us</b> with new 1 Gig+ fiber service &mdash; a $480 value. Lower speed tiers qualify for a deep discount.</div>
-      <div class="promo"><span class="tag">Price Lock</span><br><b>3&ndash;5 year price guarantees</b> on every fiber speed, with no early termination fees and Whole-Home Wi&#8209;Fi included on 1&nbsp;Gig and up.</div>
-      <div class="promo"><span class="tag">Stack &amp; Save</span><br><b>Save up to $25/mo</b> with AutoPay plus a qualifying mobile bundle &mdash; and a $400 Samsung promotion is available on eligible orders.</div>
+      <div class="promo"><span class="tag">Price Lock &amp; Save</span><br><b>3&ndash;5 year price guarantees</b> with no early termination fees &mdash; and up to $25/mo in savings with AutoPay plus a qualifying mobile bundle.</div>
     </div>
     <p class="fee-note" style="margin-top:12px">Offers are limited-time, subject to eligibility and availability at your address, and confirmed at the point of sale. Ask your agent for current terms.</p>
   </div>
@@ -801,6 +825,83 @@ section{content-visibility:auto;contain-intrinsic-size:auto 800px}
       </div>
       <p class="fee-note">Plans, speeds, and equipment vary by address. Current fiber plans carry no early termination or restocking fees. Pricing is not shown here and is confirmed at the point of sale; it is subject to change, and AutoPay enrollment may be required for the best available rate. Taxes and surcharges may apply.</p>
     </div>
+  </div>
+</section>
+
+<!-- CURRENT OFFERS -->
+<section id="offers" style="background:#060608;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow gold">Current Offers</div>
+      <h2>Current new customer offers &mdash; D2D</h2>
+      <p>These are the current new-customer promotions on the fiber network we represent. Offers are set by the provider, run for a limited time, and depend on your address &mdash; your agent confirms which ones you qualify for before anything is signed.</p>
+    </div>
+
+    <div class="offer-grid">
+
+      <div class="offer lead reveal">
+        <span class="otag">Through September 30, 2026</span>
+        <h3>First 2 months on us</h3>
+        <p class="osub">At qualifying addresses, new fiber customers on the 500&nbsp;Mbps or 1&nbsp;Gig plan get their first two months of internet service at no cost &mdash; then pick one sweetener on top.</p>
+        <ul>
+          <li>Available on 500 Mbps and 1 Gig fiber plans</li>
+          <li>Choose <b>one</b>: a $400 Samsung credit for BestBuy.com <b>or</b> a full season of NFL Sunday Ticket</li>
+          <li>Free professional installation and Whole-Home Wi-Fi</li>
+          <li>Multi-year price guarantee, no annual contract, unlimited data</li>
+          <li>Can be combined with the mobile + home discount after the free period</li>
+        </ul>
+        <p class="ofine">New-to-provider residential customers only. This promotion is limited to prospects at eligible addresses identified by the provider &mdash; not every serviceable home qualifies. Your agent verifies eligibility at your address before you sign. Offer ends September 30, 2026.</p>
+        <a href="#quote" class="btn btn-gold">See If My Address Qualifies</a>
+      </div>
+
+      <div class="offer alt reveal">
+        <span class="otag">Through September 22, 2026</span>
+        <h3>NFL Sunday Ticket</h3>
+        <p class="osub">A season of NFL Sunday Ticket from YouTube on us with new 1&nbsp;Gig or faster fiber &mdash; a $480 value. On 500&nbsp;Mbps and below it's offered at a deep discount instead.</p>
+        <ul>
+          <li>1 Gig and above: 100% off, on us</li>
+          <li>500 Mbps and below: $246 off the retail package price</li>
+          <li>Open to new fiber customers, copper-to-fiber moves, and voice customers adding fiber</li>
+          <li>Streams through YouTube Primetime Channels &mdash; no YouTube TV subscription needed</li>
+          <li>Redemption email arrives 24&ndash;48 hours after installation; 30 days to redeem</li>
+        </ul>
+        <p class="ofine">Eligible residential customers only; eligibility is validated by the provider's ordering system. Not combinable with the $400 Samsung offer, or with an NFL Sunday Ticket subscription billed through another provider. On 1 Gig and above, the $480 promotional value is subject to chargeback by the provider if service is disconnected within 365 days of installation. No codes are issued at the door.</p>
+        <a href="#quote" class="btn btn-ghost">Ask About This Offer</a>
+      </div>
+
+      <div class="offer reveal">
+        <span class="otag">Ongoing</span>
+        <h3>Price lock &amp; no surprise fees</h3>
+        <p class="osub">Current fiber plans lock your rate in for years instead of jumping after a short intro period.</p>
+        <ul>
+          <li>3- to 5-year price guarantee depending on speed tier</li>
+          <li>No early termination fees and no restocking fees</li>
+          <li>Whole-Home Wi-Fi included on 1 Gig and faster plans</li>
+          <li>Professional install included on 1 Gig and above</li>
+          <li>Unlimited data on every fiber plan</li>
+        </ul>
+        <p class="ofine">Guarantee length, included equipment, and installation terms vary by speed tier and address, and are confirmed at the point of sale.</p>
+        <a href="#quote" class="btn btn-ghost">Check My Address</a>
+      </div>
+
+      <div class="offer reveal">
+        <span class="otag">Ongoing</span>
+        <h3>Stack your savings</h3>
+        <p class="osub">Pair AutoPay with a qualifying postpaid mobile line on the carrier that owns the network and your monthly bill drops further &mdash; with entertainment perks on top.</p>
+        <ul>
+          <li>Up to $25/mo in savings combining AutoPay and the mobile + home discount</li>
+          <li>$15/mo mobile + home discount on qualifying fiber and postpaid mobile accounts</li>
+          <li>Up to a $10/mo perk credit toward one eligible subscription on 1 Gig and above</li>
+          <li>Perks include Netflix &amp; HBO Max, Disney+/Hulu/ESPN+, YouTube Premium, and more</li>
+          <li>One bill, one provider &mdash; managed through the provider's app</li>
+        </ul>
+        <p class="ofine">Mobile + home requires an active, qualifying postpaid consumer mobile plan in good standing; business, prepaid, and employee accounts don't qualify, and the discount is limited to one per customer. Perk credits are limited to one per household, cover up to $10/mo, and don't roll over. Registration deadlines apply. Enrollment is completed by the customer directly with the providers.</p>
+        <a href="#quote" class="btn btn-ghost">Ask About Bundling</a>
+      </div>
+
+    </div>
+
+    <p class="fee-note">Complete Home Today LLC is an independent authorized sales agent and reseller. The promotions described above are created, funded, and administered by the service providers &mdash; not by Complete Home Today &mdash; and we present them on the providers' behalf. Offers are limited-time, are not available at every address, may require qualification through provider lead lists or ordering systems, and are subject to change or withdrawal by the provider without notice. Promotional values, credits, and discounts are provided by the applicable provider and may be subject to the provider's own chargeback, redemption, and eligibility terms. This site does not display service pricing; all pricing, fees, and final terms are confirmed at the point of sale.</p>
   </div>
 </section>
 
@@ -949,6 +1050,7 @@ section{content-visibility:auto;contain-intrinsic-size:auto 800px}
       <details class="reveal"><summary>What fees should I expect? <span class="pm">+</span></summary><div class="ans">Pricing isn't shown on this site — your agent reviews exact pricing and every fee with you before you commit. Depending on the plan, that can include taxes and surcharges, a monthly router/modem rental, a one-time install fee, and a processing and handling fee due at signup. AutoPay enrollment may be required for the best available rate.</div></details>
       <details class="reveal"><summary>Is there a contract? <span class="pm">+</span></summary><div class="ans">It depends on the plan. Some plans include a 12-month term, and an early termination fee may apply if service is cancelled within that period. Other plans, including wireless 5G home internet, require no contract. Your agent will explain the terms for whichever plan you choose.</div></details>
       <details class="reveal"><summary>Do you offer home security? <span class="pm">+</span></summary><div class="ans">Yes. We offer professionally monitored home alarm systems through Direct Protection Security, with three packages — Bronze, Silver, and Gold. Equipment and 24/7 monitoring are quoted for your home; just pick a package on the availability form and your agent handles the rest.</div></details>
+      <details class="reveal"><summary>How do I know if I qualify for the current offers? <span class="pm">+</span></summary><div class="ans">Promotions are created and administered by the providers, not by us, and they aren't available at every address. Some — including the current two-months-on-us fiber promotion — are limited to specific qualifying addresses on the provider's lead lists, so being serviceable isn't the same as being eligible. Your agent checks your address against the provider's system and tells you exactly which offers apply before anything is signed.</div></details>
       <details class="reveal"><summary>Is the pricing on this site final? <span class="pm">+</span></summary><div class="ans">Offers and pricing change periodically and vary by address. Your local Complete Home Today agent confirms exact, current pricing and terms for your home at the point of sale.</div></details>
     </div>
   </div>
@@ -964,7 +1066,7 @@ section{content-visibility:auto;contain-intrinsic-size:auto 800px}
       </div>
       <div class="foot-col">
         <h4>Explore</h4>
-        <a href="#plans">Plans</a><a href="#addons">Add-Ons</a><a href="#tv">TV &amp; Streaming</a><a href="#security">Home Security</a><a href="#faq">FAQ</a>
+        <a href="#plans">Plans</a><a href="#offers">Offers</a><a href="#addons">Add-Ons</a><a href="#tv">TV &amp; Streaming</a><a href="#security">Home Security</a><a href="#faq">FAQ</a>
       </div>
       <div class="foot-col">
         <h4>Work With Us</h4>
