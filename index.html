@@ -1469,7 +1469,7 @@ section{content-visibility:auto;contain-intrinsic-size:auto 800px}
           <div class="field"><label for="h-avail">Available to start</label><select id="h-avail" name="availability"><option>Immediately</option><option>Within 1 week</option><option>Within 2 weeks</option><option>More than 2 weeks</option></select></div>
           <div class="field"><label for="h-ref">How did you hear about us?</label><select id="h-ref" name="referral_source"><option value="">Select</option><option>LinkedIn</option><option>ZipRecruiter</option><option>OfferUp</option><option>Facebook</option><option>Word of mouth</option><option>Other</option></select></div>
           <div class="field full"><label for="h-refname">Referred by (if applicable)</label><input id="h-refname" name="referred_by" type="text" placeholder="Rep or team member's name" maxlength="80"><span class="field-note">If someone on the team referred you, their name here ensures they get credit.</span></div>
-          <div class="field full"><label for="h-note">Anything else you want us to know?</label><textarea id="h-note" name="notes" placeholder="Optional — tell us about yourself, your goals, or any questions you have."></textarea></div>
+          <div class="field full"><label for="h-note">Anything else you want us to know?</label><textarea id="h-note" name="notes" placeholder="Optional — tell us about yourself, your goals, or any questions you have." maxlength="1000"></textarea></div>
         </div>
         <label class="consent" for="h-consent"><input type="checkbox" id="h-consent" name="consent" value="Yes — agreed to be contacted and to the Privacy Policy" required><span>I agree to be contacted by Complete Home Today about this 1099 contractor opportunity by phone call, text, or email — including by automated or prerecorded means — at the number and email I provide. I agree to the <a href="#privacy-hire">Privacy Policy</a>. Consent is not a condition of any purchase.</span></label>
         <button type="submit" class="btn btn-gold" id="hSubmitBtn" style="width:100%;justify-content:center;margin-top:18px;font-size:15.5px;padding:15px">Send Inquiry →</button>
@@ -1652,6 +1652,43 @@ function chtAbuseCheck(formKey){
 }
 function chtLockForm(formKey){ chtSubmitted[formKey] = true; }
 
+// ---- INPUT HYGIENE ----
+// Everything a visitor types is cleaned before it leaves the browser:
+//  - control characters and line breaks are removed from one-line fields (stops header/email injection
+//    through fields like reply-to), and every value is cut to a safe length;
+//  - values that start like a spreadsheet formula (=, +, @, tab) get a leading apostrophe, so a lead
+//    exported to Excel or Google Sheets can't run a formula planted by an attacker;
+//  - email, phone, ZIP and state are format-checked.
+// (The form service still has to be trusted; these checks stop casual abuse and protect your own files.)
+var CHT_MULTILINE = { alarm_notes:1, review_text:1, notes:1, consent_language:1 };
+function chtClean(name, v){
+  if(typeof v !== "string") return v;
+  var multi = !!CHT_MULTILINE[name];
+  v = multi ? v.replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, "")
+            : v.replace(/[\u0000-\u001F\u007F\u2028\u2029]+/g, " ");
+  v = v.trim().slice(0, multi ? 2000 : 300);
+  var phoneLike = /^\+[\d\s().-]{6,}$/.test(v);
+  if(/^[=+@\t\r]/.test(v) && !phoneLike) v = "'" + v;
+  return v;
+}
+function chtCleanFormData(fd){
+  var out = new FormData();
+  fd.forEach(function(v, k){
+    if(typeof v === "string") out.append(k, chtClean(k, v));
+    else out.append(k, v, v.name || "upload");
+  });
+  return out;
+}
+function chtValidate(form){
+  var e = form.elements;
+  var em = e["email"], ph = e["phone"], zp = e["zip"], st = e["state"];
+  if(em && em.value.trim() && !/^[^\s@<>()\[\],;:"]{1,64}@[A-Za-z0-9.-]{1,190}\.[A-Za-z]{2,24}$/.test(em.value.trim())) return { el: em, msg: "Please enter a valid email address." };
+  if(ph && ph.value.trim()){ var d = ph.value.replace(/\D/g, ""); if(d.length < 10 || d.length > 15 || /[^\d\s().+-]/.test(ph.value)) return { el: ph, msg: "Please enter a valid phone number." }; }
+  if(zp && zp.value.trim() && !/^\d{5}(-\d{4})?$/.test(zp.value.trim())) return { el: zp, msg: "Please enter a valid 5-digit ZIP code." };
+  if(st && st.value.trim() && !/^[A-Za-z]{2}$/.test(st.value.trim())) return { el: st, msg: "Please enter your state as two letters, like CA." };
+  return null;
+}
+
 // ---- IMAGE METADATA STRIPPING ----
 // Re-encodes an uploaded image through a canvas, which discards EXIF/GPS/IPTC/XMP
 // metadata entirely: only raw pixels survive the round trip. Orientation is applied
@@ -1817,6 +1854,13 @@ function submitToWeb3Forms(formEl, requiredFields, subjectVal, opts) {
       return;
     }
 
+    var hBad = chtValidate(formEl);
+    if(hBad){
+      if(hBad.el) hBad.el.style.borderColor = opts.accentColor || "var(--red)";
+      if(opts.errEl){ opts.errEl.textContent = "\u26a0 " + hBad.msg; opts.errEl.style.display = "block"; }
+      return;
+    }
+
     var hAbuse = chtAbuseCheck(opts.formName || "generic");
     if(hAbuse === "duplicate"){ return; }
     if(hAbuse === "too_fast"){
@@ -1844,12 +1888,15 @@ function submitToWeb3Forms(formEl, requiredFields, subjectVal, opts) {
       var f = els[i];
       if(!f.name || f.name==="access_key" || f.name==="botcheck") continue;
       if(f.tagName==="BUTTON") continue;
+      if(f.disabled) continue;
+      if(f.type==="file") continue;
       if(f.type==="checkbox" || f.type==="radio") {
-        if(f.checked && f.value && f.value.trim()) data[f.name] = f.value.trim();
+        if(f.checked && f.value && f.value.trim()) data[f.name] = chtClean(f.name, f.value);
         continue;
       }
-      if(f.value && f.value.trim()) data[f.name] = f.value.trim();
+      if(f.value && f.value.trim()) data[f.name] = chtClean(f.name, f.value);
     }
+    if(data.replyto) data.replyto = chtClean("replyto", data.replyto);
 
     // timestamped submission + provable opt-in consent record
     var now = new Date();
@@ -1859,7 +1906,7 @@ function submitToWeb3Forms(formEl, requiredFields, subjectVal, opts) {
       data.consent_timestamp_local = now.toLocaleString("en-US", { dateStyle: "full", timeStyle: "long" });
       var clab = consentEl.closest(".consent");
       var ctext = clab ? clab.textContent.replace(/\s+/g, " ").trim() : "";
-      if(ctext) data.consent_language = ctext;
+      if(ctext) data.consent_language = chtClean("consent_language", ctext);
       data.consent_page = window.location.href;
     }
 
@@ -1925,16 +1972,26 @@ submitToWeb3Forms(
 </script>
 <!-- TrustedForm Certify (ActiveProspect) — generates a third-party consent certificate per submission; cert URL is captured in the xxTrustedFormCertUrl field and sent with the lead -->
 <script type="text/javascript">
+/* Privacy: TrustedForm records the session it runs in, so it loads only once a visitor starts filling in a
+   form (first focus or tap inside one), not for everyone who just reads the page. Always over https. */
 (function() {
-  var tf = document.createElement("script");
-  tf.type = "text/javascript"; tf.async = true;
-  tf.src = (document.location.protocol === "https:" ? "https" : "http") +
-    "://api.trustedform.com/trustedform.js?field=xxTrustedFormCertUrl&ping_field=xxTrustedFormPingUrl&l=" +
-    new Date().getTime() + Math.random();
-  var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(tf, s);
+  var loaded = false;
+  function loadTF(){
+    if(loaded) return; loaded = true;
+    var tf = document.createElement("script");
+    tf.type = "text/javascript"; tf.async = true;
+    tf.src = "https://api.trustedform.com/trustedform.js?field=xxTrustedFormCertUrl&ping_field=xxTrustedFormPingUrl&l=" +
+      new Date().getTime() + Math.random();
+    var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(tf, s);
+  }
+  ["quoteForm","reviewForm","hireForm"].forEach(function(id){
+    var f = document.getElementById(id); if(!f) return;
+    f.addEventListener("focusin", loadTF, { once: true });
+    f.addEventListener("pointerdown", loadTF, { once: true });
+  });
 })();
 </script>
-<noscript><img src="https://api.trustedform.com/ns.gif" alt=""></noscript>
+<!-- TrustedForm no-JS pixel removed: without JavaScript the forms cannot be sent, so it only tracked readers. -->
 <!-- End TrustedForm -->
 <script>
 (function(){
@@ -1972,6 +2029,9 @@ submitToWeb3Forms(
 
   form.addEventListener("submit", function(ev){
     ev.preventDefault();
+    if(form.elements["botcheck"] && form.elements["botcheck"].checked){
+      form.style.display = "none"; if(doneEl) doneEl.style.display = "block"; return;
+    }
     var required = ["name","phone","email","street_address","city","state","zip"];
     var missing = false;
     required.forEach(function(n){
@@ -1988,6 +2048,12 @@ submitToWeb3Forms(
     }
     if(missing){
       if(errEl){ errEl.textContent = "Please fill in name, phone, email, and your full service address, and check the consent box."; errEl.style.display = "block"; }
+      return;
+    }
+    var qBad = chtValidate(form);
+    if(qBad){
+      if(qBad.el) qBad.el.style.borderColor = "var(--red)";
+      if(errEl){ errEl.textContent = qBad.msg; errEl.style.display = "block"; }
       return;
     }
     if(errEl) errEl.style.display = "none";
@@ -2014,6 +2080,7 @@ submitToWeb3Forms(
       if(clab) fd.append("consent_language", clab.textContent.replace(/\s+/g, " ").trim());
       fd.append("consent_page", window.location.href);
     }
+    fd = chtCleanFormData(fd);
 
     fetch("https://api.web3forms.com/submit", { method: "POST", body: fd })
       .then(function(res){ return res.json(); })
@@ -2068,16 +2135,21 @@ submitToWeb3Forms(
     var pub = document.getElementById("r-pub");
     if((truth && !truth.checked) || (pub && !pub.checked)) missing = true;
     if(missing){ fail("Please complete the highlighted fields and check both boxes."); return; }
+    var rBad = chtValidate(form);
+    if(rBad){ if(rBad.el) rBad.el.style.borderColor = "var(--gold)"; fail(rBad.msg); return; }
+    var photo = document.getElementById("r-photo");
+    var pf = (photo && photo.files && photo.files[0]) ? photo.files[0] : null;
+    if(pf && !/^image\/(jpeg|png|webp|heic|heif)$/i.test(pf.type || "") && !/\.(jpe?g|png|webp|heic|heif)$/i.test(pf.name || "")){
+      fail("Please attach a photo (JPEG, PNG, WebP or HEIC), or submit without one."); return;
+    }
+    if(pf && pf.size > 5 * 1024 * 1024){
+      fail("That photo is larger than 5 MB. Please attach a smaller image, or submit without it."); return;
+    }
     var rAbuse = chtAbuseCheck("review");
     if(rAbuse === "duplicate"){ return; }
     if(rAbuse === "too_fast"){ fail("Please take a moment to review what you wrote, then submit again."); chtFormOpenedAt = Date.now() - 2600; return; }
     chtLockForm("review");
     if(errEl) errEl.style.display = "none";
-
-    var photo = document.getElementById("r-photo");
-    if(photo && photo.files && photo.files[0] && photo.files[0].size > 5 * 1024 * 1024){
-      fail("That photo is larger than 5 MB. Please attach a smaller image, or submit without it."); return;
-    }
 
     if(btn){ btn.textContent = "Cleaning photo..."; btn.disabled = true; }
 
@@ -2088,11 +2160,12 @@ submitToWeb3Forms(
     if(btn) btn.textContent = "Sending...";
 
     var fd = new FormData(form);
-    if(rawPhoto){
-      fd.delete("review_photo");
-      if(cleanPhoto) fd.append("review_photo", cleanPhoto, cleanPhoto.name || "photo.jpg");
-    }
-    fd.append("photo_metadata_stripped", rawPhoto ? (cleanPhoto && cleanPhoto !== rawPhoto ? "Yes" : "No - re-encode failed") : "No photo");
+    fd.delete("review_photo");
+    // Privacy: only a successfully re-encoded copy is ever uploaded. If this browser couldn't clean the
+    // photo (some can't read HEIC), it is left out rather than sent with its GPS location still inside.
+    var photoClean = !!(rawPhoto && cleanPhoto && cleanPhoto !== rawPhoto);
+    if(photoClean) fd.append("review_photo", cleanPhoto, "review-photo.jpg");
+    fd.append("photo_metadata_stripped", rawPhoto ? (photoClean ? "Yes" : "Photo not attached - could not remove location data on this device") : "No photo");
     fd.append("access_key", "9d10e41c-0e59-4a69-9f0f-7754e9100483");
     fd.append("subject", "New Customer Review - Complete Home Today");
     fd.append("from_name", "Complete Home Today Website");
@@ -2102,6 +2175,7 @@ submitToWeb3Forms(
     fd.append("submitted_at", now.toLocaleString("en-US", { dateStyle: "medium", timeStyle: "long" }));
     fd.append("consent_timestamp_utc", now.toISOString());
     fd.append("consent_page", window.location.href);
+    fd = chtCleanFormData(fd);
 
     fetch("https://api.web3forms.com/submit", { method: "POST", body: fd })
       .then(function(res){ return res.json(); })
@@ -2110,10 +2184,13 @@ submitToWeb3Forms(
           if(typeof chtTrack === "function") chtTrack("review_submitted", {
             form_name: "customer_review",
             rating: (form.elements["rating"] ? form.elements["rating"].value : ""),
-            has_photo: (photo && photo.files && photo.files.length) ? "Yes" : "No"
+            has_photo: photoClean ? "Yes" : "No"
           });
           form.style.display = "none";
-          if(doneEl){ doneEl.style.display = "block"; doneEl.scrollIntoView({ behavior:"smooth", block:"center" }); }
+          if(doneEl){
+            doneEl.style.display = "block"; doneEl.scrollIntoView({ behavior:"smooth", block:"center" });
+            if(rawPhoto && !photoClean){ var pn = document.createElement("p"); pn.style.marginTop = "10px"; pn.textContent = "Note: your photo wasn\u2019t attached because this device couldn\u2019t remove its location data. You can email it to darrell@completehomellc.com after removing location info."; doneEl.appendChild(pn); }
+          }
         } else {
           chtSubmitted["review"] = false;
           if(btn){ btn.textContent = "Submit My Review"; btn.disabled = false; }
