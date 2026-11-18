@@ -10,7 +10,14 @@
      (X-Frame-Options, X-Content-Type-Options, HSTS, Permissions-Policy)
      must be set at the host/CDN level - see SECURITY-HEADERS.md -->
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://api.trustedform.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https://www.googletagmanager.com https://www.google-analytics.com https://api.trustedform.com; connect-src 'self' https://api.web3forms.com https://www.google-analytics.com https://www.googletagmanager.com https://api.trustedform.com; form-action 'self' https://api.web3forms.com; frame-src https://www.googletagmanager.com; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<style id="frameGuard">html{display:none!important}</style>
+<script>
+/* Clickjacking guard: this page hides itself if another site loads it inside a frame. */
+(function(){var ok=true;try{ok=(window.self===window.top);}catch(e){ok=false;}
+  if(ok){var g=document.getElementById('frameGuard');if(g)g.parentNode.removeChild(g);}
+  else{try{window.top.location=window.self.location.href;}catch(e){}}})();
+</script>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://api.trustedform.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https://www.googletagmanager.com https://www.google-analytics.com https://api.trustedform.com; connect-src 'self' https://api.web3forms.com https://www.google-analytics.com https://www.googletagmanager.com https://api.trustedform.com; form-action 'self' https://api.web3forms.com; frame-src https://www.googletagmanager.com; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
 <meta name="author" content="Complete Home Today LLC">
 <meta name="geo.region" content="US-CA">
 <meta name="geo.placename" content="South Bay and Inland Empire, California">
@@ -58,12 +65,23 @@ try {
 } catch (e) {}
 </script>
 
-<!-- 3) Google Tag Manager: replace GTM-XXXXXXX with your container ID -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
-
-<!-- 4) Google Analytics 4: replace G-XXXXXXXXXX (2 places). Remove this block if you deploy GA4 through GTM instead. -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>gtag('js', new Date());gtag('config', 'G-XXXXXXXXXX', { anonymize_ip: true });</script>
+<!-- 3) Google Tag Manager + 4) Google Analytics 4: put your real IDs here.
+     Nothing loads from Google while these are still placeholders, so visitors aren't sent to Google for no reason. -->
+<script>
+(function(){
+  var GTM_ID='GTM-XXXXXXX', GA_ID='G-XXXXXXXXXX';
+  function real(id){ return !!id && !/X{4,}/.test(id); }
+  var h=document.getElementsByTagName('script')[0];
+  if(real(GTM_ID)){
+    dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+    var g=document.createElement('script'); g.async=true; g.src='https://www.googletagmanager.com/gtm.js?id='+encodeURIComponent(GTM_ID); h.parentNode.insertBefore(g,h);
+  }
+  if(real(GA_ID)){
+    var a=document.createElement('script'); a.async=true; a.src='https://www.googletagmanager.com/gtag/js?id='+encodeURIComponent(GA_ID); h.parentNode.insertBefore(a,h);
+    gtag('js', new Date()); gtag('config', GA_ID, { anonymize_ip: true });
+  }
+})();
+</script>
 <!-- ============ END ANALYTICS ============ -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -747,8 +765,8 @@ section{content-visibility:auto;contain-intrinsic-size:auto 800px}
 </head>
 <body>
 <a class="skip-link" href="#main-view">Skip to main content</a>
-<!-- Google Tag Manager (noscript): replace GTM-XXXXXXX -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- Google Tag Manager (noscript) removed while the container ID is a placeholder. When you add a real GTM ID, add back:
+     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=YOUR-GTM-ID" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> -->
 
 
 <nav class="nav">
