@@ -9,14 +9,18 @@
 <link rel="canonical" href="https://completehomellc.com/riverside/"/>
 <style id="frameGuard">html{display:none!important}</style>
 <script>
-/* Clickjacking guard: shows the page normally, or inside completehomellc.com's own GoDaddy forwarding frame; hides it if any other site frames it. */
+/* Frame guard: always shows the page on its own and inside completehomellc.com's forwarding frame (any http/https, www or other subdomain).
+   It only hides the page when another site is positively identified as the one framing it. */
 (function(){var g=document.getElementById('frameGuard');function show(){if(g&&g.parentNode)g.parentNode.removeChild(g);}
-  var top=true;try{top=(window.self===window.top);}catch(e){top=false;}
-  if(top){show();return;}
-  var ok=/^https?:\/\/(www\.)?completehomellc\.com(\/|$)/i, a=window.location.ancestorOrigins, own;
-  if(a&&a.length){own=true;for(var i=0;i<a.length;i++){if(!ok.test(a[i]+'/'))own=false;}}
-  else{own=ok.test(document.referrer||'');}
-  if(own){show();}else{try{window.top.location=window.self.location.href;}catch(e){}}})();
+  try{var top=true;try{top=(window.self===window.top);}catch(e){top=false;}
+    if(top){show();return;}
+    var ok=/^https?:\/\/([a-z0-9-]+\.)*(completehomellc\.com|darrellhulseii\.github\.io)(:\d+)?(\/|$)/i;
+    var foreign=false, a=window.location.ancestorOrigins;
+    if(a&&a.length){for(var i=0;i<a.length;i++){var o=String(a[i]);if(o&&o!=='null'&&!ok.test(o+'/'))foreign=true;}}
+    else if(document.referrer){foreign=!ok.test(document.referrer);}
+    if(!foreign){show();return;}
+    try{window.top.location=window.self.location.href;}catch(e){}
+  }catch(e){show();}})();
 </script>
 <title>ADT Home Security in Riverside County, CA | Complete Home Today</title>
 <meta name="description" content="ADT smart home security for Riverside County homes from Complete Home Today. Secure, Smart and Complete packages, professionally installed by ADT technicians. Free home security check."/>

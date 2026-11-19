@@ -12,14 +12,18 @@
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <style id="frameGuard">html{display:none!important}</style>
 <script>
-/* Clickjacking guard: shows the page normally, or inside completehomellc.com's own GoDaddy forwarding frame; hides it if any other site frames it. */
+/* Frame guard: always shows the page on its own and inside completehomellc.com's forwarding frame (any http/https, www or other subdomain).
+   It only hides the page when another site is positively identified as the one framing it. */
 (function(){var g=document.getElementById('frameGuard');function show(){if(g&&g.parentNode)g.parentNode.removeChild(g);}
-  var top=true;try{top=(window.self===window.top);}catch(e){top=false;}
-  if(top){show();return;}
-  var ok=/^https?:\/\/(www\.)?completehomellc\.com(\/|$)/i, a=window.location.ancestorOrigins, own;
-  if(a&&a.length){own=true;for(var i=0;i<a.length;i++){if(!ok.test(a[i]+'/'))own=false;}}
-  else{own=ok.test(document.referrer||'');}
-  if(own){show();}else{try{window.top.location=window.self.location.href;}catch(e){}}})();
+  try{var top=true;try{top=(window.self===window.top);}catch(e){top=false;}
+    if(top){show();return;}
+    var ok=/^https?:\/\/([a-z0-9-]+\.)*(completehomellc\.com|darrellhulseii\.github\.io)(:\d+)?(\/|$)/i;
+    var foreign=false, a=window.location.ancestorOrigins;
+    if(a&&a.length){for(var i=0;i<a.length;i++){var o=String(a[i]);if(o&&o!=='null'&&!ok.test(o+'/'))foreign=true;}}
+    else if(document.referrer){foreign=!ok.test(document.referrer);}
+    if(!foreign){show();return;}
+    try{window.top.location=window.self.location.href;}catch(e){}
+  }catch(e){show();}})();
 </script>
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://api.trustedform.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https://www.googletagmanager.com https://www.google-analytics.com https://api.trustedform.com; connect-src 'self' https://api.web3forms.com https://www.google-analytics.com https://www.googletagmanager.com https://api.trustedform.com; form-action 'self' https://api.web3forms.com; frame-src https://www.googletagmanager.com; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
 <meta name="author" content="Complete Home Today LLC">
