@@ -9,10 +9,14 @@
 <link rel="canonical" href="https://completehomellc.com/riverside/"/>
 <style id="frameGuard">html{display:none!important}</style>
 <script>
-/* Clickjacking guard: this page hides itself if another site loads it inside a frame. */
-(function(){var ok=true;try{ok=(window.self===window.top);}catch(e){ok=false;}
-  if(ok){var g=document.getElementById('frameGuard');if(g)g.parentNode.removeChild(g);}
-  else{try{window.top.location=window.self.location.href;}catch(e){}}})();
+/* Clickjacking guard: shows the page normally, or inside completehomellc.com's own GoDaddy forwarding frame; hides it if any other site frames it. */
+(function(){var g=document.getElementById('frameGuard');function show(){if(g&&g.parentNode)g.parentNode.removeChild(g);}
+  var top=true;try{top=(window.self===window.top);}catch(e){top=false;}
+  if(top){show();return;}
+  var ok=/^https?:\/\/(www\.)?completehomellc\.com(\/|$)/i, a=window.location.ancestorOrigins, own;
+  if(a&&a.length){own=true;for(var i=0;i<a.length;i++){if(!ok.test(a[i]+'/'))own=false;}}
+  else{own=ok.test(document.referrer||'');}
+  if(own){show();}else{try{window.top.location=window.self.location.href;}catch(e){}}})();
 </script>
 <title>ADT Home Security in Riverside County, CA | Complete Home Today</title>
 <meta name="description" content="ADT smart home security for Riverside County homes from Complete Home Today. Secure, Smart and Complete packages from $59.99/mo, professionally installed by ADT technicians. Free home security check."/>
